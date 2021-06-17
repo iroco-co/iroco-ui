@@ -3,9 +3,8 @@
   "version": "0.2.0",
   "description": "Iroco design system based on Svelte",
   "main": "lib/index.js",
-  "module": "lib/module.d.ts",
   "files": [
-    "src"
+    "lib"
   ],
   "scripts": {
     "test": "echo \"no test\"",
