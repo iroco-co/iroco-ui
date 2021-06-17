@@ -2,7 +2,11 @@
   "name": "@iroco/ui",
   "version": "0.1.1",
   "description": "Iroco design system based on Svelte",
-  "main": "src/index.ts",
+  "main": "lib/index.js",
+  "module": "lib/module.d.ts",
+  "files": [
+    "src"
+  ],
   "scripts": {
     "test": "echo \"no test\"",
     "build-scripts": "rollup -c",
@@ -34,11 +38,14 @@
     "@rollup/plugin-typescript": "^8.2.1",
     "@typescript-eslint/eslint-plugin": "^4.27.0",
     "@typescript-eslint/parser": "^4.27.0",
+    "node-sass": "^6.0.0",
     "prettier": "^2.3.1",
     "prettier-plugin-svelte": "^2.3.0",
     "release-it": "^14.9.0",
     "rollup": "^2.52.1",
     "rollup-plugin-svelte": "^7.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.35.1",
     "svelte": "^3.38.2",
     "svelte-jester": "^1.7.0",
     "svelte-preprocess": "^4.7.3",

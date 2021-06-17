@@ -3,20 +3,24 @@ import svelte from 'rollup-plugin-svelte';
 import resolve from '@rollup/plugin-node-resolve';
 import autoPreprocess from 'svelte-preprocess';
 import commonjs from '@rollup/plugin-commonjs';
+import { terser } from 'rollup-plugin-terser';
+import pkg from './package.json';
+
+const production = !process.env.ROLLUP_WATCH;
 
 export default {
   input: 'src/index.ts',
   output: {
-    dir: 'lib',
+    file: pkg.main,
     format: 'cjs',
   },
   plugins: [
-    typescript(),
     commonjs(),
+    typescript(),
     svelte({
+      dev: !production,
       // You can restrict which files are compiled
       // using `include` and `exclude`
-      include: ['src/*.svelte', 'src/**/*.svelte'],
 
       // Optionally, preprocess components with svelte.preprocess:
       // https://svelte.dev/docs#svelte_preprocess
@@ -43,5 +47,6 @@ export default {
     }),
     // see NOTICE below
     resolve({ browser: true }),
+    production && terser(),
   ],
 };
