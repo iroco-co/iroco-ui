@@ -1,0 +1,47 @@
+{
+  "name": "@iroco/ui",
+  "version": "0.1.0",
+  "description": "Iroco design system based on Svelte",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"no test\"",
+    "build-scripts": "rollup -c",
+    "build-styles": "sass --load-path=node_modules/ ./src/style.scss ./lib/style.css && rsync -av --include='*/' --include='**/*.scss' --exclude='*' ./src/ ./lib/",
+    "build": "npm run build-scripts",
+    "dev": "rollup -c -w",
+    "release": "release-it"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iroco-co/iroco-ui.git"
+  },
+  "keywords": [
+    "iroco",
+    "design",
+    "system",
+    "svelte",
+    "components"
+  ],
+  "author": "Iroco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iroco-co/iroco-ui/issues"
+  },
+  "homepage": "https://github.com/iroco-co/iroco-ui#readme",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@rollup/plugin-typescript": "^8.2.1",
+    "@typescript-eslint/eslint-plugin": "^4.27.0",
+    "@typescript-eslint/parser": "^4.27.0",
+    "prettier": "^2.3.1",
+    "prettier-plugin-svelte": "^2.3.0",
+    "release-it": "^14.9.0",
+    "rollup": "^2.52.1",
+    "rollup-plugin-svelte": "^7.1.0",
+    "svelte": "^3.38.2",
+    "svelte-jester": "^1.7.0",
+    "svelte-preprocess": "^4.7.3",
+    "typescript": "^4.3.3"
+  }
+}
