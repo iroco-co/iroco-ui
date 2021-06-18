@@ -1,0 +1,7 @@
+@mixin background-layout {z-index: -1;}
+@mixin page-layout {z-index: 1;}
+@mixin foreground-layout {z-index: 2;}
+@mixin header-layout {z-index: 3;}
+@mixin menu-layout {z-index: 4;}
+@mixin modal-layout {z-index: 5;}
+@mixin popup-layout {z-index: 6;}
