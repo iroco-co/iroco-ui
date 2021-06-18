@@ -1,10 +1,22 @@
 <script lang="ts">
-    alert("test");
+    let nightMode: string = 'night';
+    function toggle() {
+      nightMode = 'day';
+    }
 </script>
 
-<main>
-    <h1 class="iroco-ui-button">Test</h1>
-</main>
+<button class="iroco-ui-button {nightMode}" on:click={toggle}>Test</button>
 
 <style lang="scss">
+    @use "colors";
+    .iroco-ui-button {
+      background-color: green;
+
+    }
+
+    :global(.night) {
+      .iroco-ui-button {
+        background-color: colors.$darkBlue;
+      }
+    }
 </style>
