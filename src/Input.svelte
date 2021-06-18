@@ -3,25 +3,22 @@
 
   export let id: string;
   export let type: Type;
-  export let label: string | null;
+  export let label: string | null = null;
+  export let placeholder: string | null = null;
 
-  export let error: string | null;
-  export let warning: string | null;
+  export let error: string | null = null;
 </script>
 
 <div class="iroco-ui-input">
     {#if label}
         <label for={id}>{label}</label>
     {/if}
-    <input id={id} type={type}/>
+    <input id={id} type={type} placeholder={placeholder}/>
 
     {#if error}
-        <p class="error">{error}</p>
+        <p data-testid="error" class="error">{error}</p>
     {/if}
 
-    {#if warning}
-        <p class="warning">{warning}</p>
-    {/if}
 </div>
 <style lang="scss">
     @use "colors";
@@ -31,20 +28,28 @@
     .iroco-ui-input {
 
       > label {
-
+        @include fonts.Arial(1em, white, bold);
+        letter-spacing: .05em;
+        padding-bottom: 10px;
+        display: inline-block;
       }
 
       > input {
+        @include fonts.Arial(1em, colors.$beige);
+        background: colors.$darkBlue;
+        flex: 1;
+        padding: 1em 1.5em;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
 
+        &::placeholder {
+          color: rgba(colors.$beige, .5);
+        }
       }
 
       > .error {
-
+        color: colors.$red;
       }
-
-      > .warning {
-
-      }
-
     }
 </style>
