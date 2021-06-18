@@ -1,11 +1,9 @@
 <script lang="ts">
-    let nightMode: string = 'night';
-    function toggle() {
-      nightMode = 'day';
-    }
+    export let label: string
+    export let type: string
 </script>
 
-<button class="iroco-ui-button {nightMode}" on:click={toggle}>Test</button>
+<button class="iroco-ui-button" type="{type}">{label}</button>
 
 <style lang="scss">
     @use "colors";
