@@ -4,6 +4,10 @@
     "src/**/*"
   ],
   "compilerOptions": {
+    "strict": true,
+    "importsNotUsedAsValues": "error",
+    "isolatedModules": true,
+    "resolveJsonModule": true,
     "outDir": "lib",
     "target": "es2019",
     "allowSyntheticDefaultImports": true,
@@ -13,7 +17,13 @@
     "moduleResolution": "node",
     "declaration": true,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "allowJs": true,
+    "checkJs": true,
   },
   "exclude": ["node_modules/*"],
 }
