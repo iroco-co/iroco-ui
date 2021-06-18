@@ -1,8 +1,7 @@
 <script lang="ts">
-  import {Type} from './input';
-  import Input from "./Input.svelte";
+    export type Type = 'text' | 'password' | 'email' | 'search' | 'url' | 'number' | 'hidden';
 
-  export let name: string;
+  export let id: string;
   export let type: Type;
   export let label: string | null;
 
@@ -12,9 +11,9 @@
 
 <div class="iroco-ui-input">
     {#if label}
-        <label for="{name}">{label}</label>
+        <label for={id}>{label}</label>
     {/if}
-    <input bind:value={name} type={type}/>
+    <input id={id} type={type}/>
 
     {#if error}
         <p class="error">{error}</p>
@@ -24,7 +23,6 @@
         <p class="warning">{warning}</p>
     {/if}
 </div>
-
 <style lang="scss">
     @use "colors";
     @use "fonts";
