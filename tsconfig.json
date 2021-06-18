@@ -23,7 +23,7 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "allowJs": true,
-    "checkJs": true,
+    "checkJs": true
   },
-  "exclude": ["node_modules/*"],
+  "exclude": ["node_modules/*"]
 }
