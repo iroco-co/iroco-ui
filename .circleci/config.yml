@@ -9,6 +9,10 @@ jobs:
       - checkout
 
       - run:
+          name: install build dependencies
+          command: apt install rsync
+
+      - run:
           name: install dependencies
           command: yarn
 
