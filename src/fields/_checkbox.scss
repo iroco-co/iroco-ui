@@ -1,0 +1,44 @@
+.ui-fields-checkbox {
+
+  >.container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    >label {
+      @include Arial(.9em, $blue, bold);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-left: 20px;
+
+      @include small-screen() {
+        font-size: .8em;
+        margin-left: 15px;
+      }
+
+    }
+  }
+
+  >.error, >.warning {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 15px;
+
+    >span {
+      @include Arial(.9em, $red);
+      margin-left: 10px;
+    }
+
+  }
+
+  >.warning {
+
+    >span {
+      color: $blue;
+    }
+
+  }
+
+}
