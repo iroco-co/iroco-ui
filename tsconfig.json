@@ -15,5 +15,5 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
   },
-  "exclude": ["node_modules/*", "public/*", "__mocks__"],
+  "exclude": ["node_modules/*"],
 }
