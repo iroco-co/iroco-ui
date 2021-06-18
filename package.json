@@ -68,7 +68,7 @@
     "svelte": ">=3.38.2"
   },
   "jest": {
-    "rootDir": "__test__",
+    "rootDir": "test",
     "transform": {
       "^.+\\.svelte$": [
         "svelte-jester",
