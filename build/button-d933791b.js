@@ -1,0 +1,2 @@
+import{S as t,i as e,s,e as n,b as o,c as a,n as i,f as r}from"./main-96a12356.js";function c(t){let e;return{c(){e=n("h2"),e.textContent="text field",o(e,"id","text-field")},m(t,s){a(t,e,s)},p:i,i:i,o:i,d(t){t&&r(e)}}}const u={title:"Button",description:"A component to create buttons"};function d(t){return[]}export default class extends t{constructor(t){super(),e(this,t,d,c,s,{})}}export{u as metadata};
+//# sourceMappingURL=button-d933791b.js.map

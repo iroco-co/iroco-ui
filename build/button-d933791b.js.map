@@ -1,0 +1,1 @@
+{"version":3,"file":"button-d933791b.js","sources":["../../src/pages/components/button.svx"],"sourcesContent":["---\ntitle: Button\ndescription: A component to create buttons\n---\n\n<script lang=\"ts\">\n  //import { Button } from \"@iroco/ui\";\n</script>\n\n## text field\n\n"],"names":["metadata","title","description"],"mappings":"iOACcA,GAAYC,MAAQ,SAASC,YAAc"}
