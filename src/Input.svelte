@@ -1,19 +1,24 @@
 <script lang="ts">
-    export type Type = 'text' | 'password' | 'email' | 'search' | 'url' | 'number' | 'hidden';
-
   export let id: string;
-  export let type: Type;
+  export let type: type;
   export let label: string | null = null;
   export let placeholder: string | null = null;
-
   export let error: string | null = null;
+
+	export let value: string | null = null;
+	
+  function typeAction(node) {
+		node.type = type;
+	}
+
 </script>
 
 <div class="iroco-ui-input">
     {#if label}
         <label for={id}>{label}</label>
     {/if}
-    <input id={id} type={type} placeholder={placeholder}/>
+
+    <input  bind:value id={id} type="text" placeholder={placeholder} use:typeAction/>
 
     {#if error}
         <p data-testid="error" class="error">{error}</p>
@@ -38,10 +43,12 @@
         @include fonts.Arial(1em, colors.$beige);
         background: colors.$darkBlue;
         flex: 1;
-        padding: 1em 1.5em;
+        padding: 0.75em 1.5em;
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
+        border-color: colors.$darkBlue;
+        margin-bottom: 0.5em;
 
         &::placeholder {
           color: rgba(colors.$beige, .5);
