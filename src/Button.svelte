@@ -1,9 +1,10 @@
 <script lang="ts">
     export let label: string
     export let type: string
+    export let disabled: boolean = false
 </script>
 
-<button class="iroco-ui-button" type="{type}">{label}</button>
+<button class="iroco-ui-button" type="{type}" disabled={disabled}>{label}</button>
 
 <style lang="scss">
     @use "colors";
