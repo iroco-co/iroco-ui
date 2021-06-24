@@ -18,7 +18,7 @@
     <label for={id}>{label}</label>
   {/if}
 
-  <input bind:value id={id} type="text" placeholder={placeholder} use:typeAction/>
+  <input on:input bind:value id={id} type="text" placeholder={placeholder} use:typeAction/>
 
   {#if error}
     <p data-testid="error" class="error">{error}</p>
