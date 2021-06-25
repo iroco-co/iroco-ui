@@ -4,11 +4,11 @@
     export let disabled: boolean = false
 </script>
 
-<button class="iroco-ui-button" type="{type}" disabled={disabled}>{label}</button>
+<button class="iroco-ui-button" class:disabled="{disabled}" type="{type}" disabled={disabled}>{label}</button>
 
 <style lang="scss">
     @use "colors";
-    @use "fonts";
+    @use "fonts"; 
     @use "containers";
 
     .iroco-ui-button {
@@ -26,5 +26,9 @@
       margin: 1em;
       background: colors.$green;
       position: relative;
+      
+      &.disabled {
+        background-color: colors.$lightGrey;
+      }
     }
 </style>

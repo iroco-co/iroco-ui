@@ -19,7 +19,8 @@ test ('Check if button is enabled innitially', () =>{
 
 test ('Check if button is disabled when disabledi s changed to true', () =>{
   const label = 'Hello World!';
-  const disabled = true
-  const { getByText } = render(Button, { label, type: '', disabled});
+  const disabled = true;
+  const { container, getByText } = render(Button, { label, type: '', disabled});
   expect(getByText(label)).toBeDisabled();
+  expect(container.querySelector('button').classList.contains('disabled')).toBe(true);
 })
