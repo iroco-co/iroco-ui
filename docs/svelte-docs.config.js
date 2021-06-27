@@ -1,10 +1,7 @@
 module.exports = {
     // if you will serve docs in subdirictory use '/subdir/'
     basepath: '/',
-
-    // theme 
-    theme: 'default',
-
+    theme: './src/iroco-theme',
     title: {
         // constant part of page title
         main: 'Svelte Thing Documentation',

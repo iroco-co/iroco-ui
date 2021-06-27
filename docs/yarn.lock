@@ -23,11 +23,6 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@iroco/ui@^0.3.2":
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/@iroco/ui/-/ui-0.3.2.tgz#ce1fae3df44b9cda0d1a50a78d4184c0c0f08485"
-  integrity sha512-477QKE4zRUFriwQiTLFTSfR1/KakfAld3uEDwhYoUO54zqaE/pLHfXbHGjqjKwe3pyYU4TEx7hpUeoyEXVUmJw==
-
 "@polka/url@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-0.5.0.tgz#b21510597fd601e5d7c95008b76bf0d254ebfd31"
