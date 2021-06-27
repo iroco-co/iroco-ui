@@ -12,7 +12,6 @@
     @use "containers";
 
     .iroco-ui-button {
-      display: block;
       cursor: pointer;
       -webkit-touch-callout: none;
       -webkit-user-select: none;
@@ -26,9 +25,14 @@
       margin: 1em;
       background: colors.$green;
       position: relative;
-      
+
+      &:active {
+        background: colors.$lightGrey;
+      }
+
       &.disabled {
         background-color: colors.$lightGrey;
+        cursor: default;
       }
     }
 </style>
