@@ -1,6 +1,6 @@
 module.exports = {
     // if you will serve docs in subdirictory use '/subdir/'
-    basepath: '/',
+    basepath: '/iroco-ui/',
     theme: './src/iroco-theme',
     title: {
         // constant part of page title
