@@ -7,7 +7,7 @@
     --font: Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-    --primary: #5BC9C3;
+    --primary: #00d692;
     --secondary: #B1B1B3;
     --dark: #f2ebe3;
     --light: #f2ebe3;
@@ -41,10 +41,10 @@
     --hl-text: #D6DEEB;
     --hl-comment: #637777; 
     --hl-keyword: #7FDBCA; 
-    --hl-string: #ADDB67; 
+    --hl-string: #ADDB67;
     --hl-number: #F78C6C; 
     --hl-name: #FFCB8B; 
     --hl-attr: #ADDB67; 
-    --hl-builtin: #8B6CAF; 
+    --hl-builtin: #8B6CAF;
 }
 
