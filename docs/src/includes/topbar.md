@@ -1,1 +1,1 @@
-* [Svelte docs](https://github.com/alexxnb/svelte-docs)
+made with [Svelte docs](https://github.com/alexxnb/svelte-docs)
