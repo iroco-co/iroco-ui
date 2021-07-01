@@ -16,6 +16,8 @@ Iroco radio button component
 
 ## Properties
 ```properties
-type | Type of the button | 'button','submit'('button')
-disabled | Make button disabled | bool(false)
+name | Name of the radio button group| 'myGroup'
+value| Value of each radio button | 'value'
+group | Shared value of radio button group. Can be bound to the external value | 'value'
+label | Optional value of the label. If not provided slot will be used | 'My option 1' 
 ```
