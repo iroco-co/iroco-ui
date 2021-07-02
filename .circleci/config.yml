@@ -1,7 +1,7 @@
 version: 2.0
 
 jobs:
-  build:
+  build_ui:
     docker:
       - image: circleci/node:14
 
@@ -63,15 +63,15 @@ jobs:
 
 workflows:
   version: 2
-  build:
+  build_workflow:
     jobs:
-      - build
+      - build_ui:
         filters:
           branches:
-            only: master
-      - deploy-docs
-        requires:
-          - build
-        filters:
-          branches:
-            only: master
+              only: master
+      - deploy-docs:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
