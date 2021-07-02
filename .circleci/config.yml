@@ -57,6 +57,10 @@ jobs:
           name: Install and configure dependencies
           command: yarn
 
+      - add_ssh_keys:
+          fingerprints:
+            - "c1:b8:31:0b:52:df:ce:8c:35:cd:7d:8a:11:fa:49:64"
+
       - run:
           name: Deploy docs to gh-pages branch
           command: npx gh-pages --dist docs/__DOCS__/dist/iroco-ui
