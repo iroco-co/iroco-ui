@@ -15,6 +15,7 @@
     "build:scripts": "rollup -c",
     "copy:styles": "rsync -av --include='*/' --include='**/*.scss' --exclude='*' ./src/ ./lib/",
     "build": "npm run build:scripts && npm run copy:styles",
+    "copy-docs": "rsync -av docs/__DOCS__/dist/iroco-ui/* ../iroco-ui-docs",
     "dev": "rollup -c -w",
     "release": "release-it"
   },
@@ -50,6 +51,7 @@
     "babel-jest": "^27.0.2",
     "jest": "^27.0.4",
     "jest-environment-jsdom-global": "^2.0.4",
+    "npm-watch": "^0.10.0",
     "prettier": "^2.3.1",
     "prettier-plugin-svelte": "^2.3.0",
     "release-it": "^14.9.0",
@@ -90,5 +92,12 @@
     "moduleNameMapper": {
       "^.+\\.(css|less|scss)$": "babel-jest"
     }
+  },
+  "watch": {
+    "build": {
+      "patterns": ["src"],
+      "extensions": "*.svelte"
+    },
+    "quiet": false
   }
 }
