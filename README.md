@@ -4,7 +4,7 @@
 
 Design system for Iroco.
 
-See the [Documentation](https://iroco-co.github.com/iroco-ui/)
+See the [Documentation](https://iroco-co.github.io/iroco-ui/)
 
 # develop
 
