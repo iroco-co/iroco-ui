@@ -40,7 +40,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-         at: lib
+         at: ./
 
       - run:
           name: Install and configure docs dependencies
