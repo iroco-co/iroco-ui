@@ -72,10 +72,10 @@ workflows:
       - build-ui:
           filters:
             branches:
-              only: master
+              only: main
       - deploy-docs:
           requires:
             - build-ui
           filters:
             branches:
-              only: master
+              only: main
