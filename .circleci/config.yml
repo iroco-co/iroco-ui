@@ -1,0 +1,81 @@
+version: 2.0
+
+jobs:
+  build-ui:
+    docker:
+      - image: circleci/node:14
+
+    steps:
+      - checkout
+
+      - run:
+          name: install build dependencies
+          command: sudo apt install rsync
+
+      - run:
+          name: install dependencies
+          command: yarn
+
+      - save_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+
+      - run:
+          name: jest tests
+          command: npx jest
+
+      - run:
+          name: build
+          command: yarn build
+
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - lib
+
+  deploy-docs:
+    docker:
+      - image: circleci/node:14
+    steps:
+      - checkout
+      - attach_workspace:
+         at: ./
+
+      - run:
+          name: Install and configure docs dependencies
+          command: |
+            cd docs
+            yarn
+      - run:
+          name: build docs
+          command: |
+            cd docs
+            yarn build
+
+      - run:
+          name: Install and configure dependencies
+          command: yarn
+
+      - add_ssh_keys:
+          fingerprints:
+            - "6d:0d:3c:48:0a:59:2a:0b:b8:3e:ad:95:2a:6a:7d:c6"
+
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: npx gh-pages --dist docs/__DOCS__/dist/iroco-ui
+
+workflows:
+  version: 2
+  build_workflow:
+    jobs:
+      - build-ui:
+          filters:
+            branches:
+              only: main
+      - deploy-docs:
+          requires:
+            - build-ui
+          filters:
+            branches:
+              only: main
