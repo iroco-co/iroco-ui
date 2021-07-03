@@ -41,15 +41,8 @@ And in the same time launch the dev server for docs :
 ~/src/iroco-ui/docs$ yarn dev
 ```
 
-
-To build the documentation with (in docs) :
+To build the documentation (in docs) :
 
 ```shell
 ~/src/iroco-ui/docs$ yarn build
-```
-
-To copy the documentation (given that you have a `../iroco-ui-docs/` directory on the `gh-pages` branch)
-
-```shell
-~/src/iroco-ui$ yarn copy-docs
 ```
