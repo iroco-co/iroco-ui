@@ -57,13 +57,17 @@ jobs:
           name: Install and configure dependencies
           command: yarn
 
+      - run:
+          name: Disable jekyll builds
+          command: touch docs/__DOCS__/dist/iroco-ui/.nojekyll
+
       - add_ssh_keys:
           fingerprints:
             - "6d:0d:3c:48:0a:59:2a:0b:b8:3e:ad:95:2a:6a:7d:c6"
 
       - run:
           name: Deploy docs to gh-pages branch
-          command: npx gh-pages --dotfiles --message "[ci] Updates" --dist docs/__DOCS__/dist/iroco-ui
+          command: npx gh-pages --dotfiles --message "[skip ci] Updates" --dist docs/__DOCS__/dist/iroco-ui
 
 workflows:
   version: 2
