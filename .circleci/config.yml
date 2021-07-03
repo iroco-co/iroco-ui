@@ -63,7 +63,7 @@ jobs:
 
       - run:
           name: Deploy docs to gh-pages branch
-          command: npx gh-pages --dist docs/__DOCS__/dist/iroco-ui
+          command: npx gh-pages --dotfiles --message "[ci] Updates" --dist docs/__DOCS__/dist/iroco-ui
 
 workflows:
   version: 2
