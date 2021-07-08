@@ -5,14 +5,18 @@ import '@testing-library/jest-dom/extend-expect';
 import { render, fireEvent} from '@testing-library/svelte';
 import RadioButton from '../src/RadioButton.svelte';
 import RadioButtonTest from './RadioButtonTest.svelte'
-//import { screen } from '@testing-library/dom'
 import userEvent from '@testing-library/user-event'
+import SlotedComponentWrapper from "./SlottedComponentWrapper.svelte";
 
 test('Check radio label', () => {
-    const label = 'Hello World!';
-    const { getByText } = render(RadioButton, { value:'HelloWord!', label, name:'name'});
-    expect(getByText(label)).toBeInTheDocument();
-  });
+  const { getByRole } = render(RadioButton, { value:'HelloWord!', name:'name'});
+  expect(getByRole('radio')).toBeInTheDocument();
+});
+
+test('Button slot', () => {
+  const { getByText } = render(SlotedComponentWrapper, {Component: RadioButton})
+  expect(getByText('Slot value')).toBeInTheDocument();
+})
 
 test('Check radio change value', () =>{
   const { component, getByLabelText } = render(RadioButtonTest, {group: 'test'});

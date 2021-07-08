@@ -4,6 +4,6 @@
 </script>
 
 <form>
-    <RadioButton label="First" bind:group value="first" name="name"/>
-    <RadioButton label="Second" bind:group value="second" name="name"/>
+    <RadioButton bind:group value="first" name="name">First</RadioButton>
+    <RadioButton bind:group value="second" name="name">Second</RadioButton>
 </form>
