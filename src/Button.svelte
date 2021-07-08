@@ -1,15 +1,10 @@
 <script lang="ts">
-    export let label: string = "";
-    export let type: string
+    export let type: string = 'button'
     export let disabled: boolean = false
 </script>
 
 <button class="iroco-ui-button" class:disabled="{disabled}" type="{type}" disabled={disabled} on:click>
-  {#if label}
-    {label}
-  {:else}
     <slot/>
-  {/if}
 </button>
 
 <style lang="scss">

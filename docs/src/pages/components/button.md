@@ -9,9 +9,8 @@ Iroco button component
     import { Button } from "@iroco/ui";
 </script>
 
-<Button>with a slot</Button>
-<Button label="click me" type="button" />
-<Button label="disabled" type="button" disabled="true" />
+<Button>Click me</Button>
+<Button type="button" disabled="true">Disabled</Button>
 ```
 
 ## Properties
