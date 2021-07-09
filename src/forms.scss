@@ -13,6 +13,24 @@
     }
   }
 
+  .iroco-ui-input {
+    > input {
+      color: colors.$beige;
+      background: colors.$darkBlue;
+      flex: 1;
+      padding: 0.75em 1.5em;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      border-color: colors.$darkBlue;
+      margin-bottom: 0.5em;
+
+      &::placeholder {
+        color: rgba(colors.$beige, .5);
+      }
+    }
+  }
+
   .iroco-ui-label {
     color: colors.$beige;
     font-weight: bold;

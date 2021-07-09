@@ -9,8 +9,10 @@ Iroco inputs fields for numbers
     import { NumberInput } from "@iroco/ui";
 </script>
 
-<NumberInput id="id" type="number" placeholder="1" />
-<NumberInput id="id" type="number" placeholder="1" min="1" max="10"/>
+<form class="iroco-ui-form">
+  <NumberInput id="id" type="number" placeholder="1" />
+  <NumberInput id="id" type="number" placeholder="1" min="1" max="10"/>
+</form>
 ```
 
 ## Properties
