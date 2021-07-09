@@ -13,7 +13,7 @@
   
   <div class="iroco-ui-input">
     {#if label}
-      <label for={id}>{label}</label>
+      <label class="iroco-ui-label" for={id}>{label}</label>
     {/if}
   
     <input on:change bind:value id={id} type="number" placeholder={placeholder} min = {min} max = {max}/>
@@ -27,16 +27,9 @@
     @use "colors";
     @use "fonts";
     @use "containers";
+    @use "forms";
   
     .iroco-ui-input {
-  
-      > label {
-        @include fonts.Arial(1em, white, bold);
-        letter-spacing: .05em;
-        padding-bottom: 10px;
-        display: inline-block;
-      }
-  
       > input {
         @include fonts.Arial(1em, colors.$beige);
         background: colors.$darkBlue;

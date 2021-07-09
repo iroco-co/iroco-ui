@@ -15,7 +15,7 @@
 
 <div class="iroco-ui-input">
   {#if label}
-    <label for={id}>{label}</label>
+    <label class="iroco-ui-label" for={id}>{label}</label>
   {/if}
 
   <input on:input bind:value id={id} type="text" placeholder={placeholder} use:typeAction/>

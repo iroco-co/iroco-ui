@@ -1,5 +1,7 @@
+@use "colors";
 @use "fonts";
-.ui-form {
+
+.iroco-ui-form {
   input, textarea {
     outline: none;
     text-decoration: none;
@@ -12,8 +14,9 @@
     }
   }
 
-  label {
-    @include fonts.Arial(1em, white, bold);
+  .iroco-ui-label {
+    color: colors.$beige;
+    font-weight: bold;
     letter-spacing: .05em;
     padding-bottom: 10px;
     display: inline-block;
@@ -32,8 +35,11 @@
   }
 
   >p.error {
-    @include Arial(1em, $red);
+    color: colors.$red;
     margin-top: 20px;
     text-align: center;
   }
 }
+
+
+
