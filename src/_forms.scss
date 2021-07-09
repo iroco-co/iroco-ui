@@ -1,5 +1,5 @@
+@use "fonts";
 .ui-form {
-
   input, textarea {
     outline: none;
     text-decoration: none;
@@ -10,7 +10,13 @@
       text-decoration: none;
       font-size: 14px;
     }
+  }
 
+  label {
+    @include fonts.Arial(1em, white, bold);
+    letter-spacing: .05em;
+    padding-bottom: 10px;
+    display: inline-block;
   }
 
   .field {
@@ -19,7 +25,6 @@
     &:first-child {
       margin: 0;
     }
-
   }
 
   >.submit {

@@ -31,14 +31,6 @@
   @use "containers";
 
   .iroco-ui-input {
-
-    > label {
-      @include fonts.Arial(1em, white, bold);
-      letter-spacing: .05em;
-      padding-bottom: 10px;
-      display: inline-block;
-    }
-
     > input {
       @include fonts.Arial(1em, colors.$beige);
       background: colors.$darkBlue;
