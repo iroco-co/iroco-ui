@@ -1,6 +1,5 @@
 <script lang="ts">
     export let id: string;
-    export let type: string = "number";
     export let label: string | null = null;
     export let placeholder: string | null = null;
     export let error: string | null = null;
@@ -13,7 +12,7 @@
   {#if label}
     <label class="iroco-ui-label" for={id}>{label}</label>
   {/if}
-  <input on:change bind:value id={id} type="number" placeholder={placeholder} min = {min} max = {max}/>
+  <input on:change bind:value id={id} type="number" placeholder={placeholder} min = {min} max = {max} {...$$restProps}/>
   {#if error}
     <p data-testid="error" class="error">{error}</p>
   {/if}
