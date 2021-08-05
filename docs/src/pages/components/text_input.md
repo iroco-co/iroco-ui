@@ -9,10 +9,12 @@ Iroco inputs fields for text
     import { TextInput } from "@iroco/ui";
 </script>
 
-<TextInput id="id" type="text" placeholder="enter something" />
-<TextInput id="id" type="password" placeholder="enter your secrets" />
-<TextInput id="id" type="text" label="say me something" />
-<TextInput id="id" type="text" placeholder="wrong" error="error !!" />
+<form class="iroco-ui-form">
+  <TextInput id="id" type="text" placeholder="enter something" />
+  <TextInput id="id" type="password" placeholder="enter your secrets" />
+  <TextInput id="id" type="text" label="say me something" />
+  <TextInput id="id" type="text" placeholder="wrong" error="error !!" />
+</form>
 ```
 
 ## Properties

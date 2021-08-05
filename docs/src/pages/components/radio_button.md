@@ -10,8 +10,10 @@ Iroco radio button component
     let value = 'value1'
 </script>
 
-<RadioButton name='doc' bind:group={value} value = 'value1'>Value 1</RadioButton>
-<RadioButton name='doc' bind:group={value} value = 'value2'>Value 2</RadioButton>
+<form class="iroco-ui-form">
+  <RadioButton name='doc' bind:group={value} value = 'value1'>Value 1</RadioButton>
+  <RadioButton name='doc' bind:group={value} value = 'value2'>Value 2</RadioButton>
+</form>
 ```
 
 ## Properties
