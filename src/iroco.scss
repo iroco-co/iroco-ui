@@ -1,0 +1,36 @@
+@use "colors";
+@use "fonts";
+@use "style";
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a,
+a:visited,
+a:active,
+button {
+  outline: none;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+
+  > body {
+    @include fonts.Arial(14px, white);
+    margin: 0;
+    padding: 0;
+    cursor: default;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-kerning: normal;
+    background: colors.$darkBlue;
+  }
+}

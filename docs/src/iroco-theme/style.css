@@ -1,7 +1,11 @@
 @import "styles/layout.css";
 @import "styles/typography.css";
 @import "styles/highlight.css";
-@import "styles/iroco.css";
+@import "../../../lib/iroco.css";
+
+div.result {
+    margin: 8px;
+}
 
 :root{
     --font: Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
