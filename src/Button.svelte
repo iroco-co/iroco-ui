@@ -21,6 +21,7 @@
       -ms-user-select: none;
       user-select: none;
       border: none;
+      border-radius: 1em;
       flex-shrink: 0;
       padding: 1em;
       margin: 1em;
