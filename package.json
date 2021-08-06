@@ -99,7 +99,7 @@
       "patterns": [
         "src"
       ],
-      "extensions": "*.svelte"
+      "extensions": "svelte,scss,ts"
     },
     "quiet": false
   }
