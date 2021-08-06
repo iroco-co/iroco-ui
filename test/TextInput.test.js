@@ -22,8 +22,8 @@ test('Check input error', () => {
 })
 
 test('Check input type', () => {
-  const { component } = render(TextInput, { id:'test_label', type: 'password'});
-  expect(component.type).toBe("password");
+  const { container } = render(TextInput, { id:'test_label', type: 'password'});
+  expect(container.querySelector('input').type).toBe("password");
 })
 
 test('Check input placeholder', () => {
@@ -47,7 +47,3 @@ test('Check value for input text', () =>{
   expect(myInput.value).toBe('blabla')
 })
 
-test('adds a custom property', () => {
-  const { getByPlaceholderText } = render(TextInputSized)
-  expect(getByPlaceholderText('ph').size).toBe(2)
-})
