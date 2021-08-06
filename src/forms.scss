@@ -29,6 +29,9 @@
       &::placeholder {
         color: rgba(colors.$beige, .5);
       }
+      &.error {
+        border-color: colors.$red;
+      }
     }
   }
 

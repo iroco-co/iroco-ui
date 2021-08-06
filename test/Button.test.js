@@ -21,11 +21,11 @@ test ('Check if button is enabled innitially', () =>{
   expect(getByRole('button')).toBeEnabled();
 })
 
-test ('Check if button is disabled when disabledi s changed to true', () =>{
+test ('Check if button is disabled when disabled parameter is true', () =>{
   const disabled = true;
   const { container, getByRole } = render(Button, { type: '', disabled});
   expect(getByRole('button')).toBeDisabled();
-  expect(container.querySelector('button').classList.contains('disabled')).toBe(true);
+  expect(container.querySelector('button').classList).toContain('disabled');
 })
 
 test ('test onclick callback', () => {

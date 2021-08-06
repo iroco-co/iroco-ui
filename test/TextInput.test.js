@@ -16,8 +16,9 @@ test('Check input label', () => {
 
 test('Check input error', () => {
   const error = 'Hello World!';
-  const { getByTestId } = render(TextInput, { id:'test_label', type: 'text', error });
+  const { container, getByTestId } = render(TextInput, { id:'test_label', type: 'text', error });
   expect(getByTestId('error')).toBeInTheDocument();
+  expect(container.querySelector('input').classList).toContain('error');
 })
 
 test('Check input type', () => {
