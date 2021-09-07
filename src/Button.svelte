@@ -21,12 +21,13 @@
       -ms-user-select: none;
       user-select: none;
       border: none;
-      border-radius: 1em;
+      border-radius: 0.5em;
       flex-shrink: 0;
       padding: 1em;
-      margin: 1em;
+      margin: 1em 0em;
       background: colors.$green;
       position: relative;
+      width: 100%;
 
       &:active {
         background: colors.$lightGrey;
