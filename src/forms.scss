@@ -18,14 +18,13 @@
     flex-direction: column;
     > input {
       color: colors.$beige;
-      background: colors.$darkGrey;
+      background: colors.$darkBlue;
+      border: 1px solid colors.$darkBlue;
       flex: 1;
-      padding: 0.75em 1.5em;
+      padding: 1em 1.5em;
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
-      border-color: colors.$darkGrey;
-      margin-bottom: 0.5em;
       border-radius: 0.5em;
       width: 100%;
 
@@ -39,9 +38,8 @@
   }
 
   .iroco-ui-label {
-    color: colors.$beige;
+    color: rgba(colors.$beige, .6);
     font-weight: bold;
-    letter-spacing: .05em;
     padding-bottom: 10px;
     display: inline-block;
   }
@@ -59,9 +57,8 @@
   }
 
   p.error {
+    margin: 0;
     color: colors.$red;
-    margin-top: 20px;
-    text-align: center;
   }
 }
 
