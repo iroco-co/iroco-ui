@@ -20,13 +20,11 @@
       color: colors.$beige;
       background: colors.$darkBlue;
       border: 1px solid colors.$darkBlue;
-      flex: 1;
       padding: 1em 1.5em;
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
       border-radius: 0.5em;
-      width: 100%;
 
       &::placeholder {
         color: rgba(colors.$beige, .5);
