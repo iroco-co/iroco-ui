@@ -27,7 +27,6 @@
       margin: 1em 0em;
       background: colors.$green;
       position: relative;
-      width: 100%;
 
       &:active {
         background: colors.$lightGrey;
