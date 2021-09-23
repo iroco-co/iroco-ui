@@ -1,30 +1,30 @@
 <script lang="ts">
-    export let label: string = ''; 
+    export let label = '';
     export let value: string | null;
     export let group: string | null = null;
     export let name: string | null;
-    let checked: boolean = false;
+    let checked: boolean;
 
-    function onChange(event) {
-		  group = event.currentTarget.value;
-	  }
+    function onChange(event: Event) {
+      group = (<HTMLInputElement>event.target).value;
+    }
 
-    $: checked = ( group === value )
+    $: checked = (group === value)
 
 </script>
 
 <label class="iroco-ui-radio">
-  <input type="radio" bind:group={group} value={value} name={name} on:change="{onChange}" {checked} />
-      <slot/>
+    <input type="radio" bind:group={group} value={value} name={name} on:change="{onChange}" {checked}/>
+    <slot/>
 </label>
-  
+
 <style lang="scss">
   @use "colors";
-  @use "fonts"; 
+  @use "fonts";
   @use "containers";
 
   .iroco-ui-radio {
-   color: colors.$beige;
+    color: colors.$beige;
   }
 
 </style>

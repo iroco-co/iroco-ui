@@ -1,6 +1,6 @@
 <script lang="ts">
     import RadioButton from "../src/RadioButton.svelte"
-    export let group: string = '';
+    export let group = '';
 </script>
 
 <form>
