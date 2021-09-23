@@ -36,6 +36,7 @@ test('Check min attribute', () => {
   let myNumberInput = screen.getByPlaceholderText('1');
 
   userEvent.type(myNumberInput, '0');
+  // eslint-disable-next-line jest/valid-expect
   expect(myNumberInput.value).toBeNull;
 })
 
@@ -46,6 +47,7 @@ test('Check max attribute', () => {
   let myNumberInput = screen.getByPlaceholderText('1');
 
   userEvent.type(myNumberInput, '11');
+  // eslint-disable-next-line jest/valid-expect
   expect(myNumberInput.value).toBeNull;
 })
 

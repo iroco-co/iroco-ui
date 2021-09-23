@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import '@testing-library/jest-dom/extend-expect'
-import {fireEvent, getByRole, render} from '@testing-library/svelte'
+import {fireEvent, render} from '@testing-library/svelte'
 import Button from '../src/Button.svelte'
 import SlotedComponentWrapper from './SlottedComponentWrapper.svelte'
 

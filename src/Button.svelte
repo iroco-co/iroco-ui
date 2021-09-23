@@ -1,6 +1,6 @@
 <script lang="ts">
-    export let type: string = 'button'
-    export let disabled: boolean = false
+    export let type = 'button'
+    export let disabled = false
 </script>
 
 <button class="iroco-ui-button" class:disabled="{disabled}" type="{type}" disabled={disabled} on:click>

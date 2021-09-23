@@ -2,7 +2,7 @@
  * @jest-environment jsdom
 */
 import '@testing-library/jest-dom/extend-expect';
-import { render, fireEvent} from '@testing-library/svelte';
+import { render } from '@testing-library/svelte';
 import RadioButton from '../src/RadioButton.svelte';
 import RadioButtonTest from './RadioButtonTest.svelte'
 import userEvent from '@testing-library/user-event'
@@ -34,6 +34,7 @@ test('Check radio change value', () =>{
 })  
 
 test ('Check radio button initial value', () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { component, getByLabelText} = render(RadioButtonTest, {group:'first'})
 
   expect(getByLabelText('First').checked).toBe(true)
