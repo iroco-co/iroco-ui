@@ -13,11 +13,13 @@
     "test": "jest",
     "test:watch": "npm run test -- --watch",
     "build:scripts": "rollup -c",
+    "lint": "eslint --max-warnings 3 --ignore-path .gitignore .",
     "copy:styles": "rsync -av --include='*/' --include='**/*.scss' --exclude='*' ./src/ ./lib/",
     "build": "npm run build:scripts && npm run copy:styles && sass ./src/iroco.scss ./lib/iroco.css",
     "copy-docs": "rsync -av docs/__DOCS__/dist/iroco-ui/* ../iroco-ui-docs",
     "dev": "rollup -c -w",
-    "release": "release-it"
+    "release": "release-it",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -46,12 +48,18 @@
     "@testing-library/svelte": "^3.0.3",
     "@testing-library/user-event": "^13.1.9",
     "@tsconfig/svelte": "^2.0.1",
-    "@typescript-eslint/eslint-plugin": "^4.27.0",
-    "@typescript-eslint/parser": "^4.27.0",
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/parser": "^4.31.2",
     "babel-jest": "^27.0.2",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^24.4.2",
+    "eslint-plugin-svelte3": "^3.2.1",
     "gh-pages": "^3.2.3",
+    "husky": "^7.0.2",
     "jest": "^27.0.4",
     "jest-environment-jsdom-global": "^2.0.4",
+    "lint-staged": "^11.1.2",
     "npm-watch": "^0.10.0",
     "prettier": "^2.3.1",
     "prettier-plugin-svelte": "^2.3.0",
@@ -69,6 +77,11 @@
   },
   "peerDependencies": {
     "svelte": ">=3.38.2"
+  },
+  "lint-staged": {
+    "*.{js,ts,svelte}": [
+      "eslint"
+    ]
   },
   "jest": {
     "rootDir": "test",

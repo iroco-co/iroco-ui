@@ -4,7 +4,7 @@
 import '@testing-library/jest-dom/extend-expect';
 import { render, fireEvent} from '@testing-library/svelte';
 import RadioButton from '../src/RadioButton.svelte';
-import RadioButtonTest from './RadioButtonTest.svelte'
+import RadioButtonTest from './RadioButton.test.svelte'
 import userEvent from '@testing-library/user-event'
 import SlotedComponentWrapper from "./SlottedComponentWrapper.svelte";
 
