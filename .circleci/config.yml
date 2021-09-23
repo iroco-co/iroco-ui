@@ -22,6 +22,10 @@ jobs:
             - node_modules
 
       - run:
+          name: check code format with lint
+          command: yarn lint
+
+      - run:
           name: jest tests
           command: npx jest
 
