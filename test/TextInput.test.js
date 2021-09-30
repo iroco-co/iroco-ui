@@ -33,7 +33,7 @@ test('Check input placeholder', () => {
 
 test('Check input field', () => {
   const type = 'text';
-  const { getByRole} = render(TextInput, { id:'test_label', type });
+  const { getByRole } = render(TextInput, { id:'test_label', type });
   expect(getByRole('textbox')).toBeInTheDocument();
 })
 
@@ -45,4 +45,15 @@ test('Check value for input text', () =>{
 
   expect(myInput.value).toBe('blabla')
 })
+
+test('Check readonly propriety', () =>{
+  const readonly = true
+  render(TextInput,{id:'id', type: 'text', placeholder: "blabla", readonly})
+
+  let myInput= screen.getByPlaceholderText('blabla')
+  userEvent.type(myInput, 'blibli')
+
+  expect(myInput.value).not.toBe('blibli')
+})
+
 
