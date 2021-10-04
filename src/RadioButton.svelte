@@ -14,7 +14,7 @@
 </script>
 
 <label class="iroco-ui-radio">
-    <input type="radio" bind:group={group} value={value} name={name} on:change="{onChange}" {checked}/>
+    <input type="radio" bind:group={ group } value={ value } name={ name } on:change="{ onChange }" { checked }/>
     <slot/>
 </label>
 
