@@ -19,7 +19,7 @@
   {#if label}
     <label class="iroco-ui-label" for={id}>{label}</label>
   {/if}
-  <input on:input bind:value id={id} type="text" placeholder={ placeholder }  class:error="{ error !== null }" use:typeAction readonly={ readonly }/>
+  <input on:input bind:value id={id} type="text" placeholder={ placeholder }  class:error="{ error !== null }" class:readonlyInput="{readonly == true}" use:typeAction readonly = { readonly }/>
   {#if error !=null}
     <p data-testid="error" class="error">{error !== null ? error: ""}</p>
   {/if}

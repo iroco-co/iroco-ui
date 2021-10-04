@@ -32,6 +32,9 @@
       &.error {
         border-color: colors.$red;
       }
+      &.readonlyInput{
+        cursor: not-allowed;
+      }
     }
   }
 
