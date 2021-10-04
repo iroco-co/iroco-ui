@@ -7,7 +7,7 @@
   export let placeholder: string | null = null;
   export let error: string | null = null;
   export let value: string | null = null;
-  export let readonly:boolean = false;
+  export let readonly = false;
 
   function typeAction(node: HTMLInputElement) {
     node.type = type
