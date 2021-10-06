@@ -39,9 +39,4 @@ test ('Check radio button initial value', () => {
 
   expect(getByLabelText('First').checked).toBe(true)
 })
-
-test('Check radioButton is invisible', () =>{
-  const {container} = render(RadioButtonTest, {group: 'test'});
-
-  expect (container.querySelectorAll('.invisibleInput')).toHaveLength(1)
-})  
+  
