@@ -19,7 +19,8 @@
     "copy-docs": "rsync -av docs/__DOCS__/dist/iroco-ui/* ../iroco-ui-docs",
     "dev": "rollup -c -w",
     "release": "release-it",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "clean" : "rm -rf lib .svelte-kit"
   },
   "repository": {
     "type": "git",
