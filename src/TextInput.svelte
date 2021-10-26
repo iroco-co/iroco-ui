@@ -16,6 +16,7 @@
 </script>
 
 <div class="iroco-ui-input">
+  <slot></slot>
   {#if label}
     <label class="iroco-ui-label" for={id}>{label}</label>
   {/if}
