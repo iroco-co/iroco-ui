@@ -7,7 +7,7 @@
   export let width = "1em"
   export let height = "1em"
   export let color = "white"
-  $: icon = feather.icons[name]
+  const icon = feather.icons[name]
   $: if (icon) {
     if (stroke) icon.attrs["stroke"] = stroke
     if (strokeWidth) icon.attrs["stroke-width"] = strokeWidth
