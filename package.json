@@ -1,6 +1,6 @@
 {
   "name": "@iroco/ui",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Iroco design system based on Svelte",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
@@ -20,7 +20,7 @@
     "dev": "rollup -c -w",
     "release": "release-it",
     "prepare": "husky install",
-    "clean" : "rm -rf lib .svelte-kit"
+    "clean": "rm -rf lib .svelte-kit"
   },
   "repository": {
     "type": "git",
