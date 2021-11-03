@@ -26,4 +26,5 @@ label | Label for the text field | 'string'
 placeholder | Placeholder for the text field | 'string'
 error | Error related to the input | 'string'
 onFocus | Callback called when text input has focus | '(e) => void'
+onBlur | Callback called when text input loose focus | '(e) => void'
 ```

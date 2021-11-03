@@ -58,10 +58,13 @@ test('Check readonly propriety', () =>{
 
 test('Focus on textInput calls callback property', () => {
   const onFocus = jest.fn()
-  const { container } = render(TextInput, { id: 'id', type: 'text', onFocus})
+  const onBlur = jest.fn()
+  const { container } = render(TextInput, { id: 'id', type: 'text', onFocus, onBlur})
 
   container.querySelector('input').focus()
+  container.querySelector('input').blur()
 
   expect(onFocus).toBeCalledTimes(1)
+  expect(onBlur).toBeCalledTimes(1)
 })
 

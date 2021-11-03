@@ -8,6 +8,7 @@
   export let error: string | null = null;
   export let value: string | null = null;
   export let onFocus: (e) => void
+  export let onBlur: (e) => void
   export let readonly = false;
 
   function typeAction(node: HTMLInputElement) {
@@ -20,7 +21,7 @@
   {#if label}
     <label class="iroco-ui-label" for={id}>{label}</label>
   {/if}
-  <input on:input bind:value on:focus={onFocus} id={id} type="text" placeholder={ placeholder } class:error="{ error !== null }" class:readonlyInput="{readonly == true}" use:typeAction readonly = { readonly }/>
+  <input on:input bind:value on:focus={onFocus} on:blur={onBlur} id={id} type="text" placeholder={ placeholder } class:error="{ error !== null }" class:readonlyInput="{readonly == true}" use:typeAction readonly = { readonly } />
   {#if error !=null}
     <p data-testid="error" class="error">{error !== null ? error: ""}</p>
   {/if}
