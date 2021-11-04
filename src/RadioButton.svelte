@@ -21,8 +21,6 @@
 
 <style lang="scss">
   @use "colors";
-  @use "fonts";
-  @use "containers";
 
   .iroco-ui-radio {
     color: colors.$beige;
@@ -48,14 +46,11 @@
     left: 0;
     height: 1em;
     width: 1em;
-
     background-color: colors.$beige;
-    border: solid 2px colors.$green;
     border-radius: 50%;
   }
 
   .iroco-ui-radio input:checked ~ .radio-button-color {
     background-color: colors.$green;
-
   }
 </style>
