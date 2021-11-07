@@ -28,5 +28,5 @@
 </div>
 
 <style lang="scss">
-  @use "forms";
+  @use "../scss/forms";
 </style>

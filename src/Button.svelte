@@ -1,16 +1,16 @@
-<script lang="ts">
+<script  lang="ts">
   export let type = 'button'
   export let disabled = false
 </script>
 
-<button class="iroco-ui-button" class:disabled="{disabled}" type="{type}" disabled={disabled} on:click>
+<button class="iroco-ui-button" class:disabled {type} disabled={disabled} on:click>
   <slot/>
 </button>
 
 <style lang="scss">
-  @use "colors";
-  @use "fonts";
-  @use "containers";
+  @use "../scss/colors";
+  @use "../scss/fonts";
+  @use "../scss/containers";
 
   .iroco-ui-button {
     cursor: pointer;

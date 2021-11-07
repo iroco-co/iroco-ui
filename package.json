@@ -15,7 +15,7 @@
     "build:scripts": "rollup -c",
     "lint": "eslint --max-warnings 3 --ignore-path .gitignore .",
     "copy:styles": "rsync -av --include='*/' --include='**/*.scss' --exclude='*' ./src/ ./lib/",
-    "build": "npm run build:scripts && npm run copy:styles && sass ./src/iroco.scss ./lib/iroco.css",
+    "build": "npm run build:scripts && npm run copy:styles && sass ./scss/iroco.scss ./lib/iroco.css",
     "copy-docs": "rsync -av docs/__DOCS__/dist/iroco-ui/* ../iroco-ui-docs",
     "dev": "rollup -c -w",
     "release": "release-it",
