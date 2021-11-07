@@ -8,3 +8,4 @@ node_modules
 playground
 scripts
 .eslint*
+src/stories
