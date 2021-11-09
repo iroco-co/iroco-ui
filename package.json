@@ -6,7 +6,8 @@
   "module": "lib/index.mjs",
   "svelte": "src/index.ts",
   "files": [
-    "lib"
+    "lib",
+    "src"
   ],
   "scripts": {
     "test": "jest",
