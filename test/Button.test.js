@@ -37,3 +37,17 @@ test ('test onclick callback', () => {
 
   expect(callback).toHaveBeenCalled();
 })
+
+test ('Check if button has the class iroco-ui-button--danger if button kind is set to danger', () =>{
+  const kind =  "danger";
+  const { container } = render(Button, { type: '', kind});
+  expect(container.querySelector('button').classList).toContain('iroco-ui-button--danger');
+})
+
+test ('Check if button has the class iroco-ui-button--regular if button kind is set to regular', () =>{
+  const kind =  "regular";
+  const { container } = render(Button, { type: '', kind});
+  expect(container.querySelector('button').classList).toContain('iroco-ui-button--regular');
+  expect(container.querySelector('button').classList).not.toContain('iroco-ui-button--danger');
+})
+

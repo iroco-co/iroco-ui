@@ -1,0 +1,72 @@
+<script type="module" lang="ts">
+	import type { SvelteComponent } from 'svelte';
+	type TableCollumn = {
+		key: string;
+		title: string;
+		renderComponent?: {
+			component: SvelteComponent;
+			props?: any;
+		};
+	};
+
+	type TableRow = {
+		[key: string]: string | number;
+	};
+
+	export let rows: Array<TableRow>;
+
+	export let collumns: Array<TableCollumn>;
+</script>
+
+<table class="data-table">
+	<thead class="data-table__header">
+		<tr>
+			{#each collumns as collumn}
+				<th class="data-table__header__cell">
+					{collumn.title}
+				</th>
+			{/each}
+		</tr>
+	</thead>
+
+	<tbody class="data-table__body">
+		{#each rows as row}
+			<tr class="data-table__body__row">
+				{#each collumns as { key, renderComponent }}
+					<td class="data-table__body__cell">
+						{#if renderComponent}
+							<svelte:component
+								this={renderComponent.component}
+								on:click={() => renderComponent.props.onclick(row)}
+							/>
+						{:else}
+							{row[key]}
+						{/if}
+					</td>
+				{/each}
+			</tr>
+		{/each}
+	</tbody>
+</table>
+
+<style lang="scss">
+	@use '../scss/colors';
+	.data-table {
+		border: 1px solid colors.$mediumGrey;
+		width: 100%;
+		&__header {
+			font-size: 1.5em;
+			height: 4rem;
+
+			&__cell {
+				border-bottom: 1px solid colors.$mediumGrey;
+			}
+		}
+		&__body {
+			&__cell {
+				text-align: center;
+				vertical-align: middle;
+			}
+		}
+	}
+</style>

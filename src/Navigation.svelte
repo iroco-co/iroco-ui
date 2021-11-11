@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { NavigationItem } from '../definition';
+	import type { NavigationItem } from './definition';
 	import IconBurger from './IconBurger.svelte';
 	import IconIrocoLogo from './IconIrocoLogo.svelte';
 	import SideBar from './SideBar.svelte';
@@ -21,7 +21,11 @@
 	</button>
 
 	{#if showMenu}
-		<SideBar on:click={() => (showMenu = false)} {navigationItems} />
+		<SideBar
+			on:click_link={() => (showMenu = false)}
+			on:click={() => (showMenu = false)}
+			{navigationItems}
+		/>
 	{/if}
 </div>
 
@@ -39,7 +43,7 @@
 	.account__navigation {
 		display: block;
 		width: 100%;
-		border-bottom: 1px solid colors.$darkBeige;
+		border-bottom: 1px solid colors.$mediumGrey;
 		&--mobile {
 			display: none;
 		}
@@ -65,7 +69,7 @@
 				position: fixed;
 				top: 0;
 				width: 100%;
-				border-bottom: 1px solid colors.$darkBeige;
+				border-bottom: 1px solid colors.$mediumGrey;
 
 				h1 {
 					font: bold;
@@ -74,7 +78,7 @@
 				&__button {
 					background-color: transparent;
 					border: none;
-					color: colors.$darkBeige;
+					color: colors.$mediumGrey;
 				}
 				&__title-container {
 					display: flex;

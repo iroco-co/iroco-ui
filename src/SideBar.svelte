@@ -3,6 +3,16 @@
 	import type { NavigationItem } from 'definition';
 
 	export let navigationItems: Array<NavigationItem>;
+	import { createEventDispatcher } from 'svelte';
+
+	let active: string;
+
+	const dispatch = createEventDispatcher();
+
+	const handleClickLink = (destination: string) => {
+	  active = destination;
+	  dispatch('click_link');
+	};
 </script>
 
 <nav data-testid="sidebar" class="account__sidebar">
@@ -12,8 +22,8 @@
 
 	<ul class="account__sidebar__item_container">
 		{#each navigationItems as { destination, name }}
-			<li class="account__sidebar__item">
-				<a href={destination}> {name}</a>
+			<li class="account__sidebar__item" class:active={active === destination}>
+				<a on:click={() => handleClickLink(destination)} href={destination}> {name}</a>
 			</li>
 		{/each}
 	</ul>
@@ -26,39 +36,28 @@
 	.account__sidebar {
 		height: 100%;
 		width: 300px;
-		position: fixed;
+		position: absolute;
 		top: 70px;
 		z-index: 1;
 		overflow-x: hidden;
+		border-right: 1px solid colors.$mediumGrey;
 		&__item_container {
 			margin: 0;
 			padding: 0;
 			width: 100%;
 			height: 100%;
 		}
-
 		&__item {
-			padding: 2em 0;
+			padding: 2em 2em;
 			text-decoration: none;
 			font-size: 0.75em;
-			border-top:  1px solid colors.$darkBeige;
 			display: block;
-			a {
+			border-top: 1px solid colors.$mediumGrey;
+			border-bottom: 1px solid colors.$mediumGrey a {
 				padding-left: 1em;
 			}
-			&:hover {
-				background-color: colors.$darkBeige;
-			}
-			&:hover a {
-				color: colors.$darkBlue;
-			}
-
-			&:last-child {
-				border-bottom: 1px solid colors.$darkBeige;
-			}
-
 			&:first-child {
-				border: none;
+				border-top: none;
 			}
 		}
 
@@ -69,6 +68,11 @@
 
 		&__close {
 			display: none;
+		}
+
+		.active {
+			border-top: 1px solid colors.$green;
+			border-bottom: 1px solid colors.$green;
 		}
 	}
 
@@ -82,11 +86,11 @@
 			padding: 0;
 			padding-top: 2em;
 			margin: 0;
+			border-right: none;
 			&__item_container {
 				padding: 0em;
 				margin-top: 2rem;
 			}
-
 			&__close {
 				display: block;
 				position: absolute;

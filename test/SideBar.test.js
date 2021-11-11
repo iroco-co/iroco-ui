@@ -19,7 +19,7 @@ test('Should have one navigation link navigation items', () => {
     title : "HomePage"
   });
 
-  expect(getAllByText("HomePage").length).toEqual(2)
+  expect(getAllByText("HomePage")).toHaveLength(2)
 
   const sideBar = getByTestId('sidebar');
   expect(within(sideBar).getByText("go to madrid")).toBeInTheDocument()
