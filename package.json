@@ -7,14 +7,15 @@
   "svelte": "src/index.ts",
   "files": [
     "lib",
-    "src"
+    "src",
+    "scss"
   ],
   "scripts": {
     "test": "jest",
     "test:watch": "npm run test -- --watch",
     "build:scripts": "rollup -c",
     "lint": "eslint --max-warnings 3 --ignore-path .gitignore .",
-    "copy:styles": "rsync -av --include='*/' --include='**/*.scss' --exclude='*' ./src/ ./lib/",
+    "copy:styles": "rsync -av --include='*/' --include='**/*.scss' --exclude='*' ./scss/ ./lib/",
     "build": "npm run build:scripts && npm run copy:styles && sass ./scss/iroco.scss ./lib/iroco.css",
     "copy-docs": "rsync -av docs/__DOCS__/dist/iroco-ui/* ../iroco-ui-docs",
     "dev": "rollup -c -w",
