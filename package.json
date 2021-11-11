@@ -1,21 +1,20 @@
 {
   "name": "@iroco/ui",
-  "version": "0.6.3",
+  "version": "0.5.1",
   "description": "Iroco design system based on Svelte",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
   "svelte": "src/index.ts",
   "files": [
     "lib",
-    "src",
-    "scss"
+    "src"
   ],
   "scripts": {
     "test": "jest",
     "test:watch": "npm run test -- --watch",
     "build:scripts": "rollup -c",
     "lint": "eslint --max-warnings 3 --ignore-path .gitignore .",
-    "copy:styles": "rsync -av --include='*/' --include='**/*.scss' --exclude='*' ./scss/ ./lib/",
+    "copy:styles": "rsync -av --include='*/' --include='**/*.scss' --exclude='*' ./src/ ./lib/",
     "build": "npm run build:scripts && npm run copy:styles && sass ./scss/iroco.scss ./lib/iroco.css",
     "copy-docs": "rsync -av docs/__DOCS__/dist/iroco-ui/* ../iroco-ui-docs",
     "dev": "rollup -c -w",
