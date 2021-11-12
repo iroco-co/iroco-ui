@@ -1,12 +1,15 @@
 <script lang="ts">
 	export let type = 'button';
 	export let disabled = false;
-	export let kind: 'danger' | 'regular' = 'regular';
+	export let kind: 'danger' | 'basic' = 'basic';
+	export let size: 'small' | 'regular' = 'regular';
 	export let rounded = false;
+	export let id:string
 </script>
 
 <button
-	class={`iroco-ui-button iroco-ui-button--${kind}`}
+	{id}
+	class={`iroco-ui-button iroco-ui-button--${size} iroco-ui-button--${kind}`}
 	class:disabled
 	class:rounded
 	{type}
@@ -32,17 +35,22 @@
 		border: none;
 		border-radius: 0.5em;
 		flex-shrink: 0;
-		padding: 1em;
 		margin: 1em 0em;
 		position: relative;
 
-		&--regular {
+		&--basic {
 			background: colors.$green;
 		}
 
 		&--danger {
 			background: colors.$red;
 			color: colors.$beige;
+		}
+		&--regular {
+			padding: 1em;
+		}
+		&--small {
+			padding: 0.5em;
 		}
 
 		&:active {

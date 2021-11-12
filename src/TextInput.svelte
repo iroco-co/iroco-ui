@@ -8,12 +8,13 @@
 	export let id: string;
 	export let type: TextType;
 	export let label: string | null = null;
-	export let placeholder: string | undefined
+	export let placeholder: string | undefined;
 	export let error: string | null = null;
 	export let value: string | null = null;
-	export let onFocus: (e) => void;
-	export let onBlur: (e) => void;
+	export let onFocus: (e: FocusEvent) => void;
+	export let onBlur: (e: Event) => void;
 	export let readonly = false;
+	export let border = false;
 
 	function typeAction(node: HTMLInputElement) {
 	  node.type = type;
@@ -32,6 +33,7 @@
 		{id}
 		type="text"
 		{placeholder}
+		class:border
 		class:error={error !== null}
 		class:readonlyInput={readonly == true}
 		use:typeAction
@@ -60,6 +62,7 @@
 	.iroco-ui-input {
 		display: flex;
 		flex-direction: column;
+
 		> input {
 			color: colors.$beige;
 			background: colors.$darkBlue;
@@ -69,6 +72,10 @@
 			white-space: nowrap;
 			overflow: hidden;
 			border-radius: 0.5em;
+
+			&.border {
+				border: 1px solid colors.$beige;
+			}
 
 			&::placeholder {
 				color: rgba(colors.$beige, 0.5);
@@ -100,5 +107,4 @@
 			margin: 0;
 		}
 	}
-
 </style>

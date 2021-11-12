@@ -1,16 +1,15 @@
 import '../scss/style.scss';
-import Button from './Button.svelte';
+export { default as Button } from './Button.svelte';
 export { default as TextInput } from './TextInput.svelte'
-import RadioButton from './RadioButton.svelte';
-import NumberInput from './NumberInput.svelte'
-import Icon from './Icon.svelte'
-import Loader from './Loader.svelte'
-import IconInfo from './IconInfo.svelte'
-import SideBar from './SideBar.svelte'
-import Navigation from './Navigation.svelte'
-import DataTable from './DataTable.svelte'
-import { ButtonKind } from "./definition"
+export { default as RadioButton } from './RadioButton.svelte';
+export { default as NumberInput } from './NumberInput.svelte'
+export { default as Icon } from './Icon.svelte'
+export { default as Loader } from './Loader.svelte'
+export { default as IconInfo } from './IconInfo.svelte'
+export { default as SideBar } from './SideBar.svelte'
+export { default as Navigation } from './Navigation.svelte'
+export { default as DataTable } from './DataTable.svelte'
 export { default as IconMore } from './IconMoreSign.svelte'
-
-
-export { Button, ButtonKind, IconInfo, RadioButton, NumberInput, Icon, SideBar, Navigation, DataTable, Loader };
+export { default as IconFloppyDisk } from './IconFloppyDisk.svelte'
+export { default as IconTrashCan } from './IconTrashCan.svelte'
+export { default as Alert } from './Alert.svelte'
