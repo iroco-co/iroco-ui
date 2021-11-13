@@ -56,9 +56,6 @@
 			border-bottom: 1px solid colors.$mediumGrey a {
 				padding-left: 1em;
 			}
-			&:first-child {
-				border-top: none;
-			}
 		}
 
 		&__item a {
