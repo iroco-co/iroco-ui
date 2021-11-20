@@ -68,6 +68,7 @@
 				justify-content: space-between;
 				position: fixed;
 				top: 0;
+				z-index: 1;
 				width: 100%;
 				border-bottom: 1px solid colors.$mediumGrey;
 

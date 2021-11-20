@@ -40,7 +40,6 @@
 		width: 300px;
 		position: absolute;
 		top: 70px;
-		z-index: 1;
 		overflow-x: hidden;
 		border-right: 1px solid colors.$mediumGrey;
 		&__item_container {
