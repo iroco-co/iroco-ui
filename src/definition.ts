@@ -1,5 +1,5 @@
 export type NavigationItem = {
-    destination: string;
+    hrefOrCallback: string|(() => void);
     name: string;
 };
 

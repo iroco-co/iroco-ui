@@ -1,16 +1,18 @@
 <script lang="ts">
 	import IconClose from './IconClose.svelte';
 	import type { NavigationItem } from 'definition';
-
-	export let navigationItems: Array<NavigationItem>;
 	import { createEventDispatcher } from 'svelte';
 
-	let active: string;
+	export let navigationItems: Array<NavigationItem>;
 
+	let active: string;
 	const dispatch = createEventDispatcher();
 
-	const handleClickLink = (destination: string) => {
-	  active = destination;
+	const handleClickLink = (menuItem: NavigationItem) => {
+	  active = menuItem.name;
+	  if (typeof menuItem.hrefOrCallback === "function") {
+	  	menuItem.hrefOrCallback()
+	  }
 	  dispatch('click_link');
 	};
 </script>
@@ -21,9 +23,9 @@
 	</button>
 
 	<ul class="account__sidebar__item_container">
-		{#each navigationItems as { destination, name }}
-			<li class="account__sidebar__item" class:active={active === destination}>
-				<a on:click={() => handleClickLink(destination)} href={destination}> {name}</a>
+		{#each navigationItems as item}
+			<li class="account__sidebar__item" class:active={active === item.name}>
+				<a on:click={() => handleClickLink(item)} href={typeof item.hrefOrCallback === 'string' ? item.hrefOrCallback: '#'}> {item.name}</a>
 			</li>
 		{/each}
 	</ul>
