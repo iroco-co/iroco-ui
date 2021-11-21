@@ -12,6 +12,7 @@
 	  active = menuItem.name;
 	  if (typeof menuItem.hrefOrCallback === "function") {
 	  	menuItem.hrefOrCallback()
+	  	return false // to avoid calling href
 	  }
 	  dispatch('click_link');
 	};
