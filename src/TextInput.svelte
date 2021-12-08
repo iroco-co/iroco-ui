@@ -10,6 +10,7 @@
 	export let label: string | null = null;
 	export let placeholder: string | undefined;
 	export let error: string | null = null;
+	export let htmlError = false;
 	export let value: string | null = null;
 	export let onFocus: (e: FocusEvent) => void;
 	export let onBlur: (e: Event) => void;
@@ -40,7 +41,13 @@
 		{readonly}
 	/>
 	{#if error != null}
-		<p data-testid="error" class="error">{error !== null ? error : ''}</p>
+		<p data-testid="error" class="error">
+			{#if htmlError}
+				{@html error !== null ? error : ''}
+			{:else}
+				{error !== null ? error : ''}
+			{/if}
+		</p>
 	{/if}
 </div>
 

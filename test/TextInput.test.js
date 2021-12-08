@@ -20,6 +20,12 @@ test('Check input error', () => {
   expect(container.querySelector('input').classList).toContain('error');
 })
 
+test('Check input html error', () => {
+  const error = '<span class="test-span">Hello world</span>';
+  const { container } = render(TextInput, { id:'test_label', type: 'text', htmlError: true, error });
+  expect(container.querySelector('span.test-span')).toBeDefined();
+})
+
 test('Check input type', () => {
   const { container } = render(TextInput, { id:'test_label', type: 'password'});
   expect(container.querySelector('input').type).toBe("password");
