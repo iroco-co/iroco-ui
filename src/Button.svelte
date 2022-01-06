@@ -4,7 +4,8 @@
 	export let kind: 'danger' | 'basic' = 'basic';
 	export let size: 'small' | 'regular' = 'regular';
 	export let rounded = false;
-	export let id:string
+	export let id:string ;
+	export let node: HTMLElement ;
 </script>
 
 <button
@@ -15,6 +16,7 @@
 	{type}
 	{disabled}
 	on:click
+	bind:this={ node }
 >
 	<slot />
 </button>
