@@ -17,6 +17,6 @@ Iroco button component
 ```properties
 type | Type of the button | 'button','submit'('button')
 disabled | Make button disabled | bool(false)
-kind | the button kind (defines the button layout) | `regular|danger`
+kind | the button kind (defines the button layout) | `basic|success|danger`
 node | handle to the button HTML element
 ```
