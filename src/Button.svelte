@@ -43,6 +43,7 @@
 		&--basic {
 			background: colors.$beige;
 			color: colors.$darkBeige;
+			border: 1px solid colors.$nightBlue;
 		}
 		&--success {
 			background: colors.$green;
