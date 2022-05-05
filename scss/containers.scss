@@ -188,7 +188,7 @@ $width-mobile-S: calc(100% - 20px);
 
 }
 
-@mixin container-small {
+@mixin container-small() {
   width: $width-mobile-S;
   max-width: $width-tablet;
   margin-left: auto;
