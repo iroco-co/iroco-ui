@@ -155,7 +155,7 @@ $width-mobile-S: calc(100% - 20px);
 
 }
 
-@mixin container-medium {
+@mixin container-medium() {
   width: $width-mobile-S;
   max-width: $width-laptop-L;
   margin-left: auto;
