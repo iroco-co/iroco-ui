@@ -1,7 +1,7 @@
 <script lang="ts">
 	export let type = 'button';
 	export let disabled = false;
-	export let kind: 'danger' | 'success' | 'basic' = 'basic';
+	export let kind: 'danger' | 'success' | 'dark' | 'basic' = 'basic';
 	export let size: 'small' | 'regular' = 'regular';
 	export let rounded = false;
 	export let id:string ;
@@ -44,6 +44,9 @@
 			background: colors.$beige;
 			color: colors.$darkBeige;
 			border: 1px solid colors.$nightBlue;
+		}
+		&--dark {
+			background: colors.$darkBlue;
 		}
 		&--success {
 			background: colors.$green;
