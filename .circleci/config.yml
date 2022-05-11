@@ -13,8 +13,12 @@ jobs:
           command: sudo apt install rsync
 
       - run:
+          name: Update NPM
+          command: "sudo npm install -g npm@8"
+
+      - run:
           name: install dependencies
-          command: npm ci
+          command: npm ci --force
 
       - save_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
