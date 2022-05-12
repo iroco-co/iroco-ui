@@ -46,7 +46,7 @@
 			border: 1px solid colors.$nightBlue;
 		}
 		&--dark {
-			background: colors.$darkBlue;
+			background: colors.$nightBlue;
 		}
 		&--success {
 			background: colors.$green;
