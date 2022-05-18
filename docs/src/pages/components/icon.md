@@ -7,10 +7,12 @@ Iroco icon component base on https://feathericons.com/
 ```example
 <script>
     import { Icon } from "@iroco/ui";
+    import { IconMastodon } from "@iroco/ui";
 </script>
 
 <Icon name="calendar"/>
 <Icon name="clock" color="red"/>
+<IconMastodon width="2em" height="2em"/>
 ```
 
 ## Properties
