@@ -64,7 +64,7 @@
 				height: 100%;
 			}
 			&__item {
-				padding: 2em 2em;
+				padding: 2em;
 				border-top: 1px solid colors.$mediumGrey;
 			}
 			&__close {
