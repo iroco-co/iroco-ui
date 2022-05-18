@@ -7,7 +7,7 @@ import Navigation from '../src/Navigation.svelte'
 import userEvent from "@testing-library/user-event";
 
 test('Check render', () => {
-  const {getByTestId} = render(Navigation, {navigationItems: [], title: ""});
+  const {getByTestId} = render(Navigation, {navigationItems: [], title: "", type: "sidebar"});
   expect(getByTestId('sidebar')).toBeInTheDocument();
 });
 
@@ -17,7 +17,8 @@ test('Should have one navigation link nœavigation items', () => {
       hrefOrCallback: "/Madrid",
       name: "go to madrid"
     }],
-    title: "HomePage"
+    title: "HomePage",
+    type: "sidebar"
   });
 
   expect(getAllByText("HomePage")).toHaveLength(2)
@@ -34,7 +35,8 @@ test('Should have one callback link in navigation items', () => {
       hrefOrCallback: cb,
       name: "with callback"
     }],
-    title: "HomePage"
+    title: "HomePage",
+    type: "sidebar"
   });
 
   expect(getAllByText("HomePage")).toHaveLength(2)

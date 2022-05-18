@@ -2,46 +2,51 @@
 	import type { NavigationItem } from './definition';
 	import IconBurger from './IconBurger.svelte';
 	import IconIrocoLogo from './IconIrocoLogo.svelte';
-	import SideBar from './SideBar.svelte';
+	import NavBar from './NavBar.svelte';
 
 	export let navigationItems: Array<NavigationItem>;
+	export let type: 'sidebar' | 'topbar' = "topbar";
 	export let title: string;
 
 	let showMenu = false;
 </script>
 
-<div class="account__navigation--mobile">
-	<div class="account__navigation--mobile__title-container">
+<div class="navigation--mobile">
+	<div class="navigation--mobile__title-container">
 		<IconIrocoLogo width="3em" height="3em" />
 		<h1>{title}</h1>
 	</div>
 
-	<button on:click={() => (showMenu = true)} class="account__navigation--mobile__button">
+	<button on:click={() => (showMenu = true)} class="navigation--mobile__button">
 		<IconBurger width="3em" height="3em" />
 	</button>
 
 	{#if showMenu}
-		<SideBar
+		<NavBar
 			on:click_link={() => (showMenu = false)}
 			on:click={() => (showMenu = false)}
-			{navigationItems}
+			{ type }
+			{ navigationItems }
 		/>
 	{/if}
 </div>
 
-<div class="account__navigation">
-	<div class="account__navigation__title-container">
+<div class="navigation">
+	<div class="navigation__title-container">
 		<IconIrocoLogo width="3em" height="3em" />
 		<h1>{title}</h1>
 	</div>
-	<SideBar {navigationItems} />
+	<NavBar {navigationItems} { type } />
 </div>
 
 <style lang="scss">
 	@use '../scss/colors';
 	@import '../scss/containers';
-	.account__navigation {
-		display: block;
+	.navigation {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
 		width: 100%;
 		border-bottom: 1px solid colors.$mediumGrey;
 		&--mobile {
@@ -59,7 +64,7 @@
 	}
 
 	@include screen-tablet {
-		.account__navigation {
+		.navigation {
 			display: none;
 			color: colors.$beige;
 			&--mobile {
@@ -73,7 +78,6 @@
 				border-bottom: 1px solid colors.$mediumGrey;
 
 				h1 {
-					font: bold;
 					font-size: 2em;
 				}
 				&__button {
