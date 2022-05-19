@@ -43,11 +43,13 @@
 				text-decoration: none;
 				font-size: 0.75em;
 				display: block;
-
 			}
 			&__item a {
 				color: colors.$beige;
 				font-size: 2em;
+			}
+			&__close {
+				display: none;
 			}
 		}
 
@@ -67,14 +69,12 @@
 				padding: 2em;
 				border-top: 1px solid colors.$mediumGrey;
 			}
-			&__close {
-				display: none;
-			}
 			.active {
 				border-top: 1px solid colors.$green;
 				border-bottom: 1px solid colors.$green;
 			}
 		}
+
 		&__topbar {
 			flex-grow: 1;
 			display: flex;
@@ -86,9 +86,6 @@
 				display: flex;
 				flex-grow: 1;
 				justify-content: space-around;
-			}
-			&__close {
-				display: none;
 			}
 		}
 	}
@@ -121,6 +118,14 @@
 					border: none;
 					color: colors.$darkBeige;
 				}
+			}
+			
+			&__topbar {
+				height: 100%;
+				&__item {
+				padding: 2em;
+				border-top: 1px solid colors.$mediumGrey;
+			}
 			}
 		}
 	}
