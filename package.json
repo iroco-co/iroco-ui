@@ -119,6 +119,7 @@
     "quiet": false
   },
   "dependencies": {
-    "feather-icons": "^4.28.0"
+    "feather-icons": "^4.28.0",
+    "node-sass": "^7.0.1"
   }
 }
