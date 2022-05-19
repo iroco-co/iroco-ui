@@ -66,7 +66,6 @@
 			top: 4.45em;
 			left: 0;
 			overflow-x: hidden;
-			border-right: 1px solid colors.$mediumGrey;
 			&__item-container {
 				margin: 0;
 				padding: 0;
