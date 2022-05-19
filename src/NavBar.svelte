@@ -11,15 +11,15 @@
 
 	const handleClickLink = (menuItem: NavigationItem) => {
 	  active = menuItem.name;
-	  if (typeof menuItem.hrefOrCallback === "function") {
-	  	menuItem.hrefOrCallback()
-	  	return false // to avoid calling href
+	  if (typeof menuItem.hrefOrCallback === 'function') {
+	    menuItem.hrefOrCallback();
+    return false; // to avoid calling href
 	  }
 	  dispatch('click_link');
 	};
 </script>
 
-<nav data-testid={type} class='nav__{type}'>
+<nav data-testid={type} class="nav__{type}">
 	<button on:click class="nav__{type}__close">
 		<IconClose width="3em" height="3em" />
 	</button>
@@ -27,7 +27,12 @@
 	<ul class="nav__{type}__item-container">
 		{#each navigationItems as item}
 			<li class="nav__{type}__item" class:active={active === item.name}>
-				<a on:click={() => handleClickLink(item)} href={typeof item.hrefOrCallback === 'string' ? item.hrefOrCallback: '#'}> {item.name}</a>
+				<a
+					on:click={() => handleClickLink(item)}
+					href={typeof item.hrefOrCallback === 'string' ? item.hrefOrCallback : '#'}
+				>
+					{item.name}</a
+				>
 			</li>
 		{/each}
 	</ul>
@@ -38,7 +43,8 @@
 	@import '../scss/containers';
 
 	.nav {
-		&__sidebar, &__topbar {
+		&__sidebar,
+		&__topbar {
 			&__item {
 				text-decoration: none;
 				font-size: 0.75em;
@@ -57,9 +63,11 @@
 			height: 100%;
 			width: 300px;
 			position: absolute;
+			top: 4.45em;
+			left: 0;
 			overflow-x: hidden;
 			border-right: 1px solid colors.$mediumGrey;
-			&__item_container {
+			&__item-container {
 				margin: 0;
 				padding: 0;
 				width: 100%;
@@ -68,6 +76,9 @@
 			&__item {
 				padding: 2em;
 				border-top: 1px solid colors.$mediumGrey;
+			}
+			&__item:first-child {
+				border-top: none;
 			}
 			.active {
 				border-top: 1px solid colors.$green;
@@ -79,7 +90,8 @@
 			flex-grow: 1;
 			display: flex;
 			justify-content: flex-end;
-			ul, li {
+			ul,
+			li {
 				display: inline;
 			}
 			ul {
@@ -92,7 +104,8 @@
 
 	@include screen-tablet {
 		.nav {
-			&__sidebar, &__topbar {
+			&__sidebar,
+			&__topbar {
 				position: fixed;
 				background-color: colors.$darkBlue;
 				top: 0;
@@ -106,7 +119,8 @@
 					padding: 0em;
 					margin-top: 2rem;
 				}
-				ul, li {
+				ul,
+				li {
 					display: block;
 				}
 				&__close {
@@ -119,13 +133,21 @@
 					color: colors.$darkBeige;
 				}
 			}
-			
+
+			&__sidebar {
+				top: 0;
+				left: 0;
+				&__item:first-child {
+					border-top: 1px solid colors.$mediumGrey;
+				}
+			}
+
 			&__topbar {
 				height: 100%;
 				&__item {
-				padding: 2em;
-				border-top: 1px solid colors.$mediumGrey;
-			}
+					padding: 2em;
+					border-top: 1px solid colors.$mediumGrey;
+				}
 			}
 		}
 	}
