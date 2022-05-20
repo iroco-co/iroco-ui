@@ -44,6 +44,7 @@
 		}
 		&--dark {
 			background: colors.$nightBlue;
+			color: colors.$beige;
 		}
 		&--success {
 			background: colors.$green;
@@ -56,6 +57,13 @@
 		}
 		&--small {
 			padding: 0.5em 1em;
+		}
+
+		&--basic:hover, &--success:hover, &--danger:hover {
+			box-shadow: inset 0 0 0 10em rgba(0, 0, 0, 0.2);
+		}
+		&--dark:hover {
+			box-shadow: inset 0 0 0 10em rgba(255, 255, 255, 0.2);
 		}
 
 		&:active {
