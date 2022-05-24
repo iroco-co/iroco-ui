@@ -18,7 +18,7 @@ jobs:
 
       - run:
           name: install dependencies
-          command: npm ci --force
+          command: npm i --force
 
       - save_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
