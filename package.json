@@ -75,6 +75,7 @@
     "svelte-jester": "^1.7.0",
     "svelte-preprocess": "^4.7.3",
     "ts-jest": "^26.5.5",
+    "node-sass": "^7.0.1",
     "typescript": "^4.3.3"
   },
   "peerDependencies": {
@@ -119,7 +120,6 @@
     "quiet": false
   },
   "dependencies": {
-    "feather-icons": "^4.28.0",
-    "node-sass": "^7.0.1"
+    "feather-icons": "^4.28.0"
   }
 }
