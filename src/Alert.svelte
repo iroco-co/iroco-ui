@@ -11,11 +11,12 @@
 
 <style lang="scss">
 	@use '../scss/colors';
+	@use '../scss/constants';
 	.alert {
 		min-height: 2em;
 		display: inline-flex;
 		align-items: center;
-		border-radius: 0.5em;
+		border-radius: constants.$border-radius;
 		padding: 0 1em 0 1em;
 		font-size: 1.2em;
 		justify-content: center;

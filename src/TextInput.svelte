@@ -53,6 +53,8 @@
 
 <style lang="scss">
 	@use "../scss/colors";
+	@use "../scss/constants";
+
 	input,
 	textarea {
 		outline: none;
@@ -78,7 +80,7 @@
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			overflow: hidden;
-			border-radius: 0.5em;
+			border-radius: constants.$border-radius;
 
 			&.border {
 				border: 1px solid colors.$beige;

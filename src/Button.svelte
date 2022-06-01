@@ -23,6 +23,7 @@
 	@use '../scss/colors';
 	@use '../scss/fonts';
 	@use '../scss/containers';
+	@use '../scss/constants';
 
 	.iroco-ui-button {
 		cursor: pointer;
@@ -37,6 +38,7 @@
 		margin: 1em 0em;
 		position: relative;
 		text-transform: uppercase;
+		border-radius: constants.$border-radius;
 
 		&--basic {
 			background: colors.$beige;
