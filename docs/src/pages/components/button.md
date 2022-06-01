@@ -10,6 +10,9 @@ Iroco button component
 </script>
 
 <Button>Click me</Button>
+<Button kind="success">Sucess</Button>
+<Button kind="danger">Remove</Button>
+<Button kind="dark">Dark</Button>
 <Button type="button" disabled="true">Disabled</Button>
 ```
 

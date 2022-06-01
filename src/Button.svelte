@@ -67,12 +67,15 @@
 		}
 
 		&:active {
-			background: colors.$lightGrey;
+			box-shadow: none;
 		}
 
 		&.disabled {
 			background-color: colors.$lightGrey;
 			cursor: default;
+			&:hover {
+				box-shadow: none;
+			}
 		}
 	}
 
