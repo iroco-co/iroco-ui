@@ -2,19 +2,25 @@
 	import type { NavigationItem } from './definition';
 	import IconBurger from './IconBurger.svelte';
 	import IconIrocoLogo from './IconIrocoLogo.svelte';
+	import IrocoLogo from './IrocoLogo.svelte';
 	import NavBar from './NavBar.svelte';
 
 	export let navigationItems: Array<NavigationItem>;
 	export let type: 'sidebar' | 'topbar' = "topbar";
-	export let title: string;
+	export let title: string | null = null;
 
 	let showMenu = false;
+
 </script>
 
 <div class="navigation--mobile">
 	<div class="navigation--mobile__title-container">
-		<IconIrocoLogo width="3em" height="3em" />
-		<h1>{title}</h1>
+		{#if title == null}
+			<IrocoLogo width="10em" height="10em"/>
+		{:else}
+			<IconIrocoLogo width="3em" height="3em" />
+			<h1>{title}</h1>
+		{/if}
 	</div>
 
 	<button on:click={() => (showMenu = true)} class="navigation--mobile__button">
@@ -33,8 +39,12 @@
 
 <div class="navigation">
 	<div class="navigation__title-container">
-		<IconIrocoLogo width="3em" height="3em" />
-		<h1>{title}</h1>
+		{#if title == null}
+			<IrocoLogo width="10em" height="10em"/>
+		{:else}
+			<IconIrocoLogo width="3em" height="3em" />
+			<h1>{title}</h1>
+		{/if}
 	</div>
 	<NavBar {navigationItems} { type } />
 </div>

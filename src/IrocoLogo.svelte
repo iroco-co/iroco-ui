@@ -3,7 +3,7 @@
 	export let height = '10rem';
 </script>
 
-<a href="/">
+<a class='iroco-logo' href="/">
   <svg viewBox="0 0 832.33 249.52" width={width} height={height}>
     <title>Iroco</title>
     <path
