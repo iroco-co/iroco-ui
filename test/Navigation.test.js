@@ -3,14 +3,12 @@
  */
 import '@testing-library/jest-dom/extend-expect'
 import {render, within} from '@testing-library/svelte'
+import { NavigationItem } from '../src/definition';
 import Navigation from '../src/Navigation.svelte'
 
 test('Check render with title', () => {
   const {getByTestId, container} = render(Navigation, {
-    navigationItems: [{
-      hrefOrCallback: "/greenenergy",
-      name: "Green Energy"
-    }],
+    navigationItems: [new NavigationItem("Green Energy", "/greenenergy")],
     title: "HomePage",
     type: "topbar"
   });
