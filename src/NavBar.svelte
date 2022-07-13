@@ -26,10 +26,11 @@
 
 	<ul class="nav__{type}__item-container">
 		{#each navigationItems as item}
-			<li class="nav__{type}__item" class:active={active === item.name}>
+			<li class="nav__{type}__item" class:active={active === item.name}  >
 				<a
 					on:click={() => handleClickLink(item)}
 					href={typeof item.hrefOrCallback === 'string' ? item.hrefOrCallback : '#'}
+					class:iroco-ui-button= { item.isButton() }
 				>
 					{item.name}</a
 				>
@@ -42,6 +43,7 @@
 	@use '../scss/colors';
 	@use '../scss/constants';
 	@import '../scss/containers';
+	@import '../scss/button';
 
 	.nav {
 		&__sidebar,

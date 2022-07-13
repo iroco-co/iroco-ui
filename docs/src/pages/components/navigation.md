@@ -6,18 +6,11 @@ Iroco Navigation component
 
 ```example
 <script>
-    import { Navigation } from "@iroco/ui";
+    import { Navigation, NavigationItem } from "@iroco/ui";
 
     const navigationItems = [
-        {
-            destination : "/account", // the place where goes the link
-            name : "Account" // the link name
-        },
-
-        {
-            destination : "/password", // the place where goes the link
-            name : "Password" // the link name
-        }
+        new NavigationItem("Account", "/account"),
+        new NavigationItem("Password", () => "foo")
     ]
 </script>
 

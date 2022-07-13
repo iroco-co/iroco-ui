@@ -12,7 +12,6 @@ export class NavigationItem  {
     }
 };
 
-
 export enum ButtonKind {
     REGULAR = "regular",
     DANGER = "danger"
