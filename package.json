@@ -95,7 +95,8 @@
           "preprocess": true
         }
       ],
-      "^.+\\.js$": "babel-jest"
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.ts$": "ts-jest"
     },
     "testEnvironment": "jsdom",
     "moduleFileExtensions": [

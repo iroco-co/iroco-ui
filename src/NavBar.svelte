@@ -13,7 +13,7 @@
 	  active = menuItem.name;
 	  if (typeof menuItem.hrefOrCallback === 'function') {
 	    menuItem.hrefOrCallback();
-    return false; // to avoid calling href
+	    return false; // to avoid calling href
 	  }
 	  dispatch('click_link');
 	};
@@ -40,6 +40,7 @@
 
 <style lang="scss">
 	@use '../scss/colors';
+	@use '../scss/constants';
 	@import '../scss/containers';
 
 	.nav {
@@ -53,6 +54,7 @@
 			&__item a {
 				color: colors.$beige;
 				font-size: 2em;
+
 			}
 			&__close {
 				display: none;
