@@ -31,6 +31,8 @@
 					on:click={() => handleClickLink(item)}
 					href={typeof item.hrefOrCallback === 'string' ? item.hrefOrCallback : '#'}
 					class:iroco-ui-button= { item.isButton() }
+					class:iroco-ui-button--small= { item.isButton() }
+					class:iroco-ui-button--success= { item.isButton() }
 				>
 					{item.name}</a
 				>
@@ -44,6 +46,7 @@
 	@use '../scss/constants';
 	@import '../scss/containers';
 	@import '../scss/button';
+	@import '../scss/iroco';
 
 	.nav {
 		&__sidebar,
@@ -54,9 +57,8 @@
 				display: block;
 			}
 			&__item a {
-				color: colors.$beige;
 				font-size: 2em;
-
+				text-transform: uppercase;
 			}
 			&__close {
 				display: none;
@@ -93,6 +95,7 @@
 			flex-grow: 1;
 			display: flex;
 			justify-content: flex-end;
+			transform: translateY(0.3em);
 			ul,
 			li {
 				display: inline;
