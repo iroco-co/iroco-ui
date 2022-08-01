@@ -26,16 +26,25 @@
 
 	<ul class="nav__{type}__item-container">
 		{#each navigationItems as item}
-			<li class="nav__{type}__item" class:active={active === item.name}  >
-				<a
-					on:click={() => handleClickLink(item)}
-					href={typeof item.hrefOrCallback === 'string' ? item.hrefOrCallback : '#'}
-					class:iroco-ui-button= { item.isButton() }
-					class:iroco-ui-button--small= { item.isButton() }
-					class:iroco-ui-button--success= { item.isButton() }
-				>
-					{item.name}</a
-				>
+			<li class="nav__{type}__item" class:active={active === item.name}>
+				{#if type === 'sidebar'}
+					<a
+						on:click={() => handleClickLink(item)}
+						href={typeof item.hrefOrCallback === 'string' ? item.hrefOrCallback : '#'}
+					>
+						{item.name}
+					</a>
+				{:else if type === 'topbar'}
+					<a
+						on:click={() => handleClickLink(item)}
+						href={typeof item.hrefOrCallback === 'string' ? item.hrefOrCallback : '#'}
+						class:iroco-ui-button={item.isButton()}
+						class:iroco-ui-button--small={item.isButton()}
+						class:iroco-ui-button--success={item.isButton()}
+					>
+						{item.name}
+					</a>
+				{/if}
 			</li>
 		{/each}
 	</ul>
