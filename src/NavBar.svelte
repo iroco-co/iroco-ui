@@ -30,9 +30,9 @@
 				<a
 					on:click={() => handleClickLink(item)}
 					href={typeof item.hrefOrCallback === 'string' ? item.hrefOrCallback : '#'}
-					class:iroco-ui-button={item.isButton()}
-					class:iroco-ui-button--small={item.isButton()}
-					class:iroco-ui-button--success={item.isButton()}
+					class:iroco-ui-button={item.button}
+					class:iroco-ui-button--small={item.button}
+					class:iroco-ui-button--success={item.button}
 				>
 					{item.name}
 				</a>

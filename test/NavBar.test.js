@@ -2,10 +2,10 @@
  * @jest-environment jsdom
  */
 import '@testing-library/jest-dom/extend-expect'
-import {render, within} from '@testing-library/svelte'
+import {findByText, render, within} from '@testing-library/svelte'
 import Navigation from '../src/Navigation.svelte'
 import userEvent from "@testing-library/user-event";
-import { NavigationItem } from '../src/definition';
+import {NavigationItem} from '../src';
 
 test('Check render', () => {
   const {getByTestId} = render(Navigation, {navigationItems: [], title: "", type: "sidebar"});
@@ -27,7 +27,7 @@ test('Should have one navigation link nœavigation items', () => {
   expect(within(sideBar).getByText("go to madrid").href).toEqual('http://localhost/Madrid')
 })
 
-test('Should have one callback link in navigation items', () => {
+test('Should display one item of type link', () => {
   const cb = jest.fn()
   const {getByTestId, getAllByText} = render(Navigation, {
     navigationItems: [new NavigationItem("with callback", cb)],
@@ -39,10 +39,22 @@ test('Should have one callback link in navigation items', () => {
 
   const sideBar = getByTestId('sidebar');
   let menuItem = within(sideBar).getByText("with callback");
-  expect(menuItem).toHaveClass('iroco-ui-button');
+  expect(menuItem).not.toHaveClass('iroco-ui-button');
+  expect(menuItem).not.toHaveClass('iroco-ui-button--small');
+  expect(menuItem).not.toHaveClass('iroco-ui-button--success');
   expect(menuItem.href).toEqual('http://localhost/#')
-  expect(menuItem).toBeInTheDocument()
 
   userEvent.click(menuItem)
   expect(cb).toHaveBeenCalled()
+})
+
+test('Should display one item as button', async () => {
+  const {findByText} = render(Navigation, {
+    navigationItems: [new NavigationItem("with callback", 'link', true)],
+    title: "HomePage",
+    type: "sidebar"
+  });
+  expect(await findByText("with callback")).toHaveClass('iroco-ui-button');
+  expect(await findByText("with callback")).toHaveClass('iroco-ui-button--small');
+  expect(await findByText("with callback")).toHaveClass('iroco-ui-button--success');
 })
