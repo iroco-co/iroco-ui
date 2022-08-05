@@ -19,7 +19,7 @@
     "build": "npm run build:scripts && npm run copy:styles && sass ./scss/iroco.scss ./lib/iroco.css",
     "copy-docs": "rsync -av docs/__DOCS__/dist/iroco-ui/* ../iroco-ui-docs",
     "dev": "rollup -c -w",
-    "release": "release-it",
+    "release": "npm run build && release-it",
     "prepare": "husky install",
     "clean": "rm -rf lib .svelte-kit"
   },
