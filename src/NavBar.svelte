@@ -95,7 +95,6 @@
 			flex-grow: 1;
 			display: flex;
 			justify-content: flex-end;
-			transform: translateY(0.3em);
 			ul,
 			li {
 				display: inline;
