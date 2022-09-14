@@ -58,7 +58,6 @@
 		justify-content: space-between;
 		align-items: center;
 		width: 100%;
-		border-bottom: 1px solid colors.$mediumGrey;
 		&--mobile {
 			display: none;
 		}
