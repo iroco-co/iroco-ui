@@ -53,9 +53,8 @@
 		&__topbar {
 			&__item {
 				text-decoration: none;
-				font-size: 0.75em;
 				display: block;
-			}
+			}	
 			&__item a {
 				font-size: 1.5em;
 			}
