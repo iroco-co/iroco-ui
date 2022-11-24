@@ -54,6 +54,7 @@
 			&__item {
 				text-decoration: none;
 				display: block;
+				font-size: 1em;
 			}	
 			&__close {
 				display: none;
