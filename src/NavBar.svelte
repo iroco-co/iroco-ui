@@ -46,7 +46,6 @@
 	@use '../scss/constants';
 	@import '../scss/containers';
 	@import '../scss/button';
-	@import '../scss/iroco';
 
 	.nav {
 		&__sidebar,
