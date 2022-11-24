@@ -55,9 +55,6 @@
 				text-decoration: none;
 				display: block;
 			}	
-			&__item a {
-				font-size: 1.5em;
-			}
 			&__close {
 				display: none;
 			}
