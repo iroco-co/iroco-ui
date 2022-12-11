@@ -7,6 +7,7 @@
 
 	export let id: string;
 	export let type: TextType;
+	export let name: string;
 	export let label: string | null = null;
 	export let placeholder: string | undefined;
 	export let error: string | null = null;
@@ -33,6 +34,7 @@
 		on:blur={onBlur}
 		{id}
 		type="text"
+		name={name}
 		{placeholder}
 		class:border
 		class:error={error !== null}
