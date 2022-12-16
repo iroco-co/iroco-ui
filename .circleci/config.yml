@@ -3,7 +3,7 @@ version: 2.0
 jobs:
   build-ui:
     docker:
-      - image: circleci/node:14
+      - image: circleci/node:18
 
     steps:
       - checkout
