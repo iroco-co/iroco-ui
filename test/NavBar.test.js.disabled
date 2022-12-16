@@ -6,6 +6,7 @@ import { findByText, render, within } from '@testing-library/svelte';
 import Navigation from '../src/Navigation.svelte';
 import userEvent from '@testing-library/user-event';
 import { NavigationItem } from '../src';
+$app.store.navigating = jest.fn()
 
 test('Check render', () => {
 	const { getByTestId } = render(Navigation, { navigationItems: [], title: '', type: 'sidebar' });
