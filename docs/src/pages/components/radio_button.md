@@ -17,6 +17,7 @@ Iroco radio button component
 ```
 
 ## Properties
+
 ```properties
 name | Name of the radio button group| 'myGroup'
 value| Value of each radio button | 'value'

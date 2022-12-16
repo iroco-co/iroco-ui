@@ -3,8 +3,8 @@
 	export let disabled = false;
 	export let kind: 'danger' | 'success' | 'dark' | 'basic' = 'basic';
 	export let size: 'small' | 'regular' = 'regular';
-	export let id:string ;
-	export let node: HTMLElement ;
+	export let id: string;
+	export let node: HTMLElement;
 </script>
 
 <button
@@ -14,7 +14,7 @@
 	{type}
 	{disabled}
 	on:click
-	bind:this={ node }
+	bind:this={node}
 >
 	<slot />
 </button>

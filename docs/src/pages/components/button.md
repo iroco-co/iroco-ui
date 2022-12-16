@@ -17,6 +17,7 @@ Iroco button component
 ```
 
 ## Properties
+
 ```properties
 type | Type of the button | 'button','submit'('button')
 disabled | Make button disabled | bool(false)

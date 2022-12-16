@@ -20,207 +20,203 @@ $width-mobile-M: calc(100% - 40px);
 $width-mobile-S: calc(100% - 20px);
 
 @mixin screen-4K() {
-  @media all and (max-width: $break-point-4K) {
-    @content;
-  }
+	@media all and (max-width: $break-point-4K) {
+		@content;
+	}
 }
 
 @mixin screen-desktop() {
-  @media all and (max-width: $break-point-desktop) {
-    @content;
-  }
+	@media all and (max-width: $break-point-desktop) {
+		@content;
+	}
 }
 
 @mixin screen-laptop-L() {
-  @media all and (max-width: $break-point-laptop-L) {
-    @content;
-  }
+	@media all and (max-width: $break-point-laptop-L) {
+		@content;
+	}
 }
 
 @mixin screen-laptop() {
-  @media all and (max-width: $break-point-laptop) {
-    @content;
-  }
+	@media all and (max-width: $break-point-laptop) {
+		@content;
+	}
 }
 
 @mixin screen-tablet() {
-  @media all and (max-width: $break-point-tablet) {
-    @content;
-  }
+	@media all and (max-width: $break-point-tablet) {
+		@content;
+	}
 }
 
 @mixin screen-tablet-S() {
-  @media all and (max-width: $break-point-tablet-S) {
-    @content;
-  }
+	@media all and (max-width: $break-point-tablet-S) {
+		@content;
+	}
 }
 
 @mixin screen-mobile-L() {
-  @media all and (max-width: $break-point-mobile-L) {
-    @content;
-  }
+	@media all and (max-width: $break-point-mobile-L) {
+		@content;
+	}
 }
 
 @mixin screen-mobile-M() {
-  @media all and (max-width: $break-point-mobile-M) {
-    @content;
-  }
+	@media all and (max-width: $break-point-mobile-M) {
+		@content;
+	}
 }
 
 @mixin screen-mobile-S() {
-  @media all and (max-width: $break-point-mobile-S) {
-    @content;
-  }
+	@media all and (max-width: $break-point-mobile-S) {
+		@content;
+	}
 }
 
 @mixin container-wide() {
-  width: $width-mobile-S;
-  max-width: $width;
-  margin-left: auto;
-  margin-right: auto;
-  transition: max-width ease-out 200ms;
+	width: $width-mobile-S;
+	max-width: $width;
+	margin-left: auto;
+	margin-right: auto;
+	transition: max-width ease-out 200ms;
 
-  @include screen-4K() {
-    max-width: $width-4k;
-  }
+	@include screen-4K() {
+		max-width: $width-4k;
+	}
 
-  @include screen-desktop() {
-    max-width: $width-desktop;
-  }
+	@include screen-desktop() {
+		max-width: $width-desktop;
+	}
 
-  @include screen-laptop-L() {
-    max-width: $width-laptop-L;
-  }
+	@include screen-laptop-L() {
+		max-width: $width-laptop-L;
+	}
 
-  @include screen-laptop() {
-    max-width: $width-laptop;
-  }
+	@include screen-laptop() {
+		max-width: $width-laptop;
+	}
 
-  @include screen-tablet() {
-    max-width: $width-tablet;
-  }
+	@include screen-tablet() {
+		max-width: $width-tablet;
+	}
 
-  @include screen-tablet-S() {
-    max-width: $width-tablet-S;
-  }
+	@include screen-tablet-S() {
+		max-width: $width-tablet-S;
+	}
 
-  @include screen-mobile-L() {
-    max-width: $width-mobile-L;
-  }
+	@include screen-mobile-L() {
+		max-width: $width-mobile-L;
+	}
 
-  @include screen-mobile-M() {
-    max-width: $width-mobile-M;
-  }
+	@include screen-mobile-M() {
+		max-width: $width-mobile-M;
+	}
 
-  @include screen-mobile-S() {
-    max-width: $width-mobile-S;
-  }
-
+	@include screen-mobile-S() {
+		max-width: $width-mobile-S;
+	}
 }
 
 @mixin container-large() {
-  width: $width-mobile-S;
-  max-width: $width-desktop;
-  margin-left: auto;
-  margin-right: auto;
-  transition: max-width ease-out 200ms;
+	width: $width-mobile-S;
+	max-width: $width-desktop;
+	margin-left: auto;
+	margin-right: auto;
+	transition: max-width ease-out 200ms;
 
-  @include screen-laptop-L() {
-    max-width: $width-laptop-L;
-  }
+	@include screen-laptop-L() {
+		max-width: $width-laptop-L;
+	}
 
-  @include screen-laptop() {
-    max-width: $width-laptop;
-  }
+	@include screen-laptop() {
+		max-width: $width-laptop;
+	}
 
-  @include screen-tablet() {
-    max-width: $width-tablet;
-  }
+	@include screen-tablet() {
+		max-width: $width-tablet;
+	}
 
-  @include screen-tablet-S() {
-    max-width: $width-tablet-S;
-  }
+	@include screen-tablet-S() {
+		max-width: $width-tablet-S;
+	}
 
-  @include screen-mobile-L() {
-    max-width: $width-mobile-L;
-  }
+	@include screen-mobile-L() {
+		max-width: $width-mobile-L;
+	}
 
-  @include screen-mobile-M() {
-    max-width: $width-mobile-M;
-  }
+	@include screen-mobile-M() {
+		max-width: $width-mobile-M;
+	}
 
-  @include screen-mobile-S() {
-    max-width: $width-mobile-S;
-  }
-
+	@include screen-mobile-S() {
+		max-width: $width-mobile-S;
+	}
 }
 
 @mixin container-medium() {
-  width: $width-mobile-S;
-  max-width: $width-laptop-L;
-  margin-left: auto;
-  margin-right: auto;
-  transition: max-width ease-out 200ms;
+	width: $width-mobile-S;
+	max-width: $width-laptop-L;
+	margin-left: auto;
+	margin-right: auto;
+	transition: max-width ease-out 200ms;
 
-  @include screen-laptop() {
-    max-width: $width-laptop;
-  }
+	@include screen-laptop() {
+		max-width: $width-laptop;
+	}
 
-  @include screen-tablet() {
-    max-width: $width-tablet;
-  }
+	@include screen-tablet() {
+		max-width: $width-tablet;
+	}
 
-  @include screen-tablet-S() {
-    max-width: $width-tablet-S;
-  }
+	@include screen-tablet-S() {
+		max-width: $width-tablet-S;
+	}
 
-  @include screen-mobile-L() {
-    max-width: $width-mobile-L;
-  }
+	@include screen-mobile-L() {
+		max-width: $width-mobile-L;
+	}
 
-  @include screen-mobile-M() {
-    max-width: $width-mobile-M;
-  }
+	@include screen-mobile-M() {
+		max-width: $width-mobile-M;
+	}
 
-  @include screen-mobile-S() {
-    max-width: $width-mobile-S;
-  }
-
+	@include screen-mobile-S() {
+		max-width: $width-mobile-S;
+	}
 }
 
 @mixin container-small() {
-  width: $width-mobile-S;
-  max-width: $width-tablet;
-  margin-left: auto;
-  margin-right: auto;
-  transition: max-width ease-out 200ms;
+	width: $width-mobile-S;
+	max-width: $width-tablet;
+	margin-left: auto;
+	margin-right: auto;
+	transition: max-width ease-out 200ms;
 
-  @include screen-mobile-L() {
-    max-width: $width-mobile-L;
-  }
+	@include screen-mobile-L() {
+		max-width: $width-mobile-L;
+	}
 
-  @include screen-mobile-M() {
-    max-width: $width-mobile-M;
-  }
+	@include screen-mobile-M() {
+		max-width: $width-mobile-M;
+	}
 
-  @include screen-mobile-S() {
-    max-width: $width-mobile-S;
-  }
-
+	@include screen-mobile-S() {
+		max-width: $width-mobile-S;
+	}
 }
 
 .container-wide {
-  @include container-wide();
+	@include container-wide();
 }
 
 .container-large {
-  @include container-large();
+	@include container-large();
 }
 
 .container-medium {
-  @include container-medium();
+	@include container-medium();
 }
 
 .container-small {
-  @include container-small();
+	@include container-small();
 }

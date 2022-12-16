@@ -13,7 +13,7 @@ $ npm install -D @irco/ui
 Then you can import it in your projects:
 
 ```html
-<script> 
-    import { Button } from '@iroco/ui/lib';
+<script>
+	import { Button } from '@iroco/ui/lib';
 </script>
 ```

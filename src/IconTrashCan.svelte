@@ -4,13 +4,7 @@
 	export let stroke = 'currentColor';
 </script>
 
-<svg
-	{width}
-	{height}
-	fill="none"
-	{stroke}
-	viewBox="0 0 24 24"
-	xmlns="http://www.w3.org/2000/svg"
+<svg {width} {height} fill="none" {stroke} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
 	><path
 		stroke-linecap="round"
 		stroke-linejoin="round"

@@ -14,7 +14,7 @@ jobs:
 
       - run:
           name: Update NPM
-          command: "sudo npm install -g npm@8"
+          command: 'sudo npm install -g npm@8'
 
       - run:
           name: install dependencies
@@ -48,7 +48,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-         at: ./
+          at: ./
 
       - run:
           name: Install and configure docs dependencies
@@ -75,7 +75,7 @@ jobs:
 
       - add_ssh_keys:
           fingerprints:
-            - "6d:0d:3c:48:0a:59:2a:0b:b8:3e:ad:95:2a:6a:7d:c6"
+            - '6d:0d:3c:48:0a:59:2a:0b:b8:3e:ad:95:2a:6a:7d:c6'
 
       - run:
           name: Deploy docs to gh-pages branch

@@ -1,67 +1,65 @@
 @use 'colors';
 
 .iroco-ui-form {
-  input, textarea {
-    outline: none;
-    text-decoration: none;
-    font-size: 14px;
+	input,
+	textarea {
+		outline: none;
+		text-decoration: none;
+		font-size: 14px;
 
-    &:focus {
-      outline: none;
-      text-decoration: none;
-      font-size: 14px;
-    }
-  }
+		&:focus {
+			outline: none;
+			text-decoration: none;
+			font-size: 14px;
+		}
+	}
 
-  .iroco-ui-input {
-    display: flex;
-    flex-direction: column;
-    > input {
-      color: colors.$beige;
-      background: colors.$darkBlue;
-      border: 1px solid colors.$darkBlue;
-      padding: 1em 1.5em;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-      border-radius: 0.5em;
+	.iroco-ui-input {
+		display: flex;
+		flex-direction: column;
+		> input {
+			color: colors.$beige;
+			background: colors.$darkBlue;
+			border: 1px solid colors.$darkBlue;
+			padding: 1em 1.5em;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			border-radius: 0.5em;
 
-      &::placeholder {
-        color: rgba(colors.$beige, .5);
-      }
-      &.error {
-        border-color: colors.$red;
-      }
-      &.readonlyInput{
-        cursor: not-allowed;
-      }
-    }
-  }
+			&::placeholder {
+				color: rgba(colors.$beige, 0.5);
+			}
+			&.error {
+				border-color: colors.$red;
+			}
+			&.readonlyInput {
+				cursor: not-allowed;
+			}
+		}
+	}
 
-  .iroco-ui-label {
-    color: rgba(colors.$beige, .6);
-    font-weight: bold;
-    padding-bottom: 10px;
-    display: inline-block;
-  }
+	.iroco-ui-label {
+		color: rgba(colors.$beige, 0.6);
+		font-weight: bold;
+		padding-bottom: 10px;
+		display: inline-block;
+	}
 
-  .field {
-    margin-top: 20px;
+	.field {
+		margin-top: 20px;
 
-    &:first-child {
-      margin: 0;
-    }
-  }
+		&:first-child {
+			margin: 0;
+		}
+	}
 
-  >.submit {
-    margin-top: 40px;
-  }
+	> .submit {
+		margin-top: 40px;
+	}
 
-  p.error {
-    margin: 0;
-    color: colors.$red;
-  }
+	p.error {
+		margin: 0;
+		color: colors.$red;
+	}
 }
-
-
-

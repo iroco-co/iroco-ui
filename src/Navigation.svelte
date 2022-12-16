@@ -6,17 +6,16 @@
 	import NavBar from './NavBar.svelte';
 
 	export let navigationItems: Array<NavigationItem>;
-	export let type: 'sidebar' | 'topbar' = "topbar";
+	export let type: 'sidebar' | 'topbar' = 'topbar';
 	export let title: string | null = null;
 
 	let showMenu = false;
-
 </script>
 
 <div class="navigation--mobile">
 	<div class="navigation--mobile__title-container">
 		{#if title == null}
-			<IrocoLogo width="10em" height="10em"/>
+			<IrocoLogo width="10em" height="10em" />
 		{:else}
 			<IconIrocoLogo width="3em" height="3em" />
 			<h1>{title}</h1>
@@ -31,8 +30,8 @@
 		<NavBar
 			on:click_link={() => (showMenu = false)}
 			on:click={() => (showMenu = false)}
-			{ type }
-			{ navigationItems }
+			{type}
+			{navigationItems}
 		/>
 	{/if}
 </div>
@@ -40,13 +39,13 @@
 <div class="navigation">
 	<div class="navigation__title-container">
 		{#if title == null}
-			<IrocoLogo width="10em" height="10em"/>
+			<IrocoLogo width="10em" height="10em" />
 		{:else}
 			<IconIrocoLogo width="3em" height="3em" />
 			<h1>{title}</h1>
 		{/if}
 	</div>
-	<NavBar {navigationItems} { type } />
+	<NavBar {navigationItems} {type} />
 </div>
 
 <style lang="scss">

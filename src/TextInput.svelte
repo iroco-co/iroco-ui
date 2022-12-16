@@ -19,7 +19,7 @@
 	export let border = false;
 
 	function typeAction(node: HTMLInputElement) {
-	  node.type = type;
+		node.type = type;
 	}
 </script>
 
@@ -54,8 +54,8 @@
 </div>
 
 <style lang="scss">
-	@use "../scss/colors";
-	@use "../scss/constants";
+	@use '../scss/colors';
+	@use '../scss/constants';
 
 	input,
 	textarea {

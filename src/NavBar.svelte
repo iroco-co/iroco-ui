@@ -1,7 +1,8 @@
 <script lang="ts">
 	import IconClose from './IconClose.svelte';
-	import type { NavigationItem } from 'definition';
+	import type { NavigationItem } from './definition';
 	import { createEventDispatcher } from 'svelte';
+	import { navigating } from '$app/stores';
 
 	export let navigationItems: Array<NavigationItem>;
 	export let type: 'sidebar' | 'topbar';
@@ -10,13 +11,21 @@
 	const dispatch = createEventDispatcher();
 
 	const handleClickLink = (menuItem: NavigationItem) => {
-	  active = menuItem.name;
-	  if (typeof menuItem.hrefOrCallback === 'function') {
-	    menuItem.hrefOrCallback();
-	    return false; // to avoid calling href
-	  }
-	  dispatch('click_link');
+		if (typeof menuItem.hrefOrCallback === 'function') {
+			menuItem.hrefOrCallback();
+			return false; // to avoid calling href
+		}
+		dispatch('click_link');
 	};
+
+	function isActive(current: string, item: NavigationItem): boolean {
+		if (typeof item.hrefOrCallback === 'string') {
+			return item.hrefOrCallback === current;
+		}
+		return false;
+	}
+
+	$: if ($navigating) active = $navigating.to.url.pathname;
 </script>
 
 <nav data-testid={type} class="nav__{type}">
@@ -26,7 +35,7 @@
 
 	<ul class="nav__{type}__item-container">
 		{#each navigationItems as item}
-			<li class="nav__{type}__item" class:active={active === item.name}>
+			<li class="nav__{type}__item" class:active={isActive(active, item)}>
 				<a
 					on:click={() => handleClickLink(item)}
 					href={typeof item.hrefOrCallback === 'string' ? item.hrefOrCallback : '#'}
@@ -54,7 +63,7 @@
 				text-decoration: none;
 				display: block;
 				font-size: 1em;
-			}	
+			}
 			&__close {
 				display: none;
 			}
@@ -98,6 +107,9 @@
 				display: flex;
 				flex-grow: 1;
 				justify-content: space-around;
+			}
+			.active {
+				border-bottom: 1px solid colors.$green;
 			}
 		}
 	}

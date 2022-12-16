@@ -1,4 +1,4 @@
-# [I<span>roco</span>](/) #
+# [I<span>roco</span>](/)
 
 <style>
     span {

@@ -8,13 +8,13 @@ See the [Documentation](https://iroco-co.github.io/iroco-ui/)
 
 # develop
 
-To install dependencies : 
+To install dependencies :
 
 ```shell
 ~/src/iroco-ui$ npm ci
 ```
 
-Building : 
+Building :
 
 ```shell
 ~/src/iroco-ui$ npm run build
@@ -30,12 +30,13 @@ The docs directory contains the documentation app deployed on github pages. To i
 
 You can add/update components documentation into `docs/src/pages/components` and update the left menu in `docs/src/includes/sidebar.md`.
 
-When you have to work on the CSS for components, you can have hot reloading. To do so you have to make the iroco-ui build watched with : 
+When you have to work on the CSS for components, you can have hot reloading. To do so you have to make the iroco-ui build watched with :
 
 ```shell
 ~/src/iroco-ui$ npx npm-watch build
 ```
-And in the same time launch the dev server for docs : 
+
+And in the same time launch the dev server for docs :
 
 ```shell
 ~/src/iroco-ui/docs$ npm run dev
