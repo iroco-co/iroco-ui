@@ -31,7 +31,7 @@ jobs:
 
       - run:
           name: run tests
-          command: npx jest
+          command: npm run test
 
       - run:
           name: build
