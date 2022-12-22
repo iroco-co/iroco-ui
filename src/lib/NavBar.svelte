@@ -2,12 +2,10 @@
 	import IconClose from './IconClose.svelte';
 	import type { NavigationItem } from './definition';
 	import { createEventDispatcher } from 'svelte';
-	import { Navigation } from '@sveltejs/kit';
-	import type { Readable } from 'svelte/store';
+	import { navigating } from '$app/stores';
 
 	export let navigationItems: Array<NavigationItem>;
 	export let type: 'sidebar' | 'topbar';
-	export let navigating: Readable<Navigation | null>;
 
 	let active: string;
 	const dispatch = createEventDispatcher();
