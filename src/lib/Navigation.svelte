@@ -49,8 +49,8 @@
 </div>
 
 <style lang="scss">
-	@use '../scss/colors';
-	@import '../scss/containers';
+	@use './scss/colors';
+	@import './scss/containers';
 	.navigation {
 		display: flex;
 		flex-direction: row;

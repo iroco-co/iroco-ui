@@ -4,7 +4,7 @@
 	export let width = '10rem';
 	export let height = '10rem';
 	const dispatch = createEventDispatcher();
-	function clickOnLogo(e) {
+	function clickOnLogo() {
 		dispatch('click_logo');
 	}
 </script>

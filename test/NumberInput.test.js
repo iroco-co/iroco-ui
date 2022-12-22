@@ -1,11 +1,9 @@
-/**
- * @jest-environment jsdom
- */
+/*global test, expect*/
 import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/svelte';
-import NumberInput from '../src/NumberInput.svelte';
-import NumberInputSized from './NumberInputSized.svelte';
-import { screen } from '@testing-library/dom';
+import NumberInput from '$lib/NumberInput.svelte';
+import NumberInputSized from '$lib/NumberInputSized.svelte';
+import { screen } from '@testing-library/svelte';
 import userEvent from '@testing-library/user-event';
 
 test('Check number input label', () => {
@@ -20,34 +18,31 @@ test('Check number input error', () => {
 	expect(getByTestId('error')).toBeInTheDocument();
 });
 
-test('Check value for number input ', () => {
+test('Check value for number input ', async () => {
 	render(NumberInput, { id: 'test_id', placeholder: '1' });
 	let myNumberInput = screen.getByPlaceholderText('1');
-
-	userEvent.type(myNumberInput, '5');
+	await userEvent.type(myNumberInput, '5');
 
 	expect(myNumberInput.value).toBe('5');
 });
 
-test('Check min attribute', () => {
+test('Check min attribute', async () => {
 	const min = 1;
 	const max = 10;
 	render(NumberInput, { id: 'test_id', placeholder: '1', min: min, max: max });
 	let myNumberInput = screen.getByPlaceholderText('1');
 
-	userEvent.type(myNumberInput, '0');
-	// eslint-disable-next-line jest/valid-expect
+	await userEvent.type(myNumberInput, '0');
 	expect(myNumberInput.value).toBeNull;
 });
 
-test('Check max attribute', () => {
+test('Check max attribute', async () => {
 	const min = 1;
 	const max = 10;
 	render(NumberInput, { id: 'test_id', placeholder: '1', min: min, max: max });
 	let myNumberInput = screen.getByPlaceholderText('1');
 
-	userEvent.type(myNumberInput, '11');
-	// eslint-disable-next-line jest/valid-expect
+	await userEvent.type(myNumberInput, '11');
 	expect(myNumberInput.value).toBeNull;
 });
 

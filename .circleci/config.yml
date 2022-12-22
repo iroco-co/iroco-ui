@@ -30,7 +30,7 @@ jobs:
           command: npm run lint
 
       - run:
-          name: jest tests
+          name: run tests
           command: npx jest
 
       - run:
@@ -44,7 +44,7 @@ jobs:
 
   deploy-docs:
     docker:
-      - image: circleci/node:14
+      - image: cimg/node:18.12.0
     steps:
       - checkout
       - attach_workspace:
@@ -86,12 +86,6 @@ workflows:
   build_workflow:
     jobs:
       - build-ui:
-          filters:
-            branches:
-              only: main
-      - deploy-docs:
-          requires:
-            - build-ui
           filters:
             branches:
               only: main

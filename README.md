@@ -1,49 +1,38 @@
-# iroco-ui
+# create-svelte
 
-[![Circle CI](https://circleci.com/gh/iroco-co/iroco-ui.png?circle-token=218e3654fb138427bb709b068ed847b58f8d4ac7&style=svg)](https://app.circleci.com/pipelines/github/iroco-co/iroco-ui)
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-Design system for Iroco.
+## Creating a project
 
-See the [Documentation](https://iroco-co.github.io/iroco-ui/)
+If you're seeing this, you've probably already done this step. Congrats!
 
-# develop
+```bash
+# create a new project in the current directory
+npm create svelte@latest
 
-To install dependencies :
-
-```shell
-~/src/iroco-ui$ npm ci
+# create a new project in my-app
+npm create svelte@latest my-app
 ```
 
-Building :
+## Developing
 
-```shell
-~/src/iroco-ui$ npm run build
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
 ```
 
-# documentation
+## Building
 
-The docs directory contains the documentation app deployed on github pages. To install dependencies :
+To create a production version of your app:
 
-```shell
-~/src/iroco-ui/docs$ npm ci
+```bash
+npm run build
 ```
 
-You can add/update components documentation into `docs/src/pages/components` and update the left menu in `docs/src/includes/sidebar.md`.
+You can preview the production build with `npm run preview`.
 
-When you have to work on the CSS for components, you can have hot reloading. To do so you have to make the iroco-ui build watched with :
-
-```shell
-~/src/iroco-ui$ npx npm-watch build
-```
-
-And in the same time launch the dev server for docs :
-
-```shell
-~/src/iroco-ui/docs$ npm run dev
-```
-
-To build the documentation (in docs) :
-
-```shell
-~/src/iroco-ui/docs$ npm run build
-```
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.

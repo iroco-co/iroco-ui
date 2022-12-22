@@ -1,12 +1,8 @@
 <script lang="ts">
-	export enum TextType {
-		text = 'text',
-		email = 'email',
-		password = 'password'
-	}
+	import { TextInputType } from '$lib/definition';
 
 	export let id: string;
-	export let type: TextType;
+	export let type: TextInputType;
 	export let name: string;
 	export let label: string | null = null;
 	export let placeholder: string | undefined;
@@ -34,7 +30,7 @@
 		on:blur={onBlur}
 		{id}
 		type="text"
-		name={name}
+		{name}
 		{placeholder}
 		class:border
 		class:error={error !== null}
@@ -54,8 +50,8 @@
 </div>
 
 <style lang="scss">
-	@use '../scss/colors';
-	@use '../scss/constants';
+	@use './scss/colors';
+	@use './scss/constants';
 
 	input,
 	textarea {

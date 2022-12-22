@@ -1,3 +1,5 @@
+<svelte:options accessors={true} />
+
 <script lang="ts">
 	export let type = 'button';
 	export let disabled = false;
@@ -20,5 +22,5 @@
 </button>
 
 <style lang="scss">
-	@use '../scss/button';
+	@use './scss/button';
 </style>

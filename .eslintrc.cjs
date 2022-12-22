@@ -1,25 +1,18 @@
 module.exports = {
 	root: true,
 	parser: '@typescript-eslint/parser',
-	extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
+	extends: [
+		'eslint:recommended',
+		'plugin:@typescript-eslint/recommended',
+		'prettier',
+		'plugin:storybook/recommended'
+	],
 	plugins: ['svelte3', '@typescript-eslint'],
-	ignorePatterns: ['*.cjs', 'docs'],
+	ignorePatterns: ['package/*', '*.cjs'],
 	overrides: [
-		{ files: ['*.svelte'], processor: 'svelte3/svelte3' },
 		{
-			files: ['test/**/*.test.js'],
-			plugins: ['jest'],
-			env: {
-				jest: true,
-				'jest/globals': true
-			},
-			rules: {
-				'jest/no-disabled-tests': 'warn',
-				'jest/no-focused-tests': 'error',
-				'jest/no-identical-title': 'error',
-				'jest/prefer-to-have-length': 'warn',
-				'jest/valid-expect': 'error'
-			}
+			files: ['*.svelte'],
+			processor: 'svelte3/svelte3'
 		}
 	],
 	settings: {

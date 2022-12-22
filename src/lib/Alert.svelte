@@ -9,8 +9,8 @@
 </div>
 
 <style lang="scss">
-	@use '../scss/colors';
-	@use '../scss/constants';
+	@use './scss/colors';
+	@use './scss/constants';
 	.alert {
 		min-height: 2em;
 		display: inline-flex;

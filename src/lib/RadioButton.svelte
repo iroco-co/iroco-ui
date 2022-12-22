@@ -19,7 +19,7 @@
 </label>
 
 <style lang="scss">
-	@use '../scss/colors';
+	@use './scss/colors';
 
 	.iroco-ui-radio {
 		color: colors.$beige;

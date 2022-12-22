@@ -1,12 +1,9 @@
-/**
- * @jest-environment jsdom
- */
+/*global test, expect, vi*/
 import '@testing-library/jest-dom/extend-expect';
-import { findByText, render, within } from '@testing-library/svelte';
-import Navigation from '../src/Navigation.svelte';
+import { render, within } from '@testing-library/svelte';
+import Navigation from '$lib/Navigation.svelte';
 import userEvent from '@testing-library/user-event';
-import { NavigationItem } from '../src';
-$app.store.navigating = jest.fn()
+import {NavigationItem} from "$lib";
 
 test('Check render', () => {
 	const { getByTestId } = render(Navigation, { navigationItems: [], title: '', type: 'sidebar' });
@@ -29,7 +26,7 @@ test('Should have one navigation link nœavigation items', () => {
 });
 
 test('Should display one item of type link', () => {
-	const cb = jest.fn();
+	const cb = vi.fn();
 	const { getByTestId, getAllByText } = render(Navigation, {
 		navigationItems: [new NavigationItem('with callback', cb)],
 		title: 'HomePage',

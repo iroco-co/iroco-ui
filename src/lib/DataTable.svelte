@@ -1,6 +1,6 @@
 <script type="module" lang="ts">
 	import type { SvelteComponent } from 'svelte';
-	type TableCollumn = {
+	type TableColumn = {
 		key: string;
 		title: string;
 		renderComponent?: {
@@ -15,15 +15,15 @@
 
 	export let rows: Array<TableRow>;
 
-	export let collumns: Array<TableCollumn>;
+	export let columns: Array<TableColumn>;
 </script>
 
 <table class="data-table">
 	<thead class="data-table__header">
 		<tr>
-			{#each collumns as collumn}
+			{#each columns as column}
 				<th class="data-table__header__cell">
-					{collumn.title}
+					{column.title}
 				</th>
 			{/each}
 		</tr>
@@ -32,7 +32,7 @@
 	<tbody class="data-table__body">
 		{#each rows as row}
 			<tr class="data-table__body__row">
-				{#each collumns as { key, renderComponent }}
+				{#each columns as { key, renderComponent }}
 					<td class="data-table__body__cell">
 						{#if renderComponent}
 							<svelte:component
@@ -50,7 +50,7 @@
 </table>
 
 <style lang="scss">
-	@use '../scss/colors';
+	@use './scss/colors';
 	.data-table {
 		border: 1px solid colors.$mediumGrey;
 		width: 100%;

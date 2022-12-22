@@ -1,5 +1,7 @@
+<svelte:options accessors={true} />
+
 <script lang="ts">
-	import RadioButton from '../src/RadioButton.svelte';
+	import RadioButton from './RadioButton.svelte';
 	export let group = '';
 </script>
 

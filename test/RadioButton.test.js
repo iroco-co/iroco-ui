@@ -1,12 +1,10 @@
-/**
- * @jest-environment jsdom
- */
+/*global test, expect*/
 import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/svelte';
-import RadioButton from '../src/RadioButton.svelte';
-import RadioButtonTest from './RadioButtonTest.svelte';
+import RadioButton from '$lib/RadioButton.svelte';
+import RadioButtonTest from '$lib/RadioButtonTest.svelte';
 import userEvent from '@testing-library/user-event';
-import SlotedComponentWrapper from './SlottedComponentWrapper.svelte';
+import SlotedComponentWrapper from '$lib/SlottedComponentWrapper.svelte';
 
 test('Check radio label', () => {
 	const { getByRole } = render(RadioButton, { value: 'HelloWord!', name: 'name' });
@@ -18,16 +16,16 @@ test('Button slot', () => {
 	expect(getByText('Slot value')).toBeInTheDocument();
 });
 
-test('Check radio change value', () => {
+test('Check radio change value', async () => {
 	const { component, getByLabelText } = render(RadioButtonTest, { group: 'test' });
 
 	const second = getByLabelText('Second');
 
-	userEvent.click(second);
+	await userEvent.click(second);
 	expect(second.checked).toBe(true);
 	expect(component.group).toBe('second');
 
-	userEvent.click(getByLabelText('First'));
+	await userEvent.click(getByLabelText('First'));
 	expect(second.checked).toBe(false);
 	expect(component.group).toBe('first');
 });

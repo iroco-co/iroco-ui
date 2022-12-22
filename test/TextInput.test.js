@@ -1,10 +1,8 @@
-/**
- * @jest-environment jsdom
- */
+/*global test, expect, vi*/
 import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/svelte';
-import TextInput from '../src/TextInput.svelte';
-import { screen } from '@testing-library/dom';
+import TextInput from '$lib/TextInput.svelte';
+import { screen } from '@testing-library/svelte';
 import userEvent from '@testing-library/user-event';
 
 test('Check input label', () => {
@@ -17,7 +15,7 @@ test('Check input error', () => {
 	const error = 'Hello World!';
 	const { container, getByTestId } = render(TextInput, { id: 'test_label', type: 'text', error });
 	expect(getByTestId('error')).toBeInTheDocument();
-	expect(container.querySelector('input').classList).toContain('error');
+	expect(container.querySelector('input').classList.toString()).toContain('error');
 });
 
 test('Check input html error', () => {
@@ -52,28 +50,28 @@ test('Check input field', () => {
 	expect(getByRole('textbox')).toBeInTheDocument();
 });
 
-test('Check value for input text', () => {
+test('Check value for input text', async () => {
 	render(TextInput, { id: 'id', type: 'text', placeholder: 'myPlaceholder' });
 
 	let myInput = screen.getByPlaceholderText('myPlaceholder');
-	userEvent.type(myInput, 'blabla');
+	await userEvent.type(myInput, 'blabla');
 
 	expect(myInput.value).toBe('blabla');
 });
 
-test('Check readonly propriety', () => {
+test('Check readonly propriety', async () => {
 	const readonly = true;
 	render(TextInput, { id: 'id', type: 'text', placeholder: 'blabla', readonly });
 
 	let myInput = screen.getByPlaceholderText('blabla');
-	userEvent.type(myInput, 'blibli');
+	await userEvent.type(myInput, 'blibli');
 
 	expect(myInput.value).not.toBe('blibli');
 });
 
 test('Focus on textInput calls callback property', () => {
-	const onFocus = jest.fn();
-	const onBlur = jest.fn();
+	const onFocus = vi.fn();
+	const onBlur = vi.fn();
 	const { container } = render(TextInput, { id: 'id', type: 'text', onFocus, onBlur });
 
 	container.querySelector('input').focus();

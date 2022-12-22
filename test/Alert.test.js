@@ -1,9 +1,7 @@
-/**
- * @jest-environment jsdom
- */
+/*global test, expect, vi*/
 import '@testing-library/jest-dom/extend-expect';
 import { fireEvent, render } from '@testing-library/svelte';
-import Alert from '../src/Alert.svelte';
+import Alert from '$lib/Alert.svelte';
 
 test('Check render', () => {
 	const { getByText } = render(Alert, { content: 'foo' });
@@ -20,7 +18,7 @@ test('Check render danger mode', () => {
 });
 
 test('Check close callback', () => {
-	const callback = jest.fn();
+	const callback = vi.fn();
 	const { getByText } = render(Alert, { content: 'foo', type: 'danger', callback });
 	fireEvent.click(getByText('foo'));
 
