@@ -1,4 +1,3 @@
-/*global test, expect*/
 import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/svelte';
 import NumberInput from '$lib/NumberInput.svelte';
@@ -20,7 +19,7 @@ test('Check number input error', () => {
 
 test('Check value for number input ', async () => {
 	render(NumberInput, { id: 'test_id', placeholder: '1' });
-	let myNumberInput = screen.getByPlaceholderText('1');
+	const myNumberInput = screen.getByPlaceholderText('1');
 	await userEvent.type(myNumberInput, '5');
 
 	expect(myNumberInput.value).toBe('5');
@@ -30,7 +29,7 @@ test('Check min attribute', async () => {
 	const min = 1;
 	const max = 10;
 	render(NumberInput, { id: 'test_id', placeholder: '1', min: min, max: max });
-	let myNumberInput = screen.getByPlaceholderText('1');
+	const myNumberInput = screen.getByPlaceholderText('1');
 
 	await userEvent.type(myNumberInput, '0');
 	expect(myNumberInput.value).toBeNull;
@@ -40,7 +39,7 @@ test('Check max attribute', async () => {
 	const min = 1;
 	const max = 10;
 	render(NumberInput, { id: 'test_id', placeholder: '1', min: min, max: max });
-	let myNumberInput = screen.getByPlaceholderText('1');
+	const myNumberInput = screen.getByPlaceholderText('1');
 
 	await userEvent.type(myNumberInput, '11');
 	expect(myNumberInput.value).toBeNull;

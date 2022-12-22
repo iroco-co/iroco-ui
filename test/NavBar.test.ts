@@ -1,9 +1,8 @@
-/*global test, expect, vi*/
 import '@testing-library/jest-dom/extend-expect';
 import { render, within } from '@testing-library/svelte';
 import Navigation from '$lib/Navigation.svelte';
 import userEvent from '@testing-library/user-event';
-import {NavigationItem} from "$lib";
+import { NavigationItem } from '$lib';
 
 test('Check render', () => {
 	const { getByTestId } = render(Navigation, { navigationItems: [], title: '', type: 'sidebar' });
@@ -22,10 +21,10 @@ test('Should have one navigation link nœavigation items', () => {
 	const sideBar = getByTestId('sidebar');
 	expect(within(sideBar).getByText('go to madrid')).toBeInTheDocument();
 	expect(within(sideBar).getByText('go to madrid')).not.toHaveClass('iroco-ui-button');
-	expect(within(sideBar).getByText('go to madrid').href).toEqual('http://localhost/Madrid');
+	expect(within(sideBar).getByText('go to madrid').href).toEqual('http://localhost:3000/Madrid');
 });
 
-test('Should display one item of type link', () => {
+test('Should display one item of type link', async () => {
 	const cb = vi.fn();
 	const { getByTestId, getAllByText } = render(Navigation, {
 		navigationItems: [new NavigationItem('with callback', cb)],
@@ -36,13 +35,13 @@ test('Should display one item of type link', () => {
 	expect(getAllByText('HomePage')).toHaveLength(2);
 
 	const sideBar = getByTestId('sidebar');
-	let menuItem = within(sideBar).getByText('with callback');
+	const menuItem = within(sideBar).getByText('with callback');
 	expect(menuItem).not.toHaveClass('iroco-ui-button');
 	expect(menuItem).not.toHaveClass('iroco-ui-button--small');
 	expect(menuItem).not.toHaveClass('iroco-ui-button--success');
-	expect(menuItem.href).toEqual('http://localhost/#');
+	expect(menuItem.href).toEqual('http://localhost:3000/#');
 
-	userEvent.click(menuItem);
+	await userEvent.click(menuItem);
 	expect(cb).toHaveBeenCalled();
 });
 

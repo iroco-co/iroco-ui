@@ -1,4 +1,3 @@
-/*global test, expect, vi*/
 import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/svelte';
 import TextInput from '$lib/TextInput.svelte';
@@ -53,7 +52,7 @@ test('Check input field', () => {
 test('Check value for input text', async () => {
 	render(TextInput, { id: 'id', type: 'text', placeholder: 'myPlaceholder' });
 
-	let myInput = screen.getByPlaceholderText('myPlaceholder');
+	const myInput = screen.getByPlaceholderText('myPlaceholder');
 	await userEvent.type(myInput, 'blabla');
 
 	expect(myInput.value).toBe('blabla');
@@ -63,7 +62,7 @@ test('Check readonly propriety', async () => {
 	const readonly = true;
 	render(TextInput, { id: 'id', type: 'text', placeholder: 'blabla', readonly });
 
-	let myInput = screen.getByPlaceholderText('blabla');
+	const myInput = screen.getByPlaceholderText('blabla');
 	await userEvent.type(myInput, 'blibli');
 
 	expect(myInput.value).not.toBe('blibli');
