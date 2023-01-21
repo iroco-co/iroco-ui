@@ -53,14 +53,6 @@
 		box-shadow: none;
 	}
 
-	.iroco-ui-link {
-		background: none;
-		border: none;
-		font-family: fonts.$arial;
-		color: colors.$beige;
-		cursor: pointer;
-	}
-
 	&.disabled {
 		background-color: colors.$lightGrey;
 		cursor: default;
@@ -68,4 +60,12 @@
 			box-shadow: none;
 		}
 	}
+}
+
+.iroco-ui-link {
+	background: none;
+	border: none;
+	font-family: fonts.$arial;
+	color: colors.$beige;
+	cursor: pointer;
 }
