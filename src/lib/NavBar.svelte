@@ -3,6 +3,7 @@
 	import type { NavigationItem } from './definition';
 	import { createEventDispatcher } from 'svelte';
 	import { navigating } from '$app/stores';
+	import { NavigationItemType } from '$lib/definition.js';
 
 	export let navigationItems: Array<NavigationItem>;
 	export let type: 'sidebar' | 'topbar';
@@ -36,15 +37,21 @@
 	<ul class="nav__{type}__item-container">
 		{#each navigationItems as item}
 			<li class="nav__{type}__item" class:active={isActive(active, item)}>
-				<a
-					on:click={() => handleClickLink(item)}
-					href={typeof item.hrefOrCallback === 'string' ? item.hrefOrCallback : '#'}
-					class:iroco-ui-button={item.button}
-					class:iroco-ui-button--small={item.button}
-					class:iroco-ui-button--success={item.button}
-				>
-					{item.name}
-				</a>
+				{#if item.type === NavigationItemType.FORM}
+					<form method="POST" action={item.hrefOrCallback}>
+						<button class="iroco-ui-link" type="submit">{item.name}</button>
+					</form>
+				{:else}
+					<a
+						on:click={() => handleClickLink(item)}
+						href={typeof item.hrefOrCallback === 'string' ? item.hrefOrCallback : '#'}
+						class:iroco-ui-button={item.type === NavigationItemType.BUTTON}
+						class:iroco-ui-button--small={item.type === NavigationItemType.BUTTON}
+						class:iroco-ui-button--success={item.type === NavigationItemType.BUTTON}
+					>
+						{item.name}
+					</a>
+				{/if}
 			</li>
 		{/each}
 	</ul>

@@ -1,13 +1,23 @@
 export class NavigationItem {
 	hrefOrCallback: string | (() => void);
 	name: string;
-	button: boolean;
+	type: NavigationItemType;
 
-	constructor(name: string, hrefOrCallback: string | (() => void), button = false) {
+	constructor(
+		name: string,
+		hrefOrCallback: string | (() => void),
+		type = NavigationItemType.ANCHOR
+	) {
 		this.hrefOrCallback = hrefOrCallback;
 		this.name = name;
-		this.button = button;
+		this.type = type;
 	}
+}
+
+export enum NavigationItemType {
+	BUTTON,
+	ANCHOR,
+	FORM
 }
 
 export enum TextInputType {

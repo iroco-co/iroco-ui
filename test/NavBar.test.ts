@@ -3,13 +3,14 @@ import { render, within } from '@testing-library/svelte';
 import Navigation from '$lib/Navigation.svelte';
 import userEvent from '@testing-library/user-event';
 import { NavigationItem } from '$lib';
+import { NavigationItemType } from '../src/lib';
 
 test('Check render', () => {
 	const { getByTestId } = render(Navigation, { navigationItems: [], title: '', type: 'sidebar' });
 	expect(getByTestId('sidebar')).toBeInTheDocument();
 });
 
-test('Should have one navigation link nœavigation items', () => {
+test('Should have one navigation link navigation items', () => {
 	const { getByTestId, getAllByText } = render(Navigation, {
 		navigationItems: [new NavigationItem('go to madrid', '/Madrid')],
 		title: 'HomePage',
@@ -47,11 +48,23 @@ test('Should display one item of type link', async () => {
 
 test('Should display one item as button', async () => {
 	const { findByText } = render(Navigation, {
-		navigationItems: [new NavigationItem('with callback', 'link', true)],
+		navigationItems: [new NavigationItem('with callback', 'link', NavigationItemType.BUTTON)],
 		title: 'HomePage',
 		type: 'sidebar'
 	});
 	expect(await findByText('with callback')).toHaveClass('iroco-ui-button');
 	expect(await findByText('with callback')).toHaveClass('iroco-ui-button--small');
 	expect(await findByText('with callback')).toHaveClass('iroco-ui-button--success');
+});
+
+test('Should display one item as post form', async () => {
+	const { findByText } = render(Navigation, {
+		navigationItems: [new NavigationItem('with form post', 'link', NavigationItemType.FORM)],
+		title: 'Logout',
+		type: 'sidebar'
+	});
+	const button = await findByText('with form post');
+	expect(button.nodeName).toEqual('BUTTON');
+	expect(button).toHaveClass('iroco-ui-link');
+	expect(button.parentNode?.nodeName).toEqual('FORM');
 });
