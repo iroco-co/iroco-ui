@@ -7,6 +7,7 @@
 
 	export let navigationItems: Array<NavigationItem>;
 	export let type: 'sidebar' | 'topbar';
+	export let version: string | null = null;
 
 	let active: string;
 	const dispatch = createEventDispatcher();
@@ -55,6 +56,7 @@
 			</li>
 		{/each}
 	</ul>
+	<div class="nav__version">{version == null ? '' : version}</div>
 </nav>
 
 <style lang="scss">
@@ -99,6 +101,11 @@
 			.active {
 				border-top: 1px solid colors.$green;
 				border-bottom: 1px solid colors.$green;
+			}
+			&__version {
+				margin-left: auto;
+				padding-left: 2em;
+				color: colors.$mediumGrey;
 			}
 		}
 
@@ -158,6 +165,9 @@
 				left: 0;
 				&__item:first-child {
 					border-top: 1px solid colors.$mediumGrey;
+				}
+				&__version {
+					display: none;
 				}
 			}
 

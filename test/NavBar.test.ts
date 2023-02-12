@@ -68,3 +68,19 @@ test('Should display one item as post form', async () => {
 	expect(button).toHaveClass('iroco-ui-link');
 	expect(button.parentNode?.nodeName).toEqual('FORM');
 });
+
+test('Should display version when provided', async () => {
+	const { getByText } = render(Navigation, {
+		navigationItems: [],
+		title: '',
+		type: 'sidebar',
+		version: '1.2.3'
+	});
+	expect(getByText('1.2.3')).toBeInTheDocument();
+	expect(getByText('1.2.3')).toHaveClass('nav__version');
+});
+
+test('Should not display version when not provided', async () => {
+	const { container } = render(Navigation, { navigationItems: [], title: '', type: 'sidebar' });
+	expect(container.querySelector('.nav__version')?.textContent).toEqual('');
+});

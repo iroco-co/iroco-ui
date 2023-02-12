@@ -8,6 +8,7 @@
 	export let navigationItems: Array<NavigationItem>;
 	export let type: 'sidebar' | 'topbar' = 'topbar';
 	export let title: string | null = null;
+	export let version: string | null = null;
 
 	let showMenu = false;
 </script>
@@ -32,6 +33,7 @@
 			on:click={() => (showMenu = false)}
 			{type}
 			{navigationItems}
+			{version}
 		/>
 	{/if}
 </div>
@@ -45,7 +47,7 @@
 			<h1>{title}</h1>
 		{/if}
 	</div>
-	<NavBar {navigationItems} {type} />
+	<NavBar {navigationItems} {type} {version} />
 </div>
 
 <style lang="scss">
