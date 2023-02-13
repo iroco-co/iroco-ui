@@ -85,6 +85,8 @@
 			top: 4.45em;
 			left: 0;
 			overflow-x: hidden;
+			display: flex;
+			flex-direction: column;
 			&__item-container {
 				margin: 0;
 				padding: 0;
