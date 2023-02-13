@@ -88,8 +88,6 @@
 			&__item-container {
 				margin: 0;
 				padding: 0;
-				width: 100%;
-				height: 100%;
 			}
 			&__item {
 				padding: 2em;
@@ -101,11 +99,6 @@
 			.active {
 				border-top: 1px solid colors.$green;
 				border-bottom: 1px solid colors.$green;
-			}
-			&__version {
-				margin-left: auto;
-				padding-left: 2em;
-				color: colors.$mediumGrey;
 			}
 		}
 
@@ -125,6 +118,12 @@
 			.active {
 				border-bottom: 1px solid colors.$green;
 			}
+		}
+
+		&__version {
+			margin-top: auto;
+			padding-left: 2em;
+			color: colors.$mediumGrey;
 		}
 	}
 
@@ -166,9 +165,6 @@
 				&__item:first-child {
 					border-top: 1px solid colors.$mediumGrey;
 				}
-				&__version {
-					display: none;
-				}
 			}
 
 			&__topbar {
@@ -177,6 +173,10 @@
 					padding: 2em;
 					border-top: 1px solid colors.$mediumGrey;
 				}
+			}
+
+			&__version {
+				display: none;
 			}
 		}
 	}
