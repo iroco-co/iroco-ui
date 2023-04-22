@@ -11,6 +11,7 @@
 	@use './scss/colors';
 	@use './scss/constants';
 	.alert {
+		flex-direction: column;
 		min-height: 2em;
 		display: inline-flex;
 		align-items: center;
