@@ -1,11 +1,10 @@
 <script lang="ts">
 	export let type: 'success' | 'danger' = 'success';
-	export let content: string;
 	export let callback: (e: Event) => void;
 </script>
 
 <div class={`alert alert--${type}`} on:click={callback}>
-	{content}
+	<slot />
 </div>
 
 <style lang="scss">
