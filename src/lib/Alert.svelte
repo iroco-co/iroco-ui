@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let type: 'success' | 'danger' = 'success';
+	export let type: 'success' | 'danger' | 'flash' = 'success';
 	export let callback: (e: Event) => void;
 </script>
 
@@ -28,6 +28,10 @@
 		&--success {
 			background-color: rgba(colors.$green, 0.5);
 			border: 1px solid colors.$green;
+		}
+		&--flash {
+			background-color: rgba(colors.$yellow, 0.5);
+			border: 1px solid colors.$yellow;
 		}
 	}
 </style>
