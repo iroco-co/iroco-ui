@@ -1,9 +1,14 @@
 <script lang="ts">
+	import IconClose from '$lib/IconClose.svelte';
+
 	export let type: 'success' | 'danger' | 'flash' = 'success';
 	export let callback: (e: Event) => void;
 </script>
 
-<div class={`alert alert--${type}`} on:click={callback}>
+<div class={`alert alert--${type}`}>
+	<button on:click={callback} class="alert__close">
+		<IconClose width="2em" height="2em" />
+	</button>
 	<slot />
 </div>
 
@@ -12,6 +17,7 @@
 	@use './scss/constants';
 	.alert {
 		flex-direction: column;
+		position: relative;
 		min-height: 2em;
 		display: inline-flex;
 		align-items: center;
@@ -20,7 +26,6 @@
 		font-size: 1.2em;
 		justify-content: center;
 		margin-bottom: 1em;
-		cursor: pointer;
 		&--danger {
 			background-color: rgba(colors.$red, 0.5);
 			border: 1px solid colors.$red;
@@ -32,6 +37,16 @@
 		&--flash {
 			background-color: rgba(colors.$yellow, 0.5);
 			border: 1px solid colors.$yellow;
+		}
+		&__close {
+			display: block;
+			position: absolute;
+			right: 0;
+			top: 0;
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+			color: colors.$beige;
 		}
 	}
 </style>

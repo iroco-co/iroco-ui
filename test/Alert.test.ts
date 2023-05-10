@@ -17,7 +17,7 @@ test('Check render danger mode', () => {
 test('Check close callback', () => {
 	const callback = vi.fn();
 	const { container } = render(Alert, { type: 'danger', callback });
-	fireEvent.click(<Element>container.querySelector('.alert'));
+	fireEvent.click(<Element>container.querySelector('.alert__close'));
 
 	expect(callback).toHaveBeenCalled();
 });
