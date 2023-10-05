@@ -3,10 +3,9 @@
 	"version": "0.54.0",
 	"description": "Iroco design system based on Svelte",
 	"main": "lib/index.ts",
-	"svelte": "index.js",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "svelte-kit sync && svelte-package",
+		"build": "svelte-kit sync && svelte-package -o package",
 		"prepublishOnly": "echo 'Did you mean to publish `./package/`, instead of `./`?' && exit 1",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -19,7 +18,7 @@
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^1.0.0",
 		"@sveltejs/kit": "^1.16.3",
-		"@sveltejs/package": "^1.0.0",
+		"@sveltejs/package": "^2.0.0",
 		"@testing-library/jest-dom": "^5.16.5",
 		"@testing-library/svelte": "^3.2.2",
 		"@testing-library/user-event": "^14.4.3",
@@ -54,5 +53,217 @@
 			"eslint"
 		]
 	},
-	"type": "module"
+	"type": "module",
+	"exports": {
+		"./package.json": "./package.json",
+		"./Alert.svelte": {
+			"types": "./package/Alert.svelte.d.ts",
+			"svelte": "./package/Alert.svelte",
+			"default": "./package/Alert.svelte"
+		},
+		"./Button.svelte": {
+			"types": "./package/Button.svelte.d.ts",
+			"svelte": "./package/Button.svelte",
+			"default": "./package/Button.svelte"
+		},
+		"./DataTable.svelte": {
+			"types": "./package/DataTable.svelte.d.ts",
+			"svelte": "./package/DataTable.svelte",
+			"default": "./package/DataTable.svelte"
+		},
+		"./IconBurger.svelte": {
+			"types": "./package/IconBurger.svelte.d.ts",
+			"svelte": "./package/IconBurger.svelte",
+			"default": "./package/IconBurger.svelte"
+		},
+		"./IconClose.svelte": {
+			"types": "./package/IconClose.svelte.d.ts",
+			"svelte": "./package/IconClose.svelte",
+			"default": "./package/IconClose.svelte"
+		},
+		"./IconFloppyDisk.svelte": {
+			"types": "./package/IconFloppyDisk.svelte.d.ts",
+			"svelte": "./package/IconFloppyDisk.svelte",
+			"default": "./package/IconFloppyDisk.svelte"
+		},
+		"./IconInfo.svelte": {
+			"types": "./package/IconInfo.svelte.d.ts",
+			"svelte": "./package/IconInfo.svelte",
+			"default": "./package/IconInfo.svelte"
+		},
+		"./IconIrocoLogo.svelte": {
+			"types": "./package/IconIrocoLogo.svelte.d.ts",
+			"svelte": "./package/IconIrocoLogo.svelte",
+			"default": "./package/IconIrocoLogo.svelte"
+		},
+		"./IconMastodon.svelte": {
+			"types": "./package/IconMastodon.svelte.d.ts",
+			"svelte": "./package/IconMastodon.svelte",
+			"default": "./package/IconMastodon.svelte"
+		},
+		"./IconMoreSign.svelte": {
+			"types": "./package/IconMoreSign.svelte.d.ts",
+			"svelte": "./package/IconMoreSign.svelte",
+			"default": "./package/IconMoreSign.svelte"
+		},
+		"./IconTrashCan.svelte": {
+			"types": "./package/IconTrashCan.svelte.d.ts",
+			"svelte": "./package/IconTrashCan.svelte",
+			"default": "./package/IconTrashCan.svelte"
+		},
+		"./IrocoLogo.svelte": {
+			"types": "./package/IrocoLogo.svelte.d.ts",
+			"svelte": "./package/IrocoLogo.svelte",
+			"default": "./package/IrocoLogo.svelte"
+		},
+		"./Loader.svelte": {
+			"types": "./package/Loader.svelte.d.ts",
+			"svelte": "./package/Loader.svelte",
+			"default": "./package/Loader.svelte"
+		},
+		"./NavBar.svelte": {
+			"types": "./package/NavBar.svelte.d.ts",
+			"svelte": "./package/NavBar.svelte",
+			"default": "./package/NavBar.svelte"
+		},
+		"./Navigation.svelte": {
+			"types": "./package/Navigation.svelte.d.ts",
+			"svelte": "./package/Navigation.svelte",
+			"default": "./package/Navigation.svelte"
+		},
+		"./NumberInput.svelte": {
+			"types": "./package/NumberInput.svelte.d.ts",
+			"svelte": "./package/NumberInput.svelte",
+			"default": "./package/NumberInput.svelte"
+		},
+		"./NumberInputSized.svelte": {
+			"types": "./package/NumberInputSized.svelte.d.ts",
+			"svelte": "./package/NumberInputSized.svelte",
+			"default": "./package/NumberInputSized.svelte"
+		},
+		"./RadioButton.svelte": {
+			"types": "./package/RadioButton.svelte.d.ts",
+			"svelte": "./package/RadioButton.svelte",
+			"default": "./package/RadioButton.svelte"
+		},
+		"./RadioButtonTest.svelte": {
+			"types": "./package/RadioButtonTest.svelte.d.ts",
+			"svelte": "./package/RadioButtonTest.svelte",
+			"default": "./package/RadioButtonTest.svelte"
+		},
+		"./SlottedComponentWrapper.svelte": {
+			"types": "./package/SlottedComponentWrapper.svelte.d.ts",
+			"svelte": "./package/SlottedComponentWrapper.svelte",
+			"default": "./package/SlottedComponentWrapper.svelte"
+		},
+		"./TextInput.svelte": {
+			"types": "./package/TextInput.svelte.d.ts",
+			"svelte": "./package/TextInput.svelte",
+			"default": "./package/TextInput.svelte"
+		},
+		"./TopBar.svelte": {
+			"types": "./package/TopBar.svelte.d.ts",
+			"svelte": "./package/TopBar.svelte",
+			"default": "./package/TopBar.svelte"
+		},
+		"./definition": {
+			"types": "./package/definition.d.ts",
+			"default": "./package/definition.js"
+		},
+		".": {
+			"types": "./package/index.d.ts",
+			"svelte": "./package/index.js",
+			"default": "./package/index.js"
+		},
+		"./scss/button.scss": "./package/scss/button.scss",
+		"./scss/check.scss": "./package/scss/check.scss",
+		"./scss/colors.scss": "./package/scss/colors.scss",
+		"./scss/constants.scss": "./package/scss/constants.scss",
+		"./scss/containers.scss": "./package/scss/containers.scss",
+		"./scss/fonts.scss": "./package/scss/fonts.scss",
+		"./scss/forms.scss": "./package/scss/forms.scss",
+		"./scss/iroco.scss": "./package/scss/iroco.scss",
+		"./scss/layouts.scss": "./package/scss/layouts.scss",
+		"./scss/loader.scss": "./package/scss/loader.scss",
+		"./scss/style.scss": "./package/scss/style.scss"
+	},
+	"files": [
+		"package"
+	],
+	"typesVersions": {
+		">4.0": {
+			"Alert.svelte": [
+				"./package/Alert.svelte.d.ts"
+			],
+			"Button.svelte": [
+				"./package/Button.svelte.d.ts"
+			],
+			"DataTable.svelte": [
+				"./package/DataTable.svelte.d.ts"
+			],
+			"IconBurger.svelte": [
+				"./package/IconBurger.svelte.d.ts"
+			],
+			"IconClose.svelte": [
+				"./package/IconClose.svelte.d.ts"
+			],
+			"IconFloppyDisk.svelte": [
+				"./package/IconFloppyDisk.svelte.d.ts"
+			],
+			"IconInfo.svelte": [
+				"./package/IconInfo.svelte.d.ts"
+			],
+			"IconIrocoLogo.svelte": [
+				"./package/IconIrocoLogo.svelte.d.ts"
+			],
+			"IconMastodon.svelte": [
+				"./package/IconMastodon.svelte.d.ts"
+			],
+			"IconMoreSign.svelte": [
+				"./package/IconMoreSign.svelte.d.ts"
+			],
+			"IconTrashCan.svelte": [
+				"./package/IconTrashCan.svelte.d.ts"
+			],
+			"IrocoLogo.svelte": [
+				"./package/IrocoLogo.svelte.d.ts"
+			],
+			"Loader.svelte": [
+				"./package/Loader.svelte.d.ts"
+			],
+			"NavBar.svelte": [
+				"./package/NavBar.svelte.d.ts"
+			],
+			"Navigation.svelte": [
+				"./package/Navigation.svelte.d.ts"
+			],
+			"NumberInput.svelte": [
+				"./package/NumberInput.svelte.d.ts"
+			],
+			"NumberInputSized.svelte": [
+				"./package/NumberInputSized.svelte.d.ts"
+			],
+			"RadioButton.svelte": [
+				"./package/RadioButton.svelte.d.ts"
+			],
+			"RadioButtonTest.svelte": [
+				"./package/RadioButtonTest.svelte.d.ts"
+			],
+			"SlottedComponentWrapper.svelte": [
+				"./package/SlottedComponentWrapper.svelte.d.ts"
+			],
+			"TextInput.svelte": [
+				"./package/TextInput.svelte.d.ts"
+			],
+			"TopBar.svelte": [
+				"./package/TopBar.svelte.d.ts"
+			],
+			"definition": [
+				"./package/definition.d.ts"
+			],
+			"index.d.ts": [
+				"./package/index.d.ts"
+			]
+		}
+	}
 }
