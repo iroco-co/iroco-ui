@@ -5,6 +5,7 @@
 		title: string;
 		renderComponent?: {
 			component: SvelteComponent;
+			/* eslint-disable @typescript-eslint/no-explicit-any */
 			props?: any;
 		};
 	};
