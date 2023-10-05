@@ -23,7 +23,7 @@ Building :
 Releasing :
 
 ```shell
-~/iroco-ui$ cd package ; npm publish
+~/iroco-ui$ npm publish
 ```
 
 # documentation (to be done with storybook)
