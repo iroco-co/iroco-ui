@@ -40,7 +40,7 @@ jobs:
       - persist_to_workspace:
           root: ./
           paths:
-            - package
+            - dist
 
   deploy-docs:
     docker:
