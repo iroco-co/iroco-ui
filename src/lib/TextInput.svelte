@@ -10,10 +10,11 @@
 	export let error: string | null = null;
 	export let htmlError = false;
 	export let value: string | null = null;
-	export let onFocus: (e: FocusEvent) => void;
-	export let onBlur: (e: Event) => void;
+	export let onFocus: (e: FocusEvent) => void | null;
+	export let onBlur: (e: Event) => void | null;
 	export let readonly = false;
 	export let border = false;
+	export let autocomplete = 'on';
 
 	function typeAction(node: HTMLInputElement) {
 		node.type = type;
@@ -38,6 +39,7 @@
 		class:readonlyInput={readonly == true}
 		use:typeAction
 		{readonly}
+		{autocomplete}
 	/>
 	{#if error != null}
 		<p data-testid="error" class="error">

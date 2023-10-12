@@ -68,6 +68,14 @@ test('Check readonly propriety', async () => {
 	expect(myInput.value).not.toBe('blibli');
 });
 
+test('Check autocomplete propriety', async () => {
+	const autocomplete = 'password-change';
+	render(TextInput, { id: 'id', type: 'text', placeholder: 'blabla', autocomplete });
+
+	const myInput = screen.getByPlaceholderText('blabla');
+	expect(myInput['autocomplete']).toEqual('password-change');
+});
+
 test('Focus on textInput calls callback property', () => {
 	const onFocus = vi.fn();
 	const onBlur = vi.fn();
