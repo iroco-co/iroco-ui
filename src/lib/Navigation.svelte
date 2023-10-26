@@ -4,12 +4,13 @@
 	import IconIrocoLogo from './IconIrocoLogo.svelte';
 	import IrocoLogo from './IrocoLogo.svelte';
 	import NavBar from './NavBar.svelte';
+	import { Color } from './definition';
 
 	export let navigationItems: Array<NavigationItem>;
 	export let type: 'sidebar' | 'topbar' = 'topbar';
 	export let title: string | null = null;
 	export let version: string | null = null;
-
+	export let color: Color = Color.green;
 	let showMenu = false;
 </script>
 
@@ -18,7 +19,7 @@
 		{#if title == null}
 			<IrocoLogo width="10em" height="10em" />
 		{:else}
-			<IconIrocoLogo width="3em" height="3em" />
+			<IconIrocoLogo width="3em" height="3em" {color} />
 			<h1>{title}</h1>
 		{/if}
 	</div>
