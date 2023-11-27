@@ -98,11 +98,6 @@
 			"svelte": "./dist/IconIrocoLogo.svelte",
 			"default": "./dist/IconIrocoLogo.svelte"
 		},
-		"./IconMastodon.svelte": {
-			"types": "./dist/IconMastodon.svelte.d.ts",
-			"svelte": "./dist/IconMastodon.svelte",
-			"default": "./dist/IconMastodon.svelte"
-		},
 		"./IconMoreSign.svelte": {
 			"types": "./dist/IconMoreSign.svelte.d.ts",
 			"svelte": "./dist/IconMoreSign.svelte",

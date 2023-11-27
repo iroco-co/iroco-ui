@@ -5,7 +5,6 @@ export { default as RadioButton } from './RadioButton.svelte';
 export { default as NumberInput } from './NumberInput.svelte';
 export { default as Loader } from './Loader.svelte';
 export { default as IconInfo } from './IconInfo.svelte';
-export { default as IconMastodon } from './IconMastodon.svelte';
 export { default as NavBar } from './NavBar.svelte';
 export { default as Navigation } from './Navigation.svelte';
 export { default as DataTable } from './DataTable.svelte';
