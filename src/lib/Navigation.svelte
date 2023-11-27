@@ -24,7 +24,7 @@
 		{/if}
 	</div>
 
-	<button on:click={() => (showMenu = true)} class="navigation--mobile__button">
+	<button title="Menu button" on:click={() => (showMenu = true)} class="navigation--mobile__button">
 		<IconBurger width="3em" height="3em" />
 	</button>
 
