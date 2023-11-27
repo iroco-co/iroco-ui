@@ -13,7 +13,7 @@
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
 		"clean": "rm -rf dist && npm cache clean --force",
-		"release": "npm run format && release-it --only-version"
+		"release": "npm run format && npm run build && release-it --only-version"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.0",
