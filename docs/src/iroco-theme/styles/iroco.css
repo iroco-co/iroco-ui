@@ -187,13 +187,6 @@
 	font-size: 14px;
 }
 
-.iroco-ui-form input:focus,
-.iroco-ui-form textarea:focus {
-	outline: 0;
-	text-decoration: none;
-	font-size: 14px;
-}
-
 .iroco-ui-form .iroco-ui-input > input {
 	color: #f2ebe3;
 	background: #211d28;
@@ -459,13 +452,6 @@ html > body {
 
 .iroco-ui-form input,
 .iroco-ui-form textarea {
-	outline: 0;
-	text-decoration: none;
-	font-size: 14px;
-}
-
-.iroco-ui-form input:focus,
-.iroco-ui-form textarea:focus {
 	outline: 0;
 	text-decoration: none;
 	font-size: 14px;
