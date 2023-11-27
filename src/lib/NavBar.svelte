@@ -31,7 +31,7 @@
 </script>
 
 <nav data-testid={type} class="nav__{type}">
-	<button on:click class="nav__{type}__close">
+	<button title="Close menu" on:click class="nav__{type}__close">
 		<IconClose width="3em" height="3em" />
 	</button>
 

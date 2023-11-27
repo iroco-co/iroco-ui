@@ -9,9 +9,9 @@
 	}
 </script>
 
-<a class="iroco-logo" href="/" on:click={clickOnLogo}>
-	<svg viewBox="0 0 832.33 249.52" {width} {height}>
-		<title>Iroco</title>
+<a class="iroco-logo" href="/" aria-label="go to Iroco home" on:click={clickOnLogo}>
+	<svg viewBox="0 0 832.33 249.52" role="img" {width} {height}>
+		<title>Iroco Logo</title>
 		<path
 			fill="white"
 			d="M412,81.41c-7.34,0-12.07-5.19-12.07-12.37S404.77,56.66,412,56.66,424.17,61.85,424.17,69,419.13,81.41,412,81.41Zm10.7,118.4H401V103.54h21.7Z"

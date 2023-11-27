@@ -28,5 +28,6 @@ test('Check render with logo', () => {
 	const logoLink = container.querySelector('.navigation__title-container a.iroco-logo');
 	expect(logoLink).not.toBeNull();
 	expect(logoLink.href).toEqual('http://localhost:3000/');
+	expect(logoLink.getAttribute('aria-label')).toEqual('go to Iroco home');
 	expect(logoLink).toBeVisible();
 });
