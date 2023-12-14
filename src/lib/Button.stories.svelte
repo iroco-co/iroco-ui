@@ -1,5 +1,5 @@
 <script context="module" type="ts">
-    import Button from '../lib/Button.svelte';
+    import Button from './Button.svelte';
 
     export const meta = {
         title: "Button",
