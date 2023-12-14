@@ -1,263 +1,274 @@
 {
-	"name": "@iroco/ui",
-	"version": "0.62.5",
-	"description": "Iroco design system based on Svelte",
-	"main": "dist/index.js",
-	"scripts": {
-		"dev": "vite dev",
-		"build": "svelte-kit sync && svelte-package",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"test:watch": "vitest",
-		"test": "vitest --run",
-		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write .",
-		"clean": "rm -rf dist && npm cache clean --force",
-		"release": "npm run format && npm run build && release-it --only-version"
-	},
-	"devDependencies": {
-		"@sveltejs/adapter-auto": "^2.0.0",
-		"@sveltejs/kit": "^1.20.4",
-		"@sveltejs/package": "^2.0.0",
-		"@testing-library/jest-dom": "^5.16.5",
-		"@testing-library/svelte": "^4.0.3",
-		"@testing-library/user-event": "^14.4.3",
-		"@typescript-eslint/eslint-plugin": "^6.0.0",
-		"@typescript-eslint/parser": "^6.0.0",
-		"eslint": "^8.28.0",
-		"eslint-config-prettier": "^8.5.0",
-		"eslint-plugin-svelte": "^2.30.0",
-		"jsdom": "^20.0.3",
-		"lint-staged": "^13.1.0",
-		"prettier": "^2.8.0",
-		"prettier-plugin-svelte": "^2.10.1",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"release-it": "^17.0.0",
-		"sass": "^1.57.0",
-		"svelte": "^4.0.5",
-		"svelte-check": "^3.4.3",
-		"testing-library": "^0.0.2",
-		"tslib": "^2.4.1",
-		"typescript": "^5.0.0",
-		"vite": "^4.4.2",
-		"vitest": "^0.34.0"
-	},
-	"peerDependencies": {
-		"@sveltejs/kit": "^1.16.3",
-		"svelte": "^4.2.1"
-	},
-	"lint-staged": {
-		"*.{js,ts,svelte}": [
-			"eslint"
-		]
-	},
-	"type": "module",
-	"exports": {
-		"./package.json": "./package.json",
-		"./Alert.svelte": {
-			"types": "./dist/Alert.svelte.d.ts",
-			"svelte": "./dist/Alert.svelte",
-			"default": "./dist/Alert.svelte"
-		},
-		"./Button.svelte": {
-			"types": "./dist/Button.svelte.d.ts",
-			"svelte": "./dist/Button.svelte",
-			"default": "./dist/Button.svelte"
-		},
-		"./DataTable.svelte": {
-			"types": "./dist/DataTable.svelte.d.ts",
-			"svelte": "./dist/DataTable.svelte",
-			"default": "./dist/DataTable.svelte"
-		},
-		"./IconBurger.svelte": {
-			"types": "./dist/IconBurger.svelte.d.ts",
-			"svelte": "./dist/IconBurger.svelte",
-			"default": "./dist/IconBurger.svelte"
-		},
-		"./IconClose.svelte": {
-			"types": "./dist/IconClose.svelte.d.ts",
-			"svelte": "./dist/IconClose.svelte",
-			"default": "./dist/IconClose.svelte"
-		},
-		"./IconFloppyDisk.svelte": {
-			"types": "./dist/IconFloppyDisk.svelte.d.ts",
-			"svelte": "./dist/IconFloppyDisk.svelte",
-			"default": "./dist/IconFloppyDisk.svelte"
-		},
-		"./IconInfo.svelte": {
-			"types": "./dist/IconInfo.svelte.d.ts",
-			"svelte": "./dist/IconInfo.svelte",
-			"default": "./dist/IconInfo.svelte"
-		},
-		"./IconIrocoLogo.svelte": {
-			"types": "./dist/IconIrocoLogo.svelte.d.ts",
-			"svelte": "./dist/IconIrocoLogo.svelte",
-			"default": "./dist/IconIrocoLogo.svelte"
-		},
-		"./IconMoreSign.svelte": {
-			"types": "./dist/IconMoreSign.svelte.d.ts",
-			"svelte": "./dist/IconMoreSign.svelte",
-			"default": "./dist/IconMoreSign.svelte"
-		},
-		"./IconTrashCan.svelte": {
-			"types": "./dist/IconTrashCan.svelte.d.ts",
-			"svelte": "./dist/IconTrashCan.svelte",
-			"default": "./dist/IconTrashCan.svelte"
-		},
-		"./IrocoLogo.svelte": {
-			"types": "./dist/IrocoLogo.svelte.d.ts",
-			"svelte": "./dist/IrocoLogo.svelte",
-			"default": "./dist/IrocoLogo.svelte"
-		},
-		"./Loader.svelte": {
-			"types": "./dist/Loader.svelte.d.ts",
-			"svelte": "./dist/Loader.svelte",
-			"default": "./dist/Loader.svelte"
-		},
-		"./NavBar.svelte": {
-			"types": "./dist/NavBar.svelte.d.ts",
-			"svelte": "./dist/NavBar.svelte",
-			"default": "./dist/NavBar.svelte"
-		},
-		"./Navigation.svelte": {
-			"types": "./dist/Navigation.svelte.d.ts",
-			"svelte": "./dist/Navigation.svelte",
-			"default": "./dist/Navigation.svelte"
-		},
-		"./NumberInput.svelte": {
-			"types": "./dist/NumberInput.svelte.d.ts",
-			"svelte": "./dist/NumberInput.svelte",
-			"default": "./dist/NumberInput.svelte"
-		},
-		"./NumberInputSized.svelte": {
-			"types": "./dist/NumberInputSized.svelte.d.ts",
-			"svelte": "./dist/NumberInputSized.svelte",
-			"default": "./dist/NumberInputSized.svelte"
-		},
-		"./RadioButton.svelte": {
-			"types": "./dist/RadioButton.svelte.d.ts",
-			"svelte": "./dist/RadioButton.svelte",
-			"default": "./dist/RadioButton.svelte"
-		},
-		"./RadioButtonTest.svelte": {
-			"types": "./dist/RadioButtonTest.svelte.d.ts",
-			"svelte": "./dist/RadioButtonTest.svelte",
-			"default": "./dist/RadioButtonTest.svelte"
-		},
-		"./SlottedComponentWrapper.svelte": {
-			"types": "./dist/SlottedComponentWrapper.svelte.d.ts",
-			"svelte": "./dist/SlottedComponentWrapper.svelte",
-			"default": "./dist/SlottedComponentWrapper.svelte"
-		},
-		"./TextInput.svelte": {
-			"types": "./dist/TextInput.svelte.d.ts",
-			"svelte": "./dist/TextInput.svelte",
-			"default": "./dist/TextInput.svelte"
-		},
-		"./TopBar.svelte": {
-			"types": "./dist/TopBar.svelte.d.ts",
-			"svelte": "./dist/TopBar.svelte",
-			"default": "./dist/TopBar.svelte"
-		},
-		"./definition": {
-			"types": "./dist/definition.d.ts",
-			"default": "./dist/definition.js"
-		},
-		".": {
-			"types": "./dist/index.d.ts",
-			"svelte": "./dist/index.js",
-			"default": "./dist/index.js"
-		},
-		"./scss/button.scss": "./dist/scss/button.scss",
-		"./scss/check.scss": "./dist/scss/check.scss",
-		"./scss/colors.scss": "./dist/scss/colors.scss",
-		"./scss/constants.scss": "./dist/scss/constants.scss",
-		"./scss/containers.scss": "./dist/scss/containers.scss",
-		"./scss/fonts.scss": "./dist/scss/fonts.scss",
-		"./scss/forms.scss": "./dist/scss/forms.scss",
-		"./scss/iroco.scss": "./dist/scss/iroco.scss",
-		"./scss/layouts.scss": "./dist/scss/layouts.scss",
-		"./scss/loader.scss": "./dist/scss/loader.scss",
-		"./scss/style.scss": "./dist/scss/style.scss"
-	},
-	"files": [
-		"dist"
-	],
-	"typesVersions": {
-		">4.0": {
-			"Alert.svelte": [
-				"./dist/Alert.svelte.d.ts"
-			],
-			"Button.svelte": [
-				"./dist/Button.svelte.d.ts"
-			],
-			"DataTable.svelte": [
-				"./dist/DataTable.svelte.d.ts"
-			],
-			"IconBurger.svelte": [
-				"./dist/IconBurger.svelte.d.ts"
-			],
-			"IconClose.svelte": [
-				"./dist/IconClose.svelte.d.ts"
-			],
-			"IconFloppyDisk.svelte": [
-				"./dist/IconFloppyDisk.svelte.d.ts"
-			],
-			"IconInfo.svelte": [
-				"./dist/IconInfo.svelte.d.ts"
-			],
-			"IconIrocoLogo.svelte": [
-				"./dist/IconIrocoLogo.svelte.d.ts"
-			],
-			"IconMastodon.svelte": [
-				"./dist/IconMastodon.svelte.d.ts"
-			],
-			"IconMoreSign.svelte": [
-				"./dist/IconMoreSign.svelte.d.ts"
-			],
-			"IconTrashCan.svelte": [
-				"./dist/IconTrashCan.svelte.d.ts"
-			],
-			"IrocoLogo.svelte": [
-				"./dist/IrocoLogo.svelte.d.ts"
-			],
-			"Loader.svelte": [
-				"./dist/Loader.svelte.d.ts"
-			],
-			"NavBar.svelte": [
-				"./dist/NavBar.svelte.d.ts"
-			],
-			"Navigation.svelte": [
-				"./dist/Navigation.svelte.d.ts"
-			],
-			"NumberInput.svelte": [
-				"./dist/NumberInput.svelte.d.ts"
-			],
-			"NumberInputSized.svelte": [
-				"./dist/NumberInputSized.svelte.d.ts"
-			],
-			"RadioButton.svelte": [
-				"./dist/RadioButton.svelte.d.ts"
-			],
-			"RadioButtonTest.svelte": [
-				"./dist/RadioButtonTest.svelte.d.ts"
-			],
-			"SlottedComponentWrapper.svelte": [
-				"./dist/SlottedComponentWrapper.svelte.d.ts"
-			],
-			"TextInput.svelte": [
-				"./dist/TextInput.svelte.d.ts"
-			],
-			"TopBar.svelte": [
-				"./dist/TopBar.svelte.d.ts"
-			],
-			"definition": [
-				"./dist/definition.d.ts"
-			],
-			"index.d.ts": [
-				"./dist/index.d.ts"
-			]
-		}
-	}
+  "name": "@iroco/ui",
+  "version": "0.62.5",
+  "description": "Iroco design system based on Svelte",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "svelte-kit sync && svelte-package",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "test:watch": "vitest",
+    "test": "vitest --run",
+    "lint": "prettier --plugin-search-dir . --check . && eslint .",
+    "format": "prettier --plugin-search-dir . --write .",
+    "clean": "rm -rf dist && npm cache clean --force",
+    "release": "npm run format && npm run build && release-it --only-version",
+    "storybook": "storybook dev -p 5173",
+    "build-storybook": "storybook build"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.6.4",
+    "@storybook/addon-interactions": "^7.6.4",
+    "@storybook/addon-links": "^7.6.4",
+    "@storybook/blocks": "^7.6.4",
+    "@storybook/svelte": "^7.6.4",
+    "@storybook/sveltekit": "^7.6.4",
+    "@storybook/test": "^7.6.4",
+    "@sveltejs/adapter-auto": "^2.0.0",
+    "@sveltejs/kit": "^1.20.4",
+    "@sveltejs/package": "^2.0.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/svelte": "^4.0.3",
+    "@testing-library/user-event": "^14.4.3",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-storybook": "^0.6.15",
+    "eslint-plugin-svelte": "^2.30.0",
+    "jsdom": "^20.0.3",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.0",
+    "prettier-plugin-svelte": "^2.10.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "release-it": "^17.0.0",
+    "sass": "^1.57.0",
+    "storybook": "^7.6.4",
+    "svelte": "^4.0.5",
+    "svelte-check": "^3.4.3",
+    "testing-library": "^0.0.2",
+    "tslib": "^2.4.1",
+    "typescript": "^5.0.0",
+    "vite": "^4.4.2",
+    "vitest": "^0.34.0"
+  },
+  "peerDependencies": {
+    "@sveltejs/kit": "^1.16.3",
+    "svelte": "^4.2.1"
+  },
+  "lint-staged": {
+    "*.{js,ts,svelte}": [
+      "eslint"
+    ]
+  },
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    "./Alert.svelte": {
+      "types": "./dist/Alert.svelte.d.ts",
+      "svelte": "./dist/Alert.svelte",
+      "default": "./dist/Alert.svelte"
+    },
+    "./Button.svelte": {
+      "types": "./dist/Button.svelte.d.ts",
+      "svelte": "./dist/Button.svelte",
+      "default": "./dist/Button.svelte"
+    },
+    "./DataTable.svelte": {
+      "types": "./dist/DataTable.svelte.d.ts",
+      "svelte": "./dist/DataTable.svelte",
+      "default": "./dist/DataTable.svelte"
+    },
+    "./IconBurger.svelte": {
+      "types": "./dist/IconBurger.svelte.d.ts",
+      "svelte": "./dist/IconBurger.svelte",
+      "default": "./dist/IconBurger.svelte"
+    },
+    "./IconClose.svelte": {
+      "types": "./dist/IconClose.svelte.d.ts",
+      "svelte": "./dist/IconClose.svelte",
+      "default": "./dist/IconClose.svelte"
+    },
+    "./IconFloppyDisk.svelte": {
+      "types": "./dist/IconFloppyDisk.svelte.d.ts",
+      "svelte": "./dist/IconFloppyDisk.svelte",
+      "default": "./dist/IconFloppyDisk.svelte"
+    },
+    "./IconInfo.svelte": {
+      "types": "./dist/IconInfo.svelte.d.ts",
+      "svelte": "./dist/IconInfo.svelte",
+      "default": "./dist/IconInfo.svelte"
+    },
+    "./IconIrocoLogo.svelte": {
+      "types": "./dist/IconIrocoLogo.svelte.d.ts",
+      "svelte": "./dist/IconIrocoLogo.svelte",
+      "default": "./dist/IconIrocoLogo.svelte"
+    },
+    "./IconMoreSign.svelte": {
+      "types": "./dist/IconMoreSign.svelte.d.ts",
+      "svelte": "./dist/IconMoreSign.svelte",
+      "default": "./dist/IconMoreSign.svelte"
+    },
+    "./IconTrashCan.svelte": {
+      "types": "./dist/IconTrashCan.svelte.d.ts",
+      "svelte": "./dist/IconTrashCan.svelte",
+      "default": "./dist/IconTrashCan.svelte"
+    },
+    "./IrocoLogo.svelte": {
+      "types": "./dist/IrocoLogo.svelte.d.ts",
+      "svelte": "./dist/IrocoLogo.svelte",
+      "default": "./dist/IrocoLogo.svelte"
+    },
+    "./Loader.svelte": {
+      "types": "./dist/Loader.svelte.d.ts",
+      "svelte": "./dist/Loader.svelte",
+      "default": "./dist/Loader.svelte"
+    },
+    "./NavBar.svelte": {
+      "types": "./dist/NavBar.svelte.d.ts",
+      "svelte": "./dist/NavBar.svelte",
+      "default": "./dist/NavBar.svelte"
+    },
+    "./Navigation.svelte": {
+      "types": "./dist/Navigation.svelte.d.ts",
+      "svelte": "./dist/Navigation.svelte",
+      "default": "./dist/Navigation.svelte"
+    },
+    "./NumberInput.svelte": {
+      "types": "./dist/NumberInput.svelte.d.ts",
+      "svelte": "./dist/NumberInput.svelte",
+      "default": "./dist/NumberInput.svelte"
+    },
+    "./NumberInputSized.svelte": {
+      "types": "./dist/NumberInputSized.svelte.d.ts",
+      "svelte": "./dist/NumberInputSized.svelte",
+      "default": "./dist/NumberInputSized.svelte"
+    },
+    "./RadioButton.svelte": {
+      "types": "./dist/RadioButton.svelte.d.ts",
+      "svelte": "./dist/RadioButton.svelte",
+      "default": "./dist/RadioButton.svelte"
+    },
+    "./RadioButtonTest.svelte": {
+      "types": "./dist/RadioButtonTest.svelte.d.ts",
+      "svelte": "./dist/RadioButtonTest.svelte",
+      "default": "./dist/RadioButtonTest.svelte"
+    },
+    "./SlottedComponentWrapper.svelte": {
+      "types": "./dist/SlottedComponentWrapper.svelte.d.ts",
+      "svelte": "./dist/SlottedComponentWrapper.svelte",
+      "default": "./dist/SlottedComponentWrapper.svelte"
+    },
+    "./TextInput.svelte": {
+      "types": "./dist/TextInput.svelte.d.ts",
+      "svelte": "./dist/TextInput.svelte",
+      "default": "./dist/TextInput.svelte"
+    },
+    "./TopBar.svelte": {
+      "types": "./dist/TopBar.svelte.d.ts",
+      "svelte": "./dist/TopBar.svelte",
+      "default": "./dist/TopBar.svelte"
+    },
+    "./definition": {
+      "types": "./dist/definition.d.ts",
+      "default": "./dist/definition.js"
+    },
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./scss/button.scss": "./dist/scss/button.scss",
+    "./scss/check.scss": "./dist/scss/check.scss",
+    "./scss/colors.scss": "./dist/scss/colors.scss",
+    "./scss/constants.scss": "./dist/scss/constants.scss",
+    "./scss/containers.scss": "./dist/scss/containers.scss",
+    "./scss/fonts.scss": "./dist/scss/fonts.scss",
+    "./scss/forms.scss": "./dist/scss/forms.scss",
+    "./scss/iroco.scss": "./dist/scss/iroco.scss",
+    "./scss/layouts.scss": "./dist/scss/layouts.scss",
+    "./scss/loader.scss": "./dist/scss/loader.scss",
+    "./scss/style.scss": "./dist/scss/style.scss"
+  },
+  "files": [
+    "dist"
+  ],
+  "typesVersions": {
+    ">4.0": {
+      "Alert.svelte": [
+        "./dist/Alert.svelte.d.ts"
+      ],
+      "Button.svelte": [
+        "./dist/Button.svelte.d.ts"
+      ],
+      "DataTable.svelte": [
+        "./dist/DataTable.svelte.d.ts"
+      ],
+      "IconBurger.svelte": [
+        "./dist/IconBurger.svelte.d.ts"
+      ],
+      "IconClose.svelte": [
+        "./dist/IconClose.svelte.d.ts"
+      ],
+      "IconFloppyDisk.svelte": [
+        "./dist/IconFloppyDisk.svelte.d.ts"
+      ],
+      "IconInfo.svelte": [
+        "./dist/IconInfo.svelte.d.ts"
+      ],
+      "IconIrocoLogo.svelte": [
+        "./dist/IconIrocoLogo.svelte.d.ts"
+      ],
+      "IconMastodon.svelte": [
+        "./dist/IconMastodon.svelte.d.ts"
+      ],
+      "IconMoreSign.svelte": [
+        "./dist/IconMoreSign.svelte.d.ts"
+      ],
+      "IconTrashCan.svelte": [
+        "./dist/IconTrashCan.svelte.d.ts"
+      ],
+      "IrocoLogo.svelte": [
+        "./dist/IrocoLogo.svelte.d.ts"
+      ],
+      "Loader.svelte": [
+        "./dist/Loader.svelte.d.ts"
+      ],
+      "NavBar.svelte": [
+        "./dist/NavBar.svelte.d.ts"
+      ],
+      "Navigation.svelte": [
+        "./dist/Navigation.svelte.d.ts"
+      ],
+      "NumberInput.svelte": [
+        "./dist/NumberInput.svelte.d.ts"
+      ],
+      "NumberInputSized.svelte": [
+        "./dist/NumberInputSized.svelte.d.ts"
+      ],
+      "RadioButton.svelte": [
+        "./dist/RadioButton.svelte.d.ts"
+      ],
+      "RadioButtonTest.svelte": [
+        "./dist/RadioButtonTest.svelte.d.ts"
+      ],
+      "SlottedComponentWrapper.svelte": [
+        "./dist/SlottedComponentWrapper.svelte.d.ts"
+      ],
+      "TextInput.svelte": [
+        "./dist/TextInput.svelte.d.ts"
+      ],
+      "TopBar.svelte": [
+        "./dist/TopBar.svelte.d.ts"
+      ],
+      "definition": [
+        "./dist/definition.d.ts"
+      ],
+      "index.d.ts": [
+        "./dist/index.d.ts"
+      ]
+    }
+  }
 }
