@@ -6,6 +6,62 @@ Design system for Iroco [based on SvelteKit](https://kit.svelte.dev/docs/packagi
 
 See the [Documentation](https://iroco-co.github.io/iroco-ui/) (not in sync anymore : to be restored with storybook)
 
+# Install in your svelte application
+
+Prerequisites:
+
+- @sveltejs/kit: ^2.5.0
+- svelte: ^4.2.10
+
+```sh
+# latest
+npm install @iroco/ui
+# next
+npm install @iroco/ui@next
+```
+
+## Minimal scaffolding
+
+`src/app.scss`
+
+```scss
+@use "node_modules/@iroco/ui/dist/scss/colors";
+@use "node_modules/@iroco/ui/dist/scss/fonts";
+@use "node_modules/@iroco/ui/dist/scss/style";
+@use "node_modules/@iroco/ui/dist/scss/constants";
+@import "node_modules/@iroco/ui/dist/scss/containers";
+```
+
+Example of layout with navigation
+
+`src/routes/+layout.svelte`
+
+```svelte
+<script>
+	import '../app.scss';
+	import { Navigation, NavigationItem } from '@iroco/ui';
+</script>
+
+	<Navigation
+		navigationItems={[
+      new NavigationItem("About", "/about"),
+    ]}
+		type="topbar"
+	/>
+	<main class="main">
+		<slot />
+	</main>
+{/if}
+
+<style lang="scss">
+  @use "node_modules/@iroco/ui/dist/scss/colors.scss";
+  @use "node_modules/@iroco/ui/dist/scss/constants.scss";
+  @import "node_modules/@iroco/ui/dist/scss/containers.scss";
+  @import "node_modules/@iroco/ui/dist/scss/button.scss";
+</style>
+
+```
+
 # develop
 
 To install dependencies :
