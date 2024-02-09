@@ -38,20 +38,17 @@ Example of layout with navigation
 
 ```svelte
 <script>
-	import '../app.scss';
-	import { Navigation, NavigationItem } from '@iroco/ui';
+   import '../app.scss';
+   import { Navigation, NavigationItem } from '@iroco/ui';
 </script>
 
-	<Navigation
-		navigationItems={[
-      new NavigationItem("About", "/about"),
-    ]}
-		type="topbar"
-	/>
-	<main class="main">
-		<slot />
-	</main>
-{/if}
+<Navigation
+   navigationItems={[new NavigationItem("About", "/about"),]}
+   type="topbar"
+/>
+<main class="main">
+   <slot />
+</main>
 
 <style lang="scss">
   @use "node_modules/@iroco/ui/dist/scss/colors.scss";
