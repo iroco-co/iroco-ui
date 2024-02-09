@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
+	import { base } from '$app/paths';
 
 	export let width = '10rem';
 	export let height = '10rem';
@@ -9,7 +10,7 @@
 	}
 </script>
 
-<a class="iroco-logo" href="/" aria-label="go to Iroco home" on:click={clickOnLogo}>
+<a class="iroco-logo" href="{base}/" aria-label="go to Iroco home" on:click={clickOnLogo}>
 	<svg viewBox="0 0 832.33 249.52" role="img" {width} {height}>
 		<title>Iroco Logo</title>
 		<path
