@@ -14,7 +14,7 @@
 		"format": "prettier --plugin-search-dir . --write .",
 		"clean": "rm -rf dist && npm cache clean --force",
 		"release": "npm run format && npm run build && release-it --only-version",
-		"storybook": "storybook dev -p 5173",
+		"storybook": "storybook dev -p 5175",
 		"build-storybook": "storybook build"
 	},
 	"devDependencies": {
