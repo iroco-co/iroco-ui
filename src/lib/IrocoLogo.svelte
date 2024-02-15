@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { base } from '$app/paths';
-
+	export let href = `/`;
+	export let ariaLabel = 'go to Iroco home';
 	export let width = '10rem';
 	export let height = '10rem';
 </script>
 
-<a class="iroco-logo" href="{base}/" aria-label="go to Iroco home">
+<a class="iroco-logo" {href} aria-label={ariaLabel}>
 	<svg viewBox="0 0 832.33 249.52" role="img" {width} {height}>
 		<title>Iroco Logo</title>
 		<path

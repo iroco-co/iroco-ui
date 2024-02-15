@@ -5,7 +5,9 @@
 	import IrocoLogo from './IrocoLogo.svelte';
 	import NavBar from './NavBar.svelte';
 	import { Color } from './definition';
+	import { base } from '$app/paths';
 
+	export let href = `${base}/`;
 	export let navigationItems: Array<NavigationItem>;
 	export let type: 'sidebar' | 'topbar' = 'topbar';
 	export let title: string | null = null;
@@ -16,12 +18,12 @@
 
 <div class="navigation--mobile">
 	<div class="navigation--mobile__title-container">
-		{#if title == null}
-			<IrocoLogo width="10em" height="10em" />
-		{:else}
-			<IconIrocoLogo width="3em" height="3em" {color} />
-			<h1>{title}</h1>
-		{/if}
+			{#if title == null}
+				<IrocoLogo {href} width="10em" height="10em" />
+			{:else}
+				<IconIrocoLogo {href} width="3em" height="3em" {color} />
+				<h1><a {href} class="navigation-mobile__title-link">{title}</a></h1>
+			{/if}
 	</div>
 
 	<button title="Menu button" on:click={() => (showMenu = true)} class="navigation--mobile__button">
@@ -42,68 +44,79 @@
 <div class="navigation">
 	<div class="navigation__title-container">
 		{#if title == null}
-			<IrocoLogo width="10em" height="10em" />
+			<IrocoLogo {href} width="10em" height="10em" />
 		{:else}
-			<IconIrocoLogo width="3em" height="3em" />
-			<h1>{title}</h1>
+			<IconIrocoLogo {href} width="3em" height="3em" />
+			<h1><a class="navigation__title-link" {href}>{title}</a></h1>
 		{/if}
 	</div>
 	<NavBar {navigationItems} {type} {version} />
 </div>
 
 <style lang="scss">
-	@use './scss/colors';
-	@import './scss/containers';
-	.navigation {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-		width: 100%;
-		&--mobile {
-			display: none;
-		}
+  @use './scss/colors';
+  @import './scss/containers';
 
-		&__title-container {
-			display: flex;
-			align-items: center;
-			padding-left: 1em;
-			h1 {
-				padding-left: 1em;
-			}
-		}
-	}
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 
-	@include screen-tablet {
-		.navigation {
-			display: none;
-			color: colors.$beige;
-			&--mobile {
-				display: flex;
-				padding: 0 1em;
-				justify-content: space-between;
-				position: fixed;
-				top: 0;
-				z-index: 1;
-				width: 100%;
-				border-bottom: 1px solid colors.$mediumGrey;
+    &--mobile {
+      display: none;
+    }
 
-				h1 {
-					font-size: 2em;
-				}
-				&__button {
-					background-color: transparent;
-					border: none;
-					color: colors.$mediumGrey;
-				}
-				&__title-container {
-					display: flex;
-					align-items: center;
-					h1 {
-						padding-left: 0.5em;
-					}
-				}
-			}
-		}
-	}
+    &__title-container {
+      display: flex;
+      align-items: center;
+      padding-left: 1em;
+
+      h1 {
+        padding-left: 1em;
+      }
+    }
+  }
+
+  @include screen-tablet {
+    .navigation {
+      display: none;
+      color: colors.$beige;
+
+      &--mobile {
+        display: flex;
+        padding: 0 1em;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+        border-bottom: 1px solid colors.$mediumGrey;
+
+        h1 {
+          font-size: 2em;
+        }
+
+        &__button {
+          background-color: transparent;
+          border: none;
+          color: colors.$mediumGrey;
+        }
+
+        &__title-container {
+          display: flex;
+          align-items: center;
+
+          h1 {
+            padding-left: 0.5em;
+          }
+        }
+      }
+    }
+  }
+
+  .navigation__title-link, .navigation-mobile__title-link {
+    color: white;
+  }
 </style>
