@@ -1,0 +1,72 @@
+@use '../src/lib/scss/colors';
+@use '../src/lib/scss/fonts';
+@use '../src/lib/scss/style';
+@use    '../src/lib/scss/constants';
+@import '../src/lib/scss/containers';
+
+/*
+  This is a sample CSS style similar to Iroco.co
+  It is applied in every samples
+*/
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a {
+  color: colors.$green;
+  text-decoration: none;
+}
+
+ul.no-bullet {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+hr {
+  border: 0;
+  margin: 4em;
+}
+
+button {
+  text-decoration: none;
+  color: colors.$beige;
+}
+
+h1 {
+  font-size: 2em;
+  line-height: 1em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+main {
+  margin: 11em auto 4em;
+  width: 80%;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+
+  > body {
+    @include fonts.Arial(14px, colors.$beige);
+    line-height: 1.7em;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    cursor: default;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-kerning: normal;
+    background: colors.$darkBlue;
+  }
+}
+
