@@ -17,7 +17,7 @@
 }
 
 a {
-	color: colors.$green;
+	color: colors.$primary;
 	text-decoration: none;
 }
 
@@ -34,7 +34,7 @@ hr {
 
 button {
 	text-decoration: none;
-	color: colors.$beige;
+	color: colors.$buttonPrimaryLabel;
 }
 
 h1 {
@@ -56,7 +56,7 @@ html {
 	padding: 0;
 
 	> body {
-		@include fonts.Arial(14px, colors.$beige);
+		@include fonts.Arial(14px, colors.$text);
 		line-height: 1.7em;
 		font-size: 18px;
 		margin: 0;
@@ -66,6 +66,6 @@ html {
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		font-kerning: normal;
-		background: colors.$darkBlue;
+		background: colors.$background;
 	}
 }

@@ -99,8 +99,8 @@
 				border-top: none;
 			}
 			.active {
-				border-top: 1px solid colors.$green;
-				border-bottom: 1px solid colors.$green;
+				border-top: 1px solid colors.$primary;
+				border-bottom: 1px solid colors.$primary;
 			}
 		}
 
@@ -118,7 +118,7 @@
 				justify-content: space-around;
 			}
 			.active {
-				border-bottom: 1px solid colors.$green;
+				border-bottom: 1px solid colors.$primary;
 			}
 		}
 
@@ -134,7 +134,7 @@
 			&__sidebar,
 			&__topbar {
 				position: fixed;
-				background-color: colors.$darkBlue;
+				background-color: colors.$background;
 				top: 0;
 				right: 0;
 				width: 100%;
@@ -157,7 +157,7 @@
 					top: 0;
 					background-color: transparent;
 					border: none;
-					color: colors.$darkBeige;
+					color: colors.$iconPrimary;
 				}
 			}
 
@@ -165,7 +165,7 @@
 				top: 0;
 				left: 0;
 				&__item:first-child {
-					border-top: 1px solid colors.$mediumGrey;
+					border-top: 1px solid colors.$border;
 				}
 			}
 
@@ -173,7 +173,7 @@
 				height: 100%;
 				&__item {
 					padding: 2em;
-					border-top: 1px solid colors.$mediumGrey;
+					border-top: 1px solid colors.$border;
 				}
 			}
 

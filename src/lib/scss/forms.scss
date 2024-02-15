@@ -13,8 +13,8 @@
 		flex-direction: column;
 		> input {
 			color: colors.$beige;
-			background: colors.$darkBlue;
-			border: 1px solid colors.$darkBlue;
+			background: colors.$background;
+			border: 1px solid colors.$border;
 			padding: 1em 1.5em;
 			text-overflow: ellipsis;
 			white-space: nowrap;

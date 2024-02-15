@@ -34,9 +34,6 @@
 	</Button>
 </Template>
 
+<Story name="Default"></Story>
+<Story name="Success" args={{ kind: 'success' }} />
 <Story name="Danger" args={{ kind: 'danger' }} />
-
-<!-- Dynamic snippet should be disabled for this story -->
-<Story name="Button No Args">
-	<Button>Label</Button>
-</Story>

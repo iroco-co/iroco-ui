@@ -53,14 +53,14 @@
 <style lang="scss">
 	@use './scss/colors';
 	.data-table {
-		border: 1px solid colors.$mediumGrey;
+		border: 1px solid colors.$border;
 		width: 100%;
 		&__header {
 			font-size: 1.5em;
 			height: 4rem;
 
 			&__cell {
-				border-bottom: 1px solid colors.$mediumGrey;
+				border-bottom: 1px solid colors.$border;
 			}
 		}
 		&__body {

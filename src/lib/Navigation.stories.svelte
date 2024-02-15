@@ -1,6 +1,6 @@
 <script context="module" type="ts">
 	import Navigation from './Navigation.svelte';
-	import { NavigationItem } from './definition';
+	import { NavigationItem, NavigationItemType } from './definition';
 
 	export const meta = {
 		title: 'Navigation',
@@ -21,12 +21,6 @@
 			}
 
 		},
-		args: {
-			navigationItems: [
-				new NavigationItem('About', `/about`),
-				new NavigationItem('Foo', `/foo`),
-				new NavigationItem('Bar', `/bar`)]
-		}
 	};
 </script>
 
@@ -37,9 +31,13 @@
 <Template let:args>
 	<Navigation {...args}
 							navigationItems={[
-							new NavigationItem('About', `/about`),
-	new NavigationItem('Foo', `/foo`),
-	new NavigationItem('Bar', `/bar`)]}>
+								new NavigationItem('About', `/about`),
+				new NavigationItem('Foo', `/foo`),
+				new NavigationItem('Bar', `/bar`),
+				new NavigationItem('Button', `/bar`, NavigationItemType.BUTTON),
+				new NavigationItem('Anchor', `/bar`, NavigationItemType.ANCHOR),
+				new NavigationItem('Form', `/bar`, NavigationItemType.FORM)
+				]}>
 
 	</Navigation>
 </Template>

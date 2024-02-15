@@ -28,15 +28,15 @@
 		margin-bottom: 1em;
 		&--danger {
 			background-color: rgba(colors.$red, 0.5);
-			border: 1px solid colors.$red;
+			border: 1px solid colors.$danger;
 		}
 		&--success {
-			background-color: rgba(colors.$green, 0.5);
-			border: 1px solid colors.$green;
+			background-color: rgba(colors.$success, 0.5);
+			border: 1px solid colors.$success;
 		}
 		&--flash {
 			background-color: rgba(colors.$yellow, 0.5);
-			border: 1px solid colors.$yellow;
+			border: 1px solid colors.$warning;
 		}
 		&__close {
 			display: block;
@@ -46,7 +46,7 @@
 			background-color: transparent;
 			border: none;
 			cursor: pointer;
-			color: colors.$beige;
+			color: colors.$iconPrimary;
 		}
 	}
 </style>

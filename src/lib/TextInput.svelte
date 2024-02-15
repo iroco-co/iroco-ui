@@ -74,9 +74,9 @@
 		flex-direction: column;
 
 		> input {
-			color: colors.$beige;
-			background: colors.$darkBlue;
-			border: 1px solid colors.$darkBlue;
+			color: colors.$text;
+			background: colors.$background;
+			border: 1px solid colors.$border;
 			padding: 1em 1.5em;
 			text-overflow: ellipsis;
 			white-space: nowrap;
@@ -84,14 +84,14 @@
 			border-radius: constants.$border-radius;
 
 			&.border {
-				border: 1px solid colors.$beige;
+				border: 1px solid colors.$formElementBorder;
 			}
 
 			&::placeholder {
-				color: rgba(colors.$beige, 0.5);
+				color: rgba(colors.$text, 0.5);
 			}
 			&.error {
-				border-color: colors.$red;
+				border-color: colors.$danger;
 			}
 			&.readonlyInput {
 				cursor: not-allowed;
@@ -99,12 +99,12 @@
 		}
 
 		.error {
-			color: colors.$red;
+			color: colors.$danger;
 		}
 	}
 
 	.iroco-ui-label {
-		color: rgba(colors.$beige, 0.6);
+		color: rgba(colors.$text, 0.6);
 		font-weight: bold;
 		padding-bottom: 10px;
 		display: inline-block;

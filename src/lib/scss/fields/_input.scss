@@ -1,3 +1,4 @@
+@use './../colors';
 .ui-fields-input {
 	width: 100%;
 	transition: width linear 100ms;
@@ -36,7 +37,7 @@
 			left: 0;
 			width: 0;
 			height: 3px;
-			background: $green;
+			background: colors.$green;
 			transition: all 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
 		}
 
@@ -45,7 +46,7 @@
 		}
 
 		> input {
-			@include Arial(1em, $darkBlue);
+			@include Arial(1em, colors.$darkBlue);
 			flex: 1;
 			padding: 10px 15px;
 			text-overflow: ellipsis;
@@ -53,7 +54,7 @@
 			overflow: hidden;
 
 			&::placeholder {
-				color: rgba($darkBlue, 0.3);
+				color: rgba(colors.$darkBlue, 0.3);
 				font-style: italic;
 			}
 		}
@@ -82,7 +83,7 @@
 				-ms-user-select: none;
 				user-select: none;
 				flex-shrink: 0;
-				border-top: solid $beige 1px;
+				border-top: solid colors.$beige 1px;
 				background: white;
 				transition: background linear 100ms;
 
@@ -92,14 +93,14 @@
 
 				&:hover,
 				&.selected {
-					background: $lightGrey;
+					background: colors.$lightGrey;
 				}
 			}
 		}
 	}
 
 	> .instructions {
-		@include Arial(1em, $darkBeige);
+		@include Arial(1em, colors.$darkBeige);
 		margin-top: 10px;
 	}
 
@@ -111,14 +112,14 @@
 		margin-top: 15px;
 
 		> span {
-			@include Arial(0.9em, $red);
+			@include Arial(0.9em, colors.$red);
 			margin-left: 10px;
 		}
 	}
 
 	> .warning {
 		> span {
-			color: $blue;
+			color: colors.$blue;
 		}
 	}
 
@@ -137,11 +138,7 @@
 
 	&.dark {
 		> .container {
-			background: $darkBlue;
-
-			&:after {
-				//background: $blue;
-			}
+			background: colors.$background;
 
 			> input {
 				padding: 15px 20px;
