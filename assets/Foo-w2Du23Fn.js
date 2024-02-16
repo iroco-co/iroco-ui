@@ -1,0 +1,3 @@
+import{j as t}from"./jsx-runtime-DP09YWqd.js";import{M as e}from"./index-Dm1oJTN_.js";import{u as s}from"./index-BTWr9RG1.js";import"./iframe-BYcjKa9Z.js";import"../sb-preview/runtime.js";import"./_commonjsHelpers-Cpj98o6Y.js";import"./index-Bw8VTzHM.js";import"./index-DIBTNqoI.js";import"./index-DrFu-skq.js";function r(o){return t.jsxs(t.Fragment,{children:[t.jsx(e,{title:"Foo"}),`
+`,t.jsx("div",{className:"sb-container",children:"Foo"}),`
+`,t.jsx("style",{})]})}function d(o={}){const{wrapper:n}=Object.assign({},s(),o.components);return n?t.jsx(n,Object.assign({},o,{children:t.jsx(r,o)})):r()}export{d as default};
