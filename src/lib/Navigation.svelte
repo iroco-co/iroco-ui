@@ -82,7 +82,7 @@
   @include screen-tablet {
     .navigation {
       display: none;
-      color: colors.$text;
+      color:var(--color-text);
 
       &--mobile {
         display: flex;
@@ -92,7 +92,7 @@
         top: 0;
         z-index: 1;
         width: 100%;
-        border-bottom: 1px solid colors.$border;
+        border-bottom: 1px solid var(--color-border);
 
         h1 {
           font-size: 2em;
@@ -101,7 +101,7 @@
         &__button {
           background-color: transparent;
           border: none;
-          color: colors.$iconPrimary;
+          color: var(--color-icon-primary);
         }
 
         &__title-container {
@@ -117,6 +117,6 @@
   }
 
   .navigation__title-link, .navigation-mobile__title-link {
-    color: colors.$textLight;
+    color: var(--color-text-light);
   }
 </style>

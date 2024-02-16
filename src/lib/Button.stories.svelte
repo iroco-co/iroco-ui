@@ -37,3 +37,4 @@
 <Story name="Default"></Story>
 <Story name="Success" args={{ kind: 'success' }} />
 <Story name="Danger" args={{ kind: 'danger' }} />
+<Story name="Dark" args={{ kind: 'dark' }} />
