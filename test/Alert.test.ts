@@ -1,6 +1,7 @@
 import { fireEvent, render } from '@testing-library/svelte';
 import Alert from '$lib/Alert.svelte';
 import SlotedComponentWrapper from '$lib/SlottedComponentWrapper.svelte';
+import type { Element } from 'svelte/types/compiler/interfaces';
 
 test('Check render', () => {
 	const { getByText, container } = render(SlotedComponentWrapper, { Component: Alert });
