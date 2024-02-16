@@ -1,5 +1,4 @@
 <script context="module" type="ts">
-
 	import IconClose from '$lib/IconClose.svelte';
 
 	export const meta = {
@@ -25,8 +24,7 @@
 </script>
 
 <Template let:args>
-	<IconClose {...args}>
-	</IconClose>
+	<IconClose {...args} />
 </Template>
 
-<Story name="Default"></Story>
+<Story name="Default" />

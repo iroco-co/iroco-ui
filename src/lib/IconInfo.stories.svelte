@@ -1,6 +1,4 @@
 <script context="module" type="ts">
-
-
 	import { IconInfo } from '$lib/index';
 
 	export const meta = {
@@ -27,8 +25,7 @@
 </script>
 
 <Template let:args>
-	<IconInfo {...args}>
-	</IconInfo>
+	<IconInfo {...args} />
 </Template>
 
-<Story name="Default"></Story>
+<Story name="Default" />

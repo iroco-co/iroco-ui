@@ -4,20 +4,16 @@
 	export const meta = {
 		title: 'Iroco-UI/Atoms/Loader',
 		component: Loader,
-		argTypes: {
-
-		}
+		argTypes: {}
 	};
 </script>
 
 <script>
 	import { Story, Template } from '@storybook/addon-svelte-csf';
-
 </script>
 
 <Template let:args>
-	<Loader {...args}>
-	</Loader>
+	<Loader {...args} />
 </Template>
 
-<Story name="Default"></Story>
+<Story name="Default" />

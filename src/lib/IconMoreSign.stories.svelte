@@ -1,6 +1,4 @@
 <script context="module" type="ts">
-
-
 	import IconMoreSign from '$lib/IconMoreSign.svelte';
 
 	export const meta = {
@@ -27,8 +25,7 @@
 </script>
 
 <Template let:args>
-	<IconMoreSign {...args}>
-	</IconMoreSign>
+	<IconMoreSign {...args} />
 </Template>
 
-<Story name="Default"></Story>
+<Story name="Default" />

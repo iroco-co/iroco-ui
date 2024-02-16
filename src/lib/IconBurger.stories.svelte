@@ -1,5 +1,4 @@
 <script context="module" type="ts">
-
 	import IconBurger from '$lib/IconBurger.svelte';
 
 	export const meta = {
@@ -15,7 +14,7 @@
 				control: { type: 'range' },
 				min: 32,
 				max: 512
-			},
+			}
 		}
 	};
 </script>
@@ -25,8 +24,7 @@
 </script>
 
 <Template let:args>
-	<IconBurger {...args}>
-	</IconBurger>
+	<IconBurger {...args} />
 </Template>
 
-<Story name="Default"></Story>
+<Story name="Default" />

@@ -9,8 +9,7 @@
 			type: {
 				control: { type: 'select' },
 				options: ['sidebar', 'topbar']
-			},
-
+			}
 		}
 	};
 </script>
@@ -20,19 +19,19 @@
 </script>
 
 <Template let:args>
-	<NavBar {...args}
-					navigationItems={[
-								new NavigationItem('About', `/about`),
-				new NavigationItem('Foo', `/foo`),
-				new NavigationItem('Bar', `/bar`),
-				new NavigationItem('Button', `/bar`, NavigationItemType.BUTTON),
-				new NavigationItem('Anchor', `/bar`, NavigationItemType.ANCHOR),
-				new NavigationItem('Form', `/bar`, NavigationItemType.FORM)
-				]}>
-
-	</NavBar>
+	<NavBar
+		{...args}
+		navigationItems={[
+			new NavigationItem('About', `/about`),
+			new NavigationItem('Foo', `/foo`),
+			new NavigationItem('Bar', `/bar`),
+			new NavigationItem('Button', `/bar`, NavigationItemType.BUTTON),
+			new NavigationItem('Anchor', `/bar`, NavigationItemType.ANCHOR),
+			new NavigationItem('Form', `/bar`, NavigationItemType.FORM)
+		]}
+	/>
 </Template>
 
 <Story name="Default" />
 <Story name="Sidebar" args={{ type: 'sidebar' }} />
-<Story name="Title" args={{ title: 'Alternative title' }}></Story>
+<Story name="Title" args={{ title: 'Alternative title' }} />

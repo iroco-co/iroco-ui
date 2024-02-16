@@ -1,6 +1,4 @@
 <script context="module" type="ts">
-
-
 	import { IconTrashCan } from '$lib/index';
 
 	export const meta = {
@@ -27,8 +25,7 @@
 </script>
 
 <Template let:args>
-	<IconTrashCan {...args}>
-	</IconTrashCan>
+	<IconTrashCan {...args} />
 </Template>
 
-<Story name="Default"></Story>
+<Story name="Default" />

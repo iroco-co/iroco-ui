@@ -42,4 +42,3 @@ test('Check max attribute', async () => {
 	await userEvent.type(myNumberInput, '11');
 	expect(myNumberInput.value).toBeNull;
 });
-

@@ -22,5 +22,3 @@ export default defineConfig(({ mode }) => ({
 		exclude: [...configDefaults.exclude, 'tests']
 	}
 }));
-
-

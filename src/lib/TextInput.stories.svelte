@@ -1,6 +1,4 @@
 <script context="module" type="ts">
-
-
 	import { TextInput } from '$lib/index';
 
 	export const meta = {
@@ -50,17 +48,15 @@
 
 <script>
 	import { Story, Template } from '@storybook/addon-svelte-csf';
-
-	let group = 'bar';
 </script>
 
 <Template let:args>
 	<form class="iroco-ui-form">
-		<TextInput {...args}></TextInput>
+		<TextInput {...args} />
 	</form>
 </Template>
 
-<Story name="Default"></Story>
+<Story name="Default" />
 <Story name="Text" args={{ type: 'text' }} />
 <Story name="Email" args={{ type: 'email' }} />
 <Story name="Password" args={{ type: 'password' }} />
@@ -68,8 +64,14 @@
 <Story name="Error" args={{ error: 'An error message' }} />
 <Story name="Placeholder" args={{ placeholder: 'A placeholder' }} />
 <Story name="Border" args={{ placeholder: 'A placeholder' }} />
-<Story name="Html Error" args={{error:`<details>
+<Story
+	name="Html Error"
+	args={{
+		error: `<details>
   <summary>HTML error</summary>
   <p>Foo bar</p>
-</details>`, htmlError: true }} />
-<Story name="Autocomplete" args={{ type:'text',autocomplete: 'name' }} />
+</details>`,
+		htmlError: true
+	}}
+/>
+<Story name="Autocomplete" args={{ type: 'text', autocomplete: 'name' }} />

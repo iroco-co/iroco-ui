@@ -1,5 +1,4 @@
 <script context="module" type="ts">
-
 	import { RadioButton } from '$lib/index';
 
 	export const meta = {
@@ -18,7 +17,6 @@
 			checked: {
 				control: { type: 'boolean' }
 			}
-
 		}
 	};
 </script>
@@ -31,23 +29,11 @@
 
 <Template let:args>
 	<form class="iroco-ui-form">
-		<RadioButton bind:group={group}
-								 name="name-hello"
-								 value="hello" {...args}>
-			Hello
-		</RadioButton>
-		<RadioButton bind:group={group}
-								 name="name-foo"
-								 value="foo" >
-			Foo
-		</RadioButton>
-		<RadioButton bind:group={group}
-								 name="name-bar"
-								 value="bar" >
-			Bar
-		</RadioButton>
+		<RadioButton bind:group name="name-hello" value="hello" {...args}>Hello</RadioButton>
+		<RadioButton bind:group name="name-foo" value="foo">Foo</RadioButton>
+		<RadioButton bind:group name="name-bar" value="bar">Bar</RadioButton>
 	</form>
 	Selected group : {group}
 </Template>
 
-<Story name="Default"></Story>
+<Story name="Default" />

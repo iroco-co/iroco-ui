@@ -74,7 +74,7 @@
 		flex-direction: column;
 
 		> input {
-			color:var(--color-text);
+			color: var(--color-text);
 			background: var(--color-body);
 			border: 1px solid var(--color-border);
 			padding: 1em 1.5em;

@@ -21,7 +21,7 @@
 	@use './scss/colors';
 
 	.iroco-ui-radio {
-		color:var(--color-text);
+		color: var(--color-text);
 		position: relative;
 		margin-top: 0.5em;
 		padding-left: 1.5em;

@@ -19,8 +19,7 @@
 			color: {
 				control: { type: 'color' }
 			}
-
-		},
+		}
 	};
 </script>
 
@@ -29,21 +28,21 @@
 </script>
 
 <Template let:args>
-	<Navigation {...args}
-							navigationItems={[
-								new NavigationItem('About', `/about`),
-				new NavigationItem('Foo', `/foo`),
-				new NavigationItem('Bar', `/bar`),
-				new NavigationItem('Button', `/bar`, NavigationItemType.BUTTON),
-				new NavigationItem('Anchor', `/bar`, NavigationItemType.ANCHOR),
-				new NavigationItem('Form', `/bar`, NavigationItemType.FORM)
-				]}>
-
-	</Navigation>
+	<Navigation
+		{...args}
+		navigationItems={[
+			new NavigationItem('About', `/about`),
+			new NavigationItem('Foo', `/foo`),
+			new NavigationItem('Bar', `/bar`),
+			new NavigationItem('Button', `/bar`, NavigationItemType.BUTTON),
+			new NavigationItem('Anchor', `/bar`, NavigationItemType.ANCHOR),
+			new NavigationItem('Form', `/bar`, NavigationItemType.FORM)
+		]}
+	/>
 </Template>
 
 <Story name="Default" />
 <Story name="Sidebar" args={{ type: 'sidebar' }} />
 
-<Story name="Title" args={{ title: 'Alternative title' }}></Story>
-<Story name="Color" args={{ color: '#ABCDEF' }}></Story>
+<Story name="Title" args={{ title: 'Alternative title' }} />
+<Story name="Color" args={{ color: '#ABCDEF' }} />

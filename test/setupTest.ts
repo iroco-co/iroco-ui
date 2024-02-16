@@ -9,7 +9,6 @@ import * as environment from '$app/environment';
 import * as navigation from '$app/navigation';
 import * as stores from '$app/stores';
 
-
 // Mock SvelteKit runtime module $app/environment
 vi.mock('$app/environment', (): typeof environment => ({
 	browser: false,
@@ -20,24 +19,21 @@ vi.mock('$app/environment', (): typeof environment => ({
 
 // Mock SvelteKit runtime module $app/navigation
 vi.mock('$app/navigation', (): typeof navigation => ({
-	onNavigate: () => {
-	},
-	pushState: () => {
-	},
-	replaceState: () => {
-	},
-	afterNavigate: () => {
-	},
-	beforeNavigate: () => {
-	},
-	disableScrollHandling: () => {
-	},
+	onNavigate: () => {},
+	pushState: () => {},
+	replaceState: () => {},
+	afterNavigate: () => {},
+	beforeNavigate: () => {},
+	disableScrollHandling: () => {},
 	goto: () => Promise.resolve(),
 	invalidate: () => Promise.resolve(),
 	invalidateAll: () => Promise.resolve(),
-	preloadData: () => Promise.resolve({
-		data: {}, type: 'loaded', status: 200
-	}),
+	preloadData: () =>
+		Promise.resolve({
+			data: {},
+			type: 'loaded',
+			status: 200
+		}),
 	preloadCode: () => Promise.resolve()
 }));
 
@@ -58,7 +54,8 @@ vi.mock('$app/stores', (): typeof stores => {
 			state: {}
 		});
 		const updated = {
-			subscribe: readable(false).subscribe, check: async (): Promise<boolean> => false
+			subscribe: readable(false).subscribe,
+			check: async (): Promise<boolean> => false
 		};
 
 		return { navigating, page, updated };

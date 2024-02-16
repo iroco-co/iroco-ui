@@ -1,6 +1,4 @@
 <script context="module" type="ts">
-
-
 	import { IrocoLogo } from '$lib/index';
 
 	export const meta = {
@@ -9,7 +7,6 @@
 		component: IrocoLogo,
 		argTypes: {
 			width: {
-
 				control: { type: 'range' },
 				min: 32,
 				max: 512
@@ -20,8 +17,6 @@
 				max: 512
 			}
 		}
-
-
 	};
 </script>
 
@@ -30,8 +25,7 @@
 </script>
 
 <Template let:args>
-	<IrocoLogo {...args}>
-	</IrocoLogo>
+	<IrocoLogo {...args} />
 </Template>
 
-<Story name="Default"></Story>
+<Story name="Default" />

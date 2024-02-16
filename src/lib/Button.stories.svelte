@@ -29,12 +29,12 @@
 
 <Template let:args>
 	<!--👇 'on:click' allows to forward event to addon-actions  -->
-	<Button {...args}  on:click={handleClick}>
+	<Button {...args} on:click={handleClick}>
 		You clicked: {count}
 	</Button>
 </Template>
 
-<Story name="Default"></Story>
+<Story name="Default" />
 <Story name="Success" args={{ kind: 'success' }} />
 <Story name="Danger" args={{ kind: 'danger' }} />
 <Story name="Dark" args={{ kind: 'dark' }} />

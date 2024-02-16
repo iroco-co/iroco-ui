@@ -1,5 +1,4 @@
 <script context="module" type="ts">
-
 	import { NumberInput } from '$lib/index';
 
 	export const meta = {
@@ -27,7 +26,6 @@
 			max: {
 				control: { type: 'number' }
 			}
-
 		}
 	};
 </script>
@@ -38,13 +36,12 @@
 
 <Template let:args>
 	<form class="iroco-ui-form">
-		<NumberInput {...args}>
-		</NumberInput>
+		<NumberInput {...args} />
 	</form>
 </Template>
 
-<Story name="Default"></Story>
+<Story name="Default" />
 <Story name="Label" args={{ label: 'Label' }} />
 <Story name="Error" args={{ error: 'An error message' }} />
 <Story name="Placeholder" args={{ placeholder: 'A placeholder' }} />
-<Story name="Min / Max" args={{ min: 0,max:10,value: 5 }} />
+<Story name="Min / Max" args={{ min: 0, max: 10, value: 5 }} />

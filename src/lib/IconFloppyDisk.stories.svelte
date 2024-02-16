@@ -1,6 +1,4 @@
 <script context="module" type="ts">
-
-
 	import { IconFloppyDisk } from '$lib/index';
 
 	export const meta = {
@@ -17,8 +15,8 @@
 				min: 32,
 				max: 512
 			},
-			fill:{
-				control: { type: 'color' },
+			fill: {
+				control: { type: 'color' }
 			}
 		}
 	};
@@ -29,8 +27,7 @@
 </script>
 
 <Template let:args>
-	<IconFloppyDisk {...args}>
-	</IconFloppyDisk>
+	<IconFloppyDisk {...args} />
 </Template>
 
-<Story name="Default"></Story>
+<Story name="Default" />
