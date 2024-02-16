@@ -1,13 +1,14 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import matchers from '@testing-library/jest-dom/matchers';
-import { expect, vi } from 'vitest';
+import '@testing-library/svelte/vitest';
+import '@testing-library/jest-dom/vitest';
+
+import { vi } from 'vitest';
 import type { Navigation, Page } from '@sveltejs/kit';
 import { readable } from 'svelte/store';
 import * as environment from '$app/environment';
 import * as navigation from '$app/navigation';
 import * as stores from '$app/stores';
 
-expect.extend(matchers);
 
 // Mock SvelteKit runtime module $app/environment
 vi.mock('$app/environment', (): typeof environment => ({
@@ -19,13 +20,24 @@ vi.mock('$app/environment', (): typeof environment => ({
 
 // Mock SvelteKit runtime module $app/navigation
 vi.mock('$app/navigation', (): typeof navigation => ({
-	afterNavigate: () => {},
-	beforeNavigate: () => {},
-	disableScrollHandling: () => {},
+	onNavigate: () => {
+	},
+	pushState: () => {
+	},
+	replaceState: () => {
+	},
+	afterNavigate: () => {
+	},
+	beforeNavigate: () => {
+	},
+	disableScrollHandling: () => {
+	},
 	goto: () => Promise.resolve(),
 	invalidate: () => Promise.resolve(),
 	invalidateAll: () => Promise.resolve(),
-	preloadData: () => Promise.resolve(),
+	preloadData: () => Promise.resolve({
+		data: {}, type: 'loaded', status: 200
+	}),
 	preloadCode: () => Promise.resolve()
 }));
 
@@ -42,9 +54,12 @@ vi.mock('$app/stores', (): typeof stores => {
 			status: 200,
 			error: null,
 			data: {},
-			form: undefined
+			form: undefined,
+			state: {}
 		});
-		const updated = { subscribe: readable(false).subscribe, check: () => false };
+		const updated = {
+			subscribe: readable(false).subscribe, check: async (): Promise<boolean> => false
+		};
 
 		return { navigating, page, updated };
 	};
@@ -63,7 +78,7 @@ vi.mock('$app/stores', (): typeof stores => {
 		subscribe(fn) {
 			return getStores().updated.subscribe(fn);
 		},
-		check: () => false
+		check: async () => false
 	};
 
 	return {
