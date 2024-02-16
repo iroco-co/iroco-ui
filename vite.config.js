@@ -1,9 +1,11 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-import { configDefaults } from 'vitest/config';
+import { configDefaults, defineConfig } from 'vitest/config';
 
-/** @type {import('vite').UserConfig} */
-const config = {
+export default defineConfig(({ mode }) => ({
 	plugins: [sveltekit()],
+	resolve: {
+		conditions: mode === 'test' ? ['browser'] : []
+	},
 	test: {
 		// jest like globals
 		globals: true,
@@ -19,6 +21,6 @@ const config = {
 		// Exclude playwright tests folder
 		exclude: [...configDefaults.exclude, 'tests']
 	}
-};
+}));
 
-export default config;
+

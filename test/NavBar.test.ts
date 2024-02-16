@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom/extend-expect';
 import { render, within } from '@testing-library/svelte';
 import Navigation from '$lib/Navigation.svelte';
 import userEvent from '@testing-library/user-event';

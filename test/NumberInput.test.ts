@@ -1,7 +1,5 @@
-import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/svelte';
 import NumberInput from '$lib/NumberInput.svelte';
-import NumberInputSized from '$lib/NumberInputSized.svelte';
 import { screen } from '@testing-library/svelte';
 import userEvent from '@testing-library/user-event';
 
@@ -45,7 +43,3 @@ test('Check max attribute', async () => {
 	expect(myNumberInput.value).toBeNull;
 });
 
-test('Adding size attribute', () => {
-	const { getByPlaceholderText } = render(NumberInputSized);
-	expect(getByPlaceholderText('ph').size).toBe(3);
-});

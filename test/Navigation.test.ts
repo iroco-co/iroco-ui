@@ -1,5 +1,3 @@
-/*global test, expect*/
-import '@testing-library/jest-dom/extend-expect';
 import { render, within } from '@testing-library/svelte';
 import { NavigationItem } from '$lib';
 import Navigation from '$lib/Navigation.svelte';
