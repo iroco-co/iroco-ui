@@ -27,15 +27,15 @@
 		justify-content: center;
 		margin-bottom: 1em;
 		&--danger {
-			background-color: rgba(var(--color-danger), 0.5);
+			background-color: var(--color-danger-bg);
 			border: 1px solid var(--color-danger);
 		}
 		&--success {
-			background-color: rgba(var(--color-success), 0.5);
+			background-color: var(--color-success-bg);
 			border: 1px solid var(--color-success);
 		}
 		&--flash {
-			background-color: rgba(var(--color-warning), 0.5);
+			background-color: var(--color-warning-bg);
 			border: 1px solid var(--color-warning);
 		}
 		&__close {
@@ -46,7 +46,7 @@
 			background-color: transparent;
 			border: none;
 			cursor: pointer;
-			color: var(--color-primary);
+			color: var(--color-icon-primary);
 		}
 	}
 </style>

@@ -88,7 +88,7 @@
 			}
 
 			&::placeholder {
-				color: rgba(var(--color-text), 0.5);
+				color: var(--color-text-op-50);
 			}
 			&.error {
 				border-color: var(--color-danger);
@@ -104,7 +104,7 @@
 	}
 
 	.iroco-ui-label {
-		color: rgba(var(--color-text)t, 0.6);
+		color: var(--color-text-op-60);
 		font-weight: bold;
 		padding-bottom: 10px;
 		display: inline-block;

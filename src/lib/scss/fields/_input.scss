@@ -54,7 +54,7 @@
 			overflow: hidden;
 
 			&::placeholder {
-				color: rgba(colors.$darkBlue, 0.3);
+				color: var(--color-dark-blue-op-30);
 				font-style: italic;
 			}
 		}
@@ -144,7 +144,7 @@
 				padding: 15px 20px;
 
 				&::placeholder {
-					color: rgba(white, 0.3);
+					color: var(--color-white-op-30);
 				}
 			}
 		}
