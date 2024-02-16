@@ -2,7 +2,7 @@
 	import Button from './Button.svelte';
 
 	export const meta = {
-		title: 'Button',
+		title: 'Iroco-UI/Atoms/Button',
 		component: Button,
 		argTypes: {
 			kind: {
