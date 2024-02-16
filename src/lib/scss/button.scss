@@ -60,10 +60,11 @@
 		box-shadow: none;
 	}
 
-	&.disabled,&:disabled {
-		background-color:var(--btn-disabled-bg);
+	&.disabled,
+	&:disabled {
+		background-color: var(--btn-disabled-bg);
 		color: var(--btn-disabled-label);
-		border-color:var(--btn-disabled-border);
+		border-color: var(--btn-disabled-border);
 		cursor: default;
 
 		&:hover {
@@ -76,6 +77,6 @@
 	background: none;
 	border: none;
 	font-family: fonts.$arial;
-	color:var(--color-text);
+	color: var(--color-text);
 	cursor: pointer;
 }

@@ -56,7 +56,7 @@ html {
 	padding: 0;
 
 	> body {
-		@include fonts.Arial(14px,var(--color-text));
+		@include fonts.Arial(14px, var(--color-text));
 		line-height: 1.7em;
 		font-size: 18px;
 		margin: 0;
