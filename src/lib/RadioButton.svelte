@@ -22,7 +22,7 @@
 	@use './scss/colors';
 
 	.iroco-ui-radio {
-		color: colors.$text;
+		color:var(--color-text);
 		position: relative;
 		margin-top: 0.5em;
 		padding-left: 1.5em;
@@ -45,11 +45,11 @@
 		left: 0;
 		height: 1em;
 		width: 1em;
-		background-color: colors.$formElementBackground;
+		background-color: var(--form-element-bg);
 		border-radius: 50%;
 	}
 
 	.iroco-ui-radio input:checked ~ .radio-button-color {
-		background-color: colors.$primary;
+		background-color: var(--color-primary);
 	}
 </style>

@@ -37,7 +37,7 @@
 			left: 0;
 			width: 0;
 			height: 3px;
-			background: colors.$green;
+			background: var(--color-primary);
 			transition: all 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
 		}
 
@@ -138,7 +138,7 @@
 
 	&.dark {
 		> .container {
-			background: colors.$background;
+			background: var(--color-body);
 
 			> input {
 				padding: 15px 20px;

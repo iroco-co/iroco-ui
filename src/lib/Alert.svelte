@@ -27,16 +27,16 @@
 		justify-content: center;
 		margin-bottom: 1em;
 		&--danger {
-			background-color: rgba(colors.$red, 0.5);
-			border: 1px solid colors.$danger;
+			background-color: rgba(var(--color-danger), 0.5);
+			border: 1px solid var(--color-danger);
 		}
 		&--success {
-			background-color: rgba(colors.$success, 0.5);
-			border: 1px solid colors.$success;
+			background-color: rgba(var(--color-success), 0.5);
+			border: 1px solid var(--color-success);
 		}
 		&--flash {
-			background-color: rgba(colors.$yellow, 0.5);
-			border: 1px solid colors.$warning;
+			background-color: rgba(var(--color-warning), 0.5);
+			border: 1px solid var(--color-warning);
 		}
 		&__close {
 			display: block;
@@ -46,7 +46,7 @@
 			background-color: transparent;
 			border: none;
 			cursor: pointer;
-			color: colors.$iconPrimary;
+			color: var(--color-primary);
 		}
 	}
 </style>
