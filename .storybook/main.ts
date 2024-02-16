@@ -6,7 +6,8 @@ const config: StorybookConfig = {
 		'@storybook/addon-links',
 		'@storybook/addon-essentials',
 		'@storybook/addon-interactions',
-		'@storybook/addon-svelte-csf'
+		'@storybook/addon-svelte-csf',
+		'@ljcl/storybook-addon-cssprops'
 	],
 	framework: {
 		name: '@storybook/sveltekit',

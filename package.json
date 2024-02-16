@@ -18,14 +18,15 @@
 		"build-storybook": "storybook build"
 	},
 	"devDependencies": {
+		"@ljcl/storybook-addon-cssprops": "^3.2.0",
 		"@storybook/addon-essentials": "^7.6.13",
 		"@storybook/addon-interactions": "^7.6.13",
 		"@storybook/addon-links": "^7.6.13",
 		"@storybook/addon-svelte-csf": "^4.1.1",
 		"@storybook/blocks": "^7.6.13",
 		"@storybook/svelte": "^7.6.13",
-		"@storybook/sveltekit": "^7.6.13",
 		"@storybook/svelte-vite": "^8.0.0-beta.1",
+		"@storybook/sveltekit": "^7.6.13",
 		"@storybook/test": "^7.6.13",
 		"@sveltejs/adapter-auto": "^3.1.1",
 		"@sveltejs/kit": "^2.5.0",
