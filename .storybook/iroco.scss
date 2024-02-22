@@ -1,8 +1,7 @@
-@use '../src/lib/scss/colors';
+@use '../src/lib/scss/colors'; // We can use another colors file if we want
 @use '../src/lib/scss/fonts';
 @use '../src/lib/scss/style';
 @use '../src/lib/scss/constants';
-@import '../src/lib/scss/containers';
 
 /*
   This is a sample CSS style similar to Iroco.co

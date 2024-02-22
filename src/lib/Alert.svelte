@@ -13,7 +13,6 @@
 </div>
 
 <style lang="scss">
-	@use './scss/colors';
 	@use './scss/constants';
 	.alert {
 		flex-direction: column;

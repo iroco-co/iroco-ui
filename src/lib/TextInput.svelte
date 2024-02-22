@@ -53,7 +53,7 @@
 </div>
 
 <style lang="scss">
-	@use './scss/colors';
+	//@use './scss/colors';
 	@use './scss/constants';
 
 	input,

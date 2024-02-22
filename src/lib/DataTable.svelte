@@ -51,7 +51,7 @@
 </table>
 
 <style lang="scss">
-	@use './scss/colors';
+	//@use './scss/colors';
 	.data-table {
 		border: 1px solid var(--color-border);
 		width: 100%;

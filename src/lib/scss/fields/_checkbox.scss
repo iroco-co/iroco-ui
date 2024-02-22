@@ -5,7 +5,7 @@
 		justify-content: flex-start;
 
 		> label {
-			@include Arial(0.9em, $blue, bold);
+			@include Arial(0.9em, #00b9ff/*$blue*/, bold);
 			letter-spacing: 0.05em;
 			text-transform: uppercase;
 			display: inline-block;
@@ -26,14 +26,14 @@
 		margin-top: 15px;
 
 		> span {
-			@include Arial(0.9em, $red);
+			@include Arial(0.9em, var(--color-danger)/* red */);
 			margin-left: 10px;
 		}
 	}
 
 	> .warning {
 		> span {
-			color: $blue;
+			color: #00b9ff/*$blue*/;
 		}
 	}
 }

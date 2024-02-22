@@ -25,7 +25,6 @@ npm install @iroco/ui@next
 `src/app.scss`
 
 ```scss
-@use 'node_modules/@iroco/ui/dist/scss/colors';
 @use 'node_modules/@iroco/ui/dist/scss/fonts';
 @use 'node_modules/@iroco/ui/dist/scss/style';
 @use 'node_modules/@iroco/ui/dist/scss/constants';

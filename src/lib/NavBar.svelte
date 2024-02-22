@@ -60,7 +60,7 @@
 </nav>
 
 <style lang="scss">
-	@use './scss/colors';
+	//@use './scss/colors';
 	@use './scss/constants';
 	@import './scss/containers';
 	@import './scss/button';
