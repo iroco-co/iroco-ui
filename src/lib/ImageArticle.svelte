@@ -4,6 +4,7 @@
 	import chevronRight from 'svelte-awesome/icons/chevronRight';
 
 	export let imgSrc: string;
+	export let figureCaption: string | undefined = undefined;
 	export let alt: string;
 	export let articleTitle: string;
 	export let articleContent: string;
@@ -12,7 +13,15 @@
 </script>
 
 <div class="imagearticle" class:reversed>
-	<img class="imagearticle__image" src={imgSrc} {alt} />
+	<figure class="imagearticle__figure">
+		<img class="imagearticle__figure__image"
+				 src={imgSrc}
+				 {alt} />
+		{#if figureCaption}
+			<figcaption>{ figureCaption }</figcaption>
+		{/if}
+	</figure>
+
 	<article class="imagearticle__article">
 		<h1>{articleTitle}</h1>
 		<p>{articleContent}</p>
@@ -40,12 +49,19 @@
     justify-content: space-around;
     align-items: center;
 
-    &__image {
+    &__figure {
+
       width: 40%;
       display: block;
       object-fit: cover;
       margin: 0 auto;
+      text-align: center;
+
+      &__image {
+        width: 100%;
+      }
     }
+
 
     &__article {
       width: 50%;
@@ -74,8 +90,12 @@
       width: 80%;
       text-align: center;
 
-      &__image {
+      &__figure {
         width: 100%;
+
+        &__image {
+          width: 100%;
+        }
       }
 
       &__article {

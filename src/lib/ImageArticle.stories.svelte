@@ -12,6 +12,9 @@
 			reversed: {
 				control: { type: 'boolean' }
 			},
+			figureCaption: {
+				control: { type: 'text' }
+			},
 			imgSrc: {
 				control: { type: 'select' },
 				options: [
@@ -24,8 +27,9 @@
 			buttonList: {}
 		},
 		args: {
-			alt: 'Accessibility aleternative text',
+			alt: 'Accessibility alternative text',
 			imgSrc: accessibilityImageFile,
+			figureCaption: undefined,
 			articleTitle: 'Accessibility',
 			articleContent: 'Accessibility is incredibly important, yet often overlooked in traditional digital design and development education. Because of this, The A11Y Project strives to be a living example of how to create beautiful, accessible, and inclusive digital experiences.',
 			buttonList: [
@@ -47,3 +51,11 @@
 
 <Story name="Default" />
 <Story name="Reversed" args={{ reversed: true }} />
+<Story name="Figure caption" args={{ figureCaption: "An optional caption for the figure" ,
+buttonList:[
+	{
+		href:"https://developer.mozilla.org/en-US/docs/Glossary/Accessible_description",
+		label:"Learn about accessible description"
+	}
+	]
+}} />
