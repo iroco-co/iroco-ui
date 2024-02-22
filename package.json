@@ -4,7 +4,7 @@
 	"description": "Iroco design system based on Svelte",
 	"main": "dist/index.js",
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "storybook dev -p 5175",
 		"build": "svelte-kit sync && svelte-package",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -14,7 +14,7 @@
 		"format": "prettier --plugin-search-dir . --write .",
 		"clean": "rm -rf dist && npm cache clean --force",
 		"release": "npm run format && npm run build && release-it --only-version",
-		"storybook": "storybook dev -p 5175",
+
 		"build-storybook": "storybook build"
 	},
 	"devDependencies": {
