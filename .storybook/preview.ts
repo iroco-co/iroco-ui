@@ -13,16 +13,14 @@ const preview: Preview = {
 			}
 		},
 		cssprops: {
-			// Disable the addon by setting disable to true:                                                                                        
+			// Disable the addon by setting disable to true:
 			disable: false,
-			// Override the detected default control type:                                                                                        
+			// Override the detected default control type:
 			'color-body': {
 				control: 'color',
 				category: 'Background',
 				description: '',
-				presetColors: [
-					'#211d28',
-				],
+				presetColors: ['#211d28']
 			},
 			'color-primary-light': {
 				control: 'color',
@@ -178,19 +176,19 @@ const preview: Preview = {
 			'form-element-border': {
 				control: 'color',
 				category: 'Forms',
-				// subcategory: 'Bar', 
+				// subcategory: 'Bar',
 				description: ''
 			},
 			'form-element-bg': {
 				control: 'color',
 				category: 'Forms',
-				// subcategory: 'Bar', 
+				// subcategory: 'Bar',
 				description: ''
 			},
 			'form-text-placeholder': {
 				control: 'color',
 				category: 'Forms',
-				// subcategory: 'Bar', 
+				// subcategory: 'Bar',
 				description: ''
 			},
 			'btn-primary-bg': {
@@ -262,13 +260,13 @@ const preview: Preview = {
 			'color-icon-primary': {
 				control: 'color',
 				category: 'Icons',
-				// subcategory: 'Bar', 
+				// subcategory: 'Bar',
 				description: ''
 			},
 			'color-icon-secondary': {
 				control: 'color',
 				category: 'Icons',
-				// subcategory: 'Bar', 
+				// subcategory: 'Bar',
 				description: ''
 			},
 
