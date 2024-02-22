@@ -1,6 +1,6 @@
 # iroco-ui
 
-[![Circle CI](https://circleci.com/gh/iroco-co/iroco-ui.png?circle-token=218e3654fb138427bb709b068ed847b58f8d4ac7&style=svg)](https://app.circleci.com/pipelines/github/iroco-co/iroco-ui)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/iroco-co/iroco-ui/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/iroco-co/iroco-ui/tree/main)
 
 Design system for Iroco [based on SvelteKit](https://kit.svelte.dev/docs/packaging).
 
