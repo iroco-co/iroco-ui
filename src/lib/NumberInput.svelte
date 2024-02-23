@@ -1,9 +1,9 @@
 <script lang="ts">
 	export let id: string;
-	export let label: string | '' = '';
-	export let placeholder: string | '' = '';
-	export let error: string | null = null;
-	export let value: number | null = null;
+	export let label: string | '' | undefined;
+	export let placeholder: string | '' | undefined = '';
+	export let error: string | undefined = undefined;
+	export let value: number | undefined = undefined;
 	export let min: number | undefined;
 	export let max: number | undefined;
 </script>
