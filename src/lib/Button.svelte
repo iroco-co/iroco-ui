@@ -6,7 +6,6 @@
 	export let kind: 'danger' | 'success' | 'dark' | 'basic' = 'basic';
 	export let size: 'small' | 'regular' = 'regular';
 	export let id: string;
-	export let node: HTMLElement;
 </script>
 
 <button
@@ -16,11 +15,10 @@
 	{type}
 	{disabled}
 	on:click
-	bind:this={node}
 >
 	<slot />
 </button>
 
 <style lang="scss">
-	@use './scss/button';
+  @use './scss/button';
 </style>

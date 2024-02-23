@@ -3,10 +3,8 @@ import Button from '$lib/Button.svelte';
 import SlotedComponentWrapper from '$lib/SlottedComponentWrapper.svelte';
 
 test('Check content', () => {
-	const { getByRole, component, container } = render(Button, { type: '' });
+	const { getByRole } = render(Button, { type: '' });
 	expect(getByRole('button')).toBeInTheDocument();
-	const btn = container.querySelector('button');
-	expect(component.node).toContainElement(btn);
 });
 
 test('Button slot', () => {
