@@ -1,7 +1,7 @@
 <script lang="ts">
 	export let id: string;
-	export let label: string | '';
-	export let placeholder: string | '';
+	export let label: string | '' = '';
+	export let placeholder: string | '' = '';
 	export let error: string | null = null;
 	export let value: number | null = null;
 	export let min: number | undefined;
@@ -19,5 +19,5 @@
 </div>
 
 <style lang="scss">
-	@use './scss/forms';
+  @use './scss/forms';
 </style>
