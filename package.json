@@ -1,6 +1,6 @@
 {
 	"name": "@iroco/ui",
-	"version": "1.0.0-13",
+	"version": "1.0.0-14",
 	"description": "Iroco design system based on Svelte",
 	"main": "dist/index.js",
 	"scripts": {
