@@ -25,6 +25,4 @@
 	})
 </script>
 
-
-
 <Story name="Default" />
