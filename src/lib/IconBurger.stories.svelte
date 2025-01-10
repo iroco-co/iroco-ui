@@ -1,5 +1,5 @@
 <script module lang="ts">
-	import IconBurger from '$lib/IconBurger.svelte';
+	import { IconBurger } from '$lib/index';
 	import {defineMeta,Template} from '@storybook/addon-svelte-csf'
 
 	const {Story} = defineMeta({

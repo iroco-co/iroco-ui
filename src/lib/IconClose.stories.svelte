@@ -1,5 +1,5 @@
 <script module lang="ts">
-	import IconClose from '$lib/IconClose.svelte';
+	import { IconClose } from '$lib/index';
 
 	import { defineMeta, Template } from '@storybook/addon-svelte-csf';
 
