@@ -1,12 +1,12 @@
 <svelte:options accessors={true} />
 
 <script lang="ts">
-	export let type:'button' | 'reset' | 'submit' | null | undefined = 'button';
-	export let disabled = false;
-	export let kind: 'danger' | 'success' | 'dark' | 'basic' = 'basic';
-	export let size: 'small' | 'regular' = 'regular';
-	export let fullWidth: boolean = false;
-	export let id: string;
+	export let type: 'button' | 'reset' | 'submit' | null | undefined = 'button'
+	export let disabled = false
+	export let kind: 'danger' | 'success' | 'dark' | 'basic' = 'basic'
+	export let size: 'small' | 'regular' = 'regular'
+	export let fullWidth: boolean = false
+	export let id: string | null = null
 </script>
 
 <button

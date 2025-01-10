@@ -2,9 +2,9 @@
 	/* eslint svelte/no-at-html-tags: "off" */
 	import { TextInputType } from '$lib/definition';
 
-	export let id: string;
+	export let id: string|null=null;
 	export let type: TextInputType = TextInputType.text;
-	export let name: string;
+	export let name: string|null=null;
 	export let label: string | null = null;
 	export let placeholder: string | null = null;
 	export let error: string | null = null;
