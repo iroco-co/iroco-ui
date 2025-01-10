@@ -7,7 +7,7 @@ export { default as IconClose } from './IconClose.svelte';
 export { default as IconFloppyDisk } from './IconFloppyDisk.svelte';
 // export { default as IconInfo } from './IconInfo.svelte';
 // export { default as IconIrocoLogo } from './IconIrocoLogo.svelte';
-// export { default as IconMore } from './IconMoreSign.svelte';
+export { default as IconMoreSign } from './IconMoreSign.svelte';
 // export { default as IconTrashCan } from './IconTrashCan.svelte';
 // export { default as ImageArticle } from './ImageArticle.svelte';
 // export { default as IrocoLogo } from './IrocoLogo.svelte';

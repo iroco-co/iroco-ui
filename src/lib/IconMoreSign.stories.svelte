@@ -1,10 +1,11 @@
 <script module lang="ts">
-	import { IconFloppyDisk } from '$lib/index';
+	import { IconMoreSign } from '$lib/index';
+
 	import { defineMeta, Template } from '@storybook/addon-svelte-csf';
 
 	const { Story } = defineMeta({
-		title: 'Iroco-UI/Icons/IconFloppyDisk',
-		component: IconFloppyDisk,
+		title: 'Iroco-UI/Icons/IconMoreSign',
+		component: IconMoreSign,
 		argTypes: {
 			width: {
 				control: { type: 'range' },
@@ -15,9 +16,6 @@
 				control: { type: 'range' },
 				min: 32,
 				max: 512
-			},
-			fill: {
-				control: { type: 'color' }
 			}
 		}
 	});
