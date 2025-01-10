@@ -1,6 +1,6 @@
 <script lang="ts">
 	/* eslint svelte/no-at-html-tags: "off" */
-	import { type TextInputType } from '$lib/definition';
+	import { TextInputType } from '$lib/definition';
 
 	export let id: string;
 	export let type: TextInputType = TextInputType.text;
