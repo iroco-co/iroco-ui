@@ -5,7 +5,7 @@ import './scss/style.scss';
 export { default as IconBurger } from './IconBurger.svelte';
 export { default as IconClose } from './IconClose.svelte';
 export { default as IconFloppyDisk } from './IconFloppyDisk.svelte';
-// export { default as IconInfo } from './IconInfo.svelte';
+export { default as IconInfo } from './IconInfo.svelte';
 // export { default as IconIrocoLogo } from './IconIrocoLogo.svelte';
 export { default as IconMoreSign } from './IconMoreSign.svelte';
 export { default as IconTrashCan } from './IconTrashCan.svelte';
