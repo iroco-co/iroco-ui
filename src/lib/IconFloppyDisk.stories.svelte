@@ -23,8 +23,5 @@
 	});
 </script>
 
-<Template>
-	{#snippet children()}{/snippet}
-</Template>
 
 <Story name="Default" />
