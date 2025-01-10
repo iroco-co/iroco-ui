@@ -24,7 +24,7 @@
 	--color-primary-dark: #00a873;
 
 	--color-secondary-light: #ffffff;
-	--color-secondary: var(--color-beige);
+	--color-secondary: #f2ebe3;
 	--color-secondary-dark: #a9a29e;
 
 	/* feedback */
@@ -37,7 +37,7 @@
 
 	/* typography */
 	--color-text-light: #ffffff;
-	--color-text: var(--color-beige);
+	--color-text: #f2ebe3;
 	--color-text-op-50: #f2ebe380;
 	--color-text-op-60: #f2ebe399;
 	--color-text-dark: #464452;
@@ -60,6 +60,10 @@
 
 	--dark-btn-primary-label: var(--color-beige);
 	--dark-btn-primary-bg: var(--color-night-blue);
+
+	--btn-secondary-bg: var(--color-secondary);
+	--btn-secondary-border: var(--color-night-blue);
+	--btn-secondary-label: var(--color-night-blue);
 
 	--btn-basic-label: var(--color-night-blue);
 	--btn-basic-bg: var(--color-beige);

@@ -18,9 +18,9 @@
 	border-radius: constants.$border-radius;
 
 	&--basic {
-		color: var(--btn-basic-label);
-		background: var(--btn-basic-bg);
-		border: 1px solid var(--btn-basic-border);
+		color: var(--btn-secondary-label);
+		background: var(--btn-secondary-bg);
+		border: 1px solid var(--btn-secondary-border);
 	}
 
 	&--dark {
