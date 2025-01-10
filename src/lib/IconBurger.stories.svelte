@@ -1,7 +1,11 @@
-<script context="module" type="ts">
+<script module lang="ts">
 	import IconBurger from '$lib/IconBurger.svelte';
+	import {defineMeta,Template} from '@storybook/addon-svelte-csf'
 
-	export const meta = {
+	const {Story} = defineMeta({
+
+
+
 		title: 'Iroco-UI/Icons/IconBurger',
 		component: IconBurger,
 		argTypes: {
@@ -16,15 +20,12 @@
 				max: 512
 			}
 		}
-	};
+	})
 </script>
 
-<script>
-	import { Story, Template } from '@storybook/addon-svelte-csf';
-</script>
 
-<Template let:args>
-	<IconBurger {...args} />
+<Template >
+	{#snippet children()}{/snippet}
 </Template>
 
 <Story name="Default" />
