@@ -10,8 +10,8 @@ See the [Documentation](https://iroco-co.github.io/iroco-ui/) (not in sync anymo
 
 Prerequisites:
 
-- @sveltejs/kit: ^2.5.0
-- svelte: ^4.2.10
+- @sveltejs/kit: ^2.x
+- svelte: ^5.x
 
 ```sh
 # latest
@@ -55,6 +55,8 @@ Example of layout with navigation
 ```
 
 # develop
+
+[Useful Svelte 5 + Storybook examples](https://github.com/podman-desktop/podman-desktop/tree/main/storybook). 
 
 To install dependencies :
 
