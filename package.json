@@ -61,7 +61,7 @@
 	},
 	"peerDependencies": {
 		"@sveltejs/kit": "1.x || 2.x",
-		"svelte": "4.x || 2.x"
+		"svelte": "4.x || 5.x"
 	},
 	"lint-staged": {
 		"*.{js,ts,svelte}": [
