@@ -60,8 +60,8 @@
 		"vitest": "^1.2.2"
 	},
 	"peerDependencies": {
-		"@sveltejs/kit": "^2.5.0",
-		"svelte": "^4.2.10"
+		"@sveltejs/kit": "1.x | 2.x",
+		"svelte": "4.x | 2.x"
 	},
 	"lint-staged": {
 		"*.{js,ts,svelte}": [
@@ -275,5 +275,6 @@
 				"./dist/index.d.ts"
 			]
 		}
-	}
+	},
+	"packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72"
 }
