@@ -9,7 +9,13 @@
 	--color-black-op-40: rgba(0, 0, 0, 0.4);
 	--color-black-op-60: rgba(0, 0, 0, 0.6);
 
+	--color-beige: #f2ebe3;
+	--color-dark-grey: #33323a;
+	--color-medium-grey: #464452;
+	--color-light-grey: #f5f5f5;
+	--color-dark-blue: #211d28;
 	--color-dark-blue-op-30: #211d284d;
+	--color-night-blue: #18151e;
 
 	/* semantic colors */
 	--color-primary-light: #82eec7;
@@ -18,7 +24,7 @@
 	--color-primary-dark: #00a873;
 
 	--color-secondary-light: #ffffff;
-	--color-secondary: #f2ebe3;
+	--color-secondary: var(--color-beige);
 	--color-secondary-dark: #a9a29e;
 
 	/* feedback */
@@ -31,7 +37,7 @@
 
 	/* typography */
 	--color-text-light: #ffffff;
-	--color-text: #f2ebe3;
+	--color-text: var(--color-beige);
 	--color-text-op-50: #f2ebe380;
 	--color-text-op-60: #f2ebe399;
 	--color-text-dark: #464452;
@@ -40,24 +46,24 @@
 	--color-border: #464452;
 
 	/* body */
-	--color-body: #211d28;
+	--color-body: var(--color-dark-blue);
 
 	/* forms */
 	--form-element-border: var(--color-border);
-	--form-element-bg: #f2ebe3;
+	--form-element-bg: var(--color-beige);
 	--form-text-placeholder: #a9a29e;
 
 	/* buttons */
-	--btn-primary-bg: #f2ebe3;
-	--btn-primary-border: #18151e;
-	--btn-primary-label: #f2ebe3;
+	--btn-primary-bg: var(--color-beige);
+	--btn-primary-border: var(--color-night-blue);
+	--btn-primary-label: var(--color-beige);
 
-	--dark-btn-primary-label: #f2ebe3;
-	--dark-btn-primary-bg: #18151e;
+	--dark-btn-primary-label: var(--color-beige);
+	--dark-btn-primary-bg: var(--color-night-blue);
 
-	--btn-basic-label: #18151e;
-	--btn-basic-bg: #f2ebe3;
-	--btn-basic-border: #18151e;
+	--btn-basic-label: var(--color-night-blue);
+	--btn-basic-bg: var(--color-beige);
+	--btn-basic-border: var(--color-night-blue);
 
 	--btn-disabled-label: var(--color-black-op-60);
 	--btn-disabled-bg: #a9a29e;

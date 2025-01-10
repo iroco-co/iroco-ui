@@ -82,7 +82,7 @@
 				-ms-user-select: none;
 				user-select: none;
 				flex-shrink: 0;
-				border-top: solid #f2ebe3 /*colors.$beige*/ 1px;
+				border-top: solid var(--color-beige) 1px;
 				background: white;
 				transition: background linear 100ms;
 
