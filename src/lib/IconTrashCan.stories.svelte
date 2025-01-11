@@ -1,7 +1,7 @@
 <script module lang="ts">
 	import { IconTrashCan } from '$lib/index';
 
-	import {defineMeta,Template} from '@storybook/addon-svelte-csf'
+	import {defineMeta} from '@storybook/addon-svelte-csf'
 
 	const {Story} = defineMeta({
 
