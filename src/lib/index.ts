@@ -16,5 +16,5 @@ export { default as IconTrashCan } from './IconTrashCan.svelte';
 // export { default as Navigation } from './Navigation.svelte';
 // export { default as NumberInput } from './NumberInput.svelte';
 // export { default as RadioButton } from './RadioButton.svelte';
-// export { default as TextInput } from './TextInput.svelte';
+export { default as TextInput } from './TextInput.svelte';
 export * from './definition';

@@ -1,24 +1,42 @@
 <script lang="ts">
-	/* eslint svelte/no-at-html-tags: "off" */
-	import { TextInputType } from '$lib/definition';
+	/* eslint-disable svelte/no-at-html-tags */
+	import type { FormEventHandler, FullAutoFill } from 'svelte/elements';
 
-	export let id: string|null=null;
-	export let type: TextInputType = TextInputType.text;
-	export let name: string|null=null;
-	export let label: string | null = null;
-	export let placeholder: string | null = null;
-	export let error: string | null = null;
-	export let htmlError:boolean= false;
-	export let value: string | null = null;
-	export let onFocus: ((e: FocusEvent) => void) | null = null;
-	export let onBlur: ((e: Event) => void) | null = null;
-	export let readonly = false;
-	export let border = false;
-	export let autocomplete = 'on';
-
-	function typeAction(node: HTMLInputElement) {
-		node.type = type;
+	interface Props {
+		id?: string | null;
+		type?:  'email' | 'password' | 'search' | 'tel' | 'text' | 'url' | null | undefined;
+		name?: string | null;
+		label?: string | null;
+		placeholder?: string | null;
+		error?: string | null;
+		htmlError?: boolean;
+		value?: string | null;
+		onFocus?: ((e: FocusEvent) => void) | null;
+		onBlur?: ((e: Event) => void) | null;
+		readonly?: boolean;
+		border?: boolean;
+		autocomplete?: FullAutoFill | null | undefined;
+		oninput?: FormEventHandler<HTMLInputElement> | null | undefined;
 	}
+
+	let {
+		id = null,
+		type = 'text',
+		name = null,
+		label = null,
+		placeholder = null,
+		error = null,
+		htmlError = false,
+		value = $bindable(null),
+		onFocus = null,
+		onBlur = null,
+		readonly = false,
+		border = false,
+		autocomplete = 'on',
+		oninput
+	}: Props = $props();
+
+
 </script>
 
 <div class="iroco-ui-input">
@@ -26,18 +44,17 @@
 		<label class="iroco-ui-label" for={id}>{label}</label>
 	{/if}
 	<input
-		on:input
+		{oninput}
 		bind:value
-		on:focus={onFocus}
-		on:blur={onBlur}
+		onfocus={onFocus}
+		onblur={onBlur}
 		{id}
-		type="text"
+		{type}
 		{name}
 		{placeholder}
 		class:border
 		class:error={error !== null}
 		class:readonlyInput={readonly === true}
-		use:typeAction
 		{readonly}
 		{autocomplete}
 	/>
@@ -74,8 +91,8 @@
 
     > input {
       color: var(--color-text);
-      background: var(--color-body);
-      border: 1px solid var(--color-border);
+      background: var(--color-dark-blue);
+      border: 1px solid var(--color-dark-blue);
       padding: 1em 1.5em;
       text-overflow: ellipsis;
       white-space: nowrap;
