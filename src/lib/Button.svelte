@@ -1,4 +1,6 @@
 <script lang="ts">
+	import type { MouseEventHandler } from 'svelte/elements';
+
 	interface Props {
 		type?: 'button' | 'reset' | 'submit' | null | undefined;
 		disabled?: boolean;
@@ -7,7 +9,7 @@
 		fullWidth?: boolean;
 		id?: string | null;
 		children?: import('svelte').Snippet;
-		onclick?: () => void;
+		onclick: MouseEventHandler<HTMLButtonElement> | null | undefined
 	}
 
 	let {
