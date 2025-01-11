@@ -45,9 +45,9 @@
 	import { Story, Template } from '@storybook/addon-svelte-csf';
 </script>
 
-<Template let:args>
+{#snippet template({ ...args })}
 	<ImageArticle {...args}></ImageArticle>
-</Template>
+{/snippet}
 
 <Story name="Default" />
 <Story name="Reversed" args={{ reversed: true }} />

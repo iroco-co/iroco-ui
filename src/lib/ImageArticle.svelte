@@ -3,13 +3,25 @@
 	import { Icon } from 'svelte-awesome';
 	import chevronRight from 'svelte-awesome/icons/chevronRight';
 
-	export let imgSrc: string;
-	export let figureCaption: string | undefined = undefined;
-	export let alt: string;
-	export let articleTitle: string;
-	export let articleContent: string;
-	export let buttonList: ButtonModel[] = [];
-	export let reversed = false;
+	interface Props {
+		imgSrc: string;
+		figureCaption?: string | undefined;
+		alt: string;
+		articleTitle: string;
+		articleContent: string;
+		buttonList?: ButtonModel[];
+		reversed?: boolean;
+	}
+
+	let {
+		imgSrc,
+		figureCaption = undefined,
+		alt,
+		articleTitle,
+		articleContent,
+		buttonList = [],
+		reversed = false
+	}: Props = $props();
 </script>
 
 <div class="imagearticle" class:reversed>
@@ -41,8 +53,8 @@
 </div>
 
 <style lang="scss">
-  @import "./scss/containers";
-  @import "./scss/button";
+  @use "./scss/containers";
+  @use "./scss/button";
 
   .imagearticle {
     display: flex;
@@ -84,7 +96,7 @@
     }
   }
 
-  @include screen-tablet {
+  @include containers.screen-tablet {
     .imagearticle {
       display: block;
       width: 80%;
