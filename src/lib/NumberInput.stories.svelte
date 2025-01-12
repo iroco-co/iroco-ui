@@ -1,7 +1,11 @@
-<script context="module" type="ts">
+<script module lang="ts">
 	import { NumberInput } from '$lib/index';
 
-	export const meta = {
+	import { defineMeta, setTemplate } from '@storybook/addon-svelte-csf';
+
+	const { Story } = defineMeta({
+
+
 		title: 'Iroco-UI/Form/NumberInput',
 		component: NumberInput,
 		argTypes: {
@@ -27,7 +31,7 @@
 				control: { type: 'number' }
 			}
 		}
-	};
+	});
 </script>
 
 
