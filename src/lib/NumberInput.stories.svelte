@@ -30,15 +30,16 @@
 	};
 </script>
 
-<script>
-	import { Story, Template } from '@storybook/addon-svelte-csf';
+
+<script lang="ts">
+	setTemplate(template);
 </script>
 
-<Template let:args>
+{#snippet template({ ...args })}
 	<form class="iroco-ui-form">
 		<NumberInput {...args} />
 	</form>
-</Template>
+{/snippet}
 
 <Story name="Default" />
 <Story name="Label" args={{ label: 'Label' }} />

@@ -1,10 +1,10 @@
 <script lang="ts">
 	/* eslint-disable svelte/no-at-html-tags */
-	import type { FormEventHandler, FullAutoFill } from 'svelte/elements';
+	import type { FormEventHandler, FullAutoFill, HTMLInputAttributes } from 'svelte/elements';
 
-	interface Props {
+	interface Props extends HTMLInputAttributes {
 		id?: string | null;
-		type?:  'email' | 'password' | 'search' | 'tel' | 'text' | 'url' | null | undefined;
+		type?: 'email' | 'password' | 'search' | 'tel' | 'text' | 'url' | null | undefined;
 		name?: string | null;
 		label?: string | null;
 		placeholder?: string | null;
