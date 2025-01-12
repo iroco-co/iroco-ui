@@ -1,20 +1,32 @@
 <script lang="ts">
-	export let value: string | null = null
-	export let group: string | null = null
-	export let name: string | null = null
-	export let checked: boolean
+	import type { HTMLInputAttributes } from 'svelte/elements';
 
-	function onChange(event: Event) {
-		group = (<HTMLInputElement>event.target).value
+	interface Props extends HTMLInputAttributes {
+		value?: string | null;
+		group?: string | null;
+		name?: string | null;
+		checked: boolean;
+		children?: import('svelte').Snippet;
 	}
 
-	$: checked = group === value
+	let {
+		value = null,
+		group = $bindable(null),
+		name = null,
+		checked,
+		children
+	}: Props = $props();
+
+function onchange(event: Event) {
+	group = event.currentTarget.value
+}
+
 </script>
 
 <label class="iroco-ui-radio">
-	<input type="radio" bind:group {value} {name} on:change={onChange} {checked} />
-	<span class="radio-button-color" />
-	<slot />
+	<input type="radio" bind:group={group} {value} {name} {checked} {onchange}/>
+	<span class="radio-button-color"></span>
+	{@render children?.()}
 </label>
 
 <style lang="scss">
