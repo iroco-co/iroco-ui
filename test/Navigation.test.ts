@@ -1,6 +1,5 @@
 import { render, within } from '@testing-library/svelte';
-import { NavigationItem } from '$lib/index';
-import Navigation from '$lib/Navigation.svelte';
+import { Navigation, NavigationItem } from '$lib';
 
 test('Check render with title', () => {
 	const { getByTestId, container } = render(Navigation, {

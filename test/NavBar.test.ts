@@ -1,8 +1,6 @@
 import { render, within } from '@testing-library/svelte';
-import { Navigation } from '$lib/index';
+import { NavBar, Navigation, NavigationItem, NavigationItemType } from '$lib';
 import userEvent from '@testing-library/user-event';
-import { NavigationItem } from '$lib/index';
-import { NavigationItemType } from '$lib/index';
 
 test('Check render', () => {
 	const { getByTestId } = render(Navigation, { navigationItems: [], title: '', type: 'sidebar' });
@@ -82,4 +80,17 @@ test('Should display version when provided', async () => {
 test('Should not display version when not provided', async () => {
 	const { container } = render(Navigation, { navigationItems: [], title: '', type: 'sidebar' });
 	expect(container.querySelector('.nav__version')?.textContent).toEqual('');
+});
+
+test('Should highlight active page', async () => {
+	const { container } = render(NavBar, {
+		navigating: { to: { url: { pathname: '/foo' } } },
+		navigationItems: [
+			new NavigationItem('foo', '/foo', NavigationItemType.ANCHOR),
+			new NavigationItem('bar', '/bar', NavigationItemType.ANCHOR)
+		],
+
+		type: 'sidebar'
+	});
+	expect(container.querySelector('.active')?.textContent).toEqual('foo');
 });
