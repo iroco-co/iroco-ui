@@ -12,7 +12,7 @@
 		ariaLabel?: string;
 		width?: string;
 		height?: string;
-		color?: Color;
+		color?: Color|string;
 	} = $props();
 </script>
 
