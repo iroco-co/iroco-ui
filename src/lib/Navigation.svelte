@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { NavigationItem } from '$lib/definition';
 	import { Color } from '$lib/definition';
-	import { IconBurger, IconIrocoLogo, IrocoLogo, NavBar } from '$lib/index';
+	import { IconBurger, IconIrocoLogo, IrocoLogo, NavBar } from '$lib';
 
 	let {
 		baseUrl = '',
