@@ -9,13 +9,20 @@
 		title: 'Navigation',
 		component: Navigation,
 		argTypes: {
-			// type: {
-			// 	control: { type: 'select' },
-			// 	options: ['sidebar', 'topbar']
-			// },
 			color: {
 				control: { type: 'color' }
 			}
+		},
+		args: {
+			type: 'topbar',
+			navigationItems: [
+				new NavigationItem('About', `/about`),
+				new NavigationItem('Foo', `/foo`),
+				new NavigationItem('Bar', `/bar`),
+				new NavigationItem('Button', `/bar`, NavigationItemType.BUTTON),
+				new NavigationItem('Anchor', `/bar`, NavigationItemType.ANCHOR),
+				new NavigationItem('Form', `/bar`, NavigationItemType.FORM)
+			]
 		}
 	});
 </script>
@@ -26,14 +33,6 @@
 {#snippet template({ ...args })}
 	<Navigation
 		{...args}
-		navigationItems={[
-				new NavigationItem('About', `/about`),
-				new NavigationItem('Foo', `/foo`),
-				new NavigationItem('Bar', `/bar`),
-				new NavigationItem('Button', `/bar`, NavigationItemType.BUTTON),
-				new NavigationItem('Anchor', `/bar`, NavigationItemType.ANCHOR),
-				new NavigationItem('Form', `/bar`, NavigationItemType.FORM)
-			]}
 	/>
 {/snippet}
 
@@ -41,4 +40,11 @@
 <Story name="Sidebar" args={{ type: 'sidebar' }} />
 <Story name="Title" args={{ title: 'Alternative title' }} />
 <Story name="Color" args={{ color: '#ABCDEF' }} />
-<Story name="Active" args={{ navigating:{to:{url:{pathname:"/bar"}}} }} />
+<Story name="Active" args={{
+	navigating:{to:{url:{pathname:"/bar"}}},
+		navigationItems: [
+				new NavigationItem('About', `/about`),
+				new NavigationItem('Foo', `/foo`),
+				new NavigationItem('Bar', `/bar`),
+			]
+}} />
