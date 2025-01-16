@@ -1,4 +1,4 @@
-<script context="module" lang="ts">
+<script module lang="ts">
 	import { IconIrocoLogo } from '$lib/index';
 	import {defineMeta,setTemplate} from '@storybook/addon-svelte-csf'
 

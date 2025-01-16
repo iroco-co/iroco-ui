@@ -1,11 +1,19 @@
 <script lang="ts">
 	import { Color } from '$lib/definition';
 
-	export let href = '/';
-	export let ariaLabel = 'go to Iroco home';
-	export let width = '5rem';
-	export let height = '5rem';
-	export let color: Color = Color.green;
+	let {
+		href = '/',
+		ariaLabel = 'go to Iroco home',
+		width = '5rem',
+		height = '5rem',
+		color = Color.green
+	}: {
+		href?: string;
+		ariaLabel?: string;
+		width?: string;
+		height?: string;
+		color?: Color;
+	} = $props();
 </script>
 
 <a class="iroco-logo" {href} aria-label={ariaLabel}>
