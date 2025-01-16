@@ -1,11 +1,11 @@
 import type { Preview } from '@storybook/svelte';
-
+import { themes, ensure } from '@storybook/theming';
 // Here we can import CSS from our design system
 import './iroco.scss';
 
 const preview: Preview = {
-    parameters: {
-		actions: { argTypesRegex: '^on[A-Z].*' },
+	parameters: {
+		// actions: { argTypesRegex: '^on[A-Z].*' },
 		controls: {
 			matchers: {
 				color: /(background|color)$/i,
@@ -287,10 +287,13 @@ const preview: Preview = {
 				'#211d28',
 				'#18151e'
 			]
+		},
+		docs: {
+			theme: themes.dark
 		}
 	},
 
-    tags: ['autodocs']
+	tags: ['autodocs']
 };
 
 export default preview;
