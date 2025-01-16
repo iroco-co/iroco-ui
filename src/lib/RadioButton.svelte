@@ -17,14 +17,14 @@
 		children
 	}: Props = $props();
 
-function onchange(event: Event) {
-	group = event.currentTarget.value
-}
+	function onchange(event: Event) {
+		group = event.currentTarget.value;
+	}
 
 </script>
 
 <label class="iroco-ui-radio">
-	<input type="radio" bind:group={group} {value} {name} {checked} {onchange}/>
+	<input type="radio" bind:group={group} {value} {name} {checked} {onchange} />
 	<span class="radio-button-color"></span>
 	{@render children?.()}
 </label>

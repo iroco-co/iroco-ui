@@ -9,7 +9,7 @@
 		fullWidth?: boolean;
 		id?: string | null;
 		children?: import('svelte').Snippet;
-		onclick: MouseEventHandler<HTMLButtonElement> | null | undefined
+		onclick?: MouseEventHandler<HTMLButtonElement>;
 	}
 
 	let {
@@ -23,14 +23,6 @@
 		onclick
 	}: Props = $props();
 
-	export {
-		type,
-		disabled,
-		kind,
-		size,
-		fullWidth,
-		id,
-	}
 </script>
 
 <button

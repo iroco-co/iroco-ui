@@ -1,20 +1,18 @@
 <script lang="ts">
-	import { createBubbler } from 'svelte/legacy';
-
-	const bubble = createBubbler();
 	import { IconClose } from '$lib/index';
 	import { createEventDispatcher } from 'svelte';
 	import { NavigationItemType, NavigationItem } from '$lib/definition.js';
+	import type { MouseEventHandler } from 'svelte/elements';
 
 	interface Props {
 		navigationItems: Array<NavigationItem>;
 		type: 'sidebar' | 'topbar';
 		version?: string | null;
 		navigating?: { to: { url: { pathname: string } } } | null;
+		onclick?: MouseEventHandler<HTMLButtonElement>;
 	}
 
-
-	let { navigationItems, type, version = null, navigating = null }: Props = $props();
+	let { navigationItems, type, version = null, navigating = null, onclick }: Props = $props();
 
 	const dispatch = createEventDispatcher();
 
@@ -37,7 +35,7 @@
 </script>
 
 <nav data-testid={type} class="nav__{type}">
-	<button title="Close menu" onclick={bubble('click')} class="nav__{type}__close">
+	<button title="Close menu" {onclick} class="nav__{type}__close">
 		<IconClose width="3em" height="3em" />
 	</button>
 

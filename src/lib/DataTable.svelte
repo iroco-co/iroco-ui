@@ -1,5 +1,10 @@
-<script  lang="ts">
+<script lang="ts">
 	import type { Component } from 'svelte';
+
+	interface Props {
+		rows: Array<TableRow>,
+		columns: Array<TableColumn>
+	}
 
 	type TableColumn = {
 		key: string;
@@ -15,7 +20,7 @@
 		[key: string]: string | number;
 	};
 
-	let { rows, columns }: { rows: Array<TableRow>, columns: Array<TableColumn> } = $props();
+	let { rows, columns }: Props = $props();
 </script>
 
 <table class="data-table">

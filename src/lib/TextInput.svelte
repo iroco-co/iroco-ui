@@ -36,7 +36,6 @@
 		oninput
 	}: Props = $props();
 
-
 </script>
 
 <div class="iroco-ui-input">

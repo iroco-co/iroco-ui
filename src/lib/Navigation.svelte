@@ -3,6 +3,19 @@
 	import { Color } from '$lib/definition';
 	import { IconBurger, IconIrocoLogo, IrocoLogo, NavBar } from '$lib';
 
+	interface Props {
+		baseUrl?: string;
+		href?: string;
+		navigationItems: Array<NavigationItem>;
+		type?: 'sidebar' | 'topbar';
+		title?: string | null;
+		version?: string | null;
+		color?: Color | string;
+		navigating?: { to: { url: { pathname: string } } } | null;
+	}
+
+	let showMenu = $state(false);
+
 	let {
 		baseUrl = '',
 		href = `${baseUrl}/`,
@@ -12,17 +25,7 @@
 		version = null,
 		color = Color.green,
 		navigating
-	}: {
-		baseUrl?: string;
-		href?: string;
-		navigationItems: Array<NavigationItem>;
-		type?: 'sidebar' | 'topbar';
-		title?: string | null;
-		version?: string | null;
-		color?: Color|string;
-		navigating?: { to: { url: { pathname: string } } } | null
-	} = $props();
-	let showMenu = $state(false);
+	}: Props = $props();
 </script>
 
 <div class="navigation--mobile">

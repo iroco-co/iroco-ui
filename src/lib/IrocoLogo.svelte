@@ -1,16 +1,18 @@
 <script lang="ts">
 
+	interface Props {
+		href?: string;
+		ariaLabel?: string;
+		width?: string;
+		height?: string;
+	}
+
 	let {
 		href = `/`,
 		ariaLabel = 'go to Iroco home',
 		width = '10rem',
 		height = '10rem'
-	}: {
-		href?: string;
-		ariaLabel?: string;
-		width?: string;
-		height?: string;
-	} = $props();
+	}: Props = $props();
 </script>
 
 <a class="iroco-logo" {href} aria-label={ariaLabel}>
