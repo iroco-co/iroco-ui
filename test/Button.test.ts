@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@testing-library/svelte';
-import Button from '$lib/Button.svelte';
-import SlotedComponentWrapper from '$lib/SlottedComponentWrapper.svelte';
+import { Button, SlottedComponentWrapper } from '$lib/index';
+import {vi} from 'vitest';
 
 test('Check content', () => {
 	const { getByRole } = render(Button, { type: '' });
@@ -8,7 +8,7 @@ test('Check content', () => {
 });
 
 test('Button slot', () => {
-	const { getByText } = render(SlotedComponentWrapper, { Component: Button });
+	const { getByText } = render(SlottedComponentWrapper, { Component: Button });
 	expect(getByText('Slot value')).toBeInTheDocument();
 });
 
@@ -26,8 +26,10 @@ test('Check if button is disabled when disabled parameter is true', () => {
 
 test('test onclick callback', () => {
 	const callback = vi.fn();
-	const { getByRole, component } = render(Button, { type: 'button' });
-	component.$on('click', callback);
+	const { getByRole } = render(Button, {
+		props: { type: 'button', onclick: callback  },
+	});
+	// component.$on('click', callback);
 
 	fireEvent.click(getByRole('button'));
 

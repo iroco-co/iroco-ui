@@ -1,8 +1,8 @@
 import { render, within } from '@testing-library/svelte';
-import Navigation from '$lib/Navigation.svelte';
+import { Navigation } from '$lib/index';
 import userEvent from '@testing-library/user-event';
-import { NavigationItem } from '$lib';
-import { NavigationItemType } from '../src/lib';
+import { NavigationItem } from '$lib/index';
+import { NavigationItemType } from '$lib/index';
 
 test('Check render', () => {
 	const { getByTestId } = render(Navigation, { navigationItems: [], title: '', type: 'sidebar' });

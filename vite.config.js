@@ -1,7 +1,6 @@
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 import { svelteTesting } from '@testing-library/svelte/vite';
 import { configDefaults, defineConfig } from 'vitest/config';
-import { join } from 'path';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -11,18 +10,20 @@ const PACKAGE_ROOT = path.dirname(filename);
 export default defineConfig({
 	mode: process.env.MODE,
 	root: PACKAGE_ROOT,
-	resolve: {
-		alias: {
-			'$lib/': join(PACKAGE_ROOT, 'src/lib') + '/'
-		}
-	},
+	resolve: process.env.VITEST
+		? {
+				conditions: ['browser'],
+				alias: {
+					'$lib/': path.join(PACKAGE_ROOT, 'src/lib') + '/'
+				}
+			}
+		: {
+				alias: {
+					'$lib/': path.join(PACKAGE_ROOT, 'src/lib') + '/'
+				}
+			},
 	plugins: [svelte({ hot: !process.env.VITEST }), svelteTesting()],
 	test: {
-		resolve: {
-			alias: {
-				'$lib/': 'src/lib/'
-			}
-		},
 		// jest like globals
 		globals: true,
 		environment: 'happy-dom',
@@ -32,6 +33,7 @@ export default defineConfig({
 		coverage: {
 			exclude: ['test/setupTest.ts']
 		},
+		setupFiles: ['./test/setupTest.ts'],
 		// Exclude playwright tests folder
 		exclude: [...configDefaults.exclude, 'tests'],
 		alias: [{ find: '@testing-library/svelte', replacement: '@testing-library/svelte/svelte5' }]
@@ -39,8 +41,8 @@ export default defineConfig({
 	base: '',
 	server: {
 		fs: {
-			strict: true,
-		},
+			strict: true
+		}
 	},
 	build: {
 		sourcemap: true,
@@ -48,10 +50,10 @@ export default defineConfig({
 		assetsDir: '.',
 		lib: {
 			entry: 'src/lib/index.ts',
-			formats: ['es'],
+			formats: ['es']
 		},
 
 		emptyOutDir: true,
-		reportCompressedSize: false,
-	},
+		reportCompressedSize: false
+	}
 });
