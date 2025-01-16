@@ -22,7 +22,14 @@ export default defineConfig({
 					'$lib/': path.join(PACKAGE_ROOT, 'src/lib') + '/'
 				}
 			},
-	plugins: [svelte({ hot: !process.env.VITEST }), svelteTesting()],
+	plugins: [
+		svelte({
+			compilerOptions: {
+				hmr: process.env.NODE_ENV !== 'production'
+			}
+		}),
+		svelteTesting()
+	],
 	test: {
 		// jest like globals
 		globals: true,

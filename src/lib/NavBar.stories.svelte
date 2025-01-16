@@ -36,7 +36,6 @@
 <Story name="Default" />
 <Story name="Sidebar" args={{ type: 'sidebar' }} />
 <Story name="Topbar" args={{ type: 'topbar' }} />
-<Story name="Alternative title" args={{ title: 'Alternative title' }} />
 <Story name="Active" args={{
 	navigating:{to:{url:{pathname:"/bar"}}},
 		navigationItems: [
