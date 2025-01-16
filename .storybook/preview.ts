@@ -4,7 +4,7 @@ import type { Preview } from '@storybook/svelte';
 import './iroco.scss';
 
 const preview: Preview = {
-	parameters: {
+    parameters: {
 		actions: { argTypesRegex: '^on[A-Z].*' },
 		controls: {
 			matchers: {
@@ -288,7 +288,9 @@ const preview: Preview = {
 				'#18151e'
 			]
 		}
-	}
+	},
+
+    tags: ['autodocs']
 };
 
 export default preview;
