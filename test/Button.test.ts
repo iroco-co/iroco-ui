@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@testing-library/svelte';
 import { Button, SlottedComponentWrapper } from '$lib/index';
-import {vi} from 'vitest';
+import { vi } from 'vitest';
 
 test('Check content', () => {
 	const { getByRole } = render(Button, { type: '' });
@@ -27,7 +27,7 @@ test('Check if button is disabled when disabled parameter is true', () => {
 test('test onclick callback', () => {
 	const callback = vi.fn();
 	const { getByRole } = render(Button, {
-		props: { type: 'button', onclick: callback  },
+		props: { type: 'button', onclick: callback }
 	});
 	// component.$on('click', callback);
 

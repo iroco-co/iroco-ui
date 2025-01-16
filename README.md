@@ -56,7 +56,7 @@ Example of layout with navigation
 
 # develop
 
-[Useful Svelte 5 + Storybook examples](https://github.com/podman-desktop/podman-desktop/tree/main/storybook). 
+[Useful Svelte 5 + Storybook examples](https://github.com/podman-desktop/podman-desktop/tree/main/storybook).
 
 To install dependencies :
 

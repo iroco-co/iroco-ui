@@ -1,5 +1,5 @@
 import { fireEvent, render } from '@testing-library/svelte';
-import { Alert,SlottedComponentWrapper } from '$lib/index';
+import { Alert, SlottedComponentWrapper } from '$lib/index';
 import type { Element } from 'svelte/types/compiler/interfaces';
 
 test('Check render', () => {
