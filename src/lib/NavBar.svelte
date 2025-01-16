@@ -10,7 +10,7 @@
 		navigationItems: Array<NavigationItem>;
 		type: 'sidebar' | 'topbar';
 		version?: string | null;
-		navigating: { to: { url: { pathname: string } } } | null;
+		navigating?: { to: { url: { pathname: string } } } | null;
 	}
 
 
