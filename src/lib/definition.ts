@@ -30,12 +30,6 @@ export enum NavigationItemType {
 	FORM
 }
 
-export enum TextInputType {
-	text = 'text',
-	email = 'email',
-	password = 'password'
-}
-
 export enum Color {
 	blue = '#00B9FF',
 	darkBlue = '#211D28',
