@@ -3,7 +3,7 @@
 
 	interface Props {
 		type?: 'success' | 'danger' | 'flash';
-		callback: (e: Event) => void;
+		callback?: (e: Event) => void;
 		children?: import('svelte').Snippet;
 	}
 
