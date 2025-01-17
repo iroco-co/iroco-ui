@@ -1,39 +1,26 @@
-<script context="module" type="ts">
+<script module lang="ts">
 	import { RadioButton } from '$lib/index';
 
-	export const meta = {
+	import {defineMeta,setTemplate} from '@storybook/addon-svelte-csf'
+
+	const {Story} = defineMeta({
+
 		title: 'Iroco-UI/Form/RadioButton',
 		component: RadioButton,
-		argTypes: {
-			value: {
-				control: { type: 'string' }
-			},
-			group: {
-				control: { type: 'string' }
-			},
-			name: {
-				control: { type: 'string' }
-			},
-			checked: {
-				control: { type: 'boolean' }
-			}
-		}
-	};
+	})
+	let group = $state('bar');
+</script>
+<script lang="ts">
+	setTemplate(template);
 </script>
 
-<script>
-	import { Story, Template } from '@storybook/addon-svelte-csf';
-
-	let group = 'bar';
-</script>
-
-<Template let:args>
-	<form class="iroco-ui-form">
-		<RadioButton bind:group name="name-hello" value="hello" {...args}>Hello</RadioButton>
-		<RadioButton bind:group name="name-foo" value="foo">Foo</RadioButton>
-		<RadioButton bind:group name="name-bar" value="bar">Bar</RadioButton>
-	</form>
-	Selected group : {group}
-</Template>
+{#snippet template({ ...args })}
+		<form class="iroco-ui-form">
+			<RadioButton bind:group name="name-hello" value="hello" {...args}>Hello</RadioButton>
+			<RadioButton bind:group name="name-foo" value="foo">Foo</RadioButton>
+			<RadioButton bind:group name="name-bar" value="bar">Bar</RadioButton>
+		</form>
+		Selected group : {group}
+	{/snippet}
 
 <Story name="Default" />

@@ -1,11 +1,14 @@
-<script context="module" type="ts">
-	import ImageArticle from '$lib/ImageArticle.svelte';
+<script module lang="ts">
+	import { ImageArticle } from '$lib/index';
 	import accessibilityImageFile from '../stories/assets/accessibility.svg';
 	import discordImageFile from '../stories/assets/discord.svg';
 	import youtubeImageFile from '../stories/assets/youtube.svg';
 	import tutorialsImageFile from '../stories/assets/tutorials.svg';
 
-	export const meta = {
+	import { defineMeta, setTemplate } from '@storybook/addon-svelte-csf';
+
+	const { Story } = defineMeta({
+
 		title: 'ImageArticle',
 		component: ImageArticle,
 		argTypes: {
@@ -38,16 +41,16 @@
 			],
 			reversed: false
 		}
-	};
+	});
 </script>
 
-<script>
-	import { Story, Template } from '@storybook/addon-svelte-csf';
+<script lang="ts">
+	setTemplate(template);
 </script>
 
-<Template let:args>
+{#snippet template({ ...args })}
 	<ImageArticle {...args}></ImageArticle>
-</Template>
+{/snippet}
 
 <Story name="Default" />
 <Story name="Reversed" args={{ reversed: true }} />

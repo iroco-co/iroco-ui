@@ -1,7 +1,9 @@
-<script context="module" type="ts">
-	import IconClose from '$lib/IconClose.svelte';
+<script module lang="ts">
+	import { IconClose } from '$lib/index';
 
-	export const meta = {
+	import { defineMeta } from '@storybook/addon-svelte-csf';
+
+	const { Story } = defineMeta({
 		title: 'Iroco-UI/Icons/IconClose',
 		component: IconClose,
 		argTypes: {
@@ -16,15 +18,7 @@
 				max: 512
 			}
 		}
-	};
+	});
 </script>
-
-<script>
-	import { Story, Template } from '@storybook/addon-svelte-csf';
-</script>
-
-<Template let:args>
-	<IconClose {...args} />
-</Template>
 
 <Story name="Default" />

@@ -1,19 +1,22 @@
-<script context="module" type="ts">
+<script module lang="ts">
 	import { Loader } from '$lib/index';
 
-	export const meta = {
+	import { defineMeta, setTemplate } from '@storybook/addon-svelte-csf';
+
+	const { Story } = defineMeta({
+
+
 		title: 'Iroco-UI/Atoms/Loader',
 		component: Loader,
 		argTypes: {}
-	};
+	});
+</script>
+<script lang="ts">
+	setTemplate(template);
 </script>
 
-<script>
-	import { Story, Template } from '@storybook/addon-svelte-csf';
-</script>
-
-<Template let:args>
+{#snippet template({ ...args })}
 	<Loader {...args} />
-</Template>
+{/snippet}
 
 <Story name="Default" />

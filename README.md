@@ -10,8 +10,8 @@ See the [Documentation](https://iroco-co.github.io/iroco-ui/) (not in sync anymo
 
 Prerequisites:
 
-- @sveltejs/kit: ^2.5.0
-- svelte: ^4.2.10
+- @sveltejs/kit: ^2.x
+- svelte: ^5.x
 
 ```sh
 # latest
@@ -28,7 +28,7 @@ npm install @iroco/ui@next
 @use 'node_modules/@iroco/ui/dist/scss/fonts';
 @use 'node_modules/@iroco/ui/dist/scss/style';
 @use 'node_modules/@iroco/ui/dist/scss/constants';
-@import 'node_modules/@iroco/ui/dist/scss/containers';
+@use 'node_modules/@iroco/ui/dist/scss/containers';
 ```
 
 Example of layout with navigation
@@ -49,12 +49,14 @@ Example of layout with navigation
 <style lang="scss">
 	@use 'node_modules/@iroco/ui/dist/scss/colors.scss';
 	@use 'node_modules/@iroco/ui/dist/scss/constants.scss';
-	@import 'node_modules/@iroco/ui/dist/scss/containers.scss';
-	@import 'node_modules/@iroco/ui/dist/scss/button.scss';
+	@use 'node_modules/@iroco/ui/dist/scss/containers.scss';
+	@use 'node_modules/@iroco/ui/dist/scss/button.scss';
 </style>
 ```
 
 # develop
+
+[Useful Svelte 5 + Storybook examples](https://github.com/podman-desktop/podman-desktop/tree/main/storybook).
 
 To install dependencies :
 

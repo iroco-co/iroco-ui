@@ -1,18 +1,35 @@
 <script lang="ts">
-	export let id: string;
-	export let label: string | '' | undefined;
-	export let placeholder: string | '' | undefined = '';
-	export let error: string | undefined = undefined;
-	export let value: number | undefined = undefined;
-	export let min: number | undefined;
-	export let max: number | undefined;
+	import type { ChangeEventHandler, HTMLInputAttributes } from 'svelte/elements';
+
+	interface Props extends HTMLInputAttributes{
+		id: string;
+		label: string | '' | undefined;
+		placeholder?: string | '' | undefined;
+		error?: string | undefined;
+		value?: number | undefined;
+		min: number | undefined;
+		max: number | undefined;
+		onchange: ChangeEventHandler<HTMLInputElement> | null | undefined
+	}
+
+	let {
+		id,
+		label,
+		placeholder = '',
+		error = undefined,
+		value = $bindable(undefined),
+		min,
+		max,
+		onchange,
+		...rest
+	}: Props = $props();
 </script>
 
 <div class="iroco-ui-input">
 	{#if label}
 		<label class="iroco-ui-label" for={id}>{label}</label>
 	{/if}
-	<input on:change bind:value {id} type="number" {placeholder} {min} {max} {...$$restProps} />
+	<input {onchange} bind:value {id} type="number" {placeholder} {min} {max} {...rest} />
 	{#if error}
 		<p data-testid="error" class="error">{error}</p>
 	{/if}

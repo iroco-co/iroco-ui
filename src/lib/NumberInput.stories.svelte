@@ -1,7 +1,11 @@
-<script context="module" type="ts">
+<script module lang="ts">
 	import { NumberInput } from '$lib/index';
 
-	export const meta = {
+	import { defineMeta, setTemplate } from '@storybook/addon-svelte-csf';
+
+	const { Story } = defineMeta({
+
+
 		title: 'Iroco-UI/Form/NumberInput',
 		component: NumberInput,
 		argTypes: {
@@ -27,18 +31,19 @@
 				control: { type: 'number' }
 			}
 		}
-	};
+	});
 </script>
 
-<script>
-	import { Story, Template } from '@storybook/addon-svelte-csf';
+
+<script lang="ts">
+	setTemplate(template);
 </script>
 
-<Template let:args>
+{#snippet template({ ...args })}
 	<form class="iroco-ui-form">
 		<NumberInput {...args} />
 	</form>
-</Template>
+{/snippet}
 
 <Story name="Default" />
 <Story name="Label" args={{ label: 'Label' }} />

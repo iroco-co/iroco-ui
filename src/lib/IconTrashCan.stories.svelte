@@ -1,9 +1,11 @@
-<script context="module" type="ts">
+<script module lang="ts">
 	import { IconTrashCan } from '$lib/index';
 
-	export const meta = {
+	import {defineMeta} from '@storybook/addon-svelte-csf'
+
+	const {Story} = defineMeta({
+
 		title: 'Iroco-UI/Icons/IconTrashCan',
-		type: 'Icons',
 		component: IconTrashCan,
 		argTypes: {
 			width: {
@@ -17,15 +19,7 @@
 				max: 512
 			}
 		}
-	};
+	})
 </script>
-
-<script>
-	import { Story, Template } from '@storybook/addon-svelte-csf';
-</script>
-
-<Template let:args>
-	<IconTrashCan {...args} />
-</Template>
 
 <Story name="Default" />

@@ -1,61 +1,38 @@
-<script context="module" type="ts">
+<script module lang="ts">
 	import { TextInput } from '$lib/index';
 
-	export const meta = {
+	import { defineMeta, setTemplate } from '@storybook/addon-svelte-csf';
+
+	const { Story } = defineMeta({
+
+
 		title: 'Iroco-UI/Form/TextInput',
 		component: TextInput,
 		argTypes: {
-			id: {
-				control: { type: 'text' }
-			},
-			type: {
-				control: { type: 'select' },
-				options: ['text', 'email', 'password']
-			},
-			name: {
-				control: { type: 'text' }
-			},
-			label: {
-				control: { type: 'text' }
-			},
-			placeholder: {
-				control: { type: 'text' }
-			},
-			error: {
-				control: { type: 'text' }
-			},
-			htmlError: {
-				control: { type: 'text' }
-			},
-			value: {
-				control: { type: 'number' }
-			},
-			readonly: {
-				control: { type: 'boolean' }
-			},
-			border: {
-				control: { type: 'boolean' }
-			},
-			autocomplete: {
-				control: { type: 'text' }
-			}
-		},
-		args: {
-			type: 'text'
+			type: { control: { type: 'select' } },
+			autocomplete: { control: { type: 'select' } }
 		}
-	};
+	});
+
+	let oninputFoo = $state<string | null>('');
+
+	function handleOnInput(event: Event & { currentTarget: EventTarget & HTMLInputElement; }) {
+		oninputFoo = '' + event.data + ' ' + event.timeStamp;
+	}
+
 </script>
 
-<script>
-	import { Story, Template } from '@storybook/addon-svelte-csf';
+
+<script lang="ts">
+	setTemplate(template);
 </script>
 
-<Template let:args>
+{#snippet template({ ...args })}
 	<form class="iroco-ui-form">
-		<TextInput {...args} />
+		<TextInput {...args} oninput={handleOnInput} />
 	</form>
-
-</Template>
+	<p>On input handled : {oninputFoo}</p>
+{/snippet}
 
 <Story name="Default" />
 <Story name="Text" args={{ type: 'text' }} />
@@ -64,7 +41,7 @@
 <Story name="Label" args={{ label: 'Label' }} />
 <Story name="Error" args={{ error: 'An error message' }} />
 <Story name="Placeholder" args={{ placeholder: 'A placeholder' }} />
-<Story name="Border" args={{ placeholder: 'A placeholder' }} />
+<Story name="Border" args={{ border: true }} />
 <Story
 	name="Html Error"
 	args={{

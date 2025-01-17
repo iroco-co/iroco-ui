@@ -1,8 +1,9 @@
-<script context="module" type="ts">
-	import { NavigationItem, NavigationItemType } from './definition';
+<script module lang="ts">
+	import { NavigationItem, NavigationItemType } from '$lib/definition';
 	import { NavBar } from '$lib/index';
+	import { defineMeta, setTemplate } from '@storybook/addon-svelte-csf';
 
-	export const meta = {
+	const { Story } = defineMeta({
 		title: 'NavBar',
 		component: NavBar,
 		argTypes: {
@@ -10,28 +11,36 @@
 				control: { type: 'select' },
 				options: ['sidebar', 'topbar']
 			}
+		},
+		args: {
+			navigationItems: [
+				new NavigationItem('About', `/about`),
+				new NavigationItem('Foo', `/foo`),
+				new NavigationItem('Bar', `/bar`),
+				new NavigationItem('Button', `/button`, NavigationItemType.BUTTON),
+				new NavigationItem('Anchor', `/anchor`, NavigationItemType.ANCHOR),
+				new NavigationItem('Form', `/form`, NavigationItemType.FORM)
+			]
 		}
-	};
+
+	});
+</script>
+<script lang="ts">
+	setTemplate(template);
 </script>
 
-<script>
-	import { Story, Template } from '@storybook/addon-svelte-csf';
-</script>
-
-<Template let:args>
-	<NavBar
-		{...args}
-		navigationItems={[
-			new NavigationItem('About', `/about`),
-			new NavigationItem('Foo', `/foo`),
-			new NavigationItem('Bar', `/bar`),
-			new NavigationItem('Button', `/bar`, NavigationItemType.BUTTON),
-			new NavigationItem('Anchor', `/bar`, NavigationItemType.ANCHOR),
-			new NavigationItem('Form', `/bar`, NavigationItemType.FORM)
-		]}
-	/>
-</Template>
+{#snippet template({ ...args })}
+	<NavBar {...args} />
+{/snippet}
 
 <Story name="Default" />
 <Story name="Sidebar" args={{ type: 'sidebar' }} />
-<Story name="Title" args={{ title: 'Alternative title' }} />
+<Story name="Topbar" args={{ type: 'topbar' }} />
+<Story name="Active" args={{
+	navigating:{to:{url:{pathname:"/bar"}}},
+		navigationItems: [
+				new NavigationItem('About', `/about`),
+				new NavigationItem('Foo', `/foo`),
+				new NavigationItem('Bar', `/bar`),
+			]
+}} />

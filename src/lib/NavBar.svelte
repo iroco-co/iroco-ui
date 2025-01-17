@@ -1,15 +1,19 @@
 <script lang="ts">
-	import IconClose from './IconClose.svelte';
-	import type { NavigationItem } from './definition';
+	import { IconClose } from '$lib/index';
 	import { createEventDispatcher } from 'svelte';
-	import { navigating } from '$app/stores';
-	import { NavigationItemType } from '$lib/definition.js';
+	import { NavigationItemType, NavigationItem } from '$lib/definition.js';
+	import type { MouseEventHandler } from 'svelte/elements';
 
-	export let navigationItems: Array<NavigationItem>;
-	export let type: 'sidebar' | 'topbar';
-	export let version: string | null = null;
+	interface Props {
+		navigationItems: Array<NavigationItem>;
+		type: 'sidebar' | 'topbar';
+		version?: string | null;
+		navigating?: { to: { url: { pathname: string } } } | null;
+		onclick?: MouseEventHandler<HTMLButtonElement>;
+	}
 
-	let active: string;
+	let { navigationItems, type, version = null, navigating = null, onclick }: Props = $props();
+
 	const dispatch = createEventDispatcher();
 
 	const handleClickLink = (menuItem: NavigationItem) => {
@@ -27,11 +31,11 @@
 		return false;
 	}
 
-	$: if ($navigating) active = $navigating.to.url.pathname;
+	let active = $derived(navigating?.to.url.pathname ?? '');
 </script>
 
 <nav data-testid={type} class="nav__{type}">
-	<button title="Close menu" on:click class="nav__{type}__close">
+	<button title="Close menu" {onclick} class="nav__{type}__close">
 		<IconClose width="3em" height="3em" />
 	</button>
 
@@ -44,7 +48,7 @@
 					</form>
 				{:else}
 					<a
-						on:click={() => handleClickLink(item)}
+						onclick={() => handleClickLink(item)}
 						href={typeof item.hrefOrCallback === 'string' ? item.hrefOrCallback : '#'}
 						class:iroco-ui-button={item.type === NavigationItemType.BUTTON}
 						class:iroco-ui-button--small={item.type === NavigationItemType.BUTTON}
@@ -61,125 +65,138 @@
 
 <style lang="scss">
 
-	@use './scss/constants';
-	@import './scss/containers';
-	@import './scss/button';
+  @use './scss/constants';
+  @use './scss/containers';
+  @use './scss/button';
 
-	.nav {
-		&__sidebar,
-		&__topbar {
-			&__item {
-				text-decoration: none;
-				display: block;
-				font-size: 1em;
-			}
-			&__close {
-				display: none;
-			}
-		}
+  .nav {
+    &__sidebar,
+    &__topbar {
+      &__item {
+        text-decoration: none;
+        display: block;
+        font-size: 1em;
+      }
 
-		&__sidebar {
-			height: 100%;
-			width: 300px;
-			position: absolute;
-			top: 4.45em;
-			left: 0;
-			overflow-x: hidden;
-			display: flex;
-			flex-direction: column;
-			&__item-container {
-				margin: 0;
-				padding: 0;
-			}
-			&__item {
-				padding: 2em;
-				border-top: 1px solid var(--color-border);
-			}
-			&__item:first-child {
-				border-top: none;
-			}
-			.active {
-				border-top: 1px solid var(--color-primary);
-				border-bottom: 1px solid var(--color-primary);
-			}
-		}
+      &__close {
+        display: none;
+      }
+    }
 
-		&__topbar {
-			flex-grow: 1;
-			display: flex;
-			justify-content: flex-end;
-			ul,
-			li {
-				display: inline;
-			}
-			ul {
-				display: flex;
-				flex-grow: 1;
-				justify-content: space-around;
-			}
-			.active {
-				border-bottom: 1px solid var(--color-primary);
-			}
-		}
+    &__sidebar {
+      height: 100%;
+      width: 300px;
+      position: absolute;
+      top: 4.45em;
+      left: 0;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
 
-		&__version {
-			margin-top: auto;
-			padding-left: 2em;
-			color: var(--color-text-dark);
-		}
-	}
+      &__item-container {
+        margin: 0;
+        padding: 0;
+      }
 
-	@include screen-tablet {
-		.nav {
-			&__sidebar,
-			&__topbar {
-				position: fixed;
-				background-color: var(--color-body);
-				top: 0;
-				right: 0;
-				width: 100%;
-				padding: 0;
-				padding-top: 2em;
-				margin: 0;
-				border-right: none;
-				&__item-container {
-					padding: 0em;
-					margin-top: 2rem;
-				}
-				ul,
-				li {
-					display: block;
-				}
-				&__close {
-					display: block;
-					position: absolute;
-					right: 0;
-					top: 0;
-					background-color: transparent;
-					border: none;
-					color: var(--color-icon-primary);
-				}
-			}
+      &__item {
+        padding: 2em;
+        border-top: 1px solid var(--color-border);
+      }
 
-			&__sidebar {
-				top: 0;
-				left: 0;
-				&__item:first-child {
-					border-top: 1px solid var(--color-border);
-				}
-			}
+      &__item:first-child {
+        border-top: none;
+      }
 
-			&__topbar {
-				height: 100%;
-				&__item {
-					padding: 2em;
-					border-top: 1px solid var(--color-border);
-				}
-			}
+      .active {
+        border-top: 1px solid var(--color-primary);
+        border-bottom: 1px solid var(--color-primary);
+      }
+    }
 
-			&__version {
-				display: none;
-			}
-		}
-	}
+    &__topbar {
+      flex-grow: 1;
+      display: flex;
+      justify-content: flex-end;
+
+      ul,
+      li {
+        display: inline;
+      }
+
+      ul {
+        display: flex;
+        flex-grow: 1;
+        justify-content: space-around;
+      }
+
+      .active {
+        border-bottom: 1px solid var(--color-primary);
+      }
+    }
+
+    &__version {
+      margin-top: auto;
+      padding-left: 2em;
+      color: var(--color-text-dark);
+    }
+  }
+
+  @include containers.screen-tablet {
+    .nav {
+      &__sidebar,
+      &__topbar {
+        position: fixed;
+        background-color: var(--color-body);
+        top: 0;
+        right: 0;
+        width: 100%;
+        padding: 0;
+        padding-top: 2em;
+        margin: 0;
+        border-right: none;
+
+        &__item-container {
+          padding: 0em;
+          margin-top: 2rem;
+        }
+
+        ul,
+        li {
+          display: block;
+        }
+
+        &__close {
+          display: block;
+          position: absolute;
+          right: 0;
+          top: 0;
+          background-color: transparent;
+          border: none;
+          color: var(--color-icon-primary);
+        }
+      }
+
+      &__sidebar {
+        top: 0;
+        left: 0;
+
+        &__item:first-child {
+          border-top: 1px solid var(--color-border);
+        }
+      }
+
+      &__topbar {
+        height: 100%;
+
+        &__item {
+          padding: 2em;
+          border-top: 1px solid var(--color-border);
+        }
+      }
+
+      &__version {
+        display: none;
+      }
+    }
+  }
 </style>

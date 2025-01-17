@@ -1,7 +1,8 @@
-<script context="module" type="ts">
+<script module lang="ts">
 	import { IconFloppyDisk } from '$lib/index';
+	import { defineMeta } from '@storybook/addon-svelte-csf';
 
-	export const meta = {
+	const { Story } = defineMeta({
 		title: 'Iroco-UI/Icons/IconFloppyDisk',
 		component: IconFloppyDisk,
 		argTypes: {
@@ -19,15 +20,7 @@
 				control: { type: 'color' }
 			}
 		}
-	};
+	});
 </script>
-
-<script>
-	import { Story, Template } from '@storybook/addon-svelte-csf';
-</script>
-
-<Template let:args>
-	<IconFloppyDisk {...args} />
-</Template>
 
 <Story name="Default" />

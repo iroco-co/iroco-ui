@@ -1,12 +1,28 @@
-<svelte:options accessors={true} />
-
 <script lang="ts">
-	export let type: 'button' | 'reset' | 'submit' | null | undefined = 'button'
-	export let disabled = false
-	export let kind: 'danger' | 'success' | 'dark' | 'basic' = 'basic'
-	export let size: 'small' | 'regular' = 'regular'
-	export let fullWidth: boolean = false
-	export let id: string | null = null
+	import type { MouseEventHandler } from 'svelte/elements';
+
+	interface Props {
+		type?: 'button' | 'reset' | 'submit' | null | undefined;
+		disabled?: boolean;
+		kind?: 'danger' | 'success' | 'dark' | 'basic';
+		size?: 'small' | 'regular';
+		fullWidth?: boolean;
+		id?: string | null;
+		children?: import('svelte').Snippet;
+		onclick?: MouseEventHandler<HTMLButtonElement>;
+	}
+
+	let {
+		type = 'button',
+		disabled = false,
+		kind = 'basic',
+		size = 'regular',
+		fullWidth = false,
+		id = null,
+		children,
+		onclick
+	}: Props = $props();
+
 </script>
 
 <button
@@ -15,9 +31,9 @@
 	class:disabled
 	{type}
 	{disabled}
-	on:click
+	{onclick}
 >
-	<slot />
+	{@render children?.()}
 </button>
 
 <style lang="scss">

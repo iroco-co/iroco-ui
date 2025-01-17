@@ -1,5 +1,5 @@
 import { render } from '@testing-library/svelte';
-import NumberInput from '$lib/NumberInput.svelte';
+import { NumberInput } from '$lib/index';
 import { screen } from '@testing-library/svelte';
 import userEvent from '@testing-library/user-event';
 

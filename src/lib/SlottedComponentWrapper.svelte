@@ -1,7 +1,7 @@
-<script>
-	export let Component;
+<script lang="ts">
+	let { Component } = $props();
 </script>
 
-<svelte:component this={Component}>
+<Component>
 	<h1 data-testid="slot">Slot value</h1>
-</svelte:component>
+</Component>

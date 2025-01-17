@@ -1,15 +1,20 @@
 <script lang="ts">
 	import IconClose from '$lib/IconClose.svelte';
 
-	export let type: 'success' | 'danger' | 'flash' = 'success';
-	export let callback: (e: Event) => void;
+	interface Props {
+		type?: 'success' | 'danger' | 'flash';
+		callback?: (e: Event) => void;
+		children?: import('svelte').Snippet;
+	}
+
+	let { type = 'success', callback, children }: Props = $props();
 </script>
 
 <div class={`alert alert--${type}`}>
-	<button on:click={callback} class="alert__close">
+	<button onclick={callback} class="alert__close">
 		<IconClose width="2em" height="2em" />
 	</button>
-	<slot />
+	{@render children?.()}
 </div>
 
 <style lang="scss">

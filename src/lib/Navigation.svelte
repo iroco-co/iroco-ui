@@ -1,19 +1,31 @@
 <script lang="ts">
-	import type { NavigationItem } from './definition';
-	import IconBurger from './IconBurger.svelte';
-	import IconIrocoLogo from './IconIrocoLogo.svelte';
-	import IrocoLogo from './IrocoLogo.svelte';
-	import NavBar from './NavBar.svelte';
-	import { Color } from './definition';
-	import { base } from '$app/paths';
+	import type { NavigationItem } from '$lib/definition';
+	import { Color } from '$lib/definition';
+	import { IconBurger, IconIrocoLogo, IrocoLogo, NavBar } from '$lib';
 
-	export let href = `${base}/`;
-	export let navigationItems: Array<NavigationItem>;
-	export let type: 'sidebar' | 'topbar' = 'topbar';
-	export let title: string | null = null;
-	export let version: string | null = null;
-	export let color: Color = Color.green;
-	let showMenu = false;
+	interface Props {
+		baseUrl?: string;
+		href?: string;
+		navigationItems: Array<NavigationItem>;
+		type?: 'sidebar' | 'topbar';
+		title?: string | null;
+		version?: string | null;
+		color?: Color | string;
+		navigating?: { to: { url: { pathname: string } } } | null;
+	}
+
+	let showMenu = $state(false);
+
+	let {
+		baseUrl = '',
+		href = `${baseUrl}/`,
+		navigationItems,
+		type = 'topbar',
+		title = null,
+		version = null,
+		color = Color.green,
+		navigating
+	}: Props = $props();
 </script>
 
 <div class="navigation--mobile">
@@ -26,7 +38,7 @@
 		{/if}
 	</div>
 
-	<button title="Menu button" on:click={() => (showMenu = true)} class="navigation--mobile__button">
+	<button title="Menu button" onclick={() => (showMenu = true)} class="navigation--mobile__button">
 		<IconBurger width="3em" height="3em" />
 	</button>
 
@@ -36,6 +48,7 @@
 			on:click={() => (showMenu = false)}
 			{type}
 			{navigationItems}
+			{navigating}
 			{version}
 		/>
 	{/if}
@@ -55,69 +68,69 @@
 
 <style lang="scss">
 
-	@import './scss/containers';
+  @use './scss/containers';
 
-	.navigation {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-		width: 100%;
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 
-		&--mobile {
-			display: none;
-		}
+    &--mobile {
+      display: none;
+    }
 
-		&__title-container {
-			display: flex;
-			align-items: center;
-			padding-left: 1em;
+    &__title-container {
+      display: flex;
+      align-items: center;
+      padding-left: 1em;
 
-			h1 {
-				padding-left: 1em;
-			}
-		}
-	}
+      h1 {
+        padding-left: 1em;
+      }
+    }
+  }
 
-	@include screen-tablet {
-		.navigation {
-			display: none;
-			color: var(--color-text);
+  @include containers.screen-tablet {
+    .navigation {
+      display: none;
+      color: var(--color-text);
 
-			&--mobile {
-				display: flex;
-				padding: 0 1em;
-				justify-content: space-between;
-				position: fixed;
-				top: 0;
-				z-index: 1;
-				width: 100%;
-				border-bottom: 1px solid var(--color-border);
+      &--mobile {
+        display: flex;
+        padding: 0 1em;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+        border-bottom: 1px solid var(--color-border);
 
-				h1 {
-					font-size: 2em;
-				}
+        h1 {
+          font-size: 2em;
+        }
 
-				&__button {
-					background-color: transparent;
-					border: none;
-					color: var(--color-icon-primary);
-				}
+        &__button {
+          background-color: transparent;
+          border: none;
+          color: var(--color-icon-primary);
+        }
 
-				&__title-container {
-					display: flex;
-					align-items: center;
+        &__title-container {
+          display: flex;
+          align-items: center;
 
-					h1 {
-						padding-left: 0.5em;
-					}
-				}
-			}
-		}
-	}
+          h1 {
+            padding-left: 0.5em;
+          }
+        }
+      }
+    }
+  }
 
-	.navigation__title-link,
-	.navigation-mobile__title-link {
-		color: var(--color-text-light);
-	}
+  .navigation__title-link,
+  .navigation-mobile__title-link {
+    color: var(--color-text-light);
+  }
 </style>

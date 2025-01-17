@@ -1,9 +1,10 @@
-<script context="module" type="ts">
-	import IconMoreSign from '$lib/IconMoreSign.svelte';
+<script module lang="ts">
+	import { IconMoreSign } from '$lib/index';
 
-	export const meta = {
+	import { defineMeta } from '@storybook/addon-svelte-csf';
+
+	const { Story } = defineMeta({
 		title: 'Iroco-UI/Icons/IconMoreSign',
-		type: 'Icons',
 		component: IconMoreSign,
 		argTypes: {
 			width: {
@@ -17,15 +18,7 @@
 				max: 512
 			}
 		}
-	};
+	});
 </script>
-
-<script>
-	import { Story, Template } from '@storybook/addon-svelte-csf';
-</script>
-
-<Template let:args>
-	<IconMoreSign {...args} />
-</Template>
 
 <Story name="Default" />

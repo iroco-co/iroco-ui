@@ -1,7 +1,12 @@
-<script context="module" type="ts">
+<script module lang="ts">
 	import { IconInfo } from '$lib/index';
 
-	export const meta = {
+	import {defineMeta} from '@storybook/addon-svelte-csf'
+
+	const {Story} = defineMeta({
+
+
+
 		title: 'Iroco-UI/Icons/IconInfo',
 		type: 'Icons',
 		component: IconInfo,
@@ -17,15 +22,7 @@
 				max: 512
 			}
 		}
-	};
+	})
 </script>
-
-<script>
-	import { Story, Template } from '@storybook/addon-svelte-csf';
-</script>
-
-<Template let:args>
-	<IconInfo {...args} />
-</Template>
 
 <Story name="Default" />

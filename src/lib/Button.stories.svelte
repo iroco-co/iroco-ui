@@ -1,7 +1,10 @@
-<script context="module" type="ts">
-	import Button from './Button.svelte';
+<script module lang="ts">
+	import { Button } from '$lib/index';
 
-	export const meta = {
+	import { defineMeta, setTemplate } from '@storybook/addon-svelte-csf';
+
+	const { Story } = defineMeta({
+
 		title: 'Iroco-UI/Atoms/Button',
 		component: Button,
 		argTypes: {
@@ -14,25 +17,26 @@
 				options: ['small', 'regular']
 			}
 		}
-	};
-</script>
+	});
 
-<script>
-	import { Story, Template } from '@storybook/addon-svelte-csf';
-
-	let count = 0;
+	let count = $state(0);
 
 	function handleClick() {
 		count += 1;
 	}
 </script>
 
-<Template let:args>
+
+<script lang="ts">
+	setTemplate(template);
+</script>
+
+{#snippet template({ ...args })}
 	<!--👇 'on:click' allows to forward event to addon-actions  -->
-	<Button {...args} on:click={handleClick}>
+	<Button {...args} onclick={handleClick}>
 		You clicked: {count}
 	</Button>
-</Template>
+{/snippet}
 
 <Story name="Default" />
 <Story name="Success" args={{ kind: 'success' }} />
