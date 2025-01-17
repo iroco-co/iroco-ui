@@ -16,7 +16,7 @@
 		"format": "prettier --plugin-search-dir . --write .",
 		"clean": "rm -rf dist && npm cache clean --force",
 		"release": "npm run format && npm run build && release-it --only-version",
-		"build-storybook": "storybook build"
+		"build-storybook": "storybook build --output-dir docs"
 	},
 	"devDependencies": {
 		"@ljcl/storybook-addon-cssprops": "^4.0.0",
