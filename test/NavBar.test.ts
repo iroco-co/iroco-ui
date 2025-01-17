@@ -84,7 +84,7 @@ test('Should not display version when not provided', async () => {
 
 test('Should highlight active page', async () => {
 	const { container } = render(NavBar, {
-		navigating: { to: { url: { pathname: '/foo' } } },
+		currentRoute: '/foo',
 		navigationItems: [
 			new NavigationItem('foo', '/foo', NavigationItemType.ANCHOR),
 			new NavigationItem('bar', '/bar', NavigationItemType.ANCHOR)

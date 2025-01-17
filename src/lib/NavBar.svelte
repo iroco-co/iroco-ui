@@ -8,17 +8,11 @@
 		navigationItems: Array<NavigationItem>;
 		type: 'sidebar' | 'topbar';
 		version?: string | null;
-		navigating?: {
-			to: {
-				params: Record<string, string> | null
-				route: { id: string | null }
-				url: URL
-			} | null
-		} | null;
+		currentRoute?: string| null;
 		onclick?: MouseEventHandler<HTMLButtonElement>;
 	}
 
-	let { navigationItems, type, version = null, navigating = null, onclick }: Props = $props();
+	let { navigationItems, type, version = null,currentRoute=$bindable(null), onclick }: Props = $props();
 
 	const dispatch = createEventDispatcher();
 
@@ -32,12 +26,16 @@
 
 	function isActive(current: string, item: NavigationItem): boolean {
 		if (typeof item.hrefOrCallback === 'string') {
-			return item.hrefOrCallback === current;
+			console.log("is string url",current);
+			const b = item.hrefOrCallback === current;
+			console.log("is active : ",b);
+			return b;
 		}
 		return false;
 	}
 
-	let active = $derived(navigating?.to?.url.pathname ?? '');
+	let active = $derived(currentRoute ?? '');
+
 </script>
 
 <nav data-testid={type} class="nav__{type}">

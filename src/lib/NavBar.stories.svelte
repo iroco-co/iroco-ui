@@ -13,6 +13,7 @@
 			}
 		},
 		args: {
+			type:"topbar",
 			navigationItems: [
 				new NavigationItem('About', `/about`),
 				new NavigationItem('Foo', `/foo`),
@@ -37,7 +38,7 @@
 <Story name="Sidebar" args={{ type: 'sidebar' }} />
 <Story name="Topbar" args={{ type: 'topbar' }} />
 <Story name="Active" args={{
-	navigating:{to:{url:{pathname:"/bar"}}},
+		currentRoute:"/bar",
 		navigationItems: [
 				new NavigationItem('About', `/about`),
 				new NavigationItem('Foo', `/foo`),

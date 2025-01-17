@@ -11,7 +11,7 @@
 		title?: string | null;
 		version?: string | null;
 		color?: Color | string;
-		navigating?: { to: { url: { pathname: string } } } | null;
+		currentRoute?:string | null;
 	}
 
 	let showMenu = $state(false);
@@ -24,7 +24,7 @@
 		title = null,
 		version = null,
 		color = Color.green,
-		navigating
+		currentRoute = null,
 	}: Props = $props();
 </script>
 
@@ -48,7 +48,7 @@
 			on:click={() => (showMenu = false)}
 			{type}
 			{navigationItems}
-			{navigating}
+			{currentRoute}
 			{version}
 		/>
 	{/if}

@@ -41,7 +41,7 @@
 <Story name="Title" args={{ title: 'Alternative title' }} />
 <Story name="Color" args={{ color: '#ABCDEF' }} />
 <Story name="Active" args={{
-	navigating:{to:{url:{pathname:"/bar"}}},
+		currentRoute:"/bar",
 		navigationItems: [
 				new NavigationItem('About', `/about`),
 				new NavigationItem('Foo', `/foo`),
