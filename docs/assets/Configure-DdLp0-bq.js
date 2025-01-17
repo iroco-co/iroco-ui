@@ -1,2 +1,0 @@
-import{j as t,M as n}from"./index-8ofFieWO.js";import{useMDXComponents as s}from"./index-Pg50xuPQ.js";import"./iframe-BAudBvRw.js";import"./index-DaZ30-F2.js";import"./index-Cu4lwwaE.js";import"./index-7SSfYZ8z.js";import"./index-ogSvIofg.js";function e(o){return t.jsxs(t.Fragment,{children:[t.jsx(n,{title:"Configure your project"}),`
-`,t.jsx("style",{})]})}function j(o={}){const{wrapper:r}={...s(),...o.components};return r?t.jsx(r,{...o,children:t.jsx(e,{...o})}):e()}export{j as default};
