@@ -4,7 +4,7 @@
 	import { defineMeta, setTemplate } from '@storybook/addon-svelte-csf';
 
 	const { Story } = defineMeta({
-		title: 'NavBar',
+		title: 'Iroco-UI/Components/NavBar',
 		component: NavBar,
 		argTypes: {
 			type: {

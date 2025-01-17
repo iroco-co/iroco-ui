@@ -9,7 +9,7 @@
 
 	const { Story } = defineMeta({
 
-		title: 'ImageArticle',
+		title: 'Iroco-UI/Components/ImageArticle',
 		component: ImageArticle,
 		argTypes: {
 			reversed: {

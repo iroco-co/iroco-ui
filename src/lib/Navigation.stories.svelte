@@ -6,7 +6,7 @@
 	const { Story } = defineMeta({
 
 
-		title: 'Navigation',
+		title: 'Iroco-UI/Components/Navigation',
 		component: Navigation,
 		argTypes: {
 			color: {
