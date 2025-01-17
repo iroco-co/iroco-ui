@@ -1,14 +1,20 @@
 <script lang="ts">
 	import { IconClose } from '$lib/index';
 	import { createEventDispatcher } from 'svelte';
-	import { NavigationItemType, NavigationItem } from '$lib/definition.js';
+	import { NavigationItem, NavigationItemType } from '$lib/definition.js';
 	import type { MouseEventHandler } from 'svelte/elements';
 
 	interface Props {
 		navigationItems: Array<NavigationItem>;
 		type: 'sidebar' | 'topbar';
 		version?: string | null;
-		navigating?: { to: { url: { pathname: string } } } | null;
+		navigating?: {
+			to: {
+				params: Record<string, string> | null
+				route: { id: string | null }
+				url: URL
+			} | null
+		} | null;
 		onclick?: MouseEventHandler<HTMLButtonElement>;
 	}
 
@@ -31,7 +37,7 @@
 		return false;
 	}
 
-	let active = $derived(navigating?.to.url.pathname ?? '');
+	let active = $derived(navigating?.to?.url.pathname ?? '');
 </script>
 
 <nav data-testid={type} class="nav__{type}">
@@ -41,7 +47,7 @@
 
 	<ul class="nav__{type}__item-container">
 		{#each navigationItems as item}
-			<li class="nav__{type}__item" class:active={isActive(active, item)}>
+			<li class="nav__{type}__item" class:active={isActive(active, item)} aria-current={isActive(active, item)}>
 				{#if item.type === NavigationItemType.FORM}
 					<form method="POST" action={item.hrefOrCallback}>
 						<button class="iroco-ui-link" type="submit">{item.name}</button>
