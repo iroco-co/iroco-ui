@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/svelte';
-import { themes, ensure } from '@storybook/theming';
+import { themes } from '@storybook/theming';
 // Here we can import CSS from our design system
 import './iroco.scss';
 

@@ -30,7 +30,7 @@ test('Check min attribute', async () => {
 	const myNumberInput = screen.getByPlaceholderText('1');
 
 	await userEvent.type(myNumberInput, '0');
-	expect(myNumberInput.value).toBeNull;
+	expect(myNumberInput.value).toBeNull();
 });
 
 test('Check max attribute', async () => {
@@ -40,5 +40,5 @@ test('Check max attribute', async () => {
 	const myNumberInput = screen.getByPlaceholderText('1');
 
 	await userEvent.type(myNumberInput, '11');
-	expect(myNumberInput.value).toBeNull;
+	expect(myNumberInput.value).toBeNull();
 });
