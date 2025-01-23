@@ -42,7 +42,7 @@ export default defineConfig({
 		},
 		setupFiles: ['./test/setupTest.ts'],
 		// Exclude playwright tests folder
-		exclude: [...configDefaults.exclude, 'tests','docs'],
+		exclude: [...configDefaults.exclude, 'tests', 'docs'],
 		alias: [{ find: '@testing-library/svelte', replacement: '@testing-library/svelte/svelte5' }]
 	},
 	base: '',
