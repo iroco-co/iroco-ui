@@ -5,27 +5,27 @@
 
 	interface Props {
 		baseUrl?: string;
-		href?: string;
 		navigationItems: Array<NavigationItem>;
 		type?: 'sidebar' | 'topbar';
 		title?: string | null;
 		version?: string | null;
 		color?: Color | string;
-		currentRoute?:string | null;
+		currentRoute?: string | null;
 	}
 
-	let showMenu = $state(false);
 
 	let {
 		baseUrl = '',
-		href = `${baseUrl}/`,
 		navigationItems,
 		type = 'topbar',
-		title = null,
-		version = null,
+		title = '',
+		version = '',
 		color = Color.green,
-		currentRoute
+		currentRoute = '/foo'
 	}: Props = $props();
+
+	let showMenu = $state(false);
+	let href = $derived(`${baseUrl}/`);
 </script>
 
 <div class="navigation--mobile">
@@ -44,12 +44,12 @@
 
 	{#if showMenu}
 		<NavBar
-			on:click_link={() => (showMenu = false)}
-			on:click={() => (showMenu = false)}
-			{type}
 			{navigationItems}
 			{currentRoute}
+			{type}
 			{version}
+			on:click_link={() => (showMenu = false)}
+			on:click={() => (showMenu = false)}
 		/>
 	{/if}
 </div>
@@ -63,7 +63,12 @@
 			<h1><a class="navigation__title-link" {href}>{title}</a></h1>
 		{/if}
 	</div>
-	<NavBar {navigationItems} {type} {version} />
+	<NavBar
+		{navigationItems}
+		{currentRoute}
+		{type}
+		{version}
+	/>
 </div>
 
 <style lang="scss">

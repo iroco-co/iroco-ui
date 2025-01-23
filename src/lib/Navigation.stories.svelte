@@ -15,6 +15,7 @@
 		},
 		args: {
 			type: 'topbar',
+			currentRoute:"/foo",
 			navigationItems: [
 				new NavigationItem('About', `/about`),
 				new NavigationItem('Foo', `/foo`),
