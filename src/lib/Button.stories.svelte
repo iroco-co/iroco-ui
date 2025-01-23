@@ -4,7 +4,6 @@
 	import { defineMeta, setTemplate } from '@storybook/addon-svelte-csf';
 
 	const { Story } = defineMeta({
-
 		title: 'Iroco-UI/Atoms/Button',
 		component: Button,
 		argTypes: {
@@ -25,7 +24,6 @@
 		count += 1;
 	}
 </script>
-
 
 <script lang="ts">
 	setTemplate(template);

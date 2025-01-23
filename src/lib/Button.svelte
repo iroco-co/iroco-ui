@@ -22,12 +22,11 @@
 		children,
 		onclick
 	}: Props = $props();
-
 </script>
 
 <button
 	{id}
-	class={`iroco-ui-button iroco-ui-button--${size} iroco-ui-button--${kind} ${fullWidth?'iroco-ui-button--full-width':''}`}
+	class={`iroco-ui-button iroco-ui-button--${size} iroco-ui-button--${kind} ${fullWidth ? 'iroco-ui-button--full-width' : ''}`}
 	class:disabled
 	{type}
 	{disabled}
@@ -37,5 +36,5 @@
 </button>
 
 <style lang="scss">
-  @use './scss/button';
+	@use './scss/button';
 </style>

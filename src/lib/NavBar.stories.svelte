@@ -13,7 +13,7 @@
 			}
 		},
 		args: {
-			type:"topbar",
+			type: 'topbar',
 			navigationItems: [
 				new NavigationItem('About', `/about`),
 				new NavigationItem('Foo', `/foo`),
@@ -23,9 +23,9 @@
 				new NavigationItem('Form', `/form`, NavigationItemType.FORM)
 			]
 		}
-
 	});
 </script>
+
 <script lang="ts">
 	setTemplate(template);
 </script>
@@ -37,11 +37,14 @@
 <Story name="Default" />
 <Story name="Sidebar" args={{ type: 'sidebar' }} />
 <Story name="Topbar" args={{ type: 'topbar' }} />
-<Story name="Active" args={{
-		currentRoute:"/bar",
+<Story
+	name="Active"
+	args={{
+		currentRoute: '/bar',
 		navigationItems: [
-				new NavigationItem('About', `/about`),
-				new NavigationItem('Foo', `/foo`),
-				new NavigationItem('Bar', `/bar`),
-			]
-}} />
+			new NavigationItem('About', `/about`),
+			new NavigationItem('Foo', `/foo`),
+			new NavigationItem('Bar', `/bar`)
+		]
+	}}
+/>

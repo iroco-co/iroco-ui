@@ -4,13 +4,12 @@
 	import { defineMeta, setTemplate } from '@storybook/addon-svelte-csf';
 
 	const { Story } = defineMeta({
-
-
 		title: 'Iroco-UI/Atoms/Loader',
 		component: Loader,
 		argTypes: {}
 	});
 </script>
+
 <script lang="ts">
 	setTemplate(template);
 </script>

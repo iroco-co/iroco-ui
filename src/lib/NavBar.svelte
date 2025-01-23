@@ -8,11 +8,11 @@
 		navigationItems: Array<NavigationItem>;
 		type: 'sidebar' | 'topbar';
 		version?: string | null;
-		currentRoute?: string| null;
+		currentRoute?: string | null;
 		onclick?: MouseEventHandler<HTMLButtonElement>;
 	}
 
-	let { navigationItems, type, version = null,currentRoute, onclick }: Props = $props();
+	let { navigationItems, type, version = null, currentRoute, onclick }: Props = $props();
 
 	const dispatch = createEventDispatcher();
 
@@ -26,14 +26,13 @@
 
 	function isActive(item: NavigationItem): boolean {
 		if (typeof item.hrefOrCallback === 'string') {
-			console.log("is string url",currentRoute);
+			console.log('is string url', currentRoute);
 			const b = item.hrefOrCallback === currentRoute;
-			console.log("is active : ",b);
+			console.log('is active : ', b);
 			return b;
 		}
 		return false;
 	}
-
 </script>
 
 <nav data-testid={type} class="nav__{type}">
@@ -66,139 +65,138 @@
 </nav>
 
 <style lang="scss">
+	@use './scss/constants';
+	@use './scss/containers';
+	@use './scss/button';
 
-  @use './scss/constants';
-  @use './scss/containers';
-  @use './scss/button';
+	.nav {
+		&__sidebar,
+		&__topbar {
+			&__item {
+				text-decoration: none;
+				display: block;
+				font-size: 1em;
+			}
 
-  .nav {
-    &__sidebar,
-    &__topbar {
-      &__item {
-        text-decoration: none;
-        display: block;
-        font-size: 1em;
-      }
+			&__close {
+				display: none;
+			}
+		}
 
-      &__close {
-        display: none;
-      }
-    }
+		&__sidebar {
+			height: 100%;
+			width: 300px;
+			position: absolute;
+			top: 4.45em;
+			left: 0;
+			overflow-x: hidden;
+			display: flex;
+			flex-direction: column;
 
-    &__sidebar {
-      height: 100%;
-      width: 300px;
-      position: absolute;
-      top: 4.45em;
-      left: 0;
-      overflow-x: hidden;
-      display: flex;
-      flex-direction: column;
+			&__item-container {
+				margin: 0;
+				padding: 0;
+			}
 
-      &__item-container {
-        margin: 0;
-        padding: 0;
-      }
+			&__item {
+				padding: 2em;
+				border-top: 1px solid var(--color-border);
+			}
 
-      &__item {
-        padding: 2em;
-        border-top: 1px solid var(--color-border);
-      }
+			&__item:first-child {
+				border-top: none;
+			}
 
-      &__item:first-child {
-        border-top: none;
-      }
+			.active {
+				border-top: 1px solid var(--color-primary);
+				border-bottom: 1px solid var(--color-primary);
+			}
+		}
 
-      .active {
-        border-top: 1px solid var(--color-primary);
-        border-bottom: 1px solid var(--color-primary);
-      }
-    }
+		&__topbar {
+			flex-grow: 1;
+			display: flex;
+			justify-content: flex-end;
 
-    &__topbar {
-      flex-grow: 1;
-      display: flex;
-      justify-content: flex-end;
+			ul,
+			li {
+				display: inline;
+			}
 
-      ul,
-      li {
-        display: inline;
-      }
+			ul {
+				display: flex;
+				flex-grow: 1;
+				justify-content: space-around;
+			}
 
-      ul {
-        display: flex;
-        flex-grow: 1;
-        justify-content: space-around;
-      }
+			.active {
+				border-bottom: 1px solid var(--color-primary);
+			}
+		}
 
-      .active {
-        border-bottom: 1px solid var(--color-primary);
-      }
-    }
+		&__version {
+			margin-top: auto;
+			padding-left: 2em;
+			color: var(--color-text-dark);
+		}
+	}
 
-    &__version {
-      margin-top: auto;
-      padding-left: 2em;
-      color: var(--color-text-dark);
-    }
-  }
+	@include containers.screen-tablet {
+		.nav {
+			&__sidebar,
+			&__topbar {
+				position: fixed;
+				background-color: var(--color-body);
+				top: 0;
+				right: 0;
+				width: 100%;
+				padding: 0;
+				padding-top: 2em;
+				margin: 0;
+				border-right: none;
 
-  @include containers.screen-tablet {
-    .nav {
-      &__sidebar,
-      &__topbar {
-        position: fixed;
-        background-color: var(--color-body);
-        top: 0;
-        right: 0;
-        width: 100%;
-        padding: 0;
-        padding-top: 2em;
-        margin: 0;
-        border-right: none;
+				&__item-container {
+					padding: 0em;
+					margin-top: 2rem;
+				}
 
-        &__item-container {
-          padding: 0em;
-          margin-top: 2rem;
-        }
+				ul,
+				li {
+					display: block;
+				}
 
-        ul,
-        li {
-          display: block;
-        }
+				&__close {
+					display: block;
+					position: absolute;
+					right: 0;
+					top: 0;
+					background-color: transparent;
+					border: none;
+					color: var(--color-icon-primary);
+				}
+			}
 
-        &__close {
-          display: block;
-          position: absolute;
-          right: 0;
-          top: 0;
-          background-color: transparent;
-          border: none;
-          color: var(--color-icon-primary);
-        }
-      }
+			&__sidebar {
+				top: 0;
+				left: 0;
 
-      &__sidebar {
-        top: 0;
-        left: 0;
+				&__item:first-child {
+					border-top: 1px solid var(--color-border);
+				}
+			}
 
-        &__item:first-child {
-          border-top: 1px solid var(--color-border);
-        }
-      }
+			&__topbar {
+				height: 100%;
 
-      &__topbar {
-        height: 100%;
+				&__item {
+					padding: 2em;
+					border-top: 1px solid var(--color-border);
+				}
+			}
 
-        &__item {
-          padding: 2em;
-          border-top: 1px solid var(--color-border);
-        }
-      }
-
-      &__version {
-        display: none;
-      }
-    }
-  }
+			&__version {
+				display: none;
+			}
+		}
+	}
 </style>

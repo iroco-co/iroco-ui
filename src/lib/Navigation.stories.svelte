@@ -4,8 +4,6 @@
 	import { defineMeta, setTemplate } from '@storybook/addon-svelte-csf';
 
 	const { Story } = defineMeta({
-
-
 		title: 'Iroco-UI/Components/Navigation',
 		component: Navigation,
 		argTypes: {
@@ -15,7 +13,7 @@
 		},
 		args: {
 			type: 'topbar',
-			currentRoute:"/foo",
+			currentRoute: '/foo',
 			navigationItems: [
 				new NavigationItem('About', `/about`),
 				new NavigationItem('Foo', `/foo`),
@@ -27,25 +25,27 @@
 		}
 	});
 </script>
+
 <script lang="ts">
 	setTemplate(template);
 </script>
 
 {#snippet template({ ...args })}
-	<Navigation
-		{...args}
-	/>
+	<Navigation {...args} />
 {/snippet}
 
 <Story name="Default" />
 <Story name="Sidebar" args={{ type: 'sidebar' }} />
 <Story name="Title" args={{ title: 'Alternative title' }} />
 <Story name="Color" args={{ color: '#ABCDEF' }} />
-<Story name="Active" args={{
-		currentRoute:"/bar",
+<Story
+	name="Active"
+	args={{
+		currentRoute: '/bar',
 		navigationItems: [
-				new NavigationItem('About', `/about`),
-				new NavigationItem('Foo', `/foo`),
-				new NavigationItem('Bar', `/bar`),
-			]
-}} />
+			new NavigationItem('About', `/about`),
+			new NavigationItem('Foo', `/foo`),
+			new NavigationItem('Bar', `/bar`)
+		]
+	}}
+/>

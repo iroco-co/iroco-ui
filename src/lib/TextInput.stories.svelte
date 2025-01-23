@@ -4,8 +4,6 @@
 	import { defineMeta, setTemplate } from '@storybook/addon-svelte-csf';
 
 	const { Story } = defineMeta({
-
-
 		title: 'Iroco-UI/Form/TextInput',
 		component: TextInput,
 		argTypes: {
@@ -16,12 +14,10 @@
 
 	let oninputFoo = $state<string | null>('');
 
-	function handleOnInput(event: Event & { currentTarget: EventTarget & HTMLInputElement; }) {
+	function handleOnInput(event: Event & { currentTarget: EventTarget & HTMLInputElement }) {
 		oninputFoo = '' + event.data + ' ' + event.timeStamp;
 	}
-
 </script>
-
 
 <script lang="ts">
 	setTemplate(template);

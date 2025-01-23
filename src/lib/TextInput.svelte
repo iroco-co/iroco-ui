@@ -1,5 +1,4 @@
 <script lang="ts">
-	/* eslint-disable svelte/no-at-html-tags */
 	import type { FormEventHandler, FullAutoFill, HTMLInputAttributes } from 'svelte/elements';
 
 	interface Props extends HTMLInputAttributes {
@@ -35,7 +34,6 @@
 		autocomplete = 'on',
 		oninput
 	}: Props = $props();
-
 </script>
 
 <div class="iroco-ui-input">
@@ -69,69 +67,69 @@
 </div>
 
 <style lang="scss">
-  @use './scss/constants';
+	@use './scss/constants';
 
-  input,
-  textarea {
-    outline: none;
-    text-decoration: none;
-    font-size: 14px;
+	input,
+	textarea {
+		outline: none;
+		text-decoration: none;
+		font-size: 14px;
 
-    &:focus {
-      outline: none;
-      text-decoration: none;
-      font-size: 14px;
-    }
-  }
+		&:focus {
+			outline: none;
+			text-decoration: none;
+			font-size: 14px;
+		}
+	}
 
-  .iroco-ui-input {
-    display: flex;
-    flex-direction: column;
+	.iroco-ui-input {
+		display: flex;
+		flex-direction: column;
 
-    > input {
-      color: var(--color-text);
-      background: var(--color-dark-blue);
-      border: 1px solid var(--color-dark-blue);
-      padding: 1em 1.5em;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-      border-radius: constants.$border-radius;
+		> input {
+			color: var(--color-text);
+			background: var(--color-dark-blue);
+			border: 1px solid var(--color-dark-blue);
+			padding: 1em 1.5em;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			border-radius: constants.$border-radius;
 
-      &.border {
-        border: 1px solid var(--form-element-border);
-      }
+			&.border {
+				border: 1px solid var(--form-element-border);
+			}
 
-      &::placeholder {
-        color: var(--color-text-op-50);
-      }
+			&::placeholder {
+				color: var(--color-text-op-50);
+			}
 
-      &.error {
-        border-color: var(--color-danger);
-      }
+			&.error {
+				border-color: var(--color-danger);
+			}
 
-      &.readonlyInput {
-        cursor: not-allowed;
-      }
-    }
+			&.readonlyInput {
+				cursor: not-allowed;
+			}
+		}
 
-    .error {
-      color: var(--color-danger);
-    }
-  }
+		.error {
+			color: var(--color-danger);
+		}
+	}
 
-  .iroco-ui-label {
-    color: var(--color-text-op-60);
-    font-weight: bold;
-    padding-bottom: 10px;
-    display: inline-block;
-  }
+	.iroco-ui-label {
+		color: var(--color-text-op-60);
+		font-weight: bold;
+		padding-bottom: 10px;
+		display: inline-block;
+	}
 
-  .field {
-    margin-top: 20px;
+	.field {
+		margin-top: 20px;
 
-    &:first-child {
-      margin: 0;
-    }
-  }
+		&:first-child {
+			margin: 0;
+		}
+	}
 </style>

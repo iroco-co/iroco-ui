@@ -8,7 +8,6 @@
 	import { defineMeta, setTemplate } from '@storybook/addon-svelte-csf';
 
 	const { Story } = defineMeta({
-
 		title: 'Iroco-UI/Components/ImageArticle',
 		component: ImageArticle,
 		argTypes: {
@@ -25,7 +24,8 @@
 					discordImageFile,
 					youtubeImageFile,
 					tutorialsImageFile,
-					tutorialsImageFile]
+					tutorialsImageFile
+				]
 			},
 			buttonList: {}
 		},
@@ -34,7 +34,8 @@
 			imgSrc: accessibilityImageFile,
 			figureCaption: undefined,
 			articleTitle: 'Accessibility',
-			articleContent: 'Accessibility is incredibly important, yet often overlooked in traditional digital design and development education. Because of this, The A11Y Project strives to be a living example of how to create beautiful, accessible, and inclusive digital experiences.',
+			articleContent:
+				'Accessibility is incredibly important, yet often overlooked in traditional digital design and development education. Because of this, The A11Y Project strives to be a living example of how to create beautiful, accessible, and inclusive digital experiences.',
 			buttonList: [
 				{ href: '/foo', label: 'Foo' },
 				{ href: '/bar', label: 'Bar' }
@@ -54,11 +55,15 @@
 
 <Story name="Default" />
 <Story name="Reversed" args={{ reversed: true }} />
-<Story name="Figure caption" args={{ figureCaption: "An optional caption for the figure" ,
-buttonList:[
-	{
-		href:"https://developer.mozilla.org/en-US/docs/Glossary/Accessible_description",
-		label:"Learn about accessible description"
-	}
-	]
-}} />
+<Story
+	name="Figure caption"
+	args={{
+		figureCaption: 'An optional caption for the figure',
+		buttonList: [
+			{
+				href: 'https://developer.mozilla.org/en-US/docs/Glossary/Accessible_description',
+				label: 'Learn about accessible description'
+			}
+		]
+	}}
+/>

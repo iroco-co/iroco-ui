@@ -26,11 +26,9 @@
 
 <div class="imagearticle" class:reversed>
 	<figure class="imagearticle__figure">
-		<img class="imagearticle__figure__image"
-				 src={imgSrc}
-				 {alt} />
+		<img class="imagearticle__figure__image" src={imgSrc} {alt} />
 		{#if figureCaption}
-			<figcaption>{ figureCaption }</figcaption>
+			<figcaption>{figureCaption}</figcaption>
 		{/if}
 	</figure>
 
@@ -53,66 +51,64 @@
 </div>
 
 <style lang="scss">
-  @use "./scss/containers";
-  @use "./scss/button";
+	@use './scss/containers';
+	@use './scss/button';
 
-  .imagearticle {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+	.imagearticle {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
 
-    &__figure {
+		&__figure {
+			width: 40%;
+			display: block;
+			object-fit: cover;
+			margin: 0 auto;
+			text-align: center;
 
-      width: 40%;
-      display: block;
-      object-fit: cover;
-      margin: 0 auto;
-      text-align: center;
+			&__image {
+				width: 100%;
+			}
+		}
 
-      &__image {
-        width: 100%;
-      }
-    }
+		&__article {
+			width: 50%;
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: center;
+			padding: 2em;
 
+			&__buttonGroup {
+				display: flex;
+				gap: 1em;
+				flex-wrap: wrap;
+			}
+		}
 
-    &__article {
-      width: 50%;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
-      padding: 2em;
+		&.reversed {
+			flex-direction: row-reverse;
+		}
+	}
 
-      &__buttonGroup {
-        display: flex;
-        gap: 1em;
-        flex-wrap: wrap;
-      }
-    }
+	@include containers.screen-tablet {
+		.imagearticle {
+			display: block;
+			width: 80%;
+			text-align: center;
 
-    &.reversed {
-      flex-direction: row-reverse;
-    }
-  }
+			&__figure {
+				width: 100%;
 
-  @include containers.screen-tablet {
-    .imagearticle {
-      display: block;
-      width: 80%;
-      text-align: center;
+				&__image {
+					width: 100%;
+				}
+			}
 
-      &__figure {
-        width: 100%;
-
-        &__image {
-          width: 100%;
-        }
-      }
-
-      &__article {
-        width: 100%;
-      }
-    }
-  }
+			&__article {
+				width: 100%;
+			}
+		}
+	}
 </style>

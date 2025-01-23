@@ -1,12 +1,9 @@
 <script module lang="ts">
 	import { IrocoLogo } from '$lib/index';
 
-	import {defineMeta,setTemplate} from '@storybook/addon-svelte-csf'
+	import { defineMeta, setTemplate } from '@storybook/addon-svelte-csf';
 
-	const {Story} = defineMeta({
-
-
-
+	const { Story } = defineMeta({
 		title: 'Iroco-UI/Iroco/IrocoLogo',
 		type: 'Icons',
 		component: IrocoLogo,
@@ -22,7 +19,7 @@
 				max: 512
 			}
 		}
-	})
+	});
 </script>
 
 <script lang="ts">

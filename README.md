@@ -30,22 +30,22 @@ Example of layout with navigation
 <script>
 	import '../app.scss';
 	import { Navigation, NavigationItem } from '@iroco/ui';
-    import { base } from '$app/paths'
-	import { page } from '$app/state'
+	import { base } from '$app/paths';
+	import { page } from '$app/state';
 
-	let currentRoute = $derived(page?.route?.id??"")
+	let currentRoute = $derived(page?.route?.id ?? '');
 
-    /** snip **/
-
+	/** snip **/
 </script>
 
 <Navigation
 	{navigationItems}
 	{currentRoute}
 	baseUrl={base}
-	type={"sidebar"}
+	type={'sidebar'}
 	title={$_('account.title')}
-	version={data?.version} />
+	version={data?.version}
+/>
 
 <main class="main">
 	<slot />
@@ -66,8 +66,8 @@ Ex. in a custom `src/my-colors.css` file
 
 ```scss
 :root {
-  --color-primary-light: pink;
-  --color-primary: red;
+	--color-primary-light: pink;
+	--color-primary: red;
 }
 ```
 
@@ -135,4 +135,3 @@ Add missing variables to Storybook
 It should reflect variables declared here :
 
 [src/lib/scss/colors.scss](src/lib/scss/colors.scss)
-

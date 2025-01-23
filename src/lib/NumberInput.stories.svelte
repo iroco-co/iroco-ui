@@ -4,8 +4,6 @@
 	import { defineMeta, setTemplate } from '@storybook/addon-svelte-csf';
 
 	const { Story } = defineMeta({
-
-
 		title: 'Iroco-UI/Form/NumberInput',
 		component: NumberInput,
 		argTypes: {
@@ -33,7 +31,6 @@
 		}
 	});
 </script>
-
 
 <script lang="ts">
 	setTemplate(template);

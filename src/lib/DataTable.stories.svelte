@@ -4,7 +4,6 @@
 	import { defineMeta, setTemplate } from '@storybook/addon-svelte-csf';
 
 	const { Story } = defineMeta({
-
 		title: 'Iroco-UI/Components/DataTable',
 		component: DataTable,
 		argTypes: {},
@@ -22,15 +21,13 @@
 		}
 	});
 </script>
+
 <script lang="ts">
 	setTemplate(template);
 </script>
 
 {#snippet template({ ...args })}
-	<DataTable
-		{...args}
-
-	/>
+	<DataTable {...args} />
 {/snippet}
 
 <Story name="Default" />

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { ChangeEventHandler, HTMLInputAttributes } from 'svelte/elements';
 
-	interface Props extends HTMLInputAttributes{
+	interface Props extends HTMLInputAttributes {
 		id: string;
 		label: string | '' | undefined;
 		placeholder?: string | '' | undefined;
@@ -9,7 +9,7 @@
 		value?: number | undefined;
 		min: number | undefined;
 		max: number | undefined;
-		onchange: ChangeEventHandler<HTMLInputElement> | null | undefined
+		onchange: ChangeEventHandler<HTMLInputElement> | null | undefined;
 	}
 
 	let {
@@ -36,5 +36,5 @@
 </div>
 
 <style lang="scss">
-  @use './scss/forms';
+	@use './scss/forms';
 </style>
