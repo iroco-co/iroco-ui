@@ -24,7 +24,7 @@
 		title = null,
 		version = null,
 		color = Color.green,
-		currentRoute = null,
+		currentRoute=$bindable(null)
 	}: Props = $props();
 </script>
 
