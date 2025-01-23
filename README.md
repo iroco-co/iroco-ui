@@ -4,7 +4,7 @@
 
 Design system for Iroco [based on SvelteKit](https://kit.svelte.dev/docs/packaging).
 
-See the [Documentation](https://iroco-co.github.io/iroco-ui/) (not in sync anymore : to be restored with storybook)
+See the [Documentation](https://iroco-co.github.io/iroco-ui/).
 
 # Install in your svelte application
 
@@ -20,16 +20,7 @@ npm install @iroco/ui
 npm install @iroco/ui@next
 ```
 
-## Minimal scaffolding
-
-`src/app.scss`
-
-```scss
-@use 'node_modules/@iroco/ui/dist/scss/fonts';
-@use 'node_modules/@iroco/ui/dist/scss/style';
-@use 'node_modules/@iroco/ui/dist/scss/constants';
-@use 'node_modules/@iroco/ui/dist/scss/containers';
-```
+## Usage
 
 Example of layout with navigation
 
@@ -39,67 +30,109 @@ Example of layout with navigation
 <script>
 	import '../app.scss';
 	import { Navigation, NavigationItem } from '@iroco/ui';
+    import { base } from '$app/paths'
+	import { page } from '$app/state'
+
+	let currentRoute = $derived(page?.route?.id??"")
+
+    /** snip **/
+
 </script>
 
-<Navigation navigationItems={[new NavigationItem('About', '/about')]} type="topbar" />
+<Navigation
+	{navigationItems}
+	{currentRoute}
+	baseUrl={base}
+	type={"sidebar"}
+	title={$_('account.title')}
+	version={data?.version} />
+
 <main class="main">
 	<slot />
 </main>
 
 <style lang="scss">
-	@use 'node_modules/@iroco/ui/dist/scss/colors.scss';
-	@use 'node_modules/@iroco/ui/dist/scss/constants.scss';
-	@use 'node_modules/@iroco/ui/dist/scss/containers.scss';
-	@use 'node_modules/@iroco/ui/dist/scss/button.scss';
+	@use '@iroco/ui/scss/constants.scss';
+	@use '@iroco/ui/scss/containers.scss';
+	@use '@iroco/ui/scss/button.scss';
 </style>
 ```
 
-# develop
+## Customize colors
 
-[Useful Svelte 5 + Storybook examples](https://github.com/podman-desktop/podman-desktop/tree/main/storybook).
+You can override CSS vars that mainly located in `@iroco/ui/scss/colors.scss'` in a custom scss file such as `src/app.scss`.
+
+Ex. in a custom `src/my-colors.css` file
+
+```scss
+:root {
+  --color-primary-light: pink;
+  --color-primary: red;
+}
+```
+
+Then in your `src/app.scss` style you can both `@iroco-ui` default scss style and the override.
+
+```scss
+@use '@iroco/ui/scss/colors.scss';
+@use 'my-colors.scss';
+```
+
+## Develop
 
 To install dependencies :
 
 ```shell
-~/src/iroco-ui$ npm ci
+npm ci
 ```
 
 Building :
 
 ```shell
-~/src/iroco-ui$ npm run build
+npm run build
 ```
 
-Releasing :
+Releasing (tags and releases to npm):
 
 ```shell
-~/iroco-ui$ npm publish
+npm publish
 ```
 
-# documentation (to be done with storybook)
+## Documentation (Storybook)
 
 The docs directory contains the documentation app deployed on github pages. To install dependencies :
 
 ```shell
-~/src/iroco-ui/docs$ npm ci
+npm ci
 ```
 
 You can add/update components documentation into `docs/src/pages/components` and update the left menu in `docs/src/includes/sidebar.md`.
 
-When you have to work on the CSS for components, you can have hot reloading. To do so you have to make the iroco-ui build watched with :
+When you have to work on the CSS for components, you can have hot reloading.
+Launch the dev server for docs :
 
 ```shell
-~/src/iroco-ui$ npx npm-watch build
+npm run dev
 ```
 
-And in the same time launch the dev server for docs :
+To build the documentation (in `/docs`) :
 
 ```shell
-~/src/iroco-ui/docs$ npm run dev
+npm run build-storybook
 ```
 
-To build the documentation (in docs) :
+## CSS Custom properties in Storybook
 
-```shell
-~/src/iroco-ui/docs$ npm run build
-```
+CSS Custom properties allows to try out variations of the design system.
+It relies on parts of the design system style that have been ported to CSS vars in this very purpose.
+
+Those variable relate mainly to colors.
+
+Add missing variables to Storybook
+
+[.storybook/preview.ts](.storybook/preview.ts)
+
+It should reflect variables declared here :
+
+[src/lib/scss/colors.scss](src/lib/scss/colors.scss)
+
