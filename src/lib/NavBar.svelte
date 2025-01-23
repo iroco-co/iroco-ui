@@ -12,7 +12,7 @@
 		onclick?: MouseEventHandler<HTMLButtonElement>;
 	}
 
-	let { navigationItems, type, version = null,currentRoute=$bindable(null), onclick }: Props = $props();
+	let { navigationItems, type, version = null,currentRoute, onclick }: Props = $props();
 
 	const dispatch = createEventDispatcher();
 
@@ -24,17 +24,15 @@
 		dispatch('click_link');
 	};
 
-	function isActive(current: string, item: NavigationItem): boolean {
+	function isActive(item: NavigationItem): boolean {
 		if (typeof item.hrefOrCallback === 'string') {
-			console.log("is string url",current);
-			const b = item.hrefOrCallback === current;
+			console.log("is string url",currentRoute);
+			const b = item.hrefOrCallback === currentRoute;
 			console.log("is active : ",b);
 			return b;
 		}
 		return false;
 	}
-
-	let active = $derived(currentRoute ?? '');
 
 </script>
 
@@ -45,7 +43,7 @@
 
 	<ul class="nav__{type}__item-container">
 		{#each navigationItems as item}
-			<li class="nav__{type}__item" class:active={isActive(active, item)} aria-current={isActive(active, item)}>
+			<li class="nav__{type}__item" class:active={isActive(item)} aria-current={isActive(item)}>
 				{#if item.type === NavigationItemType.FORM}
 					<form method="POST" action={item.hrefOrCallback}>
 						<button class="iroco-ui-link" type="submit">{item.name}</button>
