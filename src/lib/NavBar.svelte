@@ -26,9 +26,7 @@
 
 	function isActive(item: NavigationItem): boolean {
 		if (typeof item.hrefOrCallback === 'string') {
-			console.log('is string url', currentRoute);
 			const b = item.hrefOrCallback === currentRoute;
-			console.log('is active : ', b);
 			return b;
 		}
 		return false;
