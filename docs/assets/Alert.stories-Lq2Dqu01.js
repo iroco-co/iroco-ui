@@ -1,4 +1,4 @@
-import{p,i as v,f as g,a as c,b as f,t as h,s as l,c as q,d as b,e as A}from"./props-B6Nwaz5R.js";import{A as o,c as _,s as N,d as P}from"./create-runtime-stories-1Nbpz_g7.js";import"./index-Cu4lwwaE.js";import"./index-7SSfYZ8z.js";const C=(n,e)=>{o(n,q(()=>A(e==null?void 0:e(),[]),{children:(i,r)=>{var a=b(`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eros lacus, commodo eu tristique
+import{p,i as v,f as g,a as c,b as f,t as h,s as l,c as q,d as b,e as A}from"./props-B6Nwaz5R.js";import{A as o,c as _,s as N,d as P}from"./create-runtime-stories-BmmyTYRU.js";import"./index-Cu4lwwaE.js";import"./index-7SSfYZ8z.js";const C=(n,e)=>{o(n,q(()=>A(e==null?void 0:e(),[]),{children:(i,r)=>{var a=b(`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eros lacus, commodo eu tristique
 		non, ultricies eu tellus. Nulla facilisi. Integer a tincidunt purus. Proin vulputate tristique
 		magna. Aliquam id eros id ante malesuada interdum. Phasellus tristique ac leo at fringilla. Cras
 		a viverra nibh, vitae rutrum ante. Sed pharetra nibh ac velit dignissim ornare sed accumsan
