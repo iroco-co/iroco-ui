@@ -5,7 +5,7 @@
 		value?: string | null;
 		group?: string | null;
 		name?: string | null;
-		checked: boolean;
+		checked?: boolean;
 		children?: import('svelte').Snippet;
 	}
 
