@@ -2,8 +2,8 @@
 	import type { HTMLInputAttributes } from 'svelte/elements';
 
 	interface Props extends HTMLInputAttributes {
-		value?: string | null;
-		group?: string | null;
+		value?: string | number | null;
+		group?: string | number | null;
 		name?: string | null;
 		checked?: boolean;
 		children?: import('svelte').Snippet;
