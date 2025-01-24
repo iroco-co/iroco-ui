@@ -26,8 +26,8 @@
 		display: inline-flex;
 		align-items: center;
 		border-radius: constants.$border-radius;
-    padding: 0 2rem 0 1em;
-    font-size: 1.2em;
+		padding: 0 2rem 0 1em;
+		font-size: 1.2em;
 		justify-content: center;
 		margin-bottom: 1em;
 		&--danger {
