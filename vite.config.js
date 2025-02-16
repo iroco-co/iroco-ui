@@ -26,7 +26,14 @@ export default defineConfig({
 		svelte({
 			compilerOptions: {
 				hmr: process.env.NODE_ENV !== 'production'
-			}
+			},
+			onwarn: (warning, handler) => {
+				const { code, frame } = warning;
+				// Silent noisy warning : [vite-plugin-svelte] ... Unused CSS selector
+				if (code === "css_unused_selector")
+					return;
+				handler(warning);
+			},
 		}),
 		svelteTesting()
 	],
