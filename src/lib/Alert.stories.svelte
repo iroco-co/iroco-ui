@@ -1,15 +1,15 @@
 <script module lang="ts">
-	import { Alert } from '$lib/index'
-	import { defineMeta, setTemplate } from '@storybook/addon-svelte-csf'
+	import { Alert } from '$lib/index';
+	import { defineMeta, setTemplate } from '@storybook/addon-svelte-csf';
 
 	const { Story } = defineMeta({
 		title: 'Iroco-UI/Atoms/Alert',
 		component: Alert
-	})
+	});
 </script>
 
 <script lang="ts">
-	setTemplate(template)
+	setTemplate(template);
 </script>
 
 {#snippet template({ ...args })}
@@ -30,4 +30,4 @@
 <Story name="Danger" args={{ type: 'danger' }} />
 <Story name="Flash" args={{ type: 'flash' }} />
 <Story name="Success" args={{ type: 'success' }} />
-<Story name="No close button" args={{ showClose:false }} />
+<Story name="No close button" args={{ showClose: false }} />

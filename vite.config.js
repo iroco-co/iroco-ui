@@ -30,10 +30,9 @@ export default defineConfig({
 			onwarn: (warning, handler) => {
 				const { code, frame } = warning;
 				// Silent noisy warning : [vite-plugin-svelte] ... Unused CSS selector
-				if (code === "css_unused_selector")
-					return;
+				if (code === 'css_unused_selector') return;
 				handler(warning);
-			},
+			}
 		}),
 		svelteTesting()
 	],
