@@ -3,17 +3,20 @@
 
 	interface Props {
 		type?: 'success' | 'danger' | 'flash';
+		showClose?: boolean;
 		callback?: (e: Event) => void;
 		children?: import('svelte').Snippet;
 	}
 
-	let { type = 'success', callback, children }: Props = $props();
+	let { type = 'success', showClose=true, callback, children }: Props = $props();
 </script>
 
 <div class={`alert alert--${type}`}>
+	{#if showClose}
 	<button onclick={callback} class="alert__close">
 		<IconClose width="2em" height="2em" />
 	</button>
+		{/if}
 	{@render children?.()}
 </div>
 
