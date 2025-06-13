@@ -8,6 +8,7 @@
 		size?: 'small' | 'regular';
 		fullWidth?: boolean;
 		id?: string | null;
+		formaction?: string | null;
 		children?: import('svelte').Snippet;
 		onclick?: MouseEventHandler<HTMLButtonElement>;
 	}
@@ -19,6 +20,7 @@
 		size = 'regular',
 		fullWidth = false,
 		id = null,
+		formaction = null,
 		children,
 		onclick
 	}: Props = $props();
@@ -29,6 +31,7 @@
 	class={`iroco-ui-button iroco-ui-button--${size} iroco-ui-button--${kind} ${fullWidth ? 'iroco-ui-button--full-width' : ''}`}
 	class:disabled
 	{type}
+	{formaction}
 	{disabled}
 	{onclick}
 >

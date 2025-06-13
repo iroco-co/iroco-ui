@@ -54,3 +54,8 @@ test('Check if button has the class iroco-ui-button--regular if button kind is s
 		'iroco-ui-button--danger'
 	);
 });
+
+test('Test button formaction property', () => {
+	const { container } = render(Button, { type: 'submit', formaction: '/foo' });
+	expect(container.querySelector('button')).toHaveAttribute('formaction', '/foo');
+});
