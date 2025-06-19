@@ -9,6 +9,7 @@
 		fullWidth?: boolean;
 		id?: string | null;
 		formaction?: string | null;
+		form?: string | null;
 		children?: import('svelte').Snippet;
 		onclick?: MouseEventHandler<HTMLButtonElement>;
 	}
@@ -21,6 +22,7 @@
 		fullWidth = false,
 		id = null,
 		formaction = null,
+		form = null,
 		children,
 		onclick
 	}: Props = $props();
@@ -34,6 +36,7 @@
 	{formaction}
 	{disabled}
 	{onclick}
+	{form}
 >
 	{@render children?.()}
 </button>
