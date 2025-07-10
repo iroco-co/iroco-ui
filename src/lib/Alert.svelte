@@ -29,10 +29,10 @@
 		display: inline-flex;
 		align-items: center;
 		border-radius: constants.$border-radius;
-		padding: .25rem 2rem .25rem 1em;
+		padding: 0.25rem 2rem 0.25rem 1em;
 		font-size: 1.2em;
 		justify-content: center;
-		margin-top: .75rem;
+		margin-top: 0.75rem;
 		margin-bottom: 1rem;
 		&--danger {
 			background-color: var(--color-danger-bg);
@@ -49,8 +49,8 @@
 		&__close {
 			display: block;
 			position: absolute;
-			right: .1rem;
-			top: .2rem;
+			right: 0.1rem;
+			top: 0.2rem;
 			background-color: transparent;
 			border: none;
 			cursor: pointer;
