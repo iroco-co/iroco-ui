@@ -36,7 +36,7 @@
 <Story name="Password" args={{ type: 'password' }} />
 <Story name="Label" args={{ label: 'Label' }} />
 <Story name="Error" args={{ error: 'An error message' }} />
-<Story name="Errors" args={{ errors: [{key:"foo",isHtml:false}] }} />
+<Story name="Errors" args={{ errors: [{ key: 'foo', isHtml: false }] }} />
 <Story name="Placeholder" args={{ placeholder: 'A placeholder' }} />
 <Story name="Border" args={{ border: true }} />
 <Story
