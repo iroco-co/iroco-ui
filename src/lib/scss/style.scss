@@ -5,7 +5,8 @@
 
 button:focus,
 a:focus,
-input:focus {
+input:focus,
+summary:focus {
 	outline-color: var(--color-primary);
 	outline-style: auto;
 }
