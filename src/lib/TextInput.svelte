@@ -9,6 +9,8 @@
 		errors?: Array<ValidationErrorMessage> | null;
 		htmlError?: boolean;
 		border?: boolean;
+		value?: string | null;
+		id?: string | null;
 	}
 
 	let {
