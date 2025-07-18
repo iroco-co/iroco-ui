@@ -1,26 +1,15 @@
 <script lang="ts">
-	import type { ChangeEventHandler, HTMLInputAttributes } from 'svelte/elements';
+	import type { HTMLInputAttributes } from 'svelte/elements';
 
 	interface Props extends HTMLInputAttributes {
-		id: string;
-		label: string | '' | undefined;
-		placeholder?: string | '' | undefined;
+		label?: string | '' | undefined;
 		error?: string | undefined;
-		value?: number | undefined;
-		min: number | undefined;
-		max: number | undefined;
-		onchange: ChangeEventHandler<HTMLInputElement> | null | undefined;
 	}
 
 	let {
 		id,
 		label,
-		placeholder = '',
 		error = undefined,
-		value = $bindable(undefined),
-		min,
-		max,
-		onchange,
 		...rest
 	}: Props = $props();
 </script>
@@ -29,12 +18,12 @@
 	{#if label}
 		<label class="iroco-ui-label" for={id}>{label}</label>
 	{/if}
-	<input {onchange} bind:value {id} type="number" {placeholder} {min} {max} {...rest} />
+	<input {id} type="number" {...rest} />
 	{#if error}
 		<p data-testid="error" class="error">{error}</p>
 	{/if}
 </div>
 
 <style lang="scss">
-	@use './scss/forms';
+  @use './scss/forms';
 </style>
