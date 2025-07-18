@@ -47,8 +47,8 @@
 			{currentRoute}
 			{type}
 			{version}
-			on:click_link={() => (showMenu = false)}
-			on:click={() => (showMenu = false)}
+			onclick_link={() => (showMenu = false)}
+			onclick={() => (showMenu = false)}
 		/>
 	{/if}
 </div>
