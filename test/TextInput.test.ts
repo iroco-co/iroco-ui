@@ -1,7 +1,7 @@
-import { render } from '@testing-library/svelte';
+import { render, screen } from '@testing-library/svelte';
 import { TextInput } from '$lib/index';
-import { screen } from '@testing-library/svelte';
 import userEvent from '@testing-library/user-event';
+import { vi } from 'vitest';
 
 test('Check input label', () => {
 	const label = 'Hello World!';
@@ -76,13 +76,13 @@ test('Check autocomplete propriety', async () => {
 });
 
 test('Focus on textInput calls callback property', () => {
-	const onFocus = vi.fn();
-	const onBlur = vi.fn();
-	const { container } = render(TextInput, { id: 'id', type: 'text', onFocus, onBlur });
+	const onfocus = vi.fn();
+	const onblur = vi.fn();
+	const { container } = render(TextInput, { id: 'id', type: 'text', onfocus, onblur });
 
 	container.querySelector('input').focus();
 	container.querySelector('input').blur();
 
-	expect(onFocus).toBeCalledTimes(1);
-	expect(onBlur).toBeCalledTimes(1);
+	expect(onfocus).toBeCalledTimes(1);
+	expect(onblur).toBeCalledTimes(1);
 });

@@ -1,21 +1,24 @@
 <script lang="ts">
 	import IconClose from '$lib/IconClose.svelte';
+	import type { MouseEventHandler } from 'svelte/elements';
 
 	interface Props {
 		type?: 'success' | 'danger' | 'flash';
 		showClose?: boolean;
 		/** @deprecated use onclose instead */
-		callback?: (e: Event) => void;
-		onclose?: (e: Event) => void;
+		callback?: MouseEventHandler<HTMLButtonElement>;
+		onclose?: MouseEventHandler<HTMLButtonElement>;
 		children?: import('svelte').Snippet;
 	}
 
-	let { type = 'success', showClose = true, callback=onclose, onclose, children }: Props = $props();
+	let { type = 'success', showClose = true, onclose, callback, children }: Props = $props();
+
 </script>
 
 <div class={`alert alert--${type}`}>
 	{#if showClose}
-		<button onclick={onclose} class="alert__close">
+		<button
+			onclick={()=>{callback();onclose()}} class="alert__close">
 			<IconClose width="2em" height="2em" />
 		</button>
 	{/if}

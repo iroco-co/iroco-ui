@@ -12,7 +12,10 @@
 	}
 
 	let {
+		id,
 		type = 'text',
+		value,
+		placeholder,
 		label = null,
 		error = null,
 		errors = [],
@@ -33,6 +36,9 @@
 		<label class="iroco-ui-label" for={id}>{label}</label>
 	{/if}
 	<input
+		{id}
+		{placeholder}
+		{readonly}
 		{type}
 		class:border
 		class:error={hasErrors()}

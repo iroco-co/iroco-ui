@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@testing-library/svelte';
 import { Alert, SlottedComponentWrapper } from '$lib/index';
-import type { Element } from 'svelte/types/compiler/interfaces';
+import { vi } from 'vitest';
 
 test('Check render', () => {
 	const { getByText, container } = render(SlottedComponentWrapper, { Component: Alert });
@@ -14,9 +14,11 @@ test('Check render danger mode', () => {
 });
 
 test('Check close callback', () => {
+	const onclose = vi.fn();
 	const callback = vi.fn();
-	const { container } = render(Alert, { type: 'danger', callback });
+	const { container } = render(Alert, { type: 'danger', onclose, callback });
 	fireEvent.click(<Element>container.querySelector('.alert__close'));
 
+	expect(onclose).toHaveBeenCalled();
 	expect(callback).toHaveBeenCalled();
 });
