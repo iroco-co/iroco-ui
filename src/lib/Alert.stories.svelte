@@ -13,7 +13,7 @@
 </script>
 
 {#snippet template({ ...args })}
-	<Alert {...args}>
+	<Alert {...args} onclose={()=>alert('click')}>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eros lacus, commodo eu tristique
 		non, ultricies eu tellus. Nulla facilisi. Integer a tincidunt purus. Proin vulputate tristique
 		magna. Aliquam id eros id ante malesuada interdum. Phasellus tristique ac leo at fringilla. Cras
