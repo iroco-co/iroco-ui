@@ -16,7 +16,7 @@
 	let {
 		id,
 		type = 'text',
-		value,
+		value = $bindable(),
 		placeholder,
 		label = null,
 		error = null,
