@@ -42,6 +42,7 @@
 		{placeholder}
 		{readonly}
 		{type}
+		{value}
 		class:border
 		class:error={hasErrors()}
 		class:readonlyInput={readonly === true}
