@@ -75,5 +75,5 @@
 </div>
 
 <style lang="scss">
-  @use './scss/forms';
+	@use './scss/forms';
 </style>

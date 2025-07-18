@@ -3,7 +3,9 @@
 @use 'forms';
 @use 'layouts';
 
-button:focus, a:focus, input:focus {
-  outline-color: var(--color-primary);
-  outline-style: auto;
+button:focus,
+a:focus,
+input:focus {
+	outline-color: var(--color-primary);
+	outline-style: auto;
 }

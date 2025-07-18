@@ -1,107 +1,102 @@
 .iroco-ui-form {
-  input,
-  textarea {
-    outline-color: var(--color-secondary);
-    outline-style: ridge;
-    text-decoration: none;
-    font-size: 14px;
+	input,
+	textarea {
+		outline-color: var(--color-secondary);
+		outline-style: ridge;
+		text-decoration: none;
+		font-size: 14px;
 
-    &:focus {
-      outline-color: var(--color-primary);
-      outline-style: auto;
-    }
-  }
+		&:focus {
+			outline-color: var(--color-primary);
+			outline-style: auto;
+		}
+	}
 
-  .iroco-ui-input {
-    display: flex;
-    flex-direction: column;
+	.iroco-ui-input {
+		display: flex;
+		flex-direction: column;
 
-    > input {
-      color: var(--color-text);
-      background: var(--color-body);
-      border: 1px solid var(--color-border);
-      //border: 1px solid var(--color-dark-blue);
-      padding: 1em 1.5em;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-      border-radius: 0.5em;
+		> input {
+			color: var(--color-text);
+			background: var(--color-body);
+			border: 1px solid var(--color-border);
+			//border: 1px solid var(--color-dark-blue);
+			padding: 1em 1.5em;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			border-radius: 0.5em;
 
-      &::placeholder {
-        color: var(--color-text-op-50);
-      }
+			&::placeholder {
+				color: var(--color-text-op-50);
+			}
 
-      &.error {
-        border-color: var(--color-danger);
+			&.error {
+				border-color: var(--color-danger);
 
-        &:focus {
-          outline-color: var(--color-danger);
-        }
-      }
+				&:focus {
+					outline-color: var(--color-danger);
+				}
+			}
 
-      &.readonlyInput {
-        cursor: not-allowed;
-      }
+			&.readonlyInput {
+				cursor: not-allowed;
+			}
 
-      &.border {
-        border: 1px solid var(--form-element-border);
-      }
+			&.border {
+				border: 1px solid var(--form-element-border);
+			}
+		}
+	}
 
-    }
+	.iroco-ui-label {
+		color: var(--color-text-op-60);
+		font-weight: bold;
+		padding-bottom: 10px;
+		display: inline-block;
+	}
 
-
-  }
-
-  .iroco-ui-label {
-    color: var(--color-text-op-60);
-    font-weight: bold;
-    padding-bottom: 10px;
-    display: inline-block;
-  }
-
-  p.error {
-    margin: 0;
-    color: var(--color-danger);
-  }
+	p.error {
+		margin: 0;
+		color: var(--color-danger);
+	}
 }
-
 
 /* radio button */
 
 .iroco-ui-radio {
-  color: var(--color-text);
-  position: relative;
-  margin-top: 0.5em;
-  padding-left: 1.5em;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+	color: var(--color-text);
+	position: relative;
+	margin-top: 0.5em;
+	padding-left: 1.5em;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .iroco-ui-radio input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
 
-  &:focus + .radio-button-color {
-    outline-color: var(--color-primary);
-    outline-style: auto;
-  }
+	&:focus + .radio-button-color {
+		outline-color: var(--color-primary);
+		outline-style: auto;
+	}
 }
 
 .radio-button-color {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 1em;
-  width: 1em;
-  background-color: var(--form-element-bg);
-  border-radius: 50%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 1em;
+	width: 1em;
+	background-color: var(--form-element-bg);
+	border-radius: 50%;
 }
 
 .iroco-ui-radio input:checked ~ .radio-button-color {
-  background-color: var(--color-primary);
+	background-color: var(--color-primary);
 }
-
