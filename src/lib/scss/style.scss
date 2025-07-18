@@ -1,5 +1,9 @@
-//@use 'colors';
 @use 'containers';
 @use 'fonts';
 @use 'forms';
 @use 'layouts';
+
+button:focus, a:focus, input:focus {
+  outline-color: var(--color-primary);
+  outline-style: auto;
+}
