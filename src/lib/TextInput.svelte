@@ -14,17 +14,19 @@
 	}
 
 	let {
-		id,
+		id = null,
 		type = 'text',
-		value = $bindable(),
-		placeholder,
+		value = $bindable(null),
+		placeholder = null,
 		label = null,
 		error = null,
 		errors = [],
 		htmlError = false,
 		border = false,
 		autocomplete = 'on',
-		readonly,
+		readonly = false,
+		name = null,
+		oninput,
 		...rest
 	}: Props = $props();
 
