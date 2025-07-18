@@ -30,7 +30,7 @@
 </script>
 
 {#snippet template({ ...args })}
-	<!--👇 'on:click' allows to forward event to addon-actions  -->
+	<!--👇 'onclick' allows to forward event to addon-actions  -->
 	<Button {...args} onclick={handleClick}>
 		You clicked: {count}
 	</Button>
