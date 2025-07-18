@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { IconClose } from '$lib/index';
-	import { createEventDispatcher } from 'svelte';
 	import { NavigationItem, NavigationItemType } from '$lib/definition.js';
 	import type { MouseEventHandler } from 'svelte/elements';
 
@@ -10,19 +9,17 @@
 		version?: string | null;
 		currentRoute?: string | null;
 		onclick?: MouseEventHandler<HTMLButtonElement>;
+		onclick_link?: MouseEventHandler<HTMLButtonElement>;
 	}
 
-	let { navigationItems, type, version = null, currentRoute, onclick }: Props = $props();
-
-	const dispatch = createEventDispatcher();
-
-	const handleClickLink = (menuItem: NavigationItem) => {
-		if (typeof menuItem.hrefOrCallback === 'function') {
-			menuItem.hrefOrCallback();
-			return false; // to avoid calling href
-		}
-		dispatch('click_link');
-	};
+	let {
+		navigationItems,
+		type,
+		version = null,
+		currentRoute,
+		onclick,
+		onclick_link
+	}: Props = $props();
 
 	function isActive(item: NavigationItem): boolean {
 		if (typeof item.hrefOrCallback === 'string') {
@@ -34,7 +31,7 @@
 </script>
 
 <nav data-testid={type} class="nav__{type}">
-	<button title="Close menu" {onclick} class="nav__{type}__close">
+	<button title="Close menu" onclick={onclick} class="nav__{type}__close">
 		<IconClose width="3em" height="3em" />
 	</button>
 
@@ -47,7 +44,13 @@
 					</form>
 				{:else}
 					<a
-						onclick={() => handleClickLink(item)}
+						onclick={() =>{
+							if (typeof item.hrefOrCallback === 'function') {
+								item.hrefOrCallback();
+								return false; // to avoid calling href
+								}
+							onclick_link();
+						}}
 						href={typeof item.hrefOrCallback === 'string' ? item.hrefOrCallback : '#'}
 						class:iroco-ui-button={item.type === NavigationItemType.BUTTON}
 						class:iroco-ui-button--small={item.type === NavigationItemType.BUTTON}
@@ -63,138 +66,138 @@
 </nav>
 
 <style lang="scss">
-	@use './scss/constants';
-	@use './scss/containers';
-	@use './scss/button';
+  @use './scss/constants';
+  @use './scss/containers';
+  @use './scss/button';
 
-	.nav {
-		&__sidebar,
-		&__topbar {
-			&__item {
-				text-decoration: none;
-				display: block;
-				font-size: 1em;
-			}
+  .nav {
+    &__sidebar,
+    &__topbar {
+      &__item {
+        text-decoration: none;
+        display: block;
+        font-size: 1em;
+      }
 
-			&__close {
-				display: none;
-			}
-		}
+      &__close {
+        display: none;
+      }
+    }
 
-		&__sidebar {
-			height: 100%;
-			width: 300px;
-			position: absolute;
-			top: 4.45em;
-			left: 0;
-			overflow-x: hidden;
-			display: flex;
-			flex-direction: column;
+    &__sidebar {
+      height: 100%;
+      width: 300px;
+      position: absolute;
+      top: 4.45em;
+      left: 0;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
 
-			&__item-container {
-				margin: 0;
-				padding: 0;
-			}
+      &__item-container {
+        margin: 0;
+        padding: 0;
+      }
 
-			&__item {
-				padding: 2em;
-				border-top: 1px solid var(--color-border);
-			}
+      &__item {
+        padding: 2em;
+        border-top: 1px solid var(--color-border);
+      }
 
-			&__item:first-child {
-				border-top: none;
-			}
+      &__item:first-child {
+        border-top: none;
+      }
 
-			.active {
-				border-top: 1px solid var(--color-primary);
-				border-bottom: 1px solid var(--color-primary);
-			}
-		}
+      .active {
+        border-top: 1px solid var(--color-primary);
+        border-bottom: 1px solid var(--color-primary);
+      }
+    }
 
-		&__topbar {
-			flex-grow: 1;
-			display: flex;
-			justify-content: flex-end;
+    &__topbar {
+      flex-grow: 1;
+      display: flex;
+      justify-content: flex-end;
 
-			ul,
-			li {
-				display: inline;
-			}
+      ul,
+      li {
+        display: inline;
+      }
 
-			ul {
-				display: flex;
-				flex-grow: 1;
-				justify-content: space-around;
-			}
+      ul {
+        display: flex;
+        flex-grow: 1;
+        justify-content: space-around;
+      }
 
-			.active {
-				border-bottom: 1px solid var(--color-primary);
-			}
-		}
+      .active {
+        border-bottom: 1px solid var(--color-primary);
+      }
+    }
 
-		&__version {
-			margin-top: auto;
-			padding-left: 2em;
-			color: var(--color-text-dark);
-		}
-	}
+    &__version {
+      margin-top: auto;
+      padding-left: 2em;
+      color: var(--color-text-dark);
+    }
+  }
 
-	@include containers.screen-tablet {
-		.nav {
-			&__sidebar,
-			&__topbar {
-				position: fixed;
-				background-color: var(--color-body);
-				top: 0;
-				right: 0;
-				width: 100%;
-				padding: 0;
-				padding-top: 2em;
-				margin: 0;
-				border-right: none;
+  @include containers.screen-tablet {
+    .nav {
+      &__sidebar,
+      &__topbar {
+        position: fixed;
+        background-color: var(--color-body);
+        top: 0;
+        right: 0;
+        width: 100%;
+        padding: 0;
+        padding-top: 2em;
+        margin: 0;
+        border-right: none;
 
-				&__item-container {
-					padding: 0em;
-					margin-top: 2rem;
-				}
+        &__item-container {
+          padding: 0em;
+          margin-top: 2rem;
+        }
 
-				ul,
-				li {
-					display: block;
-				}
+        ul,
+        li {
+          display: block;
+        }
 
-				&__close {
-					display: block;
-					position: absolute;
-					right: 0;
-					top: 0;
-					background-color: transparent;
-					border: none;
-					color: var(--color-icon-primary);
-				}
-			}
+        &__close {
+          display: block;
+          position: absolute;
+          right: 0;
+          top: 0;
+          background-color: transparent;
+          border: none;
+          color: var(--color-icon-primary);
+        }
+      }
 
-			&__sidebar {
-				top: 0;
-				left: 0;
+      &__sidebar {
+        top: 0;
+        left: 0;
 
-				&__item:first-child {
-					border-top: 1px solid var(--color-border);
-				}
-			}
+        &__item:first-child {
+          border-top: 1px solid var(--color-border);
+        }
+      }
 
-			&__topbar {
-				height: 100%;
+      &__topbar {
+        height: 100%;
 
-				&__item {
-					padding: 2em;
-					border-top: 1px solid var(--color-border);
-				}
-			}
+        &__item {
+          padding: 2em;
+          border-top: 1px solid var(--color-border);
+        }
+      }
 
-			&__version {
-				display: none;
-			}
-		}
-	}
+      &__version {
+        display: none;
+      }
+    }
+  }
 </style>
