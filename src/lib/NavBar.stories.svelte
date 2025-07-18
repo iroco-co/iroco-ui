@@ -25,13 +25,12 @@
 		}
 	});
 
-
 	function handleClose() {
-		console.log("onclick")
+		console.log('onclick');
 	}
 
 	function handleClickLink(e) {
-		console.log("onclick_link : ",e)
+		console.log('onclick_link : ', e);
 	}
 </script>
 
@@ -40,7 +39,7 @@
 </script>
 
 {#snippet template({ ...args })}
-	<NavBar {...args} onclick={handleClose} onclick_link={handleClickLink}/>
+	<NavBar {...args} onclick={handleClose} onclick_link={handleClickLink} />
 {/snippet}
 
 <Story name="Default" />

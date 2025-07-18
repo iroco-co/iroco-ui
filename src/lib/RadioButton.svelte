@@ -7,12 +7,11 @@
 	}
 
 	let { group = $bindable(null), children, ...others }: Props = $props();
-
 </script>
 
 <label class="iroco-ui-radio">
 	<input type="radio" bind:group {...others} />
-	<span  class="radio-button-color"></span>
+	<span class="radio-button-color"></span>
 	{@render children?.()}
 </label>
 

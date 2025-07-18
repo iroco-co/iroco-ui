@@ -56,9 +56,9 @@
 			cursor: pointer;
 			color: var(--color-icon-primary);
 
-			&:focus{
-        outline-color: var(--color-secondary);
-        outline-style: auto;
+			&:focus {
+				outline-color: var(--color-secondary);
+				outline-style: auto;
 			}
 		}
 	}

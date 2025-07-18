@@ -6,12 +6,7 @@
 		error?: string | undefined;
 	}
 
-	let {
-		id,
-		label,
-		error = undefined,
-		...rest
-	}: Props = $props();
+	let { id, label, error = undefined, ...rest }: Props = $props();
 </script>
 
 <div class="iroco-ui-input">
@@ -25,5 +20,5 @@
 </div>
 
 <style lang="scss">
-  @use './scss/forms';
+	@use './scss/forms';
 </style>
