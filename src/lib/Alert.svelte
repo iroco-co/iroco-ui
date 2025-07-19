@@ -1,8 +1,8 @@
 <script lang="ts">
 	import IconClose from '$lib/IconClose.svelte';
-	import type { MouseEventHandler } from 'svelte/elements';
+	import { type MouseEventHandler, type SvelteHTMLElements } from 'svelte/elements';
 
-	interface Props {
+	interface Props extends SvelteHTMLElements.div {
 		type?: 'success' | 'danger' | 'flash';
 		showClose?: boolean;
 		/** @deprecated use onclose instead */

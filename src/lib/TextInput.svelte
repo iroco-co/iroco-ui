@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { HTMLInputAttributes } from 'svelte/elements';
+	import type { HTMLAttributes, HTMLInputAttributes } from 'svelte/elements';
 
 	export type ValidationErrorMessage = { key: string; isHtml?: boolean };
-
+	//https://svelte.dev/docs/svelte/typescript#Typing-wrapper-components
 	interface Props extends HTMLInputAttributes {
 		// id?: string | null;
 		// type?: 'email' | 'password' | 'search' | 'tel' | 'text' | 'url' | null | undefined;
@@ -15,7 +15,7 @@
 		// value?: string | null;
 		// onfocus?: ((e: FocusEvent) => void) | null;
 		// onblur?: ((e: Event) => void) | null;
-		// readonly?: boolean;
+		readonly?: boolean;
 		border?: boolean;
 		// autocomplete?: FullAutoFill | null | undefined;
 		// oninput?: FormEventHandler<HTMLInputElement> | null | undefined;
@@ -24,20 +24,20 @@
 	let {
 		id = null,
 		type = 'text',
-		name = null,
-		placeholder = null,
+		// name = null,
+		// placeholder = null,
 		label = null,
 		error = null,
 		errors = [],
 		htmlError = false,
 		value = $bindable(null),
-		onFocus = null,
-		onBlur = null,
+		// onFocus = null,
+		// onBlur = null,
 		readonly = false,
 		border = false,
-		autocomplete = 'on',
-		oninput,
 		...rest
+		// autocomplete = 'on',
+		// oninput,
 	}: Props = $props();
 
 	function hasErrors() {
@@ -50,15 +50,12 @@
 		<label class="iroco-ui-label" for={id}>{label}</label>
 	{/if}
 	<input
-		{id}
-		{placeholder}
-		{readonly}
 		{type}
 		bind:value
 		class:border
 		class:error={hasErrors()}
 		class:readonlyInput={readonly === true}
-		{autocomplete}
+		{readonly}
 		{...rest}
 	/>
 	{#if error != null}
