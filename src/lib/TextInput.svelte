@@ -24,7 +24,7 @@
 	let {
 		id = null,
 		type = 'text',
-		// name = null,
+		name = null,
 		// placeholder = null,
 		label = null,
 		error = null,
@@ -51,6 +51,7 @@
 	{/if}
 	<input
 		{type}
+		{name}
 		bind:value
 		class:border
 		class:error={hasErrors()}
