@@ -5,7 +5,7 @@
 	//https://svelte.dev/docs/svelte/typescript#Typing-wrapper-components
 	interface Props extends HTMLInputAttributes {
 		// id?: string | null;
-		// type?: 'email' | 'password' | 'search' | 'tel' | 'text' | 'url' | null | undefined;
+		type?: 'email' | 'password' | 'search' | 'tel' | 'text' | 'url' | null | undefined;
 		// name?: string | null;
 		label?: string | null;
 		// placeholder?: string | null;
