@@ -4,28 +4,38 @@
 	export type ValidationErrorMessage = { key: string; isHtml?: boolean };
 
 	interface Props extends HTMLInputAttributes {
+		// id?: string | null;
+		// type?: 'email' | 'password' | 'search' | 'tel' | 'text' | 'url' | null | undefined;
+		// name?: string | null;
 		label?: string | null;
+		// placeholder?: string | null;
 		error?: string | null;
 		errors?: Array<ValidationErrorMessage> | null;
 		htmlError?: boolean;
+		// value?: string | null;
+		// onfocus?: ((e: FocusEvent) => void) | null;
+		// onblur?: ((e: Event) => void) | null;
+		// readonly?: boolean;
 		border?: boolean;
-		value?: string | null;
-		id?: string | null;
+		// autocomplete?: FullAutoFill | null | undefined;
+		// oninput?: FormEventHandler<HTMLInputElement> | null | undefined;
 	}
 
 	let {
 		id = null,
 		type = 'text',
-		value = $bindable(null),
+		name = null,
 		placeholder = null,
 		label = null,
 		error = null,
 		errors = [],
 		htmlError = false,
+		value = $bindable(null),
+		onFocus = null,
+		onBlur = null,
+		readonly = false,
 		border = false,
 		autocomplete = 'on',
-		readonly = false,
-		name = null,
 		oninput,
 		...rest
 	}: Props = $props();
@@ -44,7 +54,7 @@
 		{placeholder}
 		{readonly}
 		{type}
-		{value}
+		bind:value
 		class:border
 		class:error={hasErrors()}
 		class:readonlyInput={readonly === true}
