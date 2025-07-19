@@ -1,43 +1,44 @@
 <script lang="ts">
-	import type { HTMLAttributes, HTMLInputAttributes } from 'svelte/elements';
+	import type { HTMLInputAttributes } from 'svelte/elements';
 
 	export type ValidationErrorMessage = { key: string; isHtml?: boolean };
+
 	//https://svelte.dev/docs/svelte/typescript#Typing-wrapper-components
 	interface Props extends HTMLInputAttributes {
-		// id?: string | null;
+		id?: string | null;
 		type?: 'email' | 'password' | 'search' | 'tel' | 'text' | 'url' | null | undefined;
-		// name?: string | null;
+		name?: string | null;
 		label?: string | null;
-		// placeholder?: string | null;
+		placeholder?: string | null;
 		error?: string | null;
 		errors?: Array<ValidationErrorMessage> | null;
 		htmlError?: boolean;
-		// value?: string | null;
-		// onfocus?: ((e: FocusEvent) => void) | null;
-		// onblur?: ((e: Event) => void) | null;
+		value?: string | null;
+		onfocus?: ((e: FocusEvent) => void) | null;
+		onblur?: ((e: Event) => void) | null;
 		readonly?: boolean;
 		border?: boolean;
-		// autocomplete?: FullAutoFill | null | undefined;
-		// oninput?: FormEventHandler<HTMLInputElement> | null | undefined;
+		autocomplete?: FullAutoFill | null | undefined;
+		oninput?: FormEventHandler<HTMLInputElement> | null | undefined;
 	}
 
 	let {
 		id = null,
 		type = 'text',
 		name = null,
-		// placeholder = null,
 		label = null,
+		placeholder = null,
 		error = null,
 		errors = [],
 		htmlError = false,
 		value = $bindable(null),
-		// onFocus = null,
-		// onBlur = null,
+		onfocus = null,
+		onblur = null,
 		readonly = false,
 		border = false,
+		autocomplete = 'on',
+		oninput,
 		...rest
-		// autocomplete = 'on',
-		// oninput,
 	}: Props = $props();
 
 	function hasErrors() {
@@ -50,9 +51,15 @@
 		<label class="iroco-ui-label" for={id}>{label}</label>
 	{/if}
 	<input
+		{oninput}
+		bind:value
+		{onfocus}
+		{onblur}
+		{id}
 		{type}
 		{name}
-		bind:value
+		{placeholder}
+		{autocomplete}
 		class:border
 		class:error={hasErrors()}
 		class:readonlyInput={readonly === true}
