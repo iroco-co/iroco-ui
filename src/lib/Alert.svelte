@@ -1,6 +1,6 @@
 <script lang="ts">
 	import IconClose from '$lib/IconClose.svelte';
-	import type {  MouseEventHandler } from 'svelte/elements';
+	import type { MouseEventHandler } from 'svelte/elements';
 
 	interface Props {
 		type?: 'success' | 'danger' | 'flash';
@@ -14,10 +14,7 @@
 
 <div class={`alert alert--${type}`}>
 	{#if showClose}
-		<button
-			onclick={onclose}
-			class="alert__close"
-		>
+		<button onclick={onclose} class="alert__close">
 			<IconClose width="2em" height="2em" />
 		</button>
 	{/if}
