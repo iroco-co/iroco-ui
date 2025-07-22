@@ -14,15 +14,9 @@
 
 {#snippet template({ ...args })}
 	<Alert {...args} onclose={() => alert('click')}>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-		</p>
-		<p>
-			Nunc eros lacus, commodo eu tristique non, ultricies eu tellus.
-		</p>
-			<p>
-			Nulla facilisi. Integer a tincidunt purus.
-		</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		<p>Nunc eros lacus, commodo eu tristique non, ultricies eu tellus.</p>
+		<p>Nulla facilisi. Integer a tincidunt purus.</p>
 	</Alert>
 {/snippet}
 
