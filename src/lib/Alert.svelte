@@ -74,9 +74,8 @@
 				outline-style: auto;
 			}
 		}
-	}
-
-	.fullWidth {
-		width: 100%;
+		&.fullWidth {
+			width: 100%;
+		}
 	}
 </style>
