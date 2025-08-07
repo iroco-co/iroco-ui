@@ -324,7 +324,7 @@
 		background-color: transparent;
 		font-size: larger;
 		box-sizing: border-box;
-			color: var(--color-text);
+		color: var(--color-text);
 	}
 
 	.text-primary {
