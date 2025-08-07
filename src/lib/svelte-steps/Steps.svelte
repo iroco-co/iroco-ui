@@ -60,6 +60,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import Check from './Check.svelte';
 	import Alert from './Alert.svelte';
+
 	export let steps;
 	export let current = 0;
 	export let vertical = false;
@@ -152,7 +153,12 @@
 
 <div
 	class="steps-container"
-	style={`--size: ${size}; 
+	role="progressbar"
+	aria-valuemin="1"
+	aria-valuemax={`${(steps?.length ?? 0) + 1}`}
+	aria-valuenow={`${(current ?? 0) + 1}`}
+	aria-valuetext={`${steps[current]?.text}`}
+	style={`--size: ${size};
       --line-thickness: ${line};
       --primary: ${primary}; 
       --secondary: ${secondary};
@@ -322,11 +328,13 @@
 		min-height: var(--size);
 		font-size: calc(var(--size) * 0.5);
 	}
+
 	.hover-highlight:hover {
 		cursor: pointer;
 		filter: brightness(85%);
 		box-sizing: border-box;
 	}
+
 	.steps__label {
 		border-width: 0;
 		background-color: transparent;
@@ -338,18 +346,23 @@
 	.text-primary {
 		color: var(--primary) !important;
 	}
+
 	.text-light {
 		color: var(--light) !important;
 	}
+
 	.bg-secondary {
 		background-color: var(--secondary) !important;
 	}
+
 	.bg-primary {
 		background-color: var(--primary) !important;
 	}
+
 	.bg-danger {
 		background-color: var(--danger) !important;
 	}
+
 	.shadow {
 		box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 	}

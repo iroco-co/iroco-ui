@@ -12,8 +12,9 @@ We plan to improve the following :
 - [x] Keep credits to original author
 - [x] Release with `release-it`
 - [x] Add credit ourselves when modifying
+- [x] Web accessibility: Treat as `role="progress"` aria
+- [ ] Migrate to Svelte 5
 - [ ] Fix Svelte 5 warning : `WARNING: The following packages have a svelte field in their package.json but no exports condition for svelte.`
-- [ ] Web accessibility: Treat as `role="progress"` aria
 
 ## Previous task list
 
