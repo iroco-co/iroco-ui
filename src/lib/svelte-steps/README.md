@@ -10,11 +10,8 @@ We plan to improve the following :
 
 - [x] Adapt npm package to our organization
 - [x] Keep credits to original author
-- [ ] Release with `release-it`
-- [ ] Add credit ourselves when modifying
-- [ ] Update to Svelte 5 peer dependencies
-- [ ] Update to node lts
-- [ ] Update vulnerable dependencies
+- [x] Release with `release-it`
+- [x] Add credit ourselves when modifying
 - [ ] Fix Svelte 5 warning : `WARNING: The following packages have a svelte field in their package.json but no exports condition for svelte.`
 - [ ] Web accessibility: Treat as `role="progress"` aria
 

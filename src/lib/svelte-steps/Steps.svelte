@@ -37,6 +37,14 @@
 
   ## Copyright
 
+	- 2025-08-07 : Use Iroco CSS var for steps label
+
+	Copyright (c) 2025, Iroco. All rights reserved.
+  Use of this source code is governed by a BSD-style license that can be found
+  in the LICENSE file.
+
+	---
+
   Copyright (c) 2021, Jingshao Chen. All rights reserved.
   Use of this source code is governed by a BSD-style license that can be found
   in the LICENSE file.
