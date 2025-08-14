@@ -63,7 +63,6 @@
 	import Check from './Check.svelte';
 	import Alert from './Alert.svelte';
 
-
 	/**
 	 * @typedef {Object} Props
 	 * @property {any} steps
