@@ -1,4 +1,13 @@
 <!--
+
+	- 2025-08-14 : Migrate to Svelte 5 syntax
+
+	Copyright (c) 2025, Iroco. All rights reserved.
+  Use of this source code is governed by a BSD-style license that can be found
+  in the LICENSE file.
+
+  ---
+
   Copyright (c) 2021, Jingshao Chen. All rights reserved.
   Use of this source code is governed by a BSD-style license that can be found
   in the LICENSE file.

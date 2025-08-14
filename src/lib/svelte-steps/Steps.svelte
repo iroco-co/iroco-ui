@@ -38,6 +38,7 @@
   ## Copyright
 
 	- 2025-08-07 : Use Iroco CSS var for steps label
+	- 2025-08-14 : Migrate to Svelte 5 syntax
 
 	Copyright (c) 2025, Iroco. All rights reserved.
   Use of this source code is governed by a BSD-style license that can be found
