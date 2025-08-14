@@ -28,28 +28,9 @@
 	import StepIconCheck from './StepIconCheck.svelte';
 	import StepIconAlert from './StepIconAlert.svelte';
 
-	/**
-	 * @typedef {Object} Props
-	 * @property {any} steps
-	 * @property {number} [current]
-	 * @property {boolean} [vertical]
-	 * @property {any} [size]
-	 * @property {any} [line]
-	 * @property {any} [lineHeight]
-	 * @property {string} [primary]
-	 * @property {string} [secondary]
-	 * @property {string} [light]
-	 * @property {string} [dark]
-	 * @property {string} [borderRadius]
-	 * @property {string} [fontFamily]
-	 * @property {boolean} [reverse]
-	 * @property {boolean} [clickable]
-	 * @property {any} [checkIcon]
-	 * @property {any} [alertIcon]
-	 * @property {string} [alertColor]
-	 * @property {boolean} [htmlMode]
-	 */
 	interface Props {
+		/** Accessible name for this component (it has role="progressbar") */
+		aria_label: string;
 		/**
 		 *
 		 * 	- Array of object. Length has to be more than 1
@@ -114,9 +95,8 @@
 		checkIcon = StepIconCheck,
 		alertIcon = StepIconAlert,
 		alertColor = 'var(--bs-danger, #dc3545)',
-		htmlMode = false
-	} = $props();
 		htmlMode = false,
+		aria_label
 	}: Props = $props();
 
 	const minStepSize = '5rem';
@@ -218,6 +198,7 @@
 	aria-valuemax={`${(steps?.length ?? 0) + 1}`}
 	aria-valuenow={`${(current ?? 0) + 1}`}
 	aria-valuetext={`${steps[current]?.text}`}
+	aria-label={aria_label}
 	style={`--size: ${size};
       --line-thickness: ${line};
       --primary: ${primary}; 

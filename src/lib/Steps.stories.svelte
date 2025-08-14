@@ -7,6 +7,7 @@
 		title: 'Iroco-UI/Components/Steps',
 		component: Steps,
 		args: {
+			aria_label: 'Steps example',
 			steps: [{ text: 'Foo' }, { text: 'Bar' }, { text: 'Baz' }]
 		}
 	});
