@@ -1,44 +1,8 @@
 <!--
 
-  @component 
-
-  # svelte-steps
-
-  ## props 
-    
-  - `steps`:
-    - Array of object. Length has to be more than 1
-    - Required
-    - Each item is a step object that can have:
-      - `text`: The text displayed below each steps.
-      - `icon`: A svelte component displayed inside each steps.
-      - `iconProps`: An object that will be passed as props to the `icon` component.
-  - `current`: current step index. Number. Default `0`
-  - `size`: size of the step buttons. String. Default `"3rem"`
-  - `line`: thickness of the connecting lines between the step buttons. String. Default `"0.3rem"`
-  - `primary`: Primary color of passed and current steps. String. Default `'var(--bs-primary, #3a86ff)'`
-  - `secondary`: Secondary color of future steps. String. Default `'var(--bs-secondary, #bbbbc0)'`
-  - `light`: Primary color of text color in passed anc current steps. String. Default `'var(--bs-light, white)'`
-  - `dark`: Secondary color of text color in future steps. String. Default `'var(--bs-dark, black)'`
-  - `borderRadius`: Border radius of the step buttons. String. Default `'50%'` (circle)
-  - `fontFamily`: Font family of the component. String. Default `"'Helvetica Neue', Helvetica, Arial, sans-serif"`
-  - `vertical`: Vertical steps
-  - `reverse`: For horizontal steps, reverse the step from right to the left; for vertical steps, reverse puts text labels to the left. Default `false`
-  - `clickable`: When set to `false`, Clicking icons and labels will not change step. You have to change `current` to change step. Default `true`
-  - `checkIcon`: User defined check icon for passed steps. If not specified, use the default check mark. Set to `null` if you don't want a check icon.
-  - `alertIcon`: User defined alert icon for passed steps that has truthful `alert` property. If not specified, use the default alert icon. Set to `null` if you don't want an alert icon.
-  - `alertColor`: User defined bg color for passed steps that has truthful `alert` property. Default 'var(--bs-danger, #dc3545)'
-
-  ## events
-
-  - `on:click(e)`: click event. Event detail object has two keys:
-    - `e.detail.current`: the index of current step
-    - `e.detail.last`: the index of last step
-
-  ## Copyright
-
 	- 2025-08-07 : Use Iroco CSS var for steps label
 	- 2025-08-14 : Migrate to Svelte 5 syntax
+	- 2025-08-14 : Migrate to Typescript
 
 	Copyright (c) 2025, Iroco. All rights reserved.
   Use of this source code is governed by a BSD-style license that can be found
@@ -53,7 +17,7 @@
   https://github.com/shaozi/svelte-steps
 
 -->
-<script>
+<script lang="ts">
 	import { run } from 'svelte/legacy';
 
 	// A bootstrap step component
@@ -61,8 +25,8 @@
 	import { cubicOut } from 'svelte/easing';
 
 	import { createEventDispatcher } from 'svelte';
-	import Check from './Check.svelte';
-	import Alert from './Alert.svelte';
+	import StepIconCheck from './StepIconCheck.svelte';
+	import StepIconAlert from './StepIconAlert.svelte';
 
 	/**
 	 * @typedef {Object} Props
@@ -85,6 +49,52 @@
 	 * @property {string} [alertColor]
 	 * @property {boolean} [htmlMode]
 	 */
+	interface Props {
+		/**
+		 *
+		 * 	- Array of object. Length has to be more than 1
+		 * 	- Required
+		 * 	- Each item is a step object that can have:
+		 * 		- `text`: The text displayed below each steps.
+		 * 		- `icon`: A svelte component displayed inside each steps.
+		 * 	  - `iconProps`: An object that will be passed as props to the `icon` component.
+		 */
+		steps: { text: string; alert?: boolean; icon?: boolean; iconProps?: any }[];
+		/** Current step index. Default `0` */
+		current: number;
+		/** When set to `false`, Clicking icons and labels will not change step. You have to change `current` to change step. Default `true` */
+		clickable: boolean;
+
+		/** Vertical steps */
+		vertical: boolean;
+		/** For horizontal steps, reverse the step from right to the left; for vertical steps, reverse puts text labels to the left. Default `false` */
+		reverse: boolean;
+
+		/** size of the step buttons. String. Default `"3rem"` */
+		size: string;
+		/** thickness of the connecting lines between the step buttons. String. Default `"0.3rem"` */
+		line: string;
+		/** Primary color of passed and current steps. String. Default `'var(--bs-primary, #3a86ff)'` */
+		primary: string;
+		/** Secondary color of future steps. String. Default `'var(--bs-secondary, #bbbbc0)'` */
+		secondary: string;
+		/** Primary color of text color in passed anc current steps. String. Default `'var(--bs-light, white)'` */
+		light: string;
+		/** Secondary color of text color in future steps. String. Default `'var(--bs-dark, black)'` */
+		dark: string;
+		/** Border radius of the step buttons. String. Default `'50%'` (circle) */
+		borderRadius: string;
+		/** Font family of the component. String. Default `"'Helvetica Neue', Helvetica, Arial, sans-serif"` */
+		fontFamily: string;
+		/** User defined check icon for passed steps. If not specified, use the default check mark. Set to `null` if you don't want a check icon. */
+		checkIcon: any;
+		/** User defined alert icon for passed steps that has truthful `alert` property. If not specified, use the default alert icon. Set to `null` if you don't want an alert icon. */
+		alertIcon: any;
+		/** User defined bg color for passed steps that has truthful `alert` property. Default 'var(--bs-danger, #dc3545)' */
+		alertColor: string;
+		/** Evaluates step test as HTML */
+		htmlMode: boolean;
+	}
 
 	/** @type {Props} */
 	let {
@@ -93,7 +103,6 @@
 		vertical = false,
 		size = vertical ? '2rem' : '3rem',
 		line = $bindable(vertical ? '0.15rem' : '0.3rem'),
-		lineHeight = undefined,
 		primary = 'var(--bs-primary, #3a86ff)',
 		secondary = 'var(--bs-secondary, #bbbbc0)',
 		light = 'var(--bs-light, white)',
@@ -102,19 +111,16 @@
 		fontFamily = '',
 		reverse = false,
 		clickable = true,
-		checkIcon = Check,
-		alertIcon = Alert,
+		checkIcon = StepIconCheck,
+		alertIcon = StepIconAlert,
 		alertColor = 'var(--bs-danger, #dc3545)',
 		htmlMode = false
 	} = $props();
+		htmlMode = false,
+	}: Props = $props();
 
 	const minStepSize = '5rem';
 	const stepLabelSpace = '1rem';
-
-	// for backward compatible when using lineHeight instead of line
-	if (lineHeight) {
-		line = lineHeight;
-	}
 
 	// each segment is half of the step size
 
@@ -178,6 +184,33 @@
 	};
 </script>
 
+<!--
+
+  @component
+
+  A customizable and accessible step component.
+
+	## Usage
+
+	```svelte
+	<Steps
+		aria_label="My steps"
+		current={0}
+		steps={[
+			{test:"Foo"},
+			{test:"Bar"},
+			{test:"Baz"},
+		]}
+	/>
+	```
+
+  ## Events
+
+  - `onclick(e)`: click event. Event detail object has two keys:
+    - `e.detail.current`: the index of current step
+    - `e.detail.last`: the index of last step
+
+-->
 <div
 	class="steps-container"
 	role="progressbar"

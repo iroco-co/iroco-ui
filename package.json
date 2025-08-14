@@ -9,7 +9,7 @@
 		"test:watch": "vitest watch --passWithNoTests",
 		"svelte:check": "svelte-check --tsconfig ./tsconfig.json",
 		"dev": "storybook dev -p 5175",
-		"build": "svelte-package",
+		"build": "svelte-package --types",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier . --check . && eslint .",
@@ -276,6 +276,5 @@
 				"./dist/index.d.ts"
 			]
 		}
-	},
-	"packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72"
+	}
 }
