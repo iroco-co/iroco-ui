@@ -5,8 +5,12 @@
 
   https://github.com/shaozi/svelte-steps
 -->
-<script>
-	export let stroke = 'currentColor';
+<script lang="ts">
+	interface Props {
+		stroke?: string;
+	}
+
+	let { stroke = 'currentColor' }: Props = $props();
 </script>
 
 <svg

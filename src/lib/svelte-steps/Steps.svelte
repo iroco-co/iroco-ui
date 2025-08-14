@@ -53,6 +53,8 @@
 
 -->
 <script>
+	import { run } from 'svelte/legacy';
+
 	// A bootstrap step component
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
@@ -61,25 +63,50 @@
 	import Check from './Check.svelte';
 	import Alert from './Alert.svelte';
 
-	export let steps;
-	export let current = 0;
-	export let vertical = false;
-	export let size = vertical ? '2rem' : '3rem';
-	export let line = vertical ? '0.15rem' : '0.3rem';
-	export let lineHeight = undefined;
-	export let primary = 'var(--bs-primary, #3a86ff)';
-	export let secondary = 'var(--bs-secondary, #bbbbc0)';
-	export let light = 'var(--bs-light, white)';
-	export let dark = 'var(--bs-dark, black)';
-	export let borderRadius = '50%';
-	export let fontFamily = '';
-	export let reverse = false;
-	export let clickable = true;
 
-	export let checkIcon = Check;
-	export let alertIcon = Alert;
-	export let alertColor = 'var(--bs-danger, #dc3545)';
-	export let htmlMode = false;
+	/**
+	 * @typedef {Object} Props
+	 * @property {any} steps
+	 * @property {number} [current]
+	 * @property {boolean} [vertical]
+	 * @property {any} [size]
+	 * @property {any} [line]
+	 * @property {any} [lineHeight]
+	 * @property {string} [primary]
+	 * @property {string} [secondary]
+	 * @property {string} [light]
+	 * @property {string} [dark]
+	 * @property {string} [borderRadius]
+	 * @property {string} [fontFamily]
+	 * @property {boolean} [reverse]
+	 * @property {boolean} [clickable]
+	 * @property {any} [checkIcon]
+	 * @property {any} [alertIcon]
+	 * @property {string} [alertColor]
+	 * @property {boolean} [htmlMode]
+	 */
+
+	/** @type {Props} */
+	let {
+		steps,
+		current = $bindable(0),
+		vertical = false,
+		size = vertical ? '2rem' : '3rem',
+		line = $bindable(vertical ? '0.15rem' : '0.3rem'),
+		lineHeight = undefined,
+		primary = 'var(--bs-primary, #3a86ff)',
+		secondary = 'var(--bs-secondary, #bbbbc0)',
+		light = 'var(--bs-light, white)',
+		dark = 'var(--bs-dark, black)',
+		borderRadius = '50%',
+		fontFamily = '',
+		reverse = false,
+		clickable = true,
+		checkIcon = Check,
+		alertIcon = Alert,
+		alertColor = 'var(--bs-danger, #dc3545)',
+		htmlMode = false
+	} = $props();
 
 	const minStepSize = '5rem';
 	const stepLabelSpace = '1rem';
@@ -92,7 +119,7 @@
 	// each segment is half of the step size
 
 	// @type { height: number; width: number }[]
-	let segmentSizes = [];
+	let segmentSizes = $state([]);
 	for (let i = 0; i < steps.length; i++) {
 		segmentSizes.push({ height: 0, width: 0 });
 	}
@@ -105,7 +132,7 @@
 	}
 
 	let progress = tweened(current, { duration: 400, easing: cubicOut });
-	let total = 0;
+	let total = $state(0);
 	let key = vertical ? 'height' : 'width';
 
 	function f(p /*@type number*/) {
@@ -125,9 +152,9 @@
 		return ret;
 	}
 
-	let fill = f(current);
+	let fill = $state(f(current));
 
-	$: {
+	run(() => {
 		total = 0;
 		if (segmentSizes[0][key] > 0) {
 			for (let i = 0; i < steps.length; i++) {
@@ -136,10 +163,10 @@
 			total -= (segmentSizes[0][key] + segmentSizes[segmentSizes.length - 1][key]) / 2;
 		}
 		fill = f($progress);
-	}
-	$: {
+	});
+	run(() => {
 		$progress = current;
-	}
+	});
 	const dispatch = createEventDispatcher();
 	let onClick = (i /*: number*/) => {
 		if (clickable) {
@@ -183,7 +210,7 @@
 		<div
 			style:width={vertical ? line : `${segmentSizes[0].width / 2}px`}
 			style:height={vertical ? `${segmentSizes[0].height / 2}px` : line}
-		/>
+		></div>
 		<div
 			style:width={vertical ? line : `${total}px`}
 			style:height={vertical ? `${total}px` : line}
@@ -195,16 +222,16 @@
 				class="bg-primary"
 				style:width={vertical ? line : `${fill}px`}
 				style:height={vertical ? `${fill}px` : line}
-			/>
+			></div>
 			{#if line != size}
 				<!-- the progress indicator -->
-				<div class="bg-primary" style="width:8px; height:8px; border-radius: 50%;" />
+				<div class="bg-primary" style="width:8px; height:8px; border-radius: 50%;"></div>
 			{/if}
 		</div>
 		<div
 			style:width={vertical ? line : `${segmentSizes[0].width / 2}px`}
 			style:height={vertical ? `${segmentSizes[0].height / 2}px` : line}
-		/>
+		></div>
 	</div>
 	<!--  progress line end -->
 	<div
@@ -237,7 +264,7 @@
               "
 						class:hover-highlight={clickable}
 						class:shadow={i == current}
-						on:click={() => {
+						onclick={() => {
 							onClick(i);
 						}}
 					>
@@ -245,33 +272,37 @@
 							{#if i < $progress}
 								{#if step.alert}
 									{#if alertIcon}
-										<svelte:component this={alertIcon} />
+										{@const SvelteComponent = alertIcon}
+										<SvelteComponent />
 									{:else if step.iconProps}
-										<svelte:component this={step.icon} {...step.iconProps} />
+										<step.icon {...step.iconProps} />
 									{:else}
-										<svelte:component this={step.icon} />
+										<step.icon />
 									{/if}
 								{:else if checkIcon}
-									<svelte:component this={checkIcon} />
+									{@const SvelteComponent_1 = checkIcon}
+									<SvelteComponent_1 />
 								{:else if step.iconProps}
-									<svelte:component this={step.icon} {...step.iconProps} />
+									<step.icon {...step.iconProps} />
 								{:else}
-									<svelte:component this={step.icon} />
+									<step.icon />
 								{/if}
 							{:else if step.iconProps}
-								<svelte:component this={step.icon} {...step.iconProps} />
+								<step.icon {...step.iconProps} />
 							{:else}
-								<svelte:component this={step.icon} />
+								<step.icon />
 							{/if}
 						{:else if i < $progress}
 							{#if step.alert}
 								{#if alertIcon}
-									<svelte:component this={alertIcon} />
+									{@const SvelteComponent_2 = alertIcon}
+									<SvelteComponent_2 />
 								{:else}
 									<span class="steps__number">{i + 1}</span>
 								{/if}
 							{:else if checkIcon}
-								<svelte:component this={checkIcon} />
+								{@const SvelteComponent_3 = checkIcon}
+								<SvelteComponent_3 />
 							{:else}
 								<span class="steps__number">{i + 1}</span>
 							{/if}
@@ -288,7 +319,7 @@
 							style:margin-right={vertical ? (reverse ? stepLabelSpace : null) : null}
 							style:margin-top={vertical ? null : stepLabelSpace}
 							style:text-align={vertical ? (reverse ? 'right' : 'left') : 'center'}
-							on:click={() => {
+							onclick={() => {
 								onClick(i);
 							}}
 						>
