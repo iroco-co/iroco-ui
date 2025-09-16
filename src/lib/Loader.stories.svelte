@@ -15,7 +15,10 @@
 </script>
 
 {#snippet template({ ...args })}
+	<p>Loader is not visible by default.</p>
 	<Loader {...args} />
 {/snippet}
 
 <Story name="Default" />
+<Story name="Visible" args={{ visible: true }} />
+<Story name="Aria Label" args={{ visible: true, ariaLabel: 'Loading' }} />
