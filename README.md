@@ -1,137 +1,23 @@
-# iroco-ui
+# iroco.co
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/iroco-co/iroco-ui/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/iroco-co/iroco-ui/tree/main)
+Design system for Iroco [based on SvelteKit](https://kit.svelte.dev/docs/packaging). The site has moved [here](https://codeberg.org/iroco/iroco-ui).
 
-Design system for Iroco [based on SvelteKit](https://kit.svelte.dev/docs/packaging).
+---
+As an organization that values the building of digital commons, we do not want to participate to the OpenAI/Microsoft LLM model development. 
 
-See the [Documentation](https://iroco-co.github.io/iroco-ui/).
+1. We believe that this model is harmful to [human cognition](https://www.bloomberg.com/news/articles/2025-08-12/ai-eroded-doctors-ability-to-spot-cancer-within-months-in-study), [data privacy](https://jskfellows.stanford.edu/theft-is-not-fair-use-474e11f0d063), the [environment](https://iea.blob.core.windows.net/assets/ed0483fd-aab4-4cf9-b25a-5aa362b56a2f/EnergyandAI.pdf) (Copilot consumes [20.8W of power with 90% loss](https://arxiv.org/abs/2411.11892)), [misinformation](https://www.technologyreview.com/2023/10/04/1080801/generative-ai-boosting-disinformation-and-propaganda-freedom-house/), and all its biases: [colonialism](https://karendhao.com/), [racism](https://www.npr.org/2025/07/09/nx-s1-5462609/grok-elon-musk-antisemitic-racist-content), [sexism](https://www.unwomen.org/en/news-stories/interview/2025/02/how-ai-reinforces-gender-bias-and-what-we-can-do-about-it). We are not against AI, we are against the way AI is implemented with Copilot by GitHub and ultimately Microsoft and OpenAI. We use it (for example for translations) sparingly and conscientiously.
 
-# Install in your svelte application
+2. We do not want to contribute to the [techno-authoritarian stack](https://www.authoritarian-stack.info/) that is developing in the United States. We disapprove of Microsoft's involvement in the [hydrocarbon extraction companies](https://www.woodmac.com/horizons/ai-powered-analysis-oil-field-potential/). We don't understand the [version management policy](https://blog.iroco.co/windows10-the-end/) for Windows 10. Last but not least, we wish to maintain sovereignty over our IT stack.
 
-Prerequisites:
+Long version is [here](https://blog.iroco.co/pourquoi-quitter-github/).
 
-- @sveltejs/kit: ^2.x
-- svelte: ^5.x
+---
+Version Française
 
-```sh
-# latest
-npm install @iroco/ui
-# next
-npm install @iroco/ui@next
-```
+En tant qu'organisation qui valorise la construction de communs numériques, nous ne souhaitons pas alimenter les modèles LLM OpenAI/Microsoft. 
 
-## Usage
+1. Nous pensons l'IA générative est délétère, pour la [cognition humaine](https://www.bloomberg.com/news/articles/2025-08-12/ai-eroded-doctors-ability-to-spot-cancer-within-months-in-study), le [respect des données](https://jskfellows.stanford.edu/theft-is-not-fair-use-474e11f0d063), l'[environnement](https://iea.blob.core.windows.net/assets/ed0483fd-aab4-4cf9-b25a-5aa362b56a2f/EnergyandAI.pdf) (l'utilisation de copilot représente une puissance de [20,8W avec 90% de perte](https://arxiv.org/abs/2411.11892)), la [désinformation](https://www.technologyreview.com/2023/10/04/1080801/generative-ai-boosting-disinformation-and-propaganda-freedom-house/), et tous ses biais : le [colonialisme](https://karendhao.com/), le [racisme](https://www.npr.org/2025/07/09/nx-s1-5462609/grok-elon-musk-antisemitic-racist-content), le [sexisme](https://www.unwomen.org/en/news-stories/interview/2025/02/how-ai-reinforces-gender-bias-and-what-we-can-do-about-it). Nous ne sommes pas contre l'IA en tant que telle, nous sommes contre la manière dont l'IA est mise en oeuvre avec Copilot par GitHub  et finalement Microsoft et OpenAI.
 
-Example of layout with navigation
+2. Nous ne voulons pas alimenter l'[écosystème techno-autoritaire](https://www.authoritarian-stack.info/) qui se met en place aux Etats-Unis. Nous réprouvons l'[aide aux sociétés extractives](https://www.woodmac.com/horizons/ai-powered-analysis-oil-field-potential/) d'hydrocarbures. Nous ne comprenons pas la politique de gestion de [version de Windows 10](https://blog.iroco.co/windows10-the-end/). Surtout, nous souhaitons conserver la souveraineté sur notre environnement informatique.
 
-`src/routes/+layout.svelte`
-
-```svelte
-<script>
-	import '../app.scss';
-	import { Navigation, NavigationItem } from '@iroco/ui';
-	import { base } from '$app/paths';
-	import { page } from '$app/state';
-
-	let currentRoute = $derived(page?.route?.id ?? '');
-
-	/** snip **/
-</script>
-
-<Navigation
-	{navigationItems}
-	{currentRoute}
-	baseUrl={base}
-	type={'sidebar'}
-	title={$_('account.title')}
-	version={data?.version}
-/>
-
-<main class="main">
-	<slot />
-</main>
-
-<style lang="scss">
-	@use '@iroco/ui/scss/constants.scss';
-	@use '@iroco/ui/scss/containers.scss';
-	@use '@iroco/ui/scss/button.scss';
-</style>
-```
-
-## Customize colors
-
-You can override CSS vars that mainly located in `@iroco/ui/scss/colors.scss'` in a custom scss file such as `src/app.scss`.
-
-Ex. in a custom `src/my-colors.css` file
-
-```scss
-:root {
-	--color-primary-light: pink;
-	--color-primary: red;
-}
-```
-
-Then in your `src/app.scss` style you can both `@iroco-ui` default scss style and the override.
-
-```scss
-@use '@iroco/ui/scss/colors.scss';
-@use 'my-colors.scss';
-```
-
-## Develop
-
-To install dependencies :
-
-```shell
-npm ci
-```
-
-Building :
-
-```shell
-npm run build
-```
-
-Releasing (tags and releases to npm):
-
-```shell
-npm publish
-```
-
-## Documentation (Storybook)
-
-The docs directory contains the documentation app deployed on github pages. To install dependencies :
-
-```shell
-npm ci
-```
-
-You can add/update components documentation into `docs/src/pages/components` and update the left menu in `docs/src/includes/sidebar.md`.
-
-When you have to work on the CSS for components, you can have hot reloading.
-Launch the dev server for docs :
-
-```shell
-npm run dev
-```
-
-To build the documentation (in `/docs`) :
-
-```shell
-npm run build-storybook
-```
-
-## CSS Custom properties in Storybook
-
-CSS Custom properties allows to try out variations of the design system.
-It relies on parts of the design system style that have been ported to CSS vars in this very purpose.
-
-Those variable relate mainly to colors.
-
-Add missing variables to Storybook
-
-[.storybook/preview.ts](.storybook/preview.ts)
-
-It should reflect variables declared here :
-
-[src/lib/scss/colors.scss](src/lib/scss/colors.scss)
+La version longue est [ici](https://blog.iroco.co/pourquoi-quitter-github/).
